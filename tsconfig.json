@@ -20,7 +20,8 @@
     "allowJs": true,
     "outDir": "types",
     "declaration": true,
-    "emitDeclarationOnly": true
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
   },
   "include": [
     "src"
