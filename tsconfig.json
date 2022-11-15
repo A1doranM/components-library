@@ -16,19 +16,11 @@
       "node_modules/@types",
       "src/types"
     ],
-    "jsx": "react-jsx",
-    "noEmit": true,
-    "strict": true,
+    "jsx": "react",
     "allowJs": true,
-    "module": "esnext",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "outDir": "types",
+    "declaration": true,
+    "emitDeclarationOnly": true
   },
   "include": [
     "src"
