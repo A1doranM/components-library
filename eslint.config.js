@@ -10,7 +10,6 @@ export default [
       ecmaVersion: "latest",
       sourceType: "module"
     },
-    plugins: ["prettier"],
-    rules: {}
+    plugins: ["prettier"]
   }
 ];
