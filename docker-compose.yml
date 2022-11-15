@@ -1,8 +1,0 @@
-version: "3.7"
-services:
-  web:
-    build:
-      context: .docker
-      dockerfile: Dockerfile
-      args:
-        - SSH_KEY=${SSH_KEY:?SSH_KEY}
