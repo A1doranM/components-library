@@ -17,11 +17,16 @@
       "src/types"
     ],
     "jsx": "react",
+    "module": "ESNext",
     "allowJs": true,
-    "outDir": "types",
+    "sourceMap": true,
     "declaration": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "declarationDir": "./types",
     "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src"
