@@ -18,9 +18,9 @@
 import { Component } from "gov-ua-ui";
 
 const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
- 
  ...
 }
+
 <Component
   prop1="es"
   prop2={false}
