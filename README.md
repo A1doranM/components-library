@@ -22,7 +22,7 @@ It is all.
 
 ## Available components
 
-[COMPONENTS_LIST.md](COMPONENTS_LIST.md)
+[COMPONENTS_LIST.md](MDDescriptions/COMPONENTS_LIST.md)
 
 ## How to add new components
 

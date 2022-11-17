@@ -61,7 +61,47 @@ If *urgent fix* send straight to QA and then merge
 
 **Examples** - add ? to object property, add try/catch
 
-### Code Style Rules
+## Add new Components
+
+1. Create component folder in src/components.
+2. Create folders for stories and tests.
+3. Write tests for future component.
+4. Create component regarding rules Code style Rules above.
+5. Configure storybook for it.
+6. Test new component.
+7. Add instruction for new component to special README.md file regarding this component category.
+
+For example:
+You have created an input component. Find in [COMPONENTS_LIST.md](./MDDescriptions/COMPONENTS_LIST.md) the md file with
+the most appropriate category for your component and add your component to that category following the instructions.
+
+For you component in MD file you should provide:
+
+## [COMPONENT_NAME]
+
+### [Component props]
+
+- **prop1**: string - some string value
+- **prop2**: boolean - some boolean value
+- **prop3**: (e: ChangeEvent<HTMLInputElement>) => void -  some change event handler
+
+### [Component examples]
+
+```js
+import { Component } from "gov-ua-ui";
+
+const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
+ 
+ ...
+}
+<Component
+  prop1="es"
+  prop2={false}
+  prop3={handelChangeEvent}
+/>
+```
+
+# Code Style Rules
 
 *If you work with legacy file - refactor it (if times allow) - **No class components are allowed***
 
@@ -162,17 +202,7 @@ const ModalWrapper = ({
                        overlayClassName
                      }: ModalWrapperInterface): JSX.Element => {
                          return ();
-                     }
-                     
-### Add new Component
-
-1. Create component folder in src/components.
-2. Create folders for stories and tests.     
-3. Write tests for future component.
-4. Create component regarding to rules CODE_OF_CONDUCT rules above.
-5. Configure storybook for it. 
-6. Test new component.
-7. Add instruction for new component to README.md          
+                     }                        
 
 ### Communication
 
