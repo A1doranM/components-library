@@ -20,6 +20,10 @@ npm run rollup
 ```
 It is all. 
 
+## How to add new components
+
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
 ## Available Scripts
 
 ### Build the library

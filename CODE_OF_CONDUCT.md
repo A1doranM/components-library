@@ -163,6 +163,16 @@ const ModalWrapper = ({
                      }: ModalWrapperInterface): JSX.Element => {
                          return ();
                      }
+                     
+### Add new Component
+
+1. Create component folder in src/components.
+2. Create folders for stories and tests.     
+3. Write tests for future component.
+4. Create component regarding to rules CODE_OF_CONDUCT rules above.
+5. Configure storybook for it. 
+6. Test new component.
+7. Add instruction for new component to README.md          
 
 ### Communication
 
