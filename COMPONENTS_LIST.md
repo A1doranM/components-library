@@ -1,12 +1,13 @@
 # React Component Library gov-ua-ui
 
-## How to install
+## [COMPONENT_NAME]
 
-Copy and paste command below to package.json as usual npm dependency
+[ What component do. ] 
 
-Specify [USER_NAME] = your bitbucket login, for example Blayne_mono
 ```
-"gov-ua-ui": "git+https://Blayne_mono@bitbucket.org/moohii_com/gov-ua-ui.git#test-version"
+<Component>
+    
+</Component>
 ```
 
 Command: 
@@ -19,10 +20,6 @@ Then run build script to build library.
 npm run rollup
 ```
 It is all. 
-
-## Available components
-
-[COMPONENTS_LIST.md](COMPONENTS_LIST.md)
 
 ## How to add new components
 
