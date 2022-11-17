@@ -107,7 +107,7 @@ Each component must be in a folder with an index.(ts|js) file that exports that 
 
 - Each category devide by line break and sort by string length 
 
-### CSS 
+### STYLES
 
 For CSS and SCSS files follow this rules (https://9elements.com/css-rule-order)
 1. SASS inheritance (@extend, @mixin, @imports)
@@ -121,7 +121,6 @@ For CSS and SCSS files follow this rules (https://9elements.com/css-rule-order)
 9. Typography (font, color, text e.t.c)
 10. Pseudo-classes & pseudo-elements (:hover, :active, :first-child e.t.c.)
 
-### CSS
 For library write styles in common CSS style.  
 
     <Component
