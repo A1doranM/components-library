@@ -83,7 +83,7 @@ For you component in MD file you should provide:
 
 - **prop1**: string - some string value
 - **prop2**: boolean - some boolean value
-- **prop3**: (e: ChangeEvent<HTMLInputElement>) => void -  some change event handler
+- **prop3**: (e: ChangeEvent<HTMLInputElement>) => void - some change event handler
 
 ### [Component examples]
 
