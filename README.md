@@ -17,10 +17,6 @@ For example:
 "gov-ua-ui": "git+https://Blayne_mono@bitbucket.org/moohii_com/gov-ua-ui.git#master"
 ```
 
-Then run build script to build library.
-```
-npm run rollup
-```
 It is all. 
 
 ## Available components

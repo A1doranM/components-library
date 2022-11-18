@@ -69,7 +69,8 @@ If *urgent fix* send straight to QA and then merge
 4. Create component regarding rules Code style Rules above.
 5. Configure storybook for it.
 6. Test new component.
-7. Add instruction for new component to special README.md file regarding this component category.
+7. Run ```rollup -c``` for build you library.
+8. Add instruction for new component to special README.md file regarding this component category.
 
 For example:
 You have created an input component. Find in [COMPONENTS_LIST.md](./MDDescriptions/COMPONENTS_LIST.md) the md file with
