@@ -2800,6 +2800,67 @@ function requireReact_development () {
 
 var React = /*@__PURE__*/getDefaultExportFromCjs(react.exports);
 
+var classnames = {exports: {}};
+
+/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+
+(function (module) {
+	/* global define */
+
+	(function () {
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames() {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					if (arg.length) {
+						var inner = classNames.apply(null, arg);
+						if (inner) {
+							classes.push(inner);
+						}
+					}
+				} else if (argType === 'object') {
+					if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+						classes.push(arg.toString());
+						continue;
+					}
+
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (module.exports) {
+			classNames.default = classNames;
+			module.exports = classNames;
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+} (classnames));
+
+var cn = classnames.exports;
+
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -2827,12 +2888,22 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "button {\n  font-size: 60px;\n}";
+var css_248z = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(../../assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(../../assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(../../assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.button {\n  display: flex;\n  align-items: center;\n  height: max-content;\n  border: none;\n  border-radius: 30px;\n  padding: 14px 40px;\n  font: normal 700 14px e_Ukraine_Bold, sans-serif;\n  text-align: center;\n  cursor: pointer;\n}\n.button_image-container {\n  display: flex;\n  align-items: center;\n  width: 18px;\n  height: 14px;\n  margin-right: 15px;\n}\n.button_image {\n  width: 100%;\n  height: 100%;\n}\n.button.button_filled {\n  padding: 16px 42px;\n  background: #000000;\n  color: #ffffff;\n}\n.button.button_filled:hover {\n  background: linear-gradient(68.94deg, #c3aab2 -4.77%, #99eecc 46.72%, #80c0c8 90.23%, #4b8bfa 134.46%);\n  color: #000000;\n}\n.button.button_filled.button_disabled {\n  color: #ffffff;\n  background-color: #d0d6db;\n  pointer-events: none;\n}\n.button.button_filled.button_large {\n  padding: 21px 60px;\n  font: normal 700 16px e_Ukraine_Bold, sans-serif;\n}\n.button.button_outlined {\n  color: #000000;\n  background-color: #ffffff;\n  border: 2px solid #000000;\n}\n.button.button_outlined:hover {\n  background: linear-gradient(to left, #ffffff, #ffffff) padding-box, linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;\n  border-radius: 30px;\n  border: 2px solid transparent;\n}\n.button.button_outlined.button_disabled {\n  color: #d0d6db;\n  border-color: #d0d6db;\n  pointer-events: none;\n}\n.button.button_outlined.button_dashed {\n  border: 1.5px dashed #000000;\n}\n.button.button_outlined.button_dashed:hover {\n  background: linear-gradient(to left, #ffffff, #ffffff) padding-box, linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;\n  border-radius: 30px;\n  border: 1.5px dashed transparent;\n}\n.button.button_outlined.button_large {\n  padding: 19px 59px;\n  font: normal 700 16px e_Ukraine_Bold, sans-serif;\n}";
 styleInject(css_248z);
 
-var Button = function (props) {
-    return React.createElement("button", null, props.label);
+var CommonButton = function (props) {
+    var _a;
+    return (React.createElement("button", { className: cn("button", props.className, (_a = {},
+            _a["button_outlined"] = props.outlined,
+            _a["button_dashed"] = props.dashed,
+            _a["button_filled"] = !props.outlined,
+            _a["button_disabled"] = props.disabled,
+            _a["button_large"] = props.large,
+            _a)) },
+        props.image && (React.createElement("div", { className: "button_image-container" },
+            React.createElement("img", { src: props.image, className: "button_image", alt: "button icon" }))),
+        props.label));
 };
 
-export { Button };
+export { CommonButton };
 //# sourceMappingURL=index.js.map

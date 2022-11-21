@@ -1,5 +1,6 @@
 /// <reference types="react" />
-interface ButtonProps {
+import "./CommonButton.scss";
+export interface ButtonProps {
     label: string;
     outlined?: boolean;
     disabled?: boolean;
@@ -9,5 +10,4 @@ interface ButtonProps {
     image?: string;
 }
 declare const CommonButton: (props: ButtonProps) => JSX.Element;
-
-export { CommonButton };
+export default CommonButton;
