@@ -5,6 +5,6 @@ import Status from "../Status";
 
 describe("Status", () => {
     test("Renders the Status component", () => {
-        render(<Status />);
+        render(<Status type="RECEIVED"/>);
     })
 });
