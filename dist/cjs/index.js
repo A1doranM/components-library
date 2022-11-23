@@ -2890,22 +2890,63 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(../../assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(../../assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(../../assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.button {\n  display: flex;\n  align-items: center;\n  height: max-content;\n  border: none;\n  border-radius: 30px;\n  padding: 14px 40px;\n  font: normal 700 14px e_Ukraine_Bold, sans-serif;\n  text-align: center;\n  cursor: pointer;\n}\n.button_image-container {\n  display: flex;\n  align-items: center;\n  width: 18px;\n  height: 14px;\n  margin-right: 15px;\n}\n.button_image {\n  width: 100%;\n  height: 100%;\n}\n.button.button_filled {\n  padding: 16px 42px;\n  background: #000000;\n  color: #ffffff;\n}\n.button.button_filled:hover {\n  background: linear-gradient(68.94deg, #c3aab2 -4.77%, #99eecc 46.72%, #80c0c8 90.23%, #4b8bfa 134.46%);\n  color: #000000;\n}\n.button.button_filled.button_disabled {\n  color: #ffffff;\n  background-color: #d0d6db;\n  pointer-events: none;\n}\n.button.button_filled.button_large {\n  padding: 21px 60px;\n  font: normal 700 16px e_Ukraine_Bold, sans-serif;\n}\n.button.button_outlined {\n  color: #000000;\n  background-color: #ffffff;\n  border: 2px solid #000000;\n}\n.button.button_outlined:hover {\n  background: linear-gradient(to left, #ffffff, #ffffff) padding-box, linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;\n  border-radius: 30px;\n  border: 2px solid transparent;\n}\n.button.button_outlined.button_disabled {\n  color: #d0d6db;\n  border-color: #d0d6db;\n  pointer-events: none;\n}\n.button.button_outlined.button_dashed {\n  border: 1.5px dashed #000000;\n}\n.button.button_outlined.button_dashed:hover {\n  background: linear-gradient(to left, #ffffff, #ffffff) padding-box, linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;\n  border-radius: 30px;\n  border: 1.5px dashed transparent;\n}\n.button.button_outlined.button_large {\n  padding: 19px 59px;\n  font: normal 700 16px e_Ukraine_Bold, sans-serif;\n}";
-styleInject(css_248z);
+var css_248z$2 = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(../../../assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(../../../assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(../../../assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.common-button {\n  display: flex;\n  align-items: center;\n  height: max-content;\n  border: none;\n  border-radius: 30px;\n  padding: 14px 40px;\n  font: normal 700 14px e_Ukraine_Bold, sans-serif;\n  text-align: center;\n  cursor: pointer;\n}\n.common-button_image-container {\n  display: flex;\n  align-items: center;\n  width: 18px;\n  height: 14px;\n  margin-right: 15px;\n}\n.common-button_image {\n  width: 100%;\n  height: 100%;\n}\n.common-button.common-button_round {\n  width: 48px;\n  height: 48px;\n  padding: 15px;\n  border-radius: 50%;\n}\n.common-button.common-button_round .common-button_image-container {\n  margin-right: 0px;\n}\n.common-button.common-button_filled {\n  padding: 16px 42px;\n  background: #000000;\n  color: #ffffff;\n}\n.common-button.common-button_filled:hover {\n  background: linear-gradient(68.94deg, #c3aab2 -4.77%, #99eecc 46.72%, #80c0c8 90.23%, #4b8bfa 134.46%);\n  color: #000000;\n}\n.common-button.common-button_filled.common-button_disabled {\n  color: #ffffff;\n  background-color: #d0d6db;\n  pointer-events: none;\n}\n.common-button.common-button_filled.common-button_large {\n  padding: 21px 60px;\n  font: normal 700 16px e_Ukraine_Bold, sans-serif;\n}\n.common-button.common-button_filled.common-button_round {\n  width: 48px;\n  height: 48px;\n  padding: 15px;\n  border-radius: 50%;\n}\n.common-button.common-button_filled.common-button_round .common-button_image-container {\n  margin-right: 0px;\n}\n.common-button.common-button_outlined {\n  color: #000000;\n  background-color: #ffffff;\n  border: 2px solid #000000;\n}\n.common-button.common-button_outlined:hover {\n  background: linear-gradient(to left, #ffffff, #ffffff) padding-box, linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;\n  border-radius: 30px;\n  border: 2px solid transparent;\n}\n.common-button.common-button_outlined.common-button_disabled {\n  color: #d0d6db;\n  border-color: #d0d6db;\n  pointer-events: none;\n}\n.common-button.common-button_outlined.common-button_dashed {\n  border: 1.5px dashed #000000;\n}\n.common-button.common-button_outlined.common-button_dashed:hover {\n  background: linear-gradient(to left, #ffffff, #ffffff) padding-box, linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;\n  border-radius: 30px;\n  border: 1.5px dashed transparent;\n}\n.common-button.common-button_outlined.common-button_large {\n  padding: 19px 59px;\n  font: normal 700 16px e_Ukraine_Bold, sans-serif;\n}\n.common-button.common-button_outlined.common-button_round {\n  width: 48px;\n  height: 48px;\n  padding: 15px;\n  border-radius: 50%;\n}\n.common-button.common-button_outlined.common-button_round .common-button_image-container {\n  margin-right: 0px;\n}";
+styleInject(css_248z$2);
 
 var CommonButton = function (props) {
     var _a;
-    return (React.createElement("button", { className: cn("button", props.className, (_a = {},
-            _a["button_outlined"] = props.outlined,
-            _a["button_dashed"] = props.dashed,
-            _a["button_filled"] = !props.outlined,
-            _a["button_disabled"] = props.disabled,
-            _a["button_large"] = props.large,
+    return (React.createElement("button", { className: cn("common-button", props.className, (_a = {},
+            _a["common-button_outlined"] = props.outlined,
+            _a["common-button_dashed"] = props.dashed,
+            _a["common-button_filled"] = !props.outlined,
+            _a["common-button_disabled"] = props.disabled,
+            _a["common-button_large"] = props.large,
+            _a["common-button_round"] = props.round,
             _a)) },
-        props.image && (React.createElement("div", { className: "button_image-container" },
-            React.createElement("img", { src: props.image, className: "button_image", alt: "button icon" }))),
-        props.label));
+        (props.image || props.round) && (React.createElement("div", { className: "common-button_image-container" },
+            React.createElement("img", { src: props.image, className: "common-button_image", alt: "button icon" }))),
+        !props.round && props.label));
+};
+
+var CancelIcon = "<svg width=\"26\" height=\"26\" viewBox=\"0 0 26 26\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_3953_936)\">\n<line x1=\"19.3638\" y1=\"6.63679\" x2=\"6.63592\" y2=\"19.3647\" stroke=\"black\" stroke-width=\"2\"/>\n<line x1=\"6.63582\" y1=\"6.63664\" x2=\"19.3637\" y2=\"19.3646\" stroke=\"black\" stroke-width=\"2\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_3953_936\">\n<rect width=\"18\" height=\"18\" fill=\"white\" transform=\"translate(13 0.272461) rotate(45)\"/>\n</clipPath>\n</defs>\n</svg>";
+
+var DoneIcon = "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_3953_22668)\">\n<path d=\"M1 9L6 16L17 1\" stroke=\"black\" stroke-width=\"2\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_3953_22668\">\n<rect width=\"18\" height=\"18\" fill=\"white\" transform=\"translate(0 18) rotate(-90)\"/>\n</clipPath>\n</defs>\n</svg>";
+
+var CancelOnHoldIcon = "<svg width=\"26\" height=\"26\" viewBox=\"0 0 26 26\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_3953_936)\">\n<line x1=\"19.3638\" y1=\"6.63679\" x2=\"6.63592\" y2=\"19.3647\" stroke=\"white\" stroke-width=\"2\"/>\n<line x1=\"6.63582\" y1=\"6.63664\" x2=\"19.3637\" y2=\"19.3646\" stroke=\"white\" stroke-width=\"2\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_3953_936\">\n<rect width=\"18\" height=\"18\" fill=\"white\" transform=\"translate(13 0.272461) rotate(45)\"/>\n</clipPath>\n</defs>\n</svg>";
+
+var DoneOnHoldIcon = "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_3953_22668)\">\n<path d=\"M1 9L6 16L17 1\" stroke=\"white\" stroke-width=\"2\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_3953_22668\">\n<rect width=\"18\" height=\"18\" fill=\"white\" transform=\"translate(0 18) rotate(-90)\"/>\n</clipPath>\n</defs>\n</svg>";
+
+var css_248z$1 = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(../../../assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(../../../assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(../../../assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.correct-button {\n  display: flex;\n  align-items: center;\n  text-align: center;\n  height: 48px;\n  border: 1px solid black;\n  border-radius: 30px;\n  padding: 14px 40px;\n  font: normal 700 14px e_Ukraine_Bold, sans-serif;\n  cursor: pointer;\n  background-color: #ecf8ed;\n}\n.correct-button:hover {\n  background-color: #c6e9ca;\n}\n.correct-button:focus {\n  background-color: green;\n}\n.correct-button_image-container {\n  display: flex;\n  align-items: center;\n  margin-right: 10px;\n}\n.correct-button_image {\n  width: 100%;\n  height: 100%;\n}\n.correct-button.correct-button_cancel {\n  background-color: #feeceb;\n}\n.correct-button.correct-button_cancel:hover {\n  background-color: #fcc7c3;\n}\n.correct-button.correct-button_cancel.correct-button_on-hold {\n  background-color: #f44336;\n  color: #ffffff;\n  border: none;\n}\n.correct-button.correct-button_on-hold {\n  background-color: #42b64e;\n  color: #ffffff;\n  border: none;\n}\n.correct-button.correct-button_round {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 48px;\n  height: 48px;\n  padding: 0px;\n  border-radius: 50%;\n}\n.correct-button.correct-button_round .correct-button_image-container {\n  margin-right: 0px;\n}";
+styleInject(css_248z$1);
+
+var CorrectButton = function (props) {
+    var _a;
+    return (React.createElement("button", { className: cn("correct-button", props.className, (_a = {},
+            _a["correct-button_cancel"] = props.cancel,
+            _a["correct-button_round"] = props.round,
+            _a["correct-button_on-hold"] = props.onHold,
+            _a)) },
+        React.createElement("div", { className: "correct-button_image-container" },
+            React.createElement("img", { src: props.cancel
+                    ? !props.onHold
+                        ? CancelIcon
+                        : CancelOnHoldIcon
+                    : !props.onHold
+                        ? DoneIcon
+                        : DoneOnHoldIcon, className: "correct-button_image", alt: "button icon" })),
+        !props.round && props.label));
+};
+
+var css_248z = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(../../../assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(../../../assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(../../../assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 60px;\n  height: 34px;\n}\n\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 26px;\n  width: 26px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(26px);\n  -ms-transform: translateX(26px);\n  transform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 34px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}";
+styleInject(css_248z);
+
+var RadioButton = function (props) {
+    return (React.createElement("label", { className: "switch" },
+        React.createElement("input", { type: "checkbox" }),
+        React.createElement("span", { className: "slider round" })));
 };
 
 exports.CommonButton = CommonButton;
+exports.CorrectButton = CorrectButton;
+exports.RadioButton = RadioButton;
 //# sourceMappingURL=index.js.map

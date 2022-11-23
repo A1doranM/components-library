@@ -43,6 +43,7 @@
     "rollup": "^3.3.0",
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svg": "^2.0.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
@@ -55,6 +56,7 @@
   ],
   "types": "dist/index.d.ts",
   "dependencies": {
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "react-select": "^5.6.1"
   }
 }

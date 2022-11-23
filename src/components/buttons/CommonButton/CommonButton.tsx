@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import cn from "classnames";
 
-import "./CommonButton.scss";
+import "./common-button.scss";
 
 export interface CommonButtonProps {
   label?: string;
@@ -12,23 +12,29 @@ export interface CommonButtonProps {
   large?: boolean;
   image?: string;
   round?: boolean;
+  onClick?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CommonButton = (props: CommonButtonProps) => {
   return (
     <button
-      className={cn("button", props.className, {
-        ["button_outlined"]: props.outlined,
-        ["button_dashed"]: props.dashed,
-        ["button_filled"]: !props.outlined,
-        ["button_disabled"]: props.disabled,
-        ["button_large"]: props.large,
-        ["button_round"]: props.round
+      className={cn("common-button", props.className, {
+        ["common-button_outlined"]: props.outlined,
+        ["common-button_dashed"]: props.dashed,
+        ["common-button_filled"]: !props.outlined,
+        ["common-button_disabled"]: props.disabled,
+        ["common-button_large"]: props.large,
+        ["common-button_round"]: props.round
       })}
+      onClick={() => props.onClick}
     >
       {(props.image || props.round) && (
-        <div className="button_image-container">
-          <img src={props.image} className="button_image" alt="button icon" />
+        <div className="common-button_image-container">
+          <img
+            src={props.image}
+            className="common-button_image"
+            alt="button icon"
+          />
         </div>
       )}
       {!props.round && props.label}

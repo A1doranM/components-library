@@ -1,0 +1,71 @@
+// @import "../../styles/fonts.scss";
+@import "../../styles/variables.scss";
+
+@font-face {
+  font-family: e_Ukraine_Regular;
+  src: url(../../../assets/fonts/e-Ukraine-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_Ukraine_Bold;
+  src: url(../../../assets/fonts/e-Ukraine-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_UkraineHead;
+  src: url(../../../assets/fonts/e-UkraineHead-Regular.otf) format("opentype");
+}
+
+.select-container {
+  cursor: pointer;
+  font: $font-regular-16;
+
+  .select__menu-portal {
+    font: $font-regular-10;
+  }
+
+  .select__control {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid $color-black;
+    box-shadow: none;
+    max-height: 31px;
+    min-height: 0;
+    padding-bottom: 8px;
+    background: transparent;
+    font: inherit;
+
+    &:hover {
+      border-color: $color-black;
+    }
+
+    .select__value-container {
+      padding: 0;
+
+      .select__input-container {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &--menu-is-open {
+      .select__indicators {
+        .select__dropdown-indicator {
+          transform: rotateX(180deg);
+          color: $color-black;
+        }
+      }
+    }
+  }
+
+  .select__indicators {
+    .select__indicator-separator {
+      display: none;
+    }
+
+    .select__dropdown-indicator {
+      padding: 0;
+      color: $color-black;
+    }
+  }
+}

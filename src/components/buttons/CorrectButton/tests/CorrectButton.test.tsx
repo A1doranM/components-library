@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 
 import CorrectButton from "../CorrectButton";
 
-describe("CommonButton", () => {
+describe("CorrectButton", () => {
     test("Renders the CorrectButton component", () => {
         render(<CorrectButton label="Hello world"/>);
     })

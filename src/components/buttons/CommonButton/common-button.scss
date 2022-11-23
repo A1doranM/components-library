@@ -16,7 +16,7 @@
   src: url(../../../assets/fonts/e-UkraineHead-Regular.otf) format("opentype");
 }
 
-.button {
+.common-button {
   display: flex;
   align-items: center;
   height: max-content;
@@ -40,18 +40,18 @@
     height: 100%;
   }
 
-  &.button_round {
+  &.common-button_round {
     width: 48px;
     height: 48px;
     padding: 15px;
     border-radius: 50%;
 
-    .button_image-container {
+    .common-button_image-container {
       margin-right: 0px;
     }
   }
 
-  &.button_filled {
+  &.common-button_filled {
     padding: 16px 42px;
     background: $color-black;
     color: $color-white;
@@ -61,30 +61,30 @@
       color: $color-black;
     }
 
-    &.button_disabled {
+    &.common-button_disabled {
       color: $color-white;
       background-color: $color-grey-400;
       pointer-events: none;
     }
 
-    &.button_large {
+    &.common-button_large {
       padding: 21px 60px;
       font: $font-bold-16;
     }
 
-    &.button_round {
+    &.common-button_round {
       width: 48px;
       height: 48px;
       padding: 15px;
       border-radius: 50%;
 
-      .button_image-container {
+      .common-button_image-container {
         margin-right: 0px;
       }
     }
   }
 
-  &.button_outlined {
+  &.common-button_outlined {
     color: $color-black;
     background-color: $color-white;
     border: 2px solid $color-black;
@@ -97,13 +97,13 @@
       border: 2px solid transparent;
     }
 
-    &.button_disabled {
+    &.common-button_disabled {
       color: $color-grey-400;
       border-color: $color-grey-400;
       pointer-events: none;
     }
 
-    &.button_dashed {
+    &.common-button_dashed {
       border: 1.5px dashed $color-black;
       &:hover {
         background: linear-gradient(to left, $color-white, $color-white)
@@ -114,18 +114,18 @@
       }
     }
 
-    &.button_large {
+    &.common-button_large {
       padding: 19px 59px;
       font: $font-bold-16;
     }
 
-    &.button_round {
+    &.common-button_round {
       width: 48px;
       height: 48px;
       padding: 15px;
       border-radius: 50%;
 
-      .button_image-container {
+      .common-button_image-container {
         margin-right: 0px;
       }
     }

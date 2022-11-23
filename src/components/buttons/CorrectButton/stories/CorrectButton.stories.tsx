@@ -15,10 +15,10 @@ const Template: ComponentStory<typeof CorrectButton> = (args) => <CorrectButton 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-    label: 'Hello world',
+    label: 'Правильно',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-    label: 'Click me!',
+    label: 'Не правильно',
 };
