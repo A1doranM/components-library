@@ -5,6 +5,6 @@ import CorrectButton from "../CorrectButton";
 
 describe("CorrectButton", () => {
     test("Renders the CorrectButton component", () => {
-        render(<CorrectButton label="Hello world"/>);
+        render(<CorrectButton />);
     })
 });
