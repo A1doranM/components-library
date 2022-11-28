@@ -1,20 +1,4 @@
-@import "src/styles/fonts";
-@import "src/styles/variables";
-
-@font-face {
-  font-family: e_Ukraine_Regular;
-  src: url(../../assets/fonts/e-Ukraine-Regular.otf) format("opentype");
-}
-
-@font-face {
-  font-family: e_Ukraine_Bold;
-  src: url(../../assets/fonts/e-Ukraine-Bold.otf) format("opentype");
-}
-
-@font-face {
-  font-family: e_UkraineHead;
-  src: url(../../assets/fonts/e-UkraineHead-Regular.otf) format("opentype");
-}
+@import "src/styles/index";
 
 .status {
   display: none;
@@ -28,7 +12,7 @@
 
   &_received {
     display: inline-block;
-    background: $color-green-status;
+    background: $color-green-450;
   }
 
   &_canceled {
@@ -56,7 +40,7 @@
   &_passed {
     display: inline-block;
     color: $color-black;
-    background: $color-blue-status;
+    background: $color-blue-400;
   }
 
   &_not-passed {

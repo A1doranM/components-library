@@ -1,5 +1,5 @@
-/// <reference types="react" />
-import "./CommonButton.scss";
+import { ChangeEvent } from "react";
+import "./common-button.scss";
 export interface CommonButtonProps {
     label?: string;
     outlined?: boolean;
@@ -9,6 +9,7 @@ export interface CommonButtonProps {
     large?: boolean;
     image?: string;
     round?: boolean;
+    onClick?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 declare const CommonButton: (props: CommonButtonProps) => JSX.Element;
 export default CommonButton;

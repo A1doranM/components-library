@@ -1,11 +1,10 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import cn from "classnames";
 
-import CancelIcon from "../../../assets/images/icons/cancel.svg";
-import DoneIcon from "../../../assets/images/icons/done.svg";
-
-import CancelOnHoldIcon from "../../../assets/images/icons/cancel-white.svg";
-import DoneOnHoldIcon from "../../../assets/images/icons/done-white.svg";
+import DoneIcon from "assets/images/icons/done.svg";
+import CancelIcon from "assets/images/icons/cancel.svg";
+import DoneOnHoldIcon from "assets/images/icons/done-white.svg";
+import CancelOnHoldIcon from "assets/images/icons/cancel-white.svg";
 
 import "./correct-button.scss";
 
@@ -15,7 +14,7 @@ export interface CorrectButtonProps {
   className?: string;
   round?: boolean;
   onHold?: boolean;
-  onClick?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const CorrectButton = (props: CorrectButtonProps) => {
@@ -26,7 +25,7 @@ const CorrectButton = (props: CorrectButtonProps) => {
         ["correct-button_round"]: props.round,
         ["correct-button_on-hold"]: props.onHold
       })}
-      onClick={() => props.onClick}
+      onClick={props.onClick}
     >
       <div className="correct-button_image-container">
         <img

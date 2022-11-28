@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import cn from "classnames";
 
 import "./common-button.scss";
@@ -12,7 +12,7 @@ export interface CommonButtonProps {
   large?: boolean;
   image?: string;
   round?: boolean;
-  onClick?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const CommonButton = (props: CommonButtonProps) => {
@@ -26,7 +26,7 @@ const CommonButton = (props: CommonButtonProps) => {
         ["common-button_large"]: props.large,
         ["common-button_round"]: props.round
       })}
-      onClick={() => props.onClick}
+      onClick={props.onClick}
     >
       {(props.image || props.round) && (
         <div className="common-button_image-container">

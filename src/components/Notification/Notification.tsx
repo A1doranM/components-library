@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "classnames";
 
-import FingerTopIcon from "../../assets/images/icons/finger-top.svg";
-import CancelIcon from "../../assets/images/icons/cancel.svg";
+import CancelIcon from "assets/images/icons/cancel.svg";
+import FingerTopIcon from "assets/images/icons/finger-top.svg";
 
 import "./notification.scss";
 
@@ -15,7 +15,7 @@ export interface NotificationInterface {
 const Reminder = ({
   text = "",
   className,
-  withButton = false,
+  withButton = false
 }: NotificationInterface): JSX.Element => {
   return (
     <div className={cn("notification", className)}>

@@ -4,7 +4,14 @@ import cn from "classnames";
 import "./status.scss";
 
 export interface StatusInterface {
-  type: "RECEIVED" | "CANCELED" | "ORDERED" | "ANNUL" | "DRAFT" | "PASSED" | "NOT-PASSED";
+  type:
+    | "RECEIVED"
+    | "CANCELED"
+    | "ORDERED"
+    | "ANNUL"
+    | "DRAFT"
+    | "PASSED"
+    | "NOT-PASSED";
   className?: string;
   children?: any;
 }
