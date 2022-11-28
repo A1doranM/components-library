@@ -1,6 +1,6 @@
 import cn from "classnames";
-import React, { useState } from "react";
-import { Router, Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, NavLink } from "react-router-dom";
 
 import "./navigation.scss";
 

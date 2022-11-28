@@ -1,15 +1,14 @@
-$color_main_bg: #f5f5f5;
 $color-white: #ffffff;
 $color-black: #000000;
 
 $color-green-200: #ecf8ed;
 $color-green-300: #c6e9ca;
 $color-green-400: #8ed395;
+$color-green-450: #19be6f;
 $color-green-500: #42b64e;
 $color-green-600: #35923e;
 $color-green-700: #286d2f;
 $color-green-800: #143717;
-$color-green-status: #19be6f;
 
 $color-grey-300: #e7eef3;
 $color-grey-400: #d0d6db;
@@ -24,39 +23,39 @@ $color-red-100: #feeceb;
 $color-red-200: #fcc7c3;
 $color-red-300: #f88e86;
 $color-red-400: #f6695e;
+$color-red-450: #fa594f;
 $color-red-500: #f44336;
-$color-red-status: #fa594f;
 
-$color-blue-status: #badaec;
+$color-blue-400: #badaec;
 
 $color-gradient-outlined: linear-gradient(
-  to right,
-  #c3aab2,
-  #99eecc,
-  #80c0c8,
-  #4b8bfa
+                to right,
+                #c3aab2,
+                #99eecc,
+                #80c0c8,
+                #4b8bfa
 );
 $color-gradient-hover: linear-gradient(
-  68.94deg,
-  #c3aab2 -4.77%,
-  #99eecc 46.72%,
-  #80c0c8 90.23%,
-  #4b8bfa 134.46%
+                68.94deg,
+                #c3aab2 -4.77%,
+                #99eecc 46.72%,
+                #80c0c8 90.23%,
+                #4b8bfa 134.46%
 );
 $color-gradient-3: linear-gradient(
-  68.94deg,
-  #6372ff -4.77%,
-  #925182 46.72%,
-  #b19956 90.23%,
-  #d97d34 134.46%
+                68.94deg,
+                #6372ff -4.77%,
+                #925182 46.72%,
+                #b19956 90.23%,
+                #d97d34 134.46%
 );
-$color-gradint-4: linear-gradient(
-  180deg,
-  #b9d19e 0%,
-  #ecaaaf 26.04%,
-  #9889db 50.52%,
-  #757aed 68.75%,
-  #2833d1 100%
+$color-gradient-4: linear-gradient(
+                180deg,
+                #b9d19e 0%,
+                #ecaaaf 26.04%,
+                #9889db 50.52%,
+                #757aed 68.75%,
+                #2833d1 100%
 );
 
 $transition-duration: 0.4s;

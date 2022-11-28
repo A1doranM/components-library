@@ -1,0 +1,30 @@
+@import "src/styles/fonts";
+@import "src/styles/variables";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  word-break: keep-all;
+  word-wrap: break-word;
+  line-height: 130%;
+  font: inherit;
+  font-family: e_Ukraine_Regular, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+
+  &:active {
+    color: inherit;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
