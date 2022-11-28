@@ -1,0 +1,55 @@
+// @import "../../styles/fonts.scss";
+@import "../styles/variables.scss";
+@import "../styles/index.scss";
+
+@font-face {
+  font-family: e_Ukraine_Regular;
+  src: url(../../assets/fonts/e-Ukraine-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_Ukraine_Bold;
+  src: url(../../assets/fonts/e-Ukraine-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_UkraineHead;
+  src: url(../../assets/fonts/e-UkraineHead-Regular.otf) format("opentype");
+}
+
+.bar-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .circle-progress-bar {
+    position: relative;
+    display: block;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+
+    &:after {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      content: attr(data-pct) "%";
+      border-radius: 100%;
+      font: $font-regular-12;
+    }
+
+    .circle-progress-bar__base {
+      stroke: $color-grey-400;
+      stroke-width: 5px;
+      stroke-linecap: round;
+    }
+
+    .circle-progress-bar__bar {
+      stroke: $color-green-500;
+      stroke-width: 5px;
+      stroke-linecap: round;
+      transform-origin: center center;
+      transform: rotateY(180deg) rotateZ(-90deg);
+    }
+  }
+}

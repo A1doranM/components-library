@@ -1,0 +1,133 @@
+// @import "../../styles/fonts.scss";
+@import "../../styles/variables.scss";
+
+@font-face {
+  font-family: e_Ukraine_Regular;
+  src: url(../../../assets/fonts/e-Ukraine-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_Ukraine_Bold;
+  src: url(../../../assets/fonts/e-Ukraine-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_UkraineHead;
+  src: url(../../../assets/fonts/e-UkraineHead-Regular.otf) format("opentype");
+}
+
+.common-button {
+  display: flex;
+  align-items: center;
+  height: max-content;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 40px;
+  font: $font-bold-14;
+  text-align: center;
+  cursor: pointer;
+
+  &_image-container {
+    display: flex;
+    align-items: center;
+    width: 18px;
+    height: 14px;
+    margin-right: 15px;
+  }
+
+  &_image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.common-button_round {
+    width: 48px;
+    height: 48px;
+    padding: 15px;
+    border-radius: 50%;
+
+    .common-button_image-container {
+      margin-right: 0px;
+    }
+  }
+
+  &.common-button_filled {
+    padding: 16px 42px;
+    background: $color-black;
+    color: $color-white;
+
+    &:hover {
+      background: $color-gradient-hover;
+      color: $color-black;
+    }
+
+    &.common-button_disabled {
+      color: $color-white;
+      background-color: $color-grey-400;
+      pointer-events: none;
+    }
+
+    &.common-button_large {
+      padding: 21px 60px;
+      font: $font-bold-16;
+    }
+
+    &.common-button_round {
+      width: 48px;
+      height: 48px;
+      padding: 15px;
+      border-radius: 50%;
+
+      .common-button_image-container {
+        margin-right: 0px;
+      }
+    }
+  }
+
+  &.common-button_outlined {
+    color: $color-black;
+    background-color: $color-white;
+    border: 2px solid $color-black;
+
+    &:hover {
+      background: linear-gradient(to left, $color-white, $color-white)
+          padding-box,
+        $color-gradient-outlined border-box;
+      border-radius: 30px;
+      border: 2px solid transparent;
+    }
+
+    &.common-button_disabled {
+      color: $color-grey-400;
+      border-color: $color-grey-400;
+      pointer-events: none;
+    }
+
+    &.common-button_dashed {
+      border: 1.5px dashed $color-black;
+      &:hover {
+        background: linear-gradient(to left, $color-white, $color-white)
+            padding-box,
+          $color-gradient-outlined border-box;
+        border-radius: 30px;
+        border: 1.5px dashed transparent;
+      }
+    }
+
+    &.common-button_large {
+      padding: 19px 59px;
+      font: $font-bold-16;
+    }
+
+    &.common-button_round {
+      width: 48px;
+      height: 48px;
+      padding: 15px;
+      border-radius: 50%;
+
+      .common-button_image-container {
+        margin-right: 0px;
+      }
+    }
+  }
+}

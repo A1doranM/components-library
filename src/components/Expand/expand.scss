@@ -1,0 +1,101 @@
+// @import "../../styles/fonts.scss";
+@import "../styles/variables.scss";
+@import "../styles/index.scss";
+
+@font-face {
+  font-family: e_Ukraine_Regular;
+  src: url(../../assets/fonts/e-Ukraine-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_Ukraine_Bold;
+  src: url(../../assets/fonts/e-Ukraine-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: e_UkraineHead;
+  src: url(../../assets/fonts/e-UkraineHead-Regular.otf) format("opentype");
+}
+
+.expand {
+  border-top: 2px solid $color-black;
+
+  &.expand_last {
+    border-bottom: 2px solid $color-black;
+  }
+
+  .expand__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 100px 44px 0;
+    font: $font-regular-24;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    color: $color-black;
+    transition: padding 0.4s, background 0.4s;
+    cursor: pointer;
+
+    &:hover:not(.expand_active) {
+      padding-left: 35px;
+      background: $color-black;
+      color: $color-white;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      right: 3px;
+      width: 24px;
+      height: 24px;
+      transition: 0.2s ease-in-out;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(../../assets/images/icons/plus.svg);
+    }
+
+    &:hover:not(.expand_active):before {
+      right: 35px;
+      background-image: url(../../assets/images/icons/plus-white.svg);
+    }
+
+    &.expand_active:before {
+      background-image: url(../../assets/images/icons/minus.svg);
+    }
+
+    &:not(.expand_active) + .expand__content {
+      display: none;
+    }
+  }
+
+  .expand__content {
+    font: $font-regular-14;
+    padding-bottom: 44px;
+    pointer-events: none;
+    max-width: 875px;
+  }
+}
+
+@media (max-width: $media-max-width-md) {
+  .expand {
+    .expand__header {
+      font: $font-regular-16;
+      line-height: 28px;
+      padding: 15px 25px 15px 0;
+      min-height: auto;
+
+      &:hover:not(.expand_active) {
+        padding-left: 10px;
+      }
+
+      &:hover:not(.expand_active):before {
+        right: 3px;
+      }
+    }
+  }
+}
