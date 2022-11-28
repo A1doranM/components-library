@@ -11,6 +11,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
   "author": "MOOHII",
   "license": "ISC",
   "devDependencies": {
