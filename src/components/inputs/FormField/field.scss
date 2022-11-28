@@ -1,0 +1,68 @@
+@import "src/components/inputs/common-styles.module";
+
+@import "src/styles/index";
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  font: $font-regular-16;
+
+  .input-wrapper__input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $color-black;
+    padding-bottom: 8px;
+    background: transparent;
+    font: inherit;
+
+    &::placeholder {
+      color: $color_grey-500;
+    }
+
+    &:focus {
+      outline: none;
+      border-image: $color-gradient-hover 1;
+    }
+
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
+      top: -22px;
+      font-size: 12px;
+    }
+
+    &_no-borders {
+      border-bottom: 2px solid transparent;
+    }
+  }
+
+  .input-wrapper__label {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 16px;
+    line-height: 21px;
+    color: $color_grey-500;
+  }
+
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
+  .password-input {
+    position: relative;
+    width: 100%;
+    height: max-content;
+
+    .password-input__eye {
+      position: absolute;
+      right: 0;
+      bottom: 8px;
+      width: 22px;
+      height: 18px;
+    }
+  }
+}
