@@ -2,13 +2,14 @@ import cn from "classnames";
 import React, { ChangeEvent, FocusEvent, useState } from "react";
 import { ErrorMessage, Field } from "formik/dist";
 
-import SeePasswordIcon from "assets/images/icons/eye.svg";
-import DontSeePasswordIcon from "assets/images/icons/eye_main.svg";
+import SeePasswordIcon from "src/assets/images/icons/eye.svg";
+import DontSeePasswordIcon from "src/assets/images/icons/eye_main.svg";
 
 import "./field.scss";
 
-interface FieldInterface {
+export interface FormFieldInterface {
   name?: string;
+  value?: string;
   className?: string;
   noBorders?: boolean;
   placeholder?: string;
@@ -24,12 +25,13 @@ const FormField = ({
   type = "text",
   className = "",
   name,
+  value,
   onBlur,
   onChange,
   noBorders,
   errComponent,
   errClassName
-}: FieldInterface): JSX.Element => {
+}: FormFieldInterface): JSX.Element => {
   const [shown, setShown] = useState(false);
 
   const handleEyeClick = () => {
@@ -40,9 +42,10 @@ const FormField = ({
     case "password":
       return (
         <div className={cn("input-wrapper", "password-input")}>
-          <Field
+          <input
             type={shown ? "password" : "text"}
             name={name}
+            value={value}
             placeholder={placeholder}
             className={cn("input-wrapper__input", className)}
             onChange={onChange}
@@ -59,9 +62,10 @@ const FormField = ({
     default:
       return (
         <div className={cn("input-wrapper", className)}>
-          <Field
+          <input
             type={type}
             name={name}
+            value={value}
             placeholder={" "}
             className={cn("input-wrapper__input", {
               "input-wrapper__input_no-borders": noBorders
@@ -72,13 +76,13 @@ const FormField = ({
           <label className={"input-wrapper__label"} htmlFor={name}>
             {placeholder}
           </label>
-          {name && (
-            <ErrorMessage
-              name={name}
-              component={errComponent || "div"}
-              className={cn("input-wrapper__invalid-input", errClassName)}
-            />
-          )}
+          {/*{name && (*/}
+          {/*  <ErrorMessage*/}
+          {/*    name={name}*/}
+          {/*    component={errComponent || "div"}*/}
+          {/*    className={cn("input-wrapper__invalid-input", errClassName)}*/}
+          {/*  />*/}
+          {/*)}*/}
         </div>
       );
   }
