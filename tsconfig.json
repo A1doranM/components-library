@@ -3,7 +3,7 @@
   "exclude": ["dist"],
   "compilerOptions": {
     // Default
-    "baseUrl": "src",
+    "baseUrl": "./",
     "target": "es5",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

@@ -1,8 +1,11 @@
+// @ts-nocheck
+
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-
-import FormField from "../FormField";
 import { Form, FormikProvider, useFormik } from "formik";
+import * as Yup from "yup";
+
+import FormField from "src/components/inputs/FormField";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -12,11 +15,15 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof FormField> = (args) => {
-  const onFormSubmit = (values: any) => {
+  const onFormSubmit = (values: { email: string }) => {
     const fields = {
       email: values.email || null
     };
   };
+
+  const ValidationSchema = Yup.object().shape({
+    email: Yup.string().email("Invalid email").required("Required")
+  });
 
   const formik = useFormik({
     validateOnChange: true,
@@ -24,37 +31,43 @@ const Template: ComponentStory<typeof FormField> = (args) => {
       email: ""
     },
     enableReinitialize: true,
+    validationSchema: ValidationSchema,
     onSubmit: onFormSubmit
   });
-
-  const handleInputChange = (e: any) => {
-    formik.setFieldValue(e.target.name, e.target.value);
-  };
 
   return (
     <FormikProvider value={formik}>
       <Form>
         <FormField
+          type={args.type}
           name="email"
-          placeholder="Ваш e-mail"
-          value={formik.values["email"]}
-          onChange={handleInputChange}
-          {...args}
+          placeholder={args.placeholder}
+          noBorders={!!args.noBorders}
         />
+        <br />
+        <br />
+        <br />
+        <button type="submit">submit</button>
       </Form>
     </FormikProvider>
-    // <FormField {...args} />
   );
 };
 
 export const FormFieldDefault = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 FormFieldDefault.args = {
-  // name: "email",
-  // type: "text",
-  // placeholder: "asdasd",
-  // value: "test email",
-  // onChange: (e: any) => {
-  //   console.log("SFSFSF");
-  // }
+  type: "email",
+  placeholder: "Email"
+};
+
+export const FormFieldNoBorders = Template.bind({});
+FormFieldNoBorders.args = {
+  type: "text",
+  placeholder: "Email",
+  noBorders: true
+};
+
+export const FormFieldPassword = Template.bind({});
+FormFieldPassword.args = {
+  type: "password",
+  placeholder: "Password"
 };

@@ -19,7 +19,7 @@ module.exports = {
       path.resolve("./")
     ];
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\\.svg$/,
       use: ["@svgr/webpack", "url-loader"]
     });
 
