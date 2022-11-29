@@ -1,0 +1,16 @@
+import React from "react";
+import cn from "classnames";
+
+import PlaneIcon from "src/assets/images/ui-icons/plane.svg";
+
+import "./plane.scss";
+
+export interface PlaneInterface {
+  className?: string;
+}
+
+const Plane = ({ className = "" }: PlaneInterface): JSX.Element => {
+  return <img src={PlaneIcon} alt="long arrow" className={className} />;
+};
+
+export default Plane;

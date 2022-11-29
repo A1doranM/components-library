@@ -5,6 +5,6 @@ import LongArrow from "../LongArrow";
 
 describe("LongArrow", () => {
     test("Renders the LongArrow component", () => {
-        render(<LongArrow size={20}/>);
+        render(<LongArrow />);
     })
 });
