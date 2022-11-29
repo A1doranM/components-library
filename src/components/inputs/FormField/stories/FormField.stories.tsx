@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Form, FormikProvider, useFormik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import FormField from "src/components/inputs/FormField";
@@ -25,31 +25,33 @@ const Template: ComponentStory<typeof FormField> = (args) => {
     email: Yup.string().email("Invalid email").required("Required")
   });
 
-  const formik = useFormik({
-    validateOnChange: true,
-    initialValues: {
-      email: ""
-    },
-    enableReinitialize: true,
-    validationSchema: ValidationSchema,
-    onSubmit: onFormSubmit
-  });
-
   return (
-    <FormikProvider value={formik}>
-      <Form>
-        <FormField
-          type={args.type}
-          name="email"
-          placeholder={args.placeholder}
-          noBorders={!!args.noBorders}
-        />
-        <br />
-        <br />
-        <br />
-        <button type="submit">submit</button>
-      </Form>
-    </FormikProvider>
+    <Formik
+      initialValues={{ email: "" }}
+      onSubmit={(values, actions) => {
+        onFormSubmit(values);
+      }}
+      validationSchema={ValidationSchema}
+      enableReinitialize={true}
+      validateOnChange={true}
+    >
+      {({ errors, touched }) => (
+        <Form>
+          <FormField
+            type={args.type}
+            name="email"
+            placeholder={args.placeholder}
+            noBorders={!!args.noBorders}
+            errors={errors}
+            touched={touched}
+          />
+          <br />
+          <br />
+          <br />
+          <button type="submit">submit</button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

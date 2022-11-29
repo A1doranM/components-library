@@ -11,6 +11,8 @@ import "./field.scss";
 
 export interface FormFieldInterface {
   name: string;
+  errors?: any;
+  touched?: any;
   className?: string;
   noBorders?: boolean;
   placeholder?: string;
@@ -21,10 +23,12 @@ export interface FormFieldInterface {
 }
 
 const FormField = ({
+  name,
   placeholder,
   type = "text",
   className = "",
-  name,
+  errors,
+  touched,
   onBlur,
   noBorders,
   errComponent,
@@ -39,12 +43,16 @@ const FormField = ({
   switch (type) {
     case "password":
       return (
-        <div className={cn("input-wrapper", "password-input")}>
+        <div className={cn("form-field-wrapper", "password-input", className)}>
           <Field
             type={shown ? "password" : "text"}
             name={name}
             placeholder={" "}
-            className={cn("input-wrapper__input", className)}
+            className={cn(
+              "form-field",
+              { "form-field_error": errors[name] && touched[name] },
+              className
+            )}
             onBlur={onBlur}
           />
           <img
@@ -53,35 +61,36 @@ const FormField = ({
             className="password-input__eye"
             onClick={handleEyeClick}
           />
-          <label className="input-wrapper__label" htmlFor={name}>
+          <label className="form-field-label" htmlFor={name}>
             {placeholder}
           </label>
           <ErrorMessage
             name={name}
             component={errComponent || "div"}
-            className={cn("input-wrapper__invalid-input", errClassName)}
+            className={cn("form-field-error-message", errClassName)}
           />
         </div>
       );
     default:
       return (
-        <div className={cn("input-wrapper", className)}>
+        <div className={cn("form-field-wrapper", className)}>
           <Field
             type={type}
             name={name}
             placeholder={" "}
-            className={cn("input-wrapper__input", {
-              "input-wrapper__input_no-borders": noBorders
+            className={cn("form-field", {
+              "form-field_error": errors[name] && touched[name],
+              "form-field_no-borders": noBorders
             })}
             onBlur={onBlur}
           />
-          <label className="input-wrapper__label" htmlFor={name}>
+          <label className="form-field-label" htmlFor={name}>
             {placeholder}
           </label>
           <ErrorMessage
             name={name}
             component={errComponent || "div"}
-            className={cn("input-wrapper__invalid-input", errClassName)}
+            className={cn("form-field-error-message", errClassName)}
           />
         </div>
       );

@@ -1,12 +1,12 @@
 @import "src/styles/index";
 
-.input-wrapper {
+.form-field-wrapper {
   position: relative;
   width: 100%;
   height: max-content;
   font: $font-regular-16;
 
-  .input-wrapper__input {
+  .form-field {
     width: 100%;
     border: none;
     border-bottom: 2px solid $color-black;
@@ -37,6 +37,23 @@
         border-image: none;
       }
     }
+
+    &_error {
+      border-bottom: 2px solid $color-red-500;
+
+      &::placeholder {
+        color: $color-red-500;
+      }
+
+      &:focus {
+        outline: none;
+        border-image: none;
+      }
+    }
+
+    &_error + label {
+      color: $color-red-500;
+    }
   }
 
   &.password-input {
@@ -51,7 +68,7 @@
     }
   }
 
-  .input-wrapper__label {
+  .form-field-label {
     position: absolute;
     top: 1px;
     left: 0;
@@ -68,7 +85,7 @@
     transition: background-color 600000s 0s, color 600000s 0s;
   }
 
-  .input-wrapper__invalid-input {
+  .form-field-error-message {
     position: absolute;
     bottom: -15px;
     color: #f44336;
