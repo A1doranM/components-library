@@ -18,6 +18,10 @@ module.exports = {
       ...(config.resolve.modules || []),
       path.resolve("./")
     ];
+    config.module.rules.push({
+      test: /\\.svg$/,
+      use: ["@svgr/webpack", "url-loader"]
+    });
 
     return config;
   }
