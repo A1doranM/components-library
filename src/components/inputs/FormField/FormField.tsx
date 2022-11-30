@@ -43,7 +43,10 @@ const FormField = ({
   switch (type) {
     case "password":
       return (
-        <div className={cn("form-field-wrapper", "password-input", className)}>
+        <div
+          className={cn("form-field-wrapper", "password-input", className)}
+          data-testid="input"
+        >
           <Field
             type={shown ? "password" : "text"}
             name={name}
@@ -73,7 +76,10 @@ const FormField = ({
       );
     default:
       return (
-        <div className={cn("form-field-wrapper", className)}>
+        <div
+          className={cn("form-field-wrapper", className)}
+          data-testid="input"
+        >
           <Field
             type={type}
             name={name}

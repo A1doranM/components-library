@@ -4,6 +4,7 @@
   "compilerOptions": {
     // Default
     "baseUrl": "./",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "target": "es5",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
