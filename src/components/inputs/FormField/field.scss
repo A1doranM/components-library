@@ -14,10 +14,6 @@
     background: transparent;
     font: inherit;
 
-    &::placeholder {
-      color: $color_grey-500;
-    }
-
     &:focus {
       outline: none;
       border-image: $color-gradient-hover 1;
@@ -30,7 +26,7 @@
     }
 
     &_no-borders {
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid transparent !important;
 
       &:focus {
         outline: none;
@@ -41,17 +37,13 @@
     &_error {
       border-bottom: 2px solid $color-red-500;
 
-      &::placeholder {
-        color: $color-red-500;
-      }
-
       &:focus {
         outline: none;
         border-image: none;
       }
     }
 
-    &_error + label {
+    &_error ~ label {
       color: $color-red-500;
     }
   }
@@ -88,7 +80,7 @@
   .form-field-error-message {
     position: absolute;
     bottom: -15px;
-    color: #f44336;
+    color: $color-red-500;
     font-size: 10px;
     line-height: 14px;
   }

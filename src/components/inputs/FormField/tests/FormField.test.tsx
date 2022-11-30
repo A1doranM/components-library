@@ -67,7 +67,7 @@ const TestForm = ({
 
 describe("FormField", () => {
   test("Renders the FormField component", () => {
-    render(<TestForm name="email" placeholder="Email" noBorders={false} />);
+    render(<TestForm name="email" placeholder="Email" />);
     const input = screen.getByTestId("input");
     const label = screen.getByText("Email");
     expect(input).toBeInTheDocument();
@@ -78,10 +78,49 @@ describe("FormField", () => {
   test("Write text into input", () => {
     render(<TestForm name="email" placeholder="Email" noBorders={false} />);
     const input = screen.getByTestId("input");
-    const label = screen.getByText("Email");
-    userEvent.click(input);
-    userEvent.type(input, "aldoran.ua@gmail.com");
-    expect(input).toHaveValue("aldoran.ua@gmail.com");
+    userEvent.type(input, "aldoran.ua@gmail.com").then(() => {
+      expect(input).toHaveValue("aldoran.ua@gmail.com");
+    });
+    screen.debug();
+  });
+
+  test("Check input with type password", () => {
+    render(
+      <TestForm
+        name="email"
+        placeholder="Email"
+        type="password"
+        noBorders={false}
+      />
+    );
+    const input = screen.getByTestId("input");
+    const eyeIcon = screen.getByAltText("eye");
+    userEvent.type(input, "1q2w3e3e2w1q4r").then(() => {
+      expect(input).toHaveAttribute("type", "password");
+    });
+    userEvent.click(eyeIcon).then(() => {
+      expect(input).toHaveAttribute("type", "text");
+    });
+    screen.debug();
+  });
+
+  test("Check validation with type password", () => {
+    render(<TestForm name="email" placeholder="Email" type="password" />);
+    const submitBtn = screen.getByText("submit");
+    userEvent.click(submitBtn).then(() => {
+      const error = screen.getByText("Required");
+      expect(error).toBeInTheDocument();
+    });
+    screen.debug();
+  });
+
+  test("Check validation with type text", () => {
+    render(<TestForm name="email" placeholder="Email" type="text" />);
+    const submitBtn = screen.getByText("submit");
+    userEvent.click(submitBtn).then(() => {
+      const error = screen.getByText("Required");
+      expect(error).toBeInTheDocument();
+    });
     screen.debug();
   });
 });

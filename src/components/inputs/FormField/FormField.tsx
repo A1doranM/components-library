@@ -2,7 +2,7 @@
 
 import cn from "classnames";
 import React, { FocusEvent, useState } from "react";
-import { ErrorMessage, Field } from "formik";
+import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
 
 import SeePasswordIcon from "src/assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "src/assets/images/icons/eye_main.svg";
@@ -11,8 +11,8 @@ import "./field.scss";
 
 export interface FormFieldInterface {
   name: string;
-  errors?: any;
-  touched?: any;
+  errors?: FormikErrors<{ email: string }>;
+  touched?: FormikTouched<{ email: string }>;
   className?: string;
   noBorders?: boolean;
   placeholder?: string;
@@ -27,8 +27,8 @@ const FormField = ({
   placeholder,
   type = "text",
   className = "",
-  errors,
-  touched,
+  errors = undefined,
+  touched = undefined,
   onBlur,
   noBorders,
   errComponent,
@@ -53,7 +53,10 @@ const FormField = ({
             placeholder={" "}
             className={cn(
               "form-field",
-              { "form-field_error": errors[name] && touched[name] },
+              {
+                "form-field_error":
+                  errors && touched && errors[name] && touched[name]
+              },
               className
             )}
             onBlur={onBlur}
@@ -85,7 +88,8 @@ const FormField = ({
             name={name}
             placeholder={" "}
             className={cn("form-field", {
-              "form-field_error": errors[name] && touched[name],
+              "form-field_error":
+                errors && touched && errors[name] && touched[name],
               "form-field_no-borders": noBorders
             })}
             onBlur={onBlur}
