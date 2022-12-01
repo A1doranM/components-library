@@ -8,29 +8,29 @@ import CancelOnHoldIcon from "src/assets/images/icons/cancel-white.svg";
 
 import "./correct-button.scss";
 
-export interface CorrectButtonProps {
+export interface AnswerButtonProps {
   label?: string;
   cancel?: boolean;
   className?: string;
   round?: boolean;
-  onHold?: boolean;
+  hold?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CorrectButton = ({
+const AnswerButton = ({
   label,
   cancel,
   className,
   round,
-  onHold,
+  hold,
   onClick
-}: CorrectButtonProps) => {
+}: AnswerButtonProps) => {
   return (
     <button
       className={cn("correct-button", className, {
         ["correct-button_cancel"]: cancel,
         ["correct-button_round"]: round,
-        ["correct-button_on-hold"]: onHold
+        ["correct-button_on-hold"]: hold
       })}
       onClick={onClick}
     >
@@ -38,10 +38,10 @@ const CorrectButton = ({
         <img
           src={
             cancel
-              ? !onHold
+              ? !hold
                 ? CancelIcon
                 : CancelOnHoldIcon
-              : !onHold
+              : !hold
               ? DoneIcon
               : DoneOnHoldIcon
           }
@@ -54,4 +54,4 @@ const CorrectButton = ({
   );
 };
 
-export default CorrectButton;
+export default AnswerButton;
