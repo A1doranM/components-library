@@ -1,0 +1,88 @@
+@import "src/styles/index";
+
+$height: 220px;
+$width: 160px;
+
+.load-file {
+  position: relative;
+  width: $width;
+  height: $height;
+  border-radius: 10px;
+  border: 2px dashed black;
+  cursor: pointer;
+
+  &:hover {
+    border-color: white;
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(to right, #c3aab2, #99eecc, #80c0c8, #4b8bfa) border-box;
+  }
+
+  .uplaoded-img {
+    max-height: calc(100% - 1px);
+    max-width: calc(100% - 0.5px);
+    margin: auto;
+    object-fit: contain;
+  }
+
+  .load-file__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .upload-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .load-file__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    width: $width;
+    height: $height;
+
+    .load-file__label {
+      font: inherit;
+      font-size: 14px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .load-file__img {
+      width: 24px;
+      height: 30px;
+      z-index: 1;
+    }
+
+    .load-file__background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      border-radius: 10px;
+    }
+  }
+}
+
+.uploaded-file-container {
+  position: relative;
+  width: $width;
+  height: $height;
+  border: 2px solid $color-grey-400;
+  border-radius: 0px;
+  &:hover {
+    border: 2px solid $color-grey-400;
+  }
+}

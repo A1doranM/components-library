@@ -1,0 +1,72 @@
+@import "src/styles/index";
+
+.load-key-file {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 28px 110px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border: 1px dashed $color-grey-600;
+  border-radius: 10px;
+  cursor: pointer;
+
+  .load-key-file__title {
+    margin-bottom: 10px;
+    font: $font-bold-14;
+  }
+
+  .load-key-file__formats {
+    font: $font-regular-14;
+    color: $color-grey-600;
+  }
+
+  .load-key-file__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &_uploaded {
+    padding: 28px 40px;
+    background-color: $color-grey-300;
+
+    .load-key-file__upload-formats {
+      color: black;
+    }
+
+    .load-key-file__upload-title {
+      margin-bottom: 20px;
+      font: $font-bold-14;
+    }
+  }
+
+  &:hover {
+    border-color: $color-white;
+    background: linear-gradient($color-white, $color-white) padding-box, $color-gradient-outlined border-box;
+  }
+}
+
+@media (max-width: $media-max-width-md) {
+  .load-key-file {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px 16px;
+
+    .load-key-file__title {
+      margin-bottom: 15px;
+      font: $font-bold-12;
+    }
+
+    .load-key-file__formats {
+      font: $font-regular-12;
+    }
+  }
+}

@@ -15,29 +15,39 @@ export interface CommonButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CommonButton = (props: CommonButtonProps) => {
+const CommonButton = ({
+  label,
+  outlined,
+  disabled,
+  dashed,
+  className,
+  large,
+  image,
+  round,
+  onClick
+}: CommonButtonProps) => {
   return (
     <button
-      className={cn("common-button", props.className, {
-        ["common-button_outlined"]: props.outlined,
-        ["common-button_dashed"]: props.dashed,
-        ["common-button_filled"]: !props.outlined,
-        ["common-button_disabled"]: props.disabled,
-        ["common-button_large"]: props.large,
-        ["common-button_round"]: props.round
+      className={cn("common-button", className, {
+        ["common-button_outlined"]: outlined,
+        ["common-button_dashed"]: dashed,
+        ["common-button_filled"]: !outlined,
+        ["common-button_disabled"]: disabled,
+        ["common-button_large"]: large,
+        ["common-button_round"]: round
       })}
-      onClick={props.onClick}
+      onClick={onClick}
     >
-      {(props.image || props.round) && (
+      {(image || round) && (
         <div className="common-button_image-container">
           <img
-            src={props.image}
+            src={image}
             className="common-button_image"
             alt="button icon"
           />
         </div>
       )}
-      {!props.round && props.label}
+      {!round && label}
     </button>
   );
 };

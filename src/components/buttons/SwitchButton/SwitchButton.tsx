@@ -7,10 +7,10 @@ export interface SwitchButtonProps {
   onChange?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 }
 
-const SwitchButton = (props: SwitchButtonProps) => {
+const SwitchButton = ({active, onChange}: SwitchButtonProps) => {
   return (
     <label className="switch">
-      <input type="checkbox" checked={props.active} onClick={props.onChange} />
+      <input type="checkbox" checked={active} onClick={onChange} />
       <span className="slider round" />
     </label>
   );

@@ -17,24 +17,31 @@ export interface CorrectButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CorrectButton = (props: CorrectButtonProps) => {
+const CorrectButton = ({
+  label,
+  cancel,
+  className,
+  round,
+  onHold,
+  onClick
+}: CorrectButtonProps) => {
   return (
     <button
-      className={cn("correct-button", props.className, {
-        ["correct-button_cancel"]: props.cancel,
-        ["correct-button_round"]: props.round,
-        ["correct-button_on-hold"]: props.onHold
+      className={cn("correct-button", className, {
+        ["correct-button_cancel"]: cancel,
+        ["correct-button_round"]: round,
+        ["correct-button_on-hold"]: onHold
       })}
-      onClick={props.onClick}
+      onClick={onClick}
     >
       <div className="correct-button_image-container">
         <img
           src={
-            props.cancel
-              ? !props.onHold
+            cancel
+              ? !onHold
                 ? CancelIcon
                 : CancelOnHoldIcon
-              : !props.onHold
+              : !onHold
               ? DoneIcon
               : DoneOnHoldIcon
           }
@@ -42,7 +49,7 @@ const CorrectButton = (props: CorrectButtonProps) => {
           alt="button icon"
         />
       </div>
-      {!props.round && props.label}
+      {!round && label}
     </button>
   );
 };

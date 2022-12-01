@@ -1,0 +1,20 @@
+import React from "react";
+import cn from "classnames";
+
+import BlackEyeIcon from "src/assets/images/ui-icons/black-eye.svg";
+
+import "./black-eye.scss";
+
+export interface BlackEyeInterface {
+  className?: string;
+}
+
+const BlackEye = ({
+  className = ""
+}: BlackEyeInterface): JSX.Element => {
+  return (
+    <img src={BlackEyeIcon} alt="long arrow" className={className} />
+  );
+};
+
+export default BlackEye;

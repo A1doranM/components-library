@@ -1,0 +1,117 @@
+@import "src/styles/index";
+
+.radio-btn {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+
+  .radio-btn__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    tab-index: -1;
+  }
+
+  .radio-btn__indicator {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color-black;
+    border-radius: 50%;
+    background: $color-white;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      opacity: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: $color-black;
+      background-size: cover;
+    }
+  }
+
+  .radio-btn__info {
+    display: flex;
+    flex-direction: column;
+
+    .radio-btn__info-title,
+    .radio-btn__info-body,
+    .radio-btn__info-footer,
+    .radio-btn__info-warning {
+      z-index: 1;
+    }
+
+    .radio-btn__info-body,
+    .radio-btn__info-footer,
+    .radio-btn__info-warning {
+      margin-top: 11px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .radio-btn__info-title {
+      font-size: 16px;
+      line-height: 23px;
+      color: $color-black;
+    }
+
+    .radio-btn__info-body {
+      color: $color-grey-400;
+    }
+
+    .radio-btn__info-footer {
+      color: $color-black;
+    }
+
+    .radio-btn__info-warning {
+      color: $color-red-400;
+    }
+  }
+
+  &_active {
+    .radio-btn__indicator {
+      border: 2px solid $color-black;
+
+      &:hover {
+        border: 2px solid $color-black;
+      }
+
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    .radio-btn__info {
+      &:after {
+        display: inline-block;
+      }
+    }
+  }
+
+  &_disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+@media ($media-max-width-md) {
+  .radio-btn {
+    .radio-btn__info {
+      .radio-btn__info-title {
+        font-size: 14px;
+        line-height: 23px;
+        color: $color-black;
+      }
+    }
+  }
+}
