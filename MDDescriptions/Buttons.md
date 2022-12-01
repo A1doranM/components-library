@@ -30,13 +30,13 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 
 ## Buttons:
 
-- [CommonButton](#markdown-header-CommonButton)
+- [CommonButton](#CommonButton)
 - [AnswerButton](#markdown-header-AnswerButton)
 - [RadioButton](#markdown-header-RadioButton)
 - [SwitchButton](#markdown-header-SwitchButton)
 
 ### CommonButton
-
+<a name="CommonButton"></a>
 #### props
 
 - **label?**: string;
