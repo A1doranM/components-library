@@ -31,9 +31,9 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 ## Buttons:
 
 - [CommonButton](#CommonButton)
-- [AnswerButton](#markdown-header-AnswerButton)
-- [RadioButton](#markdown-header-RadioButton)
-- [SwitchButton](#markdown-header-SwitchButton)
+- [AnswerButton](#AnswerButton)
+- [RadioButton](#RadioButton)
+- [SwitchButton](#SwitchButton)
 
 ### CommonButton
 <a name="CommonButton"></a>
@@ -95,7 +95,7 @@ return (
 ```
 
 ### AnswerButton
-
+<a name="AnswerButton"></a>
 #### props
 
 - **label?**: string;
@@ -143,7 +143,7 @@ return (
 ```
 
 ### RadioButton
-
+<a name="RadioButton"></a>
 #### props
 
 - **title?**: string; - top text
@@ -198,7 +198,7 @@ return (
 ```
 
 ### SwitchButton
-
+<a name="SwitchButton"></a>
 #### props
 
 - **active?**: boolean;
