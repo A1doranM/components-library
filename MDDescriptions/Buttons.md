@@ -29,7 +29,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 ```
 
 ## Buttons:
-[CommonButton](#commonbutton)
+[CommonButton](#CommonButton)
 
 ### CommonButton
 
