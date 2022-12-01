@@ -1,4 +1,4 @@
-# React Component Library gov-ua-ui. Dropdowns
+# React Component Library gov-ua-ui. Expands
 
 ## [Components List](COMPONENTS_LIST.md)
 
@@ -28,7 +28,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 />
 ```
 
-## Dropdowns:
+## Expands:
 
 - [Expand](#Expand)
 
