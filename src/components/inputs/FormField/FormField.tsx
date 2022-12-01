@@ -1,35 +1,39 @@
-import cn from "classnames";
-import React, { ChangeEvent, FocusEvent, useState } from "react";
-import { ErrorMessage, Field } from "formik/dist";
+// @ts-nocheck
 
-import SeePasswordIcon from "assets/images/icons/eye.svg";
-import DontSeePasswordIcon from "assets/images/icons/eye_main.svg";
+import cn from "classnames";
+import React, { FocusEvent, useState } from "react";
+import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
+
+import SeePasswordIcon from "src/assets/images/icons/eye.svg";
+import DontSeePasswordIcon from "src/assets/images/icons/eye_main.svg";
 
 import "./field.scss";
 
-interface FieldInterface {
-  name?: string;
+export interface FormFieldInterface {
+  name: string;
+  errors?: FormikErrors<{ email: string }>;
+  touched?: FormikTouched<{ email: string }>;
   className?: string;
   noBorders?: boolean;
   placeholder?: string;
   errClassName?: string;
   errComponent?: React.ComponentType;
   type?: React.HTMLInputTypeAttribute;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
 }
 
 const FormField = ({
+  name,
   placeholder,
   type = "text",
   className = "",
-  name,
+  errors = undefined,
+  touched = undefined,
   onBlur,
-  onChange,
   noBorders,
   errComponent,
   errClassName
-}: FieldInterface): JSX.Element => {
+}: FormFieldInterface): JSX.Element => {
   const [shown, setShown] = useState(false);
 
   const handleEyeClick = () => {
@@ -39,46 +43,65 @@ const FormField = ({
   switch (type) {
     case "password":
       return (
-        <div className={cn("input-wrapper", "password-input")}>
+        <div
+          className={cn("form-field-wrapper", "password-input", className)}
+          data-testid="input"
+        >
           <Field
             type={shown ? "password" : "text"}
             name={name}
-            placeholder={placeholder}
-            className={cn("input-wrapper__input", className)}
-            onChange={onChange}
+            placeholder={" "}
+            className={cn(
+              "form-field",
+              {
+                "form-field_error":
+                  errors && touched && errors[name] && touched[name]
+              },
+              className
+            )}
             onBlur={onBlur}
           />
           <img
             src={!shown ? SeePasswordIcon : DontSeePasswordIcon}
             alt="eye"
-            className={"password-input__eye"}
+            className="password-input__eye"
             onClick={handleEyeClick}
+          />
+          <label className="form-field-label" htmlFor={name}>
+            {placeholder}
+          </label>
+          <ErrorMessage
+            name={name}
+            component={errComponent || "div"}
+            className={cn("form-field-error-message", errClassName)}
           />
         </div>
       );
     default:
       return (
-        <div className={cn("input-wrapper", className)}>
+        <div
+          className={cn("form-field-wrapper", className)}
+          data-testid="input"
+        >
           <Field
             type={type}
             name={name}
             placeholder={" "}
-            className={cn("input-wrapper__input", {
-              "input-wrapper__input_no-borders": noBorders
+            className={cn("form-field", {
+              "form-field_error":
+                errors && touched && errors[name] && touched[name],
+              "form-field_no-borders": noBorders
             })}
-            onChange={onChange}
             onBlur={onBlur}
           />
-          <label className={"input-wrapper__label"} htmlFor={name}>
+          <label className="form-field-label" htmlFor={name}>
             {placeholder}
           </label>
-          {name && (
-            <ErrorMessage
-              name={name}
-              component={errComponent || "div"}
-              className={cn("input-wrapper__invalid-input", errClassName)}
-            />
-          )}
+          <ErrorMessage
+            name={name}
+            component={errComponent || "div"}
+            className={cn("form-field-error-message", errClassName)}
+          />
         </div>
       );
   }
