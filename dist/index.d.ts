@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import { ChangeEvent } from 'react';
+import React from 'react';
 
 interface CommonButtonProps {
     label?: string;
@@ -10,25 +9,26 @@ interface CommonButtonProps {
     large?: boolean;
     image?: string;
     round?: boolean;
-    onClick?: (e: ChangeEvent<HTMLInputElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-declare const CommonButton: (props: CommonButtonProps) => JSX.Element;
+declare const CommonButton: ({ label, outlined, disabled, dashed, className, large, image, round, onClick }: CommonButtonProps) => JSX.Element;
 
-interface CorrectButtonProps {
+interface AnswerButtonProps {
     label?: string;
     cancel?: boolean;
     className?: string;
     round?: boolean;
-    onHold?: boolean;
-    onClick?: (e: ChangeEvent<HTMLInputElement>) => void;
+    hold?: boolean;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-declare const CorrectButton: (props: CorrectButtonProps) => JSX.Element;
+declare const AnswerButton: ({ label, cancel, className, round, hold, onClick }: AnswerButtonProps) => JSX.Element;
 
 interface SwitchButtonProps {
     active?: boolean;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+    className?: string;
 }
-declare const SwitchButton: (props: SwitchButtonProps) => JSX.Element;
+declare const SwitchButton: ({ active, onChange, className }: SwitchButtonProps) => JSX.Element;
 
 interface SelectInputInterface {
     onChange?: (value: any) => void;
@@ -51,4 +51,4 @@ interface StatusInterface {
 }
 declare const Status: ({ type, className, children }: StatusInterface) => JSX.Element;
 
-export { CommonButton, CorrectButton, SelectInput as Select, Status, SwitchButton };
+export { CommonButton, AnswerButton as CorrectButton, SelectInput as Select, Status, SwitchButton };
