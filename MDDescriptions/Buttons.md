@@ -31,7 +31,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 ## Buttons:
 
 - [CommonButton](#CommonButton)
-- [AnswerButton](#CorrectButton)
+- [AnswerButton](#AnswerButton)
 - [RadioButton](#RadioButton)
 - [SwitchButton](#SwitchButton)
 
