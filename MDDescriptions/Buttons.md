@@ -37,8 +37,8 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 
 ### CommonButton
 <a name="CommonButton"></a>
-#### props
 
+#### props
 - **label?**: string;
 - **outlined?**: boolean;
 - **disabled?**: boolean;
@@ -51,7 +51,6 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 - **onClick?**: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
 #### Examples
-
 ```tsx
 import CommonButton from "src/components/buttons/CommonButton";
 import PlusIcon from "src/assets/images/ui-icons/plus.svg";
@@ -96,8 +95,8 @@ return (
 
 ### AnswerButton
 <a name="AnswerButton"></a>
-#### props
 
+#### props
 - **label?**: string;
 - **cancel?**: boolean;
 - **className?**: string;
@@ -106,7 +105,6 @@ return (
 - **onClick?**: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
 #### Examples
-
 ```tsx
 import AnswerButton from "src/components/buttons/AnswerButton";
 
@@ -144,8 +142,8 @@ return (
 
 ### RadioButton
 <a name="RadioButton"></a>
-#### props
 
+#### props
 - **title?**: string; - top text
 - **body?**: string; - middle text
 - **footer?**: string; - bottom text
@@ -158,7 +156,6 @@ return (
 - **onClick**: (e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void;
 
 #### Examples
-
 ```tsx
 import RadioButton from "src/components/buttons/RadioButton";
 
@@ -199,14 +196,13 @@ return (
 
 ### SwitchButton
 <a name="SwitchButton"></a>
-#### props
 
+#### props
 - **active?**: boolean;
 - **onChange?**: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 - **className?**: string; 
 
 #### Examples
-
 ```tsx
 import SwitchButton from "src/components/buttons/SwitchButton";
 

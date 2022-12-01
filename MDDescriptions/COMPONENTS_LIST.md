@@ -7,3 +7,5 @@
 [Buttons](Buttons.md)
 
 [Dialogs](Dialogs.md)
+
+[Progress bars](ProgressBars.md)
