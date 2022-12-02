@@ -78,20 +78,27 @@ return (
       image={PlusIcon}
       onClick={handleButtonClick}
     />
-    {/*Round button*/}
+    {/*Round button without image*/}
     <CommonButton
       round={true}
       onClick={handleButtonClick}
     />
-    {/*Round button with image*/}
+    {/*Round button outlined with image*/}
     <CommonButton
       round={true}
+      outlined={true}
       image={PlusIcon}
       onClick={handleButtonClick}
     />
   </div>
 );
 ```
+![img.png](mdImages/CommonButton_1.png)
+![img_1.png](mdImages/CommonButton_2.png)
+![img_2.png](mdImages/CommonButton_3.png)
+![img_3.png](mdImages/CommonButton_4.png)
+![img_4.png](mdImages/CommonButton_5.png)
+
 
 ### AnswerButton
 <a name="AnswerButton"></a>
@@ -119,10 +126,10 @@ return (
                   label="Send"
                   onClick={handleButtonClick}
           />
-          {/*AnswerButton disabled*/}
+          {/*AnswerButton holded*/}
           <AnswerButton
                   label="Send"
-                  disabled={true}
+                  hold={true}
                   onClick={handleButtonClick}
           />
           {/*AnswerButton round*/}
@@ -139,6 +146,11 @@ return (
         </div>
 );
 ```
+![img.png](mdImages/AnswerButton_1.png)
+![img_1.png](mdImages/AnswerButton_2.png)
+![img_2.png](mdImages/AnswerButton_3.png)
+![img_3.png](mdImages/AnswerButton_4.png)
+
 
 ### RadioButton
 <a name="RadioButton"></a>
@@ -193,6 +205,9 @@ return (
   </div>
 );
 ```
+![img.png](mdImages/RadioButton_1.png)
+![img_1.png](mdImages/RadioButton_2.png)
+![img_2.png](mdImages/RadioButton_3.png)
 
 ### SwitchButton
 <a name="SwitchButton"></a>
@@ -218,3 +233,6 @@ return (
   </div>
 );
 ```
+![img.png](mdImages/SwitchButton_1.png)
+![img_1.png](mdImages/SwitchButton_2.png)
+

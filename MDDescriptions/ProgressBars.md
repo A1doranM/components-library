@@ -49,3 +49,4 @@ return (
   </div>
 );
 ```
+![img_2.png](mdImages/ProgressBar.png)
