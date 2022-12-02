@@ -7,7 +7,7 @@ export interface TitleInterface {
   size?: 10 | 12 | 14 | 16 | 20 | 24 | 32 | 36 | 48;
   weight?: number;
   className?: string;
-  children?: any;
+  children: string;
 }
 
 const Title = ({
@@ -24,6 +24,7 @@ const Title = ({
         `title_size_${size}`,
         `title_weight_${weight}`
       )}
+      data-testid="title"
     >
       {children}
     </h4>
