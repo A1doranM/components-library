@@ -12,7 +12,7 @@ export interface TrashDefaultInterface {
 const TrashDefault = ({
   className = ""
 }: TrashDefaultInterface): JSX.Element => {
-  return <img src={TrashDefaultIcon} alt="long arrow" className={className} />;
+  return <img src={TrashDefaultIcon} alt="trash default" className={className} />;
 };
 
 export default TrashDefault;

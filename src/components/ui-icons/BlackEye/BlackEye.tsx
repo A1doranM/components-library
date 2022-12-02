@@ -13,7 +13,7 @@ const BlackEye = ({
   className = ""
 }: BlackEyeInterface): JSX.Element => {
   return (
-    <img src={BlackEyeIcon} alt="long arrow" className={className} />
+    <img src={BlackEyeIcon} alt="black eye" className={className} />
   );
 };
 

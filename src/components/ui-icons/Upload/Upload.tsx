@@ -10,7 +10,7 @@ export interface UploadInterface {
 }
 
 const Upload = ({ className = "" }: UploadInterface): JSX.Element => {
-  return <img src={UploadIcon} alt="long arrow" className={className} />;
+  return <img src={UploadIcon} alt="upload" className={className} />;
 };
 
 export default Upload;

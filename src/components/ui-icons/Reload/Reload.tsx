@@ -10,7 +10,7 @@ export interface ReloadInterface {
 }
 
 const Reload = ({ className = "" }: ReloadInterface): JSX.Element => {
-  return <img src={ReloadIcon} alt="long arrow" className={className} />;
+  return <img src={ReloadIcon} alt="reload" className={className} />;
 };
 
 export default Reload;

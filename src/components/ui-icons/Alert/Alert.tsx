@@ -10,7 +10,7 @@ export interface AlertInterface {
 }
 
 const Alert = ({ className = "" }: AlertInterface): JSX.Element => {
-  return <img src={AlertIcon} alt="long arrow" className={className} />;
+  return <img src={AlertIcon} alt="alert" className={className} />;
 };
 
 export default Alert;

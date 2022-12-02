@@ -10,7 +10,7 @@ export interface OutlinedHeartInterface {
 }
 
 const OutlinedHeart = ({ className = "" }: OutlinedHeartInterface): JSX.Element => {
-  return <img src={OutlinedHeartIcon} alt="long arrow" className={className} />;
+  return <img src={OutlinedHeartIcon} alt="outlined heart" className={className} />;
 };
 
 export default OutlinedHeart;

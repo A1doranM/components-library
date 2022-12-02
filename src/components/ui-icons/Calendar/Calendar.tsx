@@ -10,7 +10,7 @@ export interface CalendarInterface {
 }
 
 const Calendar = ({ className = "" }: CalendarInterface): JSX.Element => {
-  return <img src={CalendarIcon} alt="long arrow" className={className} />;
+  return <img src={CalendarIcon} alt="calendar" className={className} />;
 };
 
 export default Calendar;

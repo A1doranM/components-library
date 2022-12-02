@@ -10,7 +10,7 @@ export interface AddInterface {
 }
 
 const Add = ({ className = "" }: AddInterface): JSX.Element => {
-  return <img src={AddIcon} alt="long arrow" className={className} />;
+  return <img src={AddIcon} alt="add" className={className} />;
 };
 
 export default Add;

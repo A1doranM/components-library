@@ -10,7 +10,7 @@ export interface CheckmarkInterface {
 }
 
 const Checkmark = ({ className = "" }: CheckmarkInterface): JSX.Element => {
-  return <img src={CheckmarkIcon} alt="long arrow" className={className} />;
+  return <img src={CheckmarkIcon} alt="checkmark" className={className} />;
 };
 
 export default Checkmark;

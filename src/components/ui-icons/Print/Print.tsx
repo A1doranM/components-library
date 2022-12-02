@@ -10,7 +10,7 @@ export interface PrintInterface {
 }
 
 const Print = ({ className = "" }: PrintInterface): JSX.Element => {
-  return <img src={PrintIcon} alt="long arrow" className={className} />;
+  return <img src={PrintIcon} alt="print" className={className} />;
 };
 
 export default Print;

@@ -10,7 +10,7 @@ export interface CancelCertificateInterface {
 }
 
 const CancelCertificate = ({ className = "" }: CancelCertificateInterface): JSX.Element => {
-  return <img src={CancelCertificateIcon} alt="long arrow" className={className} />;
+  return <img src={CancelCertificateIcon} alt="cancel certificate" className={className} />;
 };
 
 export default CancelCertificate;

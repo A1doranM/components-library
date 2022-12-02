@@ -10,7 +10,7 @@ export interface DoubleArrowInterface {
 }
 
 const DoubleArrow = ({ className = "" }: DoubleArrowInterface): JSX.Element => {
-  return <img src={DoubleArrowIcon} alt="long arrow" className={className} />;
+  return <img src={DoubleArrowIcon} alt="double arrow" className={className} />;
 };
 
 export default DoubleArrow;

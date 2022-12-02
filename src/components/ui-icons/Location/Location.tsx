@@ -10,7 +10,7 @@ export interface LocationInterface {
 }
 
 const Location = ({ className = "" }:LocationInterface): JSX.Element => {
-  return <img src={LocationIcon} alt="long arrow" className={className} />;
+  return <img src={LocationIcon} alt="location" className={className} />;
 };
 
 export default Location;

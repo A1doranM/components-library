@@ -10,7 +10,7 @@ export interface MailInterface {
 }
 
 const Mail = ({ className = "" }: MailInterface): JSX.Element => {
-  return <img src={MailIcon} alt="long arrow" className={className} />;
+  return <img src={MailIcon} alt="mail" className={className} />;
 };
 
 export default Mail;

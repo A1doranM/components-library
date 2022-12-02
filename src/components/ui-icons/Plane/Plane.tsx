@@ -10,7 +10,7 @@ export interface PlaneInterface {
 }
 
 const Plane = ({ className = "" }: PlaneInterface): JSX.Element => {
-  return <img src={PlaneIcon} alt="long arrow" className={className} />;
+  return <img src={PlaneIcon} alt="plane" className={className} />;
 };
 
 export default Plane;

@@ -13,7 +13,7 @@ const GrayEye = ({
   className = ""
 }: GrayEyeInterface): JSX.Element => {
   return (
-    <img src={GrayEyeIcon} alt="long arrow" className={className} />
+    <img src={GrayEyeIcon} alt="gray eye" className={className} />
   );
 };
 

@@ -10,7 +10,7 @@ export interface CloseInterface {
 }
 
 const Close = ({ className = "" }: CloseInterface): JSX.Element => {
-  return <img src={CloseIcon} alt="long arrow" className={className} />;
+  return <img src={CloseIcon} alt="close" className={className} />;
 };
 
 export default Close;

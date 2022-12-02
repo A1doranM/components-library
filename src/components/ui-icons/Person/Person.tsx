@@ -10,7 +10,7 @@ export interface PersonInterface {
 }
 
 const Person = ({ className = "" }: PersonInterface): JSX.Element => {
-  return <img src={PersonIcon} alt="long arrow" className={className} />;
+  return <img src={PersonIcon} alt="person" className={className} />;
 };
 
 export default Person;

@@ -10,7 +10,7 @@ export interface CancelInterface {
 }
 
 const Cancel = ({ className = "" }: CancelInterface): JSX.Element => {
-  return <img src={CancelIcon} alt="long arrow" className={className} />;
+  return <img src={CancelIcon} alt="cancel" className={className} />;
 };
 
 export default Cancel;

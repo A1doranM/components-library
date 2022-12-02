@@ -10,7 +10,7 @@ export interface PlusInterface {
 }
 
 const Plus = ({ className = "" }: PlusInterface): JSX.Element => {
-  return <img src={PlusIcon} alt="long arrow" className={className} />;
+  return <img src={PlusIcon} alt="plus" className={className} />;
 };
 
 export default Plus;

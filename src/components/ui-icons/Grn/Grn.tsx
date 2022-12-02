@@ -10,7 +10,7 @@ export interface GrnInterface {
 }
 
 const Grn = ({ className = "" }: GrnInterface): JSX.Element => {
-  return <img src={GrnIcon} alt="long arrow" className={className} />;
+  return <img src={GrnIcon} alt="UAH" className={className} />;
 };
 
 export default Grn;

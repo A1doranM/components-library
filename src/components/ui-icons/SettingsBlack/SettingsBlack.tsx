@@ -10,7 +10,7 @@ export interface SettingsBlackInterface {
 }
 
 const SettingsBlack = ({ className = "" }: SettingsBlackInterface): JSX.Element => {
-  return <img src={SettingsBlackIcon} alt="long arrow" className={className} />;
+  return <img src={SettingsBlackIcon} alt="settings black" className={className} />;
 };
 
 export default SettingsBlack;
