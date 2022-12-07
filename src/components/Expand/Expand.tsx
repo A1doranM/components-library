@@ -8,13 +8,15 @@ export interface ExpandInterface {
   children?: any;
   open?: boolean;
   isLast?: boolean;
+  titleClassName?: string;
 }
 
 const Expand = ({
   children,
   title,
   open = false,
-  isLast = false
+  isLast = false,
+  titleClassName
 }: ExpandInterface): JSX.Element => {
   const [isOpen, setOpen] = useState(open);
 
@@ -29,9 +31,13 @@ const Expand = ({
       })}
     >
       <h2
-        className={cn("expand__header", {
-          ["expand_active"]: isOpen
-        })}
+        className={cn(
+          "expand__header",
+          {
+            ["expand_active"]: isOpen
+          },
+          titleClassName
+        )}
         onClick={handleToggle}
       >
         {title}
