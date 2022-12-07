@@ -41160,7 +41160,7 @@ var Status = function (_a) {
             _b["status_draft"] = type === "DRAFT",
             _b["status_passed"] = type === "PASSED",
             _b["status_not-passed"] = type === "NOT-PASSED",
-            _b)) }, children));
+            _b)), "data-testid": "status" }, children));
 };
 
 export { CommonButton, AnswerButton as CorrectButton, SelectInput as Select, Status, SwitchButton };

@@ -4,5 +4,5 @@ export interface SimpleUploadFileInterface {
     text?: string;
     uploadedText?: string;
 }
-declare const SimpleUploadFile: ({ className, text, uploadedText, }: SimpleUploadFileInterface) => JSX.Element;
+declare const SimpleUploadFile: ({ className, text, uploadedText }: SimpleUploadFileInterface) => JSX.Element;
 export default SimpleUploadFile;

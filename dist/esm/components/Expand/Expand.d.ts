@@ -4,6 +4,7 @@ export interface ExpandInterface {
     children?: any;
     open?: boolean;
     isLast?: boolean;
+    titleClassName?: string;
 }
-declare const Expand: ({ children, title, open, isLast }: ExpandInterface) => JSX.Element;
+declare const Expand: ({ children, title, open, isLast, titleClassName }: ExpandInterface) => JSX.Element;
 export default Expand;

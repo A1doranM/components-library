@@ -7,12 +7,7 @@ export interface LinkInterface {
 }
 export interface NavigationInterface {
     navLinks: Array<LinkInterface>;
-    title: string;
-    subtitle?: string;
-    titleImg?: any;
-    titleClass?: string;
-    subtitleClass?: string;
-    noLogo?: boolean;
+    className: string;
 }
-declare const Navigation: ({ navLinks, title, titleClass, subtitle, subtitleClass, titleImg, noLogo }: NavigationInterface) => JSX.Element;
+declare const Navigation: ({ navLinks, className }: NavigationInterface) => JSX.Element;
 export default Navigation;
