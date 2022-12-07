@@ -10,7 +10,7 @@ export interface EnterInterface {
 }
 
 const Enter = ({ className = "" }: EnterInterface): JSX.Element => {
-  return <img src={EnterIcon} alt="long arrow" className={className} />;
+  return <img src={EnterIcon} alt="enter" className={className} />;
 };
 
 export default Enter;

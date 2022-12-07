@@ -1,7 +1,6 @@
 @import "src/styles/index";
 
 .expand {
-  border-top: 2px solid $color-black;
 
   &.expand_last {
     border-bottom: 2px solid $color-black;
@@ -14,7 +13,6 @@
     justify-content: space-between;
     padding: 44px 100px 44px 0;
     font: $font-regular-24;
-    font-size: 28px;
     line-height: 32px;
     letter-spacing: -0.02em;
     color: $color-black;

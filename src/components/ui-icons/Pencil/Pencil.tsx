@@ -10,7 +10,7 @@ export interface PencilInterface {
 }
 
 const Pencil = ({ className = "" }: PencilInterface): JSX.Element => {
-  return <img src={PencilIcon} alt="long arrow" className={className} />;
+  return <img src={PencilIcon} alt="pencil" className={className} />;
 };
 
 export default Pencil;

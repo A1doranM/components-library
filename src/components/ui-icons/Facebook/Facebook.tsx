@@ -10,7 +10,7 @@ export interface FacebookInterface {
 }
 
 const Facebook = ({ className = "" }: FacebookInterface): JSX.Element => {
-  return <img src={FacebookIcon} alt="long arrow" className={className} />;
+  return <img src={FacebookIcon} alt="facebook" className={className} />;
 };
 
 export default Facebook;

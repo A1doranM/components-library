@@ -10,7 +10,7 @@ export interface CopyInterface {
 }
 
 const Copy = ({ className = "" }: CopyInterface): JSX.Element => {
-  return <img src={CopyIcon} alt="long arrow" className={className} />;
+  return <img src={CopyIcon} alt="copy" className={className} />;
 };
 
 export default Copy;

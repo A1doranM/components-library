@@ -10,7 +10,7 @@ export interface LockInterface {
 }
 
 const Lock = ({ className = "" }: LockInterface): JSX.Element => {
-  return <img src={LockIcon} alt="long arrow" className={className} />;
+  return <img src={LockIcon} alt="lock" className={className} />;
 };
 
 export default Lock;

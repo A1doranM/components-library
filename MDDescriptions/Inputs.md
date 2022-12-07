@@ -10,7 +10,7 @@
 
 - **prop1**: string - some string value
 - **prop2**: boolean - some boolean value
-- **prop3**: (e: ChangeEvent<HTMLInputElement>) => void -  some change event handler
+- **prop3**: (e: ChangeEvent<HTMLInputElement>) => void - some change event handler
 
 ### [Component examples]
 
@@ -18,7 +18,7 @@
 import { Component } from "gov-ua-ui";
 
 const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
- ...
+...
 }
 
 <Component
@@ -28,9 +28,14 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 />
 ```
 
-## Inputs: 
+## Inputs:
 
-### Form Field
+- [FormField](#FormField)
+- [Select](#Select)
+
+### FormField
+
+<a name="FormField"></a>
 
 #### props
 
@@ -108,8 +113,15 @@ return (
   </Formik>
 );
 ```
+![img.png](mdImages/FormField_1.png)
 
-Without validation 
+![img.png](mdImages/FormField_4.png)
+
+![img_1.png](mdImages/FormField_2.png)
+
+![img_2.png](mdImages/FormField_3.png)
+
+Without validation
 
 ```tsx
 import { Form, Formik } from "formik";
@@ -142,5 +154,44 @@ return (
       </Form>
     )}
   </Formik>
+);
+```
+
+### Select
+
+<a name="Select"></a>
+
+#### props
+
+- **onChange?**: (value: any) => void;
+- **onBlur?**: () => void;
+- **options?**: Array<{ value?: string | number; label?: string | number; }>;
+- **placeholder?**: string;
+- **className?**: string;
+- **name?**: string;
+- **styles?**: object;
+
+#### Examples
+
+```tsx
+import Select from "src/components/inputs/Select";
+
+const mockData = [
+  { value: "cfr", label: "CFR" },
+  { value: "frc", label: "FRC" },
+  { value: "rcf", label: "RCF" }
+];
+
+const handleSelectChange = (value: string) => {
+  ...
+}
+
+return (
+  <Select
+    options={standardMock}
+    placeholder="Chose"
+    name="chose"
+    onChange={handleSelectChange}
+  />
 );
 ```

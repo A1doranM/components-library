@@ -10,7 +10,7 @@ export interface IdInterface {
 }
 
 const Id = ({ className = "" }: IdInterface): JSX.Element => {
-  return <img src={IdIcon} alt="long arrow" className={className} />;
+  return <img src={IdIcon} alt="id" className={className} />;
 };
 
 export default Id;

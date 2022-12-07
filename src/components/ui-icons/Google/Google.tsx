@@ -12,7 +12,7 @@ export interface GoogleInterface {
 const Google = ({
   className = ""
 }: GoogleInterface): JSX.Element => {
-  return <img src={GoogleIcon} alt="long arrow" className={className} />;
+  return <img src={GoogleIcon} alt="google" className={className} />;
 };
 
 export default Google;

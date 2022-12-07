@@ -13,7 +13,7 @@ export interface StatusInterface {
     | "PASSED"
     | "NOT-PASSED";
   className?: string;
-  children?: any;
+  children: any;
 }
 
 const Status = ({
@@ -32,6 +32,7 @@ const Status = ({
         ["status_passed"]: type === "PASSED",
         ["status_not-passed"]: type === "NOT-PASSED"
       })}
+      data-testid="status"
     >
       {children}
     </h3>

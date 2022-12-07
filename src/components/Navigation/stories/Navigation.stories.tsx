@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import Navigation from "../Navigation";
+import CommonButton from "src/components/buttons/CommonButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -27,11 +28,15 @@ const navigationLinks = [
     text: "Замовлені",
     to: "/test2"
   },
+  {
+    text: "",
+    to: "/test3",
+    customContent: <CommonButton label="test3" />
+  }
 ];
 
 export const Tabs = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Tabs.args = {
-  title: "Title",
   navLinks: navigationLinks
 };

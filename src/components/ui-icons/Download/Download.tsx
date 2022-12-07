@@ -10,7 +10,7 @@ export interface DownloadInterface {
 }
 
 const Download = ({ className = "" }: DownloadInterface): JSX.Element => {
-  return <img src={DownloadIcon} alt="long arrow" className={className} />;
+  return <img src={DownloadIcon} alt="download" className={className} />;
 };
 
 export default Download;

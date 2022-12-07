@@ -12,7 +12,7 @@ export interface TrashOutlinedInterface {
 const TrashOutlined = ({
   className = ""
 }: TrashOutlinedInterface): JSX.Element => {
-  return <img src={TrashOutlinedIcon} alt="long arrow" className={className} />;
+  return <img src={TrashOutlinedIcon} alt="trash outlined" className={className} />;
 };
 
 export default TrashOutlined;

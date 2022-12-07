@@ -10,7 +10,7 @@ export interface HelpInterface {
 }
 
 const Help = ({ className = "" }: HelpInterface): JSX.Element => {
-  return <img src={HelpIcon} alt="long arrow" className={className} />;
+  return <img src={HelpIcon} alt="help" className={className} />;
 };
 
 export default Help;

@@ -10,7 +10,7 @@ export interface DocumentInterface {
 }
 
 const Document = ({ className = "" }: DocumentInterface): JSX.Element => {
-  return <img src={DocumentIcon} alt="long arrow" className={className} />;
+  return <img src={DocumentIcon} alt="document" className={className} />;
 };
 
 export default Document;

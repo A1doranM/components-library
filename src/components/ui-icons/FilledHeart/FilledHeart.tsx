@@ -10,7 +10,7 @@ export interface FilledHeartInterface {
 }
 
 const FilledHeart = ({ className = "" }: FilledHeartInterface): JSX.Element => {
-  return <img src={FilledHeartIcon} alt="long arrow" className={className} />;
+  return <img src={FilledHeartIcon} alt="filled heart" className={className} />;
 };
 
 export default FilledHeart;

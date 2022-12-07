@@ -10,7 +10,7 @@ export interface SearchInterface {
 }
 
 const Search = ({ className = "" }: SearchInterface): JSX.Element => {
-  return <img src={SearchIcon} alt="long arrow" className={className} />;
+  return <img src={SearchIcon} alt="search" className={className} />;
 };
 
 export default Search;

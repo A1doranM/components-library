@@ -10,7 +10,7 @@ export interface ClockInterface {
 }
 
 const Clock = ({ className = "" }: ClockInterface): JSX.Element => {
-  return <img src={ClockIcon} alt="long arrow" className={className} />;
+  return <img src={ClockIcon} alt="clock" className={className} />;
 };
 
 export default Clock;

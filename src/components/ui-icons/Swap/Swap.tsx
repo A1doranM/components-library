@@ -10,7 +10,7 @@ export interface SwapInterface {
 }
 
 const Swap = ({ className = "" }: SwapInterface): JSX.Element => {
-  return <img src={SwapIcon} alt="long arrow" className={className} />;
+  return <img src={SwapIcon} alt="swap" className={className} />;
 };
 
 export default Swap;

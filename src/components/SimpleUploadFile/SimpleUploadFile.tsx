@@ -13,7 +13,7 @@ export interface SimpleUploadFileInterface {
 const SimpleUploadFile = ({
   className,
   text,
-  uploadedText,
+  uploadedText
 }: SimpleUploadFileInterface): JSX.Element => {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
 
@@ -27,17 +27,18 @@ const SimpleUploadFile = ({
     <div
       {...getRootProps({ className: "dropzone" })}
       className={cn(
-        "load-key-file",
-        files.length && "load-key-file_uploaded",
+        "simple-file-loader",
+        files.length && "simple-file-loader_uploaded",
         className
       )}
     >
-      <h4 className={"load-key-file__title"}>
+      <h4 className={"simple-file-loader__title"}>
         {files.length
           ? `${uploadedText || "Файд ключа:"} ${files[0].props.children[0]}`
-          : text || "Перетягніть сюди файл ключа або оберіть його на своєму носієві"}
+          : text ||
+            "Перетягніть сюди файл ключа або оберіть його на своєму носієві"}
       </h4>
-      <h4 className={"load-key-file__formats"}>
+      <h4 className={"simple-file-loader__formats"}>
         {files.length
           ? "Якщо хочете перезавантажите, натиснить на це поле або перетяніть сюди файл"
           : "Підтримуються формати: .jks, .pfx, .pk8, .zs2, .dat"}

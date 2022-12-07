@@ -10,7 +10,7 @@ export interface AddCircleInterface {
 }
 
 const AddCircle = ({ className = "" }: AddCircleInterface): JSX.Element => {
-  return <img src={AddCircleIcon} alt="long arrow" className={className} />;
+  return <img src={AddCircleIcon} alt="add circle" className={className} />;
 };
 
 export default AddCircle;

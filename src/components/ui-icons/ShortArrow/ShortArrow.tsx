@@ -10,7 +10,7 @@ export interface ShortArrowInterface {
 }
 
 const ShortArrow = ({ className = "" }: ShortArrowInterface): JSX.Element => {
-  return <img src={ShortArrowIcon} alt="long arrow" className={className} />;
+  return <img src={ShortArrowIcon} alt="short arrow" className={className} />;
 };
 
 export default ShortArrow;

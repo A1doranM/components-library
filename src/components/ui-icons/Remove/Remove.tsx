@@ -10,7 +10,7 @@ export interface RemoveInterface {
 }
 
 const Remove = ({ className = "" }: RemoveInterface): JSX.Element => {
-  return <img src={RemoveIcon} alt="long arrow" className={className} />;
+  return <img src={RemoveIcon} alt="remove" className={className} />;
 };
 
 export default Remove;

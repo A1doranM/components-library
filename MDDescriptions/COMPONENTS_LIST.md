@@ -2,8 +2,9 @@
 
 ##  Categories of components
 
-[Inputs](Inputs.md)
-
-[Buttons](Buttons.md)
-
-[Dialogs](Dialogs.md)
+- [Inputs](Inputs.md)
+- [Buttons](Buttons.md)
+- [Dialogs](Dialogs.md)
+- [Progress bars](ProgressBars.md)
+- [Expands](Expands.md)
+- [Navigations](Navigations.md)
