@@ -13,22 +13,12 @@ export interface LinkInterface {
 
 export interface NavigationInterface {
   navLinks: Array<LinkInterface>;
-  title: string;
-  subtitle?: string;
-  titleImg?: any;
-  titleClass?: string;
-  subtitleClass?: string;
-  noLogo?: boolean;
+  className: string;
 }
 
 const Navigation = ({
   navLinks,
-  title,
-  titleClass,
-  subtitle,
-  subtitleClass,
-  titleImg,
-  noLogo
+  className
 }: NavigationInterface): JSX.Element => {
   const linkStyles = (isActive: boolean, additionalStyles?: string) => {
     return cn(
@@ -40,7 +30,7 @@ const Navigation = ({
 
   return (
     <BrowserRouter>
-      <section className={cn("navigation", {})}>
+      <div className={cn("navigation", className)}>
         <nav className={"navigation__tabs-wrapper"} role="navigation">
           <menu className={"navigation__tabs"}>
             {navLinks.map(
@@ -60,7 +50,7 @@ const Navigation = ({
             )}
           </menu>
         </nav>
-      </section>
+      </div>
     </BrowserRouter>
   );
 };

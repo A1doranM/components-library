@@ -1,6 +1,6 @@
 @import "src/styles/index";
 
-.load-key-file {
+.simple-file-loader {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,17 +14,17 @@
   border-radius: 10px;
   cursor: pointer;
 
-  .load-key-file__title {
+  .simple-file-loader__title {
     margin-bottom: 10px;
     font: $font-bold-14;
   }
 
-  .load-key-file__formats {
+  .simple-file-loader__formats {
     font: $font-regular-14;
     color: $color-grey-600;
   }
 
-  .load-key-file__input {
+  .simple-file-loader__input {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,11 +38,11 @@
     padding: 28px 40px;
     background-color: $color-grey-300;
 
-    .load-key-file__upload-formats {
+    .simple-file-loader__upload-formats {
       color: black;
     }
 
-    .load-key-file__upload-title {
+    .simple-file-loader__upload-title {
       margin-bottom: 20px;
       font: $font-bold-14;
     }
@@ -55,17 +55,17 @@
 }
 
 @media (max-width: $media-max-width-md) {
-  .load-key-file {
+  .simple-file-loader {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 20px 16px;
 
-    .load-key-file__title {
+    .simple-file-loader__title {
       margin-bottom: 15px;
       font: $font-bold-12;
     }
 
-    .load-key-file__formats {
+    .simple-file-loader__formats {
       font: $font-regular-12;
     }
   }

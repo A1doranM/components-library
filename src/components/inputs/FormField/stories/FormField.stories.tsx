@@ -38,14 +38,20 @@ const Template: ComponentStory<typeof FormField> = (args) => {
       {({ errors, touched }) => (
         <Form>
           <br />
-          <FormField
-            type={args.type}
-            name="email"
-            placeholder={args.placeholder}
-            noBorders={args.noBorders}
-            errors={errors}
-            touched={touched}
-          />
+          <div
+            style={{
+              width: "250px"
+            }}
+          >
+            <FormField
+              type={args.type}
+              name="email"
+              placeholder={args.placeholder}
+              noBorders={args.noBorders}
+              errors={errors}
+              touched={touched}
+            />
+          </div>
           <br />
           <br />
           <br />

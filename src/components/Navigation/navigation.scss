@@ -3,56 +3,6 @@
 .navigation {
   display: flex;
   flex-direction: column;
-  padding: 0 80px;
-
-  &-official {
-    background: $color-grey-400;
-  }
-
-  .navigation-header {
-    display: flex;
-    padding: 40px 0;
-    align-items: flex-start;
-
-    .navigation-header__image {
-      padding-right: 5px;
-      font: $font-regular-32;
-    }
-
-    .navigation-header_no-img {
-      display: none;
-    }
-
-    .navigation-header__text-wrapper {
-      text-align: start;
-
-      .navigation-header__title {
-        font: $font-regular-32;
-      }
-
-      .navigation-header__subtitle {
-        padding-top: 5px;
-        padding-left: 2px;
-        font: $font-regular-20;
-      }
-    }
-
-    .navigation-header__logo-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      flex: 1;
-      gap: 32px;
-      align-items: flex-end;
-    }
-
-    &_no-logo {
-      width: 60%;
-
-      .navigation-header__logo-wrapper {
-        display: none;
-      }
-    }
-  }
 
   .navigation__tabs-wrapper {
     .navigation__tabs {
@@ -71,23 +21,6 @@
           border-bottom: 2px solid $color-black;
         }
       }
-
-      .navigation__search-tab {
-        display: flex;
-        gap: 15px;
-        align-items: flex-start;
-
-        &:first-child {
-          width: 16px;
-          height: 16px;
-        }
-      }
-
-      .navigation__tab-search {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
     }
   }
 }
@@ -96,44 +29,12 @@
   .navigation {
     padding: 0 16px;
 
-    .navigation__breadcrumbs {
-      display: none;
-    }
-
-    .navigation-header {
-      padding: 30px 0 38px;
-
-      .navigation-header__image {
-        font: $font-regular-32;
-      }
-
-      .navigation-header__text-wrapper {
-        .navigation-header__title {
-          font: $font-regular-20;
-        }
-
-        .navigation-header__subtitle {
-          padding-top: 5px;
-          padding-left: 2px;
-          font: $font-regular-12;
-        }
-      }
-
-      .navigation-header__logo-wrapper {
-        display: none;
-      }
-    }
-
     .navigation__tabs-wrapper {
       max-width: calc(100vw - 32px);
 
       .navigation__tabs {
         .navigation__tab {
           font: $font-regular-12;
-        }
-
-        .navigation__tab-search {
-          gap: 4px;
         }
       }
     }
