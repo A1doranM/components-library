@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import DoubleArrowIcon from "src/assets/images/ui-icons/double-arrow.svg";
+import DoubleArrowIcon from "../../../assets/images/ui-icons/double-arrow.svg";
 
 import "./double-arrow.scss";
 

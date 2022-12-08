@@ -2,7 +2,7 @@ import React, { FocusEvent } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import FormField from "src/components/inputs/FormField";
+import FormField from "components/inputs/FormField";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 

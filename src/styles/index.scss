@@ -1,7 +1,7 @@
-@import "src/styles/fonts";
-@import "src/styles/variables";
+@import "variables";
+@import "fonts";
 
-*, h1, h2, h3, h4, h5, h6, p {
+@mixin common-text-rules {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,20 +11,4 @@
   line-height: 130%;
   font: inherit;
   font-family: e_Ukraine_Regular, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-a {
-  text-decoration: none;
-
-  &:active {
-    color: inherit;
-  }
-
-  &:visited {
-    color: inherit;
-  }
 }

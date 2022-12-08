@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import FacebookIcon from "src/assets/images/ui-icons/facebook.svg";
+import FacebookIcon from "../../../assets/images/ui-icons/facebook.svg";
 
 import "./facebook.scss";
 

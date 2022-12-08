@@ -4,8 +4,8 @@ import cn from "classnames";
 import React, { FocusEvent, useState } from "react";
 import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
 
-import SeePasswordIcon from "src/assets/images/icons/eye.svg";
-import DontSeePasswordIcon from "src/assets/images/icons/eye_main.svg";
+import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
+import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
 
 import "./field.scss";
 

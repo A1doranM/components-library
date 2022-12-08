@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import TrashDefaultIcon from "src/assets/images/ui-icons/trash-default.svg";
+import TrashDefaultIcon from "../../../assets/images/ui-icons/trash-default.svg";
 
 import "./trash-default.scss";
 
@@ -12,7 +12,9 @@ export interface TrashDefaultInterface {
 const TrashDefault = ({
   className = ""
 }: TrashDefaultInterface): JSX.Element => {
-  return <img src={TrashDefaultIcon} alt="trash default" className={className} />;
+  return (
+    <img src={TrashDefaultIcon} alt="trash default" className={className} />
+  );
 };
 
 export default TrashDefault;

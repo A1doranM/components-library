@@ -46,7 +46,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 #### Examples
 
 ```tsx
-import Expand from "src/components/Expand";
+import Expand from "components/Expand";
 
 return (
   <div>

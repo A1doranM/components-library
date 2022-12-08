@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import IdIcon from "src/assets/images/ui-icons/id.svg";
+import IdIcon from "../../../assets/images/ui-icons/id.svg";
 
 import "./id.scss";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import MailIcon from "src/assets/images/ui-icons/mail.svg";
+import MailIcon from "../../../assets/images/ui-icons/mail.svg";
 
 import "./mail.scss";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import AlertIcon from "src/assets/images/ui-icons/alert.svg";
+import AlertIcon from "../../../assets/images/ui-icons/alert.svg";
 
 import "./alert.scss";
 

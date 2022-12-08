@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import SwapIcon from "src/assets/images/ui-icons/swap.svg";
+import SwapIcon from "../../../assets/images/ui-icons/swap.svg";
 
 import "./swap.scss";
 

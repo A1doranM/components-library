@@ -4,6 +4,18 @@
   display: flex;
   flex-direction: column;
 
+  a {
+    text-decoration: none;
+
+    &:active {
+      color: inherit;
+    }
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
   .navigation__tabs-wrapper {
     .navigation__tabs {
       display: flex;

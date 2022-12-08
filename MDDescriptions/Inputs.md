@@ -56,7 +56,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import FormField from "src/components/inputs/FormField";
+import FormField from "components/inputs/FormField";
 
 const onFormSubmit = (values: { email: string, password: string }) => {
   const fields = {
@@ -127,7 +127,7 @@ Without validation
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import FormField from "src/components/inputs/FormField";
+import FormField from "components/inputs/FormField";
 
 const onFormSubmit = (values: { email: string }) => {
   const fields = {
@@ -174,7 +174,7 @@ return (
 #### Examples
 
 ```tsx
-import Select from "src/components/inputs/Select";
+import Select from "components/inputs/Select";
 
 const mockData = [
   { value: "cfr", label: "CFR" },

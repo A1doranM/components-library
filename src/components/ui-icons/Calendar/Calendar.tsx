@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import CalendarIcon from "src/assets/images/ui-icons/calendar.svg";
+import CalendarIcon from "../../../assets/images/ui-icons/calendar.svg";
 
 import "./calendar.scss";
 

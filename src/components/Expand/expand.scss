@@ -2,6 +2,10 @@
 
 .expand {
 
+  h1 {
+    @include common-text-rules;
+  }
+
   &.expand_last {
     border-bottom: 2px solid $color-black;
   }

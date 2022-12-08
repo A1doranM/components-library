@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import HelpIcon from "src/assets/images/ui-icons/help.svg";
+import HelpIcon from "../../../assets/images/ui-icons/help.svg";
 
 import "./help.scss";
 

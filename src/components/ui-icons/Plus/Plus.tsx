@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import PlusIcon from "src/assets/images/ui-icons/plus.svg";
+import PlusIcon from "../../../assets/images/ui-icons/plus.svg";
 
 import "./plus.scss";
 

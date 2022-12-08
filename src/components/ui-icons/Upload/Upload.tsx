@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import UploadIcon from "src/assets/images/ui-icons/upload.svg";
+import UploadIcon from "../../../assets/images/ui-icons/upload.svg";
 
 import "./upload.scss";
 
