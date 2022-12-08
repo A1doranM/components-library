@@ -10,6 +10,10 @@
   background-color: $color-yellow-50;
   font: $font-regular-16;
 
+  h4 {
+    @include common-text-rules;
+  }
+
   .notification-icon {
     margin-right: 10px;
   }

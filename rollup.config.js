@@ -1,15 +1,15 @@
+const peerDepsExternal = require("rollup-plugin-peer-deps-external");
 const resolve = require("@rollup/plugin-node-resolve");
 const commonjs = require("@rollup/plugin-commonjs");
-const typescript = require("@rollup/plugin-typescript");
+const typescript = require("rollup-plugin-typescript2");
 const postcss = require("rollup-plugin-postcss");
-const dts = require("rollup-plugin-dts");
 const image = require("@rollup/plugin-image");
 
 const packageJson = require("./package.json");
 
 module.exports = [
   {
-    input: "./src/index.ts",
+    input: "src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -22,12 +22,23 @@ module.exports = [
         sourcemap: true
       }
     ],
-    plugins: [resolve(), commonjs(), typescript(), postcss(), image()]
-  },
-  {
-    input: "dist/esm/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts.default()],
-    external: [/\.(css|less|scss)$/]
+    plugins: [
+      peerDepsExternal(),
+      resolve({
+        browser: true
+      }),
+      commonjs(),
+      image(),
+      typescript({
+        useTsconfigDeclarationDir: true,
+        exclude: [
+          "**/__tests__",
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/*.stories.tsx"
+        ]
+      }),
+      postcss()
+    ]
   }
 ];

@@ -14,6 +14,10 @@
   border-radius: 10px;
   cursor: pointer;
 
+  h4 {
+    @include common-text-rules;
+  }
+
   .simple-file-loader__title {
     margin-bottom: 10px;
     font: $font-bold-14;
