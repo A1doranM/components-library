@@ -49285,8 +49285,8 @@ var CancelCertificate = function (_a) {
     return (React.createElement("img", { src: img, alt: "cancel certificate", className: className }));
 };
 
+exports.Add = Add;
 exports.AddCircleIcon = AddCircle;
-exports.AddIcon = Add;
 exports.AlertIcon = Alert;
 exports.AnswerButton = AnswerButton;
 exports.BlackEyeIcon = BlackEye;

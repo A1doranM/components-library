@@ -13,7 +13,7 @@ import CircleProgressBar from "./CircleProgressBar";
 import SimpleUploadFile from "./fileLoaders/SimpleUploadFile";
 import VisualUploadFile from "./fileLoaders/VisualUploadFile";
 import idIcon from "./ui-icons/Id";
-import AddIcon from "./ui-icons/Add";
+import Add from "./ui-icons/Add";
 import GrnIcon from "./ui-icons/Grn";
 import CopyIcon from "./ui-icons/Copy";
 import MailIcon from "./ui-icons/Mail";
@@ -73,7 +73,7 @@ export {
   VisualUploadFile,
   CircleProgressBar,
   idIcon,
-  AddIcon,
+  Add,
   GrnIcon,
   HelpIcon,
   CopyIcon,
