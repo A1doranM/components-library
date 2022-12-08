@@ -20,7 +20,7 @@ For example:
 [VERSION] = v0.0.1
 
 ```
-"gov-ua-ui": "git+https://Blayne_mono@bitbucket.org/moohii_com/gov-ua-ui.git#0.0.1"
+"gov-ua-ui": "git+https://Blayne_mono@bitbucket.org/moohii_com/gov-ua-ui.git#v0.0.1"
 ```
 
 It is all. 
