@@ -32,6 +32,6 @@ const navigationLinks = [
 
 describe("Navigation", () => {
   test("Renders the Navigation component", () => {
-    render(<Navigation title="testTitle" navLinks={navigationLinks} />);
+    render(<Navigation navLinks={navigationLinks} />);
   });
 });
