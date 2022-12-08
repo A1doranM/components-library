@@ -9,7 +9,7 @@ const packageJson = require("./package.json");
 
 module.exports = [
   {
-    input: "index.ts",
+    input: "./src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -22,15 +22,7 @@ module.exports = [
         sourcemap: true
       }
     ],
-    plugins: [
-      resolve({
-        extensions: [".js", ".ts", ".tsx"]
-      }),
-      commonjs(),
-      typescript(),
-      postcss(),
-      svg()
-    ]
+    plugins: [resolve(), commonjs(), typescript(), postcss(), svg()]
   },
   {
     input: "dist/esm/index.d.ts",
