@@ -13,7 +13,7 @@ export interface LinkInterface {
 
 export interface NavigationInterface {
   navLinks: Array<LinkInterface>;
-  className: string;
+  className?: string;
 }
 
 const Navigation = ({
