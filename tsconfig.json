@@ -3,7 +3,7 @@
   "exclude": ["dist"],
   "compilerOptions": {
     // Default
-    "baseUrl": "./",
+    "baseUrl": "src",
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "target": "es5",
     "esModuleInterop": true,

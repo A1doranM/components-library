@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import CheckmarkIcon from "src/assets/images/ui-icons/checkmark.svg";
+import CheckmarkIcon from "assets/images/ui-icons/checkmark.svg";
 
 import "./checkmark.scss";
 

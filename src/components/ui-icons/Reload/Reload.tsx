@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import ReloadIcon from "src/assets/images/ui-icons/reload.svg";
+import ReloadIcon from "assets/images/ui-icons/reload.svg";
 
 import "./reload.scss";
 

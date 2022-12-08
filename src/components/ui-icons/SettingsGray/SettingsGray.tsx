@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import SettingsGrayIcon from "src/assets/images/ui-icons/settings-gray.svg";
+import SettingsGrayIcon from "assets/images/ui-icons/settings-gray.svg";
 
 import "./settings-gray.scss";
 

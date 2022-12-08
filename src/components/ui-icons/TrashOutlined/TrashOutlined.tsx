@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import TrashOutlinedIcon from "src/assets/images/ui-icons/trash-outlined.svg";
+import TrashOutlinedIcon from "assets/images/ui-icons/trash-outlined.svg";
 
 import "./trash-outlined.scss";
 

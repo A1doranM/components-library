@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import GoogleIcon from "src/assets/images/ui-icons/google.svg";
+import GoogleIcon from "assets/images/ui-icons/google.svg";
 
 import "./google.scss";
 

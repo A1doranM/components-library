@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import OutlinedHeartIcon from "src/assets/images/ui-icons/outlined-heart.svg";
+import OutlinedHeartIcon from "assets/images/ui-icons/outlined-heart.svg";
 
 import "./outlined-heart.scss";
 

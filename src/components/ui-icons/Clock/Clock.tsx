@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import ClockIcon from "src/assets/images/ui-icons/clock.svg";
+import ClockIcon from "assets/images/ui-icons/clock.svg";
 
 import "./clock.scss";
 

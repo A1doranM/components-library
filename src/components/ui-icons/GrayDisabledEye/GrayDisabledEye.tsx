@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import GrayDisabledEyeIcon from "src/assets/images/ui-icons/gray-disabled-eye.svg";
+import GrayDisabledEyeIcon from "assets/images/ui-icons/gray-disabled-eye.svg";
 
 import "./gray-disabled-eye.scss";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import LongArrowIcon from "src/assets/images/ui-icons/long-arrow.svg";
+import LongArrowIcon from "assets/images/ui-icons/long-arrow.svg";
 
 import "./long-arrow.scss";
 

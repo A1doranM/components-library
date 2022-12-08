@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import CommonButton from "../CommonButton";
-import PlusIcon from "src/assets/images/ui-icons/plus.svg";
+import PlusIcon from "assets/images/ui-icons/plus.svg";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

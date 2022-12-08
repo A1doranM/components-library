@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import GrayEyeIcon from "src/assets/images/ui-icons/gray-eye.svg";
+import GrayEyeIcon from "assets/images/ui-icons/gray-eye.svg";
 
 import "./gray-eye.scss";
 

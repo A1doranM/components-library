@@ -41,7 +41,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 
 #### Examples
 ```tsx
-import CircleProgressBar from "src/components/CircleProgressBar";
+import CircleProgressBar from "components/CircleProgressBar";
 
 return (
   <div>

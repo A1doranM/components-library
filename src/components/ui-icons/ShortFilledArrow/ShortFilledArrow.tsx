@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import ShortFilledArrowIcon from "src/assets/images/ui-icons/short-filled-arrow.svg";
+import ShortFilledArrowIcon from "assets/images/ui-icons/short-filled-arrow.svg";
 
 import "./short-filled-arrow.scss";
 

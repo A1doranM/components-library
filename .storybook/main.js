@@ -16,7 +16,7 @@ module.exports = {
   webpackFinal: async (config) => {
     config.resolve.modules = [
       ...(config.resolve.modules || []),
-      path.resolve("./")
+      path.resolve("src")
     ];
     config.module.rules.push({
       test: /\\.svg$/,

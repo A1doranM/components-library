@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import PrintIcon from "src/assets/images/ui-icons/print.svg";
+import PrintIcon from "assets/images/ui-icons/print.svg";
 
 import "./print.scss";
 

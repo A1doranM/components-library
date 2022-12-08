@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import GrnIcon from "src/assets/images/ui-icons/grn.svg";
+import GrnIcon from "assets/images/ui-icons/grn.svg";
 
 import "./grn.scss";
 

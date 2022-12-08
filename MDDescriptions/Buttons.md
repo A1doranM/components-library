@@ -52,8 +52,8 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 
 #### Examples
 ```tsx
-import CommonButton from "src/components/buttons/CommonButton";
-import PlusIcon from "src/assets/images/ui-icons/plus.svg";
+import CommonButton from "components/buttons/CommonButton";
+import PlusIcon from "assets/images/ui-icons/plus.svg";
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 ...
@@ -113,7 +113,7 @@ return (
 
 #### Examples
 ```tsx
-import AnswerButton from "src/components/buttons/AnswerButton";
+import AnswerButton from "components/buttons/AnswerButton";
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 ...
@@ -169,7 +169,7 @@ return (
 
 #### Examples
 ```tsx
-import RadioButton from "src/components/buttons/RadioButton";
+import RadioButton from "components/buttons/RadioButton";
 
 const handleButtonClick = (e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => {
 ...
@@ -219,7 +219,7 @@ return (
 
 #### Examples
 ```tsx
-import SwitchButton from "src/components/buttons/SwitchButton";
+import SwitchButton from "components/buttons/SwitchButton";
 
 const handleButtonClick = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
 ...

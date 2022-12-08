@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import DocumentIcon from "src/assets/images/ui-icons/document.svg";
+import DocumentIcon from "assets/images/ui-icons/document.svg";
 
 import "./document.scss";
 

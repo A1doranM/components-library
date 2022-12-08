@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import FormField from "src/components/inputs/FormField";
+import FormField from "components/inputs/FormField";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import CancelCertificateIcon from "src/assets/images/ui-icons/cancel-certificate.svg";
+import CancelCertificateIcon from "assets/images/ui-icons/cancel-certificate.svg";
 
 import "./cancel-certificate.scss";
 

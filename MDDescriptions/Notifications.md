@@ -45,7 +45,7 @@ const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
 #### Examples
 
 ```tsx
-import Notification from "src/components/Notification";
+import Notification from "components/Notification";
 
 return (
   <>

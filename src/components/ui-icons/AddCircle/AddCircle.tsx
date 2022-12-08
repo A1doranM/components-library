@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import AddCircleIcon from "src/assets/images/ui-icons/add-circle.svg";
+import AddCircleIcon from "assets/images/ui-icons/add-circle.svg";
 
 import "./add-circle.scss";
 

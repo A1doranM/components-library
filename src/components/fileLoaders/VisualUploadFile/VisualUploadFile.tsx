@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cn from "classnames";
 
-import DownloadIcon from "src/assets/images/icons/download.svg";
+import DownloadIcon from "assets/images/icons/download.svg";
 
 import "./visual-upload-file.scss";
 
@@ -16,7 +16,7 @@ const VisualUploadFile = ({
   backgroundImg,
   className
 }: VisualUploadFileInterface): JSX.Element => {
-  
+
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   return (
