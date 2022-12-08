@@ -48853,5 +48853,5 @@ var Add = function (_a) {
     return React.createElement("img", { src: img, alt: "add", className: className });
 };
 
-export { Add as AddIcon, AnswerButton, CircleProgressBar, CommonButton, Expand, FormField, Navigation, Reminder as Notification, RadioButton, SelectInput as Select, SimpleUploadFile, Status, SwitchButton, Title, VisualUploadFile };
+export { Add, AnswerButton, CircleProgressBar, CommonButton, Expand, FormField, Navigation, Reminder as Notification, RadioButton, SelectInput as Select, SimpleUploadFile, Status, SwitchButton, Title, VisualUploadFile };
 //# sourceMappingURL=index.esm.js.map

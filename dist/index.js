@@ -48855,7 +48855,7 @@ var Add = function (_a) {
     return React.createElement("img", { src: img, alt: "add", className: className });
 };
 
-exports.AddIcon = Add;
+exports.Add = Add;
 exports.AnswerButton = AnswerButton;
 exports.CircleProgressBar = CircleProgressBar;
 exports.CommonButton = CommonButton;

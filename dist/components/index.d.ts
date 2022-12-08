@@ -12,5 +12,5 @@ import SwitchButton from "./buttons/SwitchButton";
 import CircleProgressBar from "./CircleProgressBar";
 import SimpleUploadFile from "./fileLoaders/SimpleUploadFile";
 import VisualUploadFile from "./fileLoaders/VisualUploadFile";
-import AddIcon from './ui-icons/Add';
-export { Title, Expand, Status, Select, AddIcon, Navigation, Notification, FormField, RadioButton, CommonButton, AnswerButton, SwitchButton, CircleProgressBar, SimpleUploadFile, VisualUploadFile };
+import Add from './ui-icons/Add';
+export { Title, Expand, Status, Select, Add, Navigation, Notification, FormField, RadioButton, CommonButton, AnswerButton, SwitchButton, CircleProgressBar, SimpleUploadFile, VisualUploadFile };
