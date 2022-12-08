@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import SwapIcon from "../../../assets/images/ui-icons/swap.svg";
 

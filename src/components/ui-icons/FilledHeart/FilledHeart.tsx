@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import FilledHeartIcon from "../../../assets/images/ui-icons/filled-heart.svg";
 

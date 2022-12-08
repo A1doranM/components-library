@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import ReloadIcon from "../../../assets/images/ui-icons/reload.svg";
 

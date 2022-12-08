@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import AddCircleIcon from "../../../assets/images/ui-icons/add-circle.svg";
 

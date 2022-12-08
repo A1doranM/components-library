@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import OutlinedHeartIcon from "../../../assets/images/ui-icons/outlined-heart.svg";
 
