@@ -1,4 +1,6 @@
-# React Component Library gov-ua-ui. It is !!! MASTER BRANCH DO NOT USE IT !!!
+# React Component Library gov-ua-ui
+
+## Current version: v0.0.1
 
 ## How to install
 
