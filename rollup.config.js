@@ -4,6 +4,7 @@ const commonjs = require("@rollup/plugin-commonjs");
 const typescript = require("rollup-plugin-typescript2");
 const postcss = require("rollup-plugin-postcss");
 const image = require("@rollup/plugin-image");
+const copy = require("rollup-plugin-copy");
 
 const packageJson = require("./package.json");
 
@@ -35,10 +36,19 @@ module.exports = [
           "**/__tests__",
           "**/*.test.ts",
           "**/*.test.tsx",
-          "**/*.stories.tsx"
+          "**/*.stories.tsx",
+          "**/setupTests.ts"
         ]
       }),
-      postcss()
+      postcss(),
+      copy({
+        targets: [
+          {
+            src: "src/assets",
+            dest: "dist"
+          }
+        ]
+      })
     ]
   }
 ];

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import RemoveIcon from "assets/images/ui-icons/remove.svg";
+import RemoveIcon from "../../../assets/images/ui-icons/remove.svg";
 
 import "./remove.scss";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import CloseIcon from "assets/images/ui-icons/close.svg";
+import CloseIcon from "../../../assets/images/ui-icons/close.svg";
 
 import "./close.scss";
 

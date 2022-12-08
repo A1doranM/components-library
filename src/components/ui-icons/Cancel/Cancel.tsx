@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import CancelIcon from "assets/images/ui-icons/cancel.svg";
+import CancelIcon from "../../../assets/images/ui-icons/cancel.svg";
 
 import "./cancel.scss";
 

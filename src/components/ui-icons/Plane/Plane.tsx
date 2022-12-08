@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import PlaneIcon from "assets/images/ui-icons/plane.svg";
+import PlaneIcon from "../../../assets/images/ui-icons/plane.svg";
 
 import "./plane.scss";
 

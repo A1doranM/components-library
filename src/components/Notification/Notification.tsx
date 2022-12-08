@@ -1,8 +1,8 @@
 import React from "react";
 import cn from "classnames";
 
-import CancelIcon from "assets/images/icons/cancel.svg";
-import FingerTopIcon from "assets/images/icons/finger-top.svg";
+import CancelIcon from "../../assets/images/icons/cancel.svg";
+import FingerTopIcon from "../../assets/images/icons/finger-top.svg";
 
 import "./notification.scss";
 

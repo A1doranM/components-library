@@ -1,10 +1,10 @@
 import React from "react";
 import cn from "classnames";
 
-import DoneIcon from "assets/images/icons/done.svg";
-import CancelIcon from "assets/images/icons/cancel.svg";
-import DoneOnHoldIcon from "assets/images/icons/done-white.svg";
-import CancelOnHoldIcon from "assets/images/icons/cancel-white.svg";
+import DoneIcon from "../../../assets/images/icons/done.svg";
+import CancelIcon from "../../../assets/images/icons/cancel.svg";
+import DoneOnHoldIcon from "../../../assets/images/icons/done-white.svg";
+import CancelOnHoldIcon from "../../../assets/images/icons/cancel-white.svg";
 
 import "./correct-button.scss";
 

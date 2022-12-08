@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cn from "classnames";
 
-import DownloadIcon from "assets/images/icons/download.svg";
+import DownloadIcon from "../../../assets/images/icons/download.svg";
 
 import "./visual-upload-file.scss";
 
@@ -16,7 +16,6 @@ const VisualUploadFile = ({
   backgroundImg,
   className
 }: VisualUploadFileInterface): JSX.Element => {
-
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   return (
@@ -47,7 +46,7 @@ const VisualUploadFile = ({
       />
       {!selectedImage && (
         <div className={"load-file__content-wrapper"}>
-          <img src={DownloadIcon} alt="download" className={"load-file__img"}/>
+          <img src={DownloadIcon} alt="download" className={"load-file__img"} />
           <label htmlFor="load-file" className={"load-file__label"}>
             {title}
           </label>
