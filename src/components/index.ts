@@ -12,14 +12,14 @@ import SwitchButton from "./buttons/SwitchButton";
 import CircleProgressBar from "./CircleProgressBar";
 import SimpleUploadFile from "./fileLoaders/SimpleUploadFile";
 import VisualUploadFile from "./fileLoaders/VisualUploadFile";
-import Add from './ui-icons/Add';
+import AddIcon from './ui-icons/Add';
 
 export {
   Title,
   Expand,
   Status,
   Select,
-  Add,
+  AddIcon,
   Navigation,
   Notification,
   FormField,
