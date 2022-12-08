@@ -1,6 +1,6 @@
 import cn from "classnames";
 import React from "react";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./navigation.scss";
 
