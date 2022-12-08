@@ -40951,81 +40951,6 @@ var Action;
 
   Action["Replace"] = "REPLACE";
 })(Action || (Action = {}));
-
-const PopStateEventType = "popstate";
-/**
- * Browser history stores the location in regular URLs. This is the standard for
- * most web apps, but it requires some configuration on the server to ensure you
- * serve the same app at multiple URLs.
- *
- * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createbrowserhistory
- */
-
-function createBrowserHistory(options) {
-  if (options === void 0) {
-    options = {};
-  }
-
-  function createBrowserLocation(window, globalHistory) {
-    let {
-      pathname,
-      search,
-      hash
-    } = window.location;
-    return createLocation("", {
-      pathname,
-      search,
-      hash
-    }, // state defaults to `null` because `window.history.state` does
-    globalHistory.state && globalHistory.state.usr || null, globalHistory.state && globalHistory.state.key || "default");
-  }
-
-  function createBrowserHref(window, to) {
-    return typeof to === "string" ? to : createPath(to);
-  }
-
-  return getUrlBasedHistory(createBrowserLocation, createBrowserHref, null, options);
-}
-
-function createKey() {
-  return Math.random().toString(36).substr(2, 8);
-}
-/**
- * For browser-based histories, we combine the state and key into an object
- */
-
-
-function getHistoryState(location) {
-  return {
-    usr: location.state,
-    key: location.key
-  };
-}
-/**
- * Creates a Location object with a unique key from the given Path
- */
-
-
-function createLocation(current, to, state, key) {
-  if (state === void 0) {
-    state = null;
-  }
-
-  let location = _extends$2({
-    pathname: typeof current === "string" ? current : current.pathname,
-    search: "",
-    hash: ""
-  }, typeof to === "string" ? parsePath(to) : to, {
-    state,
-    // TODO: This could be cleaned up.  push/replace should probably just take
-    // full Locations now and avoid the need to run through this flow at all
-    // But that's a pretty big refactor to the current test suite so going to
-    // keep as is for the time being and just let any incoming keys take precedence
-    key: to && to.key || key || createKey()
-  });
-
-  return location;
-}
 /**
  * Creates a string URL path from the given pathname, search, and hash components.
  */
@@ -41069,124 +40994,6 @@ function parsePath(path) {
 
   return parsedPath;
 }
-function createURL(location) {
-  // window.location.origin is "null" (the literal string value) in Firefox
-  // under certain conditions, notably when serving from a local HTML file
-  // See https://bugzilla.mozilla.org/show_bug.cgi?id=878297
-  let base = typeof window !== "undefined" && typeof window.location !== "undefined" && window.location.origin !== "null" ? window.location.origin : "unknown://unknown";
-  let href = typeof location === "string" ? location : createPath(location);
-  return new URL(href, base);
-}
-
-function getUrlBasedHistory(getLocation, createHref, validateLocation, options) {
-  if (options === void 0) {
-    options = {};
-  }
-
-  let {
-    window = document.defaultView,
-    v5Compat = false
-  } = options;
-  let globalHistory = window.history;
-  let action = Action.Pop;
-  let listener = null;
-
-  function handlePop() {
-    action = Action.Pop;
-
-    if (listener) {
-      listener({
-        action,
-        location: history.location
-      });
-    }
-  }
-
-  function push(to, state) {
-    action = Action.Push;
-    let location = createLocation(history.location, to, state);
-    if (validateLocation) validateLocation(location, to);
-    let historyState = getHistoryState(location);
-    let url = history.createHref(location); // try...catch because iOS limits us to 100 pushState calls :/
-
-    try {
-      globalHistory.pushState(historyState, "", url);
-    } catch (error) {
-      // They are going to lose state here, but there is no real
-      // way to warn them about it since the page will refresh...
-      window.location.assign(url);
-    }
-
-    if (v5Compat && listener) {
-      listener({
-        action,
-        location: history.location
-      });
-    }
-  }
-
-  function replace(to, state) {
-    action = Action.Replace;
-    let location = createLocation(history.location, to, state);
-    if (validateLocation) validateLocation(location, to);
-    let historyState = getHistoryState(location);
-    let url = history.createHref(location);
-    globalHistory.replaceState(historyState, "", url);
-
-    if (v5Compat && listener) {
-      listener({
-        action,
-        location: history.location
-      });
-    }
-  }
-
-  let history = {
-    get action() {
-      return action;
-    },
-
-    get location() {
-      return getLocation(window, globalHistory);
-    },
-
-    listen(fn) {
-      if (listener) {
-        throw new Error("A history only accepts one active listener");
-      }
-
-      window.addEventListener(PopStateEventType, handlePop);
-      listener = fn;
-      return () => {
-        window.removeEventListener(PopStateEventType, handlePop);
-        listener = null;
-      };
-    },
-
-    createHref(to) {
-      return createHref(window, to);
-    },
-
-    encodeLocation(location) {
-      // Encode a Location the same way window.location would
-      let url = createURL(createPath(location));
-      return _extends$2({}, location, {
-        pathname: url.pathname,
-        search: url.search,
-        hash: url.hash
-      });
-    },
-
-    push,
-    replace,
-
-    go(n) {
-      return globalHistory.go(n);
-    }
-
-  };
-  return history;
-} //#endregion
 
 var ResultType;
 
@@ -41196,30 +41003,6 @@ var ResultType;
   ResultType["redirect"] = "redirect";
   ResultType["error"] = "error";
 })(ResultType || (ResultType = {}));
-/**
- * @private
- */
-
-
-function stripBasename(pathname, basename) {
-  if (basename === "/") return pathname;
-
-  if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
-    return null;
-  } // We want to leave trailing slash behavior in the user's control, so if they
-  // specify a basename with a trailing slash, we should support it
-
-
-  let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
-  let nextChar = pathname.charAt(startIndex);
-
-  if (nextChar && nextChar !== "/") {
-    // pathname does not start with basename/
-    return null;
-  }
-
-  return pathname.slice(startIndex) || "/";
-}
 function invariant(value, message) {
   if (value === false || value === null || typeof value === "undefined") {
     throw new Error(message);
@@ -41800,77 +41583,6 @@ var DataRouterStateHook$1;
   DataRouterStateHook["UseMatches"] = "useMatches";
   DataRouterStateHook["UseRevalidator"] = "useRevalidator";
 })(DataRouterStateHook$1 || (DataRouterStateHook$1 = {}));
-
-/**
- * Provides location context for the rest of the app.
- *
- * Note: You usually won't render a <Router> directly. Instead, you'll render a
- * router that is more specific to your environment such as a <BrowserRouter>
- * in web browsers or a <StaticRouter> for server rendering.
- *
- * @see https://reactrouter.com/docs/en/v6/routers/router
- */
-function Router(_ref4) {
-  let {
-    basename: basenameProp = "/",
-    children = null,
-    location: locationProp,
-    navigationType = Action.Pop,
-    navigator,
-    static: staticProp = false
-  } = _ref4;
-  !!useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, "You cannot render a <Router> inside another <Router>." + " You should never have more than one in your app.") : invariant(false) : void 0; // Preserve trailing slashes on basename, so we can let the user control
-  // the enforcement of trailing slashes throughout the app
-
-  let basename = basenameProp.replace(/^\/*/, "/");
-  let navigationContext = react.exports.useMemo(() => ({
-    basename,
-    navigator,
-    static: staticProp
-  }), [basename, navigator, staticProp]);
-
-  if (typeof locationProp === "string") {
-    locationProp = parsePath(locationProp);
-  }
-
-  let {
-    pathname = "/",
-    search = "",
-    hash = "",
-    state = null,
-    key = "default"
-  } = locationProp;
-  let location = react.exports.useMemo(() => {
-    let trailingPathname = stripBasename(pathname, basename);
-
-    if (trailingPathname == null) {
-      return null;
-    }
-
-    return {
-      pathname: trailingPathname,
-      search,
-      hash,
-      state,
-      key
-    };
-  }, [basename, pathname, search, hash, state, key]);
-  process.env.NODE_ENV !== "production" ? warning$1(location != null, "<Router basename=\"" + basename + "\"> is not able to match the URL " + ("\"" + pathname + search + hash + "\" because it does not start with the ") + "basename, so the <Router> won't render anything.") : void 0;
-
-  if (location == null) {
-    return null;
-  }
-
-  return /*#__PURE__*/react.exports.createElement(NavigationContext.Provider, {
-    value: navigationContext
-  }, /*#__PURE__*/react.exports.createElement(LocationContext.Provider, {
-    children: children,
-    value: {
-      location,
-      navigationType
-    }
-  }));
-}
 var AwaitRenderStatus;
 
 (function (AwaitRenderStatus) {
@@ -42022,39 +41734,6 @@ function getFormSubmissionInfo(target, defaultAction, options) {
 const _excluded$1 = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"],
       _excluded2$1 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "children"],
       _excluded3$1 = ["reloadDocument", "replace", "method", "action", "onSubmit", "fetcherKey", "routeId", "relative"];
-/**
- * A `<Router>` for use in web browsers. Provides the cleanest URLs.
- */
-
-function BrowserRouter(_ref) {
-  let {
-    basename,
-    children,
-    window
-  } = _ref;
-  let historyRef = react.exports.useRef();
-
-  if (historyRef.current == null) {
-    historyRef.current = createBrowserHistory({
-      window,
-      v5Compat: true
-    });
-  }
-
-  let history = historyRef.current;
-  let [state, setState] = react.exports.useState({
-    action: history.action,
-    location: history.location
-  });
-  react.exports.useLayoutEffect(() => history.listen(setState), [history]);
-  return /*#__PURE__*/react.exports.createElement(Router, {
-    basename: basename,
-    children: children,
-    location: state.location,
-    navigationType: state.action,
-    navigator: history
-  });
-}
 
 if (process.env.NODE_ENV !== "production") ;
 /**
@@ -42406,16 +42085,15 @@ var Navigation = function (_a) {
         var _a;
         return cn("navigation__tab", (_a = {}, _a["navigation__tab_active"] = isActive, _a), additionalStyles);
     };
-    return (React.createElement(BrowserRouter, null,
-        React.createElement("div", { className: cn("navigation", className) },
-            React.createElement("nav", { className: "navigation__tabs-wrapper", role: "navigation" },
-                React.createElement("menu", { className: "navigation__tabs" }, navLinks.map(function (_a) {
-                    var to = _a.to, text = _a.text, customContent = _a.customContent, customStyles = _a.customStyles;
-                    return (React.createElement(NavLink, { to: to, key: to, className: function (_a) {
-                            var isActive = _a.isActive;
-                            return linkStyles(isActive, customStyles);
-                        } }, customContent || text));
-                }))))));
+    return (React.createElement("div", { className: cn("navigation", className) },
+        React.createElement("nav", { className: "navigation__tabs-wrapper", role: "navigation" },
+            React.createElement("menu", { className: "navigation__tabs" }, navLinks.map(function (_a) {
+                var to = _a.to, text = _a.text, customContent = _a.customContent, customStyles = _a.customStyles;
+                return (React.createElement(NavLink, { to: to, key: to, className: function (_a) {
+                        var isActive = _a.isActive;
+                        return linkStyles(isActive, customStyles);
+                    } }, customContent || text));
+            })))));
 };
 
 var img$P = "data:image/svg+xml,%3csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cg clip-path='url(%23clip0_3953_936)'%3e %3cline x1='19.3638' y1='6.63679' x2='6.63592' y2='19.3647' stroke='black' stroke-width='2'/%3e %3cline x1='6.63582' y1='6.63664' x2='19.3637' y2='19.3646' stroke='black' stroke-width='2'/%3e %3c/g%3e %3cdefs%3e %3cclipPath id='clip0_3953_936'%3e %3crect width='18' height='18' fill='white' transform='translate(13 0.272461) rotate(45)'/%3e %3c/clipPath%3e %3c/defs%3e%3c/svg%3e";
