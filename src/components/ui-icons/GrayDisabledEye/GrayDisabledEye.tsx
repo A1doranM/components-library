@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import GrayDisabledEyeIcon from "../../../assets/images/ui-icons/gray-disabled-eye.svg";
 

@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import TrashDefaultIcon from "../../../assets/images/ui-icons/trash-default.svg";
 

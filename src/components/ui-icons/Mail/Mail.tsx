@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import MailIcon from "../../../assets/images/ui-icons/mail.svg";
 

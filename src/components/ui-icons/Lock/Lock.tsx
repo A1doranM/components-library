@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import LockIcon from "../../../assets/images/ui-icons/lock.svg";
 

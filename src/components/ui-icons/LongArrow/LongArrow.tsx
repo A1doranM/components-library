@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import LongArrowIcon from "../../../assets/images/ui-icons/long-arrow.svg";
 

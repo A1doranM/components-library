@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import CalendarIcon from "../../../assets/images/ui-icons/calendar.svg";
 

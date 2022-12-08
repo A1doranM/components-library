@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import HelpIcon from "../../../assets/images/ui-icons/help.svg";
 

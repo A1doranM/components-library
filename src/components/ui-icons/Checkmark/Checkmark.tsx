@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import CheckmarkIcon from "../../../assets/images/ui-icons/checkmark.svg";
 

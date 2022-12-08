@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import SettingsBlackIcon from "../../../assets/images/ui-icons/settings-black.svg";
 

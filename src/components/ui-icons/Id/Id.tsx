@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import IdIcon from "../../../assets/images/ui-icons/id.svg";
 

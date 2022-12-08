@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import CancelCertificateIcon from "../../../assets/images/ui-icons/cancel-certificate.svg";
 

@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import PencilIcon from "../../../assets/images/ui-icons/pencil.svg";
 
