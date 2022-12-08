@@ -3,7 +3,7 @@ const commonjs = require("@rollup/plugin-commonjs");
 const typescript = require("@rollup/plugin-typescript");
 const postcss = require("rollup-plugin-postcss");
 const dts = require("rollup-plugin-dts");
-const svg = require("rollup-plugin-svg");
+const image = require("@rollup/plugin-image");
 
 const packageJson = require("./package.json");
 
@@ -22,7 +22,7 @@ module.exports = [
         sourcemap: true
       }
     ],
-    plugins: [resolve(), commonjs(), typescript(), postcss(), svg()]
+    plugins: [resolve(), commonjs(), typescript(), postcss(), image()]
   },
   {
     input: "dist/esm/index.d.ts",
