@@ -31,7 +31,7 @@ For example:
 
 ## Available components
 
-[COMPONENTS_LIST.md](MDDescriptions/COMPONENTS_LIST.md)
+http://gov-ua-ui.moohii.com
 
 ## How to add new components
 
