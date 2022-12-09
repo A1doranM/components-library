@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import ClockIcon from "../../../assets/images/ui-icons/clock.svg";
 

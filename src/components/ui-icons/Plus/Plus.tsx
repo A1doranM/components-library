@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import PlusIcon from "../../../assets/images/ui-icons/plus.svg";
 

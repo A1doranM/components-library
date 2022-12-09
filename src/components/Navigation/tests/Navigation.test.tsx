@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import Navigation from "../Navigation";
+import { BrowserRouter } from "react-router-dom";
 
 const navigationLinks = [
   {
@@ -32,6 +33,10 @@ const navigationLinks = [
 
 describe("Navigation", () => {
   test("Renders the Navigation component", () => {
-    render(<Navigation navLinks={navigationLinks} />);
+    render(
+      <BrowserRouter>
+        <Navigation navLinks={navigationLinks} />
+      </BrowserRouter>
+    );
   });
 });

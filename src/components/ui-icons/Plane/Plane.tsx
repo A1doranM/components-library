@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import PlaneIcon from "../../../assets/images/ui-icons/plane.svg";
 

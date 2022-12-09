@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import CopyIcon from "../../../assets/images/ui-icons/copy.svg";
 

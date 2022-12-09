@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import FacebookIcon from "../../../assets/images/ui-icons/facebook.svg";
 

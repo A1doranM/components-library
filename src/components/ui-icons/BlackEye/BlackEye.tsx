@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 
 import BlackEyeIcon from "../../../assets/images/ui-icons/black-eye.svg";
 
