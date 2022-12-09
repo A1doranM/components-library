@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Copy from "../Copy";
 
 export default {
-  title: "ReactComponentLibrary/Copy",
+  title: "GOV-UA-UI/Icons/Copy",
   component: Copy
 } as ComponentMeta<typeof Copy>;
 

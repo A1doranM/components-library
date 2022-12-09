@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Cancel from "../Cancel";
 
 export default {
-  title: "ReactComponentLibrary/Cancel",
+  title: "GOV-UA-UI/Icons/Cancel",
   component: Cancel
 } as ComponentMeta<typeof Cancel>;
 

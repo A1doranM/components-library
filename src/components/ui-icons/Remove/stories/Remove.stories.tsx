@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Remove from "../Remove";
 
 export default {
-  title: "ReactComponentLibrary/Remove",
+  title: "GOV-UA-UI/Icons/Remove",
   component: Remove
 } as ComponentMeta<typeof Remove>;
 

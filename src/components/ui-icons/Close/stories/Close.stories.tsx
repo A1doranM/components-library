@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Close from "../Close";
 
 export default {
-  title: "ReactComponentLibrary/CanceClosel",
+  title: "GOV-UA-UI/Icons/CanceClosel",
   component: Close
 } as ComponentMeta<typeof Close>;
 

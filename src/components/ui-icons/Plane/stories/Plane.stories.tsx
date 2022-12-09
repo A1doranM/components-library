@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Plane from "../Plane";
 
 export default {
-  title: "ReactComponentLibrary/Plane",
+  title: "GOV-UA-UI/Icons/Plane",
   component: Plane
 } as ComponentMeta<typeof Plane>;
 

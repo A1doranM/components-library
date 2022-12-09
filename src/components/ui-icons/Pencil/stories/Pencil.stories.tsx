@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Pencil from "../Pencil";
 
 export default {
-  title: "ReactComponentLibrary/Pencil",
+  title: "GOV-UA-UI/Icons/Pencil",
   component: Pencil
 } as ComponentMeta<typeof Pencil>;
 

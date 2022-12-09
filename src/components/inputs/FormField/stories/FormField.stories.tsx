@@ -9,7 +9,7 @@ import FormField from "components/inputs/FormField";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/FormField",
+  title: "GOV-UA-UI/Inputs/FormField",
   component: FormField
 } as ComponentMeta<typeof FormField>;
 

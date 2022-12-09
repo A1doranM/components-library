@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Enter from "../Enter";
 
 export default {
-  title: "ReactComponentLibrary/Enter",
+  title: "GOV-UA-UI/Icons/Enter",
   component: Enter
 } as ComponentMeta<typeof Enter>;
 

@@ -2,7 +2,7 @@
 
 .expand {
 
-  h1 {
+  h1, p {
     @include common-text-rules;
   }
 

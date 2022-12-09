@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Plus from "../Plus";
 
 export default {
-  title: "ReactComponentLibrary/Plus",
+  title: "GOV-UA-UI/Icons/Plus",
   component: Plus
 } as ComponentMeta<typeof Plus>;
 

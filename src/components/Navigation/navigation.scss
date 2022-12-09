@@ -5,6 +5,7 @@
   flex-direction: column;
 
   a {
+    @include common-text-rules;
     text-decoration: none;
 
     &:active {

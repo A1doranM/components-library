@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Alert from "../Alert";
 
 export default {
-  title: "ReactComponentLibrary/Alert",
+  title: "GOV-UA-UI/Icons/Alert",
   component: Alert
 } as ComponentMeta<typeof Alert>;
 

@@ -4,10 +4,12 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import OutlinedHeart from "../OutlinedHeart";
 
 export default {
-  title: "ReactComponentLibrary/OutlinedHeart",
+  title: "GOV-UA-UI/Icons/OutlinedHeart",
   component: OutlinedHeart
 } as ComponentMeta<typeof OutlinedHeart>;
 
-const Template: ComponentStory<typeof OutlinedHeart> = (args) => <OutlinedHeart {...args} />;
+const Template: ComponentStory<typeof OutlinedHeart> = (args) => (
+  <OutlinedHeart {...args} />
+);
 
 export const Icon = Template.bind({});

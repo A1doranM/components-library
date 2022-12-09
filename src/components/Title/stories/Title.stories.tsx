@@ -5,7 +5,7 @@ import Title from "../Title";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/Title",
+  title: "GOV-UA-UI/Titles/Title",
   component: Title
 } as ComponentMeta<typeof Title>;
 
@@ -24,4 +24,3 @@ Size.args = {
   size: 16,
   children: "відмовлено"
 };
-

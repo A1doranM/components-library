@@ -7,6 +7,10 @@
   align-items: center;
   cursor: pointer;
 
+  p {
+    @include common-text-rules;
+  }
+
   .radio-btn__input {
     position: absolute;
     left: 0;

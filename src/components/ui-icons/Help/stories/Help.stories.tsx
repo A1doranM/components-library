@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Help from "../Help";
 
 export default {
-  title: "ReactComponentLibrary/Help",
+  title: "GOV-UA-UI/Icons/Help",
   component: Help
 } as ComponentMeta<typeof Help>;
 

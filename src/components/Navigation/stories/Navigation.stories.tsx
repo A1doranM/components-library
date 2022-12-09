@@ -7,7 +7,7 @@ import CommonButton from "components/buttons/CommonButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/Navigation",
+  title: "GOV-UA-UI/Navigations/Navigation",
   component: Navigation
 } as ComponentMeta<typeof Navigation>;
 

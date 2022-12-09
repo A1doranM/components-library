@@ -6,7 +6,7 @@ import PlusIcon from "../../../../assets/images/ui-icons/plus.svg";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/CommonButton",
+  title: "GOV-UA-UI/Buttons/CommonButton",
   component: CommonButton
 } as ComponentMeta<typeof CommonButton>;
 

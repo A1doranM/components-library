@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Upload from "../Upload";
 
 export default {
-  title: "ReactComponentLibrary/Upload",
+  title: "GOV-UA-UI/Icons/Upload",
   component: Upload
 } as ComponentMeta<typeof Upload>;
 

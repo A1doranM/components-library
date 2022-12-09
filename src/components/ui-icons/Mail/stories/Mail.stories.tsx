@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Mail from "../Mail";
 
 export default {
-  title: "ReactComponentLibrary/Mail",
+  title: "GOV-UA-UI/Icons/Mail",
   component: Mail
 } as ComponentMeta<typeof Mail>;
 
