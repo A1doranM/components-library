@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import Navigation from "../Navigation";

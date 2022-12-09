@@ -23,7 +23,11 @@ For example:
 "gov-ua-ui": "git+https://Blayne_mono@bitbucket.org/moohii_com/gov-ua-ui.git#v0.0.1"
 ```
 
-It is all. 
+### Code tested on this versions:
+
+##### Node version: 18
+
+##### React version: 18 
 
 ## Available components
 
