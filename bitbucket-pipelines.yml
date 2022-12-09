@@ -1,0 +1,22 @@
+image: alpine:3.16
+
+pipelines:
+  branches:
+    v0.0.1:
+      - step:
+          deployment: staging
+          caches:
+            - node
+          script:
+            - apk add openssh rsync nodejs npm
+            - npm install
+            - npm test
+            - npm run build-storybook
+            # check if variable $SSH_PATH is set and not root folder.
+            - >
+              if [ -z ${SSH_PATH+x} ] || [ $SSH_PATH == '/' ] ; then
+                echo "Variable SSH_PATH is empty or the root!";
+              else
+                echo "Path for sync build from repository on server: '$SSH_PATH'"
+                rsync -rzv --delete storybook-static/. $SSH_USER@$SSH_HOST:$SSH_PATH
+              fi

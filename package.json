@@ -10,7 +10,7 @@
   "description": "React Component Library for UA gov projects",
   "scripts": {
     "rollup": "rollup -c",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "storybook": "start-storybook -p 6006",
     "generate": "node ./util/create-component",
     "build-storybook": "build-storybook"
