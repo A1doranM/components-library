@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Swap from "../Swap";
 
 export default {
-  title: "ReactComponentLibrary/Swap",
+  title: "GOV-UA-UI/Icons/Swap",
   component: Swap
 } as ComponentMeta<typeof Swap>;
 

@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Expand from "../Expand";
 
 export default {
-  title: "ReactComponentLibrary/Expand",
+  title: "GOV-UA-UI/Dropdowns/Expand",
   component: Expand
 } as ComponentMeta<typeof Expand>;
 

@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Id from "../Id";
 
 export default {
-  title: "ReactComponentLibrary/Id",
+  title: "GOV-UA-UI/Icons/Id",
   component: Id
 } as ComponentMeta<typeof Id>;
 

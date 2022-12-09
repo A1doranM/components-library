@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Search from "../Search";
 
 export default {
-  title: "ReactComponentLibrary/Search",
+  title: "GOV-UA-UI/Icons/Search",
   component: Search
 } as ComponentMeta<typeof Search>;
 

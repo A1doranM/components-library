@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Google from "../Google";
 
 export default {
-  title: "ReactComponentLibrary/Google",
+  title: "GOV-UA-UI/Icons/Google",
   component: Google
 } as ComponentMeta<typeof Google>;
 

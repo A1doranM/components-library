@@ -5,7 +5,7 @@ import AnswerButton from "../AnswerButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/AnswerButton",
+  title: "GOV-UA-UI/Buttons/AnswerButton",
   component: AnswerButton
 } as ComponentMeta<typeof AnswerButton>;
 

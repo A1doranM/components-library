@@ -5,7 +5,7 @@ import Status from "../Status";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/Status",
+  title: "GOV-UA-UI/StatusIndicators/Status",
   component: Status
 } as ComponentMeta<typeof Status>;
 

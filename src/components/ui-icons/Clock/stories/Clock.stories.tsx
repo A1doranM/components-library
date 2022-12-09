@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Clock from "../Clock";
 
 export default {
-  title: "ReactComponentLibrary/Clock",
+  title: "GOV-UA-UI/Icons/Clock",
   component: Clock
 } as ComponentMeta<typeof Clock>;
 

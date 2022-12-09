@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Grn from "../Grn";
 
 export default {
-  title: "ReactComponentLibrary/Grn",
+  title: "GOV-UA-UI/Icons/Grn",
   component: Grn
 } as ComponentMeta<typeof Grn>;
 

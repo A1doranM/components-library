@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Person from "../Person";
 
 export default {
-  title: "ReactComponentLibrary/Person",
+  title: "GOV-UA-UI/Icons/Person",
   component: Person
 } as ComponentMeta<typeof Person>;
 

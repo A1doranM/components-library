@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Reload from "../Reload";
 
 export default {
-  title: "ReactComponentLibrary/Reload",
+  title: "GOV-UA-UI/Icons/Reload",
   component: Reload
 } as ComponentMeta<typeof Reload>;
 

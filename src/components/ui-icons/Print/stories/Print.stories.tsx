@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Print from "../Print";
 
 export default {
-  title: "ReactComponentLibrary/Print",
+  title: "GOV-UA-UI/Icons/Print",
   component: Print
 } as ComponentMeta<typeof Print>;
 

@@ -5,7 +5,7 @@ import Select from "../Select";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "ReactComponentLibrary/Select",
+  title: "GOV-UA-UI/Inputs/Select",
   component: Select
 } as ComponentMeta<typeof Select>;
 
@@ -21,7 +21,7 @@ const standardMock = [
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  options: standardMock,
+  options: standardMock
 };
 
 export const Secondary = Template.bind({});

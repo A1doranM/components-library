@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import VisualUploadFile from "../VisualUploadFile";
 
 export default {
-  title: "ReactComponentLibrary/VisualUploadFile",
+  title: "GOV-UA-UI/FileLoaders/VisualUploadFile",
   component: VisualUploadFile
 } as ComponentMeta<typeof VisualUploadFile>;
 
