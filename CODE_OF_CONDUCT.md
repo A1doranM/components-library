@@ -31,14 +31,12 @@ Add JIRA issue link to description
 
 3. Create PR and merge to develop
 
-If *small changes* assign 1+ UI developers and send to QA.
-After 1+ approvals and QA allowance - merge
+If *small changes* assign 1+ UI developers and send to QA. After 1+ approvals and QA allowance - merge
 
-If *regular changes* assign 1+ UI developers and after 1+ approvals send to QA.
-After QA allowance - merge
+If *regular changes* assign 1+ UI developers and after 1+ approvals send to QA. After QA allowance - merge
 
-If *architectural changes* assign all UI developers.
-Write your motivation in UI chat and after majority approvals send to QA.
+If *architectural changes* assign all UI developers. Write your motivation in UI chat and after majority approvals send
+to QA.
 
 If *urgent fix* send straight to QA and then merge
 
@@ -65,42 +63,11 @@ If *urgent fix* send straight to QA and then merge
 
 1. Create component folder in src/components.
 2. Create folders for stories and tests.
-3. Write tests for future component.
-4. Create component regarding rules Code style Rules above.
+3. Create component regard to Code style Rules below.
+4. Write tests for behaviour of you component.
 5. Configure storybook for it.
 6. Test new component.
-7. Run ```rollup -c``` for build you library.
-8. Add instruction for new component to special README.md file regarding this component category.
-
-For example:
-You have created an input component. Find in [COMPONENTS_LIST.md](./MDDescriptions/COMPONENTS_LIST.md) the md file with
-the most appropriate category for your component and add your component to that category following the instructions.
-
-For you component in MD file you should provide:
-
-## [COMPONENT_NAME]
-
-### [Component props]
-
-- **prop1**: string - some string value
-- **prop2**: boolean - some boolean value
-- **prop3**: (e: ChangeEvent<HTMLInputElement>) => void - some change event handler
-
-### [Component examples]
-
-```js
-import { Component } from "gov-ua-ui";
-
-const handelChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
- ...
-}
-
-<Component
-  prop1="es"
-  prop2={false}
-  prop3={handelChangeEvent}
-/>
-```
+7. Run ```rollup -c``` to rebuild library and push it to git.
 
 # Code Style Rules
 
