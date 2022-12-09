@@ -8,7 +8,9 @@ pipelines:
           caches:
             - node
           script:
-            - apk add openssh rsync
+            - apk add openssh rsync nodejs npm
+            - nodejs -v
+            - npm -v
             - npm install
             - npm test
             # check if variable $SSH_PATH is set and not root folder.
