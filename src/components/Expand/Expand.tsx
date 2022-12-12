@@ -13,6 +13,7 @@ export interface ExpandInterface {
   isLast?: boolean;
   titleClassName?: string;
   isStatic?: boolean;
+  className: string;
 }
 
 const Expand = ({
@@ -21,7 +22,8 @@ const Expand = ({
   open = false,
   isLast = false,
   titleClassName,
-  isStatic = false
+  isStatic = false,
+  className
 }: ExpandInterface): JSX.Element => {
   const [isOpen, setOpen] = useState(open);
 
@@ -31,9 +33,13 @@ const Expand = ({
 
   return (
     <section
-      className={cn("expand", {
-        ["expand_last"]: isLast
-      })}
+      className={cn(
+        "expand",
+        {
+          ["expand_last"]: isLast
+        },
+        className
+      )}
     >
       <h2
         className={cn(
@@ -47,7 +53,6 @@ const Expand = ({
         onClick={handleToggle}
       >
         {title}
-        {/* <img src={BlackPlusIcon} alt="plus" className="expand_header-icon"/> */}
       </h2>
       <div
         className={cn("expand__content", {
