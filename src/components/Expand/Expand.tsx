@@ -13,7 +13,7 @@ export interface ExpandInterface {
   isLast?: boolean;
   titleClassName?: string;
   isStatic?: boolean;
-  className: string;
+  className?: string;
 }
 
 const Expand = ({
