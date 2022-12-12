@@ -5,6 +5,7 @@ export interface ExpandInterface {
     open?: boolean;
     isLast?: boolean;
     titleClassName?: string;
+    isStatic?: boolean;
 }
-declare const Expand: ({ children, title, open, isLast, titleClassName }: ExpandInterface) => JSX.Element;
+declare const Expand: ({ children, title, open, isLast, titleClassName, isStatic }: ExpandInterface) => JSX.Element;
 export default Expand;

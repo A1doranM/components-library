@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import cn from "classnames";
 
+import BlackPlusIcon from "assets/images/icons/plus.svg";
+import WhitePlusIcon from "assets/images/icons/plus-white.svg";
+
 import "./expand.scss";
 
 export interface ExpandInterface {
@@ -9,6 +12,7 @@ export interface ExpandInterface {
   open?: boolean;
   isLast?: boolean;
   titleClassName?: string;
+  isStatic?: boolean;
 }
 
 const Expand = ({
@@ -16,7 +20,8 @@ const Expand = ({
   title,
   open = false,
   isLast = false,
-  titleClassName
+  titleClassName,
+  isStatic = false
 }: ExpandInterface): JSX.Element => {
   const [isOpen, setOpen] = useState(open);
 
@@ -36,13 +41,21 @@ const Expand = ({
           {
             ["expand_active"]: isOpen
           },
+          { ["expand_static"]: isStatic },
           titleClassName
         )}
         onClick={handleToggle}
       >
         {title}
+        {/* <img src={BlackPlusIcon} alt="plus" className="expand_header-icon"/> */}
       </h2>
-      <p className={cn("expand__content")}>{children}</p>
+      <div
+        className={cn("expand__content", {
+          ["expand_static-content"]: isStatic
+        })}
+      >
+        {children}
+      </div>
     </section>
   );
 };
