@@ -2,6 +2,7 @@
 
 var React = require('react');
 var reactDom = require('react-dom');
+var reactRouterDom = require('react-router-dom');
 
 function _interopNamespaceDefault(e) {
 	var n = Object.create(null);
@@ -246,7 +247,7 @@ function _slicedToArray$2(arr, i) {
   return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _unsupportedIterableToArray$2(arr, i) || _nonIterableRest$2();
 }
 
-function _objectWithoutPropertiesLoose$3(source, excluded) {
+function _objectWithoutPropertiesLoose$2(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -261,7 +262,7 @@ function _objectWithoutPropertiesLoose$3(source, excluded) {
 
 function _objectWithoutProperties$1(source, excluded) {
   if (source == null) return {};
-  var target = _objectWithoutPropertiesLoose$3(source, excluded);
+  var target = _objectWithoutPropertiesLoose$2(source, excluded);
   var key, i;
   if (Object.getOwnPropertySymbols) {
     var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
@@ -342,8 +343,8 @@ function useStateManager(_ref) {
   });
 }
 
-function _extends$3() {
-  _extends$3 = Object.assign ? Object.assign.bind() : function (target) {
+function _extends$1() {
+  _extends$1 = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -354,7 +355,7 @@ function _extends$3() {
     }
     return target;
   };
-  return _extends$3.apply(this, arguments);
+  return _extends$1.apply(this, arguments);
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -3688,7 +3689,7 @@ var Menu = function Menu(props) {
     getStyles = props.getStyles,
     innerRef = props.innerRef,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('menu', props),
     className: cx({
       menu: true
@@ -3722,7 +3723,7 @@ var MenuList = function MenuList(props) {
     innerProps = props.innerProps,
     innerRef = props.innerRef,
     isMulti = props.isMulti;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('menuList', props),
     className: cx({
       'menu-list': true,
@@ -3754,7 +3755,7 @@ var NoOptionsMessage = function NoOptionsMessage(props) {
     cx = props.cx,
     getStyles = props.getStyles,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('noOptionsMessage', props),
     className: cx({
       'menu-notice': true,
@@ -3771,7 +3772,7 @@ var LoadingMessage = function LoadingMessage(props) {
     cx = props.cx,
     getStyles = props.getStyles,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('loadingMessage', props),
     className: cx({
       'menu-notice': true,
@@ -3862,7 +3863,7 @@ var MenuPortal = function MenuPortal(_ref8) {
   if (!appendTo && menuPosition !== 'fixed' || !computedPosition) return null;
 
   // same wrapper element whether fixed or portalled
-  var menuWrapper = jsx("div", _extends$3({
+  var menuWrapper = jsx("div", _extends$1({
     ref: setMenuPortalElement,
     css: getStyles('menuPortal', {
       offset: computedPosition.offset,
@@ -3897,7 +3898,7 @@ var SelectContainer = function SelectContainer(props) {
     innerProps = props.innerProps,
     isDisabled = props.isDisabled,
     isRtl = props.isRtl;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('container', props),
     className: cx({
       '--is-disabled': isDisabled,
@@ -3934,7 +3935,7 @@ var ValueContainer = function ValueContainer(props) {
     isMulti = props.isMulti,
     getStyles = props.getStyles,
     hasValue = props.hasValue;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('valueContainer', props),
     className: cx({
       'value-container': true,
@@ -3962,7 +3963,7 @@ var IndicatorsContainer = function IndicatorsContainer(props) {
     cx = props.cx,
     innerProps = props.innerProps,
     getStyles = props.getStyles;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('indicatorsContainer', props),
     className: cx({
       indicators: true
@@ -3971,7 +3972,7 @@ var IndicatorsContainer = function IndicatorsContainer(props) {
 };
 
 var _templateObject;
-var _excluded$2$1 = ["size"];
+var _excluded$2 = ["size"];
 function _EMOTION_STRINGIFIED_CSS_ERROR__$3() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 var _ref2$2 = process.env.NODE_ENV === "production" ? {
   name: "8mmkcg",
@@ -3988,8 +3989,8 @@ var _ref2$2 = process.env.NODE_ENV === "production" ? {
 
 var Svg = function Svg(_ref) {
   var size = _ref.size,
-    props = _objectWithoutProperties$1(_ref, _excluded$2$1);
-  return jsx("svg", _extends$3({
+    props = _objectWithoutProperties$1(_ref, _excluded$2);
+  return jsx("svg", _extends$1({
     height: size,
     width: size,
     viewBox: "0 0 20 20",
@@ -3999,14 +4000,14 @@ var Svg = function Svg(_ref) {
   }, props));
 };
 var CrossIcon = function CrossIcon(props) {
-  return jsx(Svg, _extends$3({
+  return jsx(Svg, _extends$1({
     size: 20
   }, props), jsx("path", {
     d: "M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
   }));
 };
 var DownChevron = function DownChevron(props) {
-  return jsx(Svg, _extends$3({
+  return jsx(Svg, _extends$1({
     size: 20
   }, props), jsx("path", {
     d: "M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
@@ -4040,7 +4041,7 @@ var DropdownIndicator = function DropdownIndicator(props) {
     cx = props.cx,
     getStyles = props.getStyles,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('dropdownIndicator', props),
     className: cx({
       indicator: true,
@@ -4055,7 +4056,7 @@ var ClearIndicator = function ClearIndicator(props) {
     cx = props.cx,
     getStyles = props.getStyles,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('clearIndicator', props),
     className: cx({
       indicator: true,
@@ -4087,7 +4088,7 @@ var IndicatorSeparator = function IndicatorSeparator(props) {
     cx = props.cx,
     getStyles = props.getStyles,
     innerProps = props.innerProps;
-  return jsx("span", _extends$3({}, innerProps, {
+  return jsx("span", _extends$1({}, innerProps, {
     css: getStyles('indicatorSeparator', props),
     className: cx({
       'indicator-separator': true
@@ -4142,7 +4143,7 @@ var LoadingIndicator = function LoadingIndicator(props) {
     getStyles = props.getStyles,
     innerProps = props.innerProps,
     isRtl = props.isRtl;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('loadingIndicator', props),
     className: cx({
       indicator: true,
@@ -4202,7 +4203,7 @@ var Control = function Control(props) {
     innerRef = props.innerRef,
     innerProps = props.innerProps,
     menuIsOpen = props.menuIsOpen;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     ref: innerRef,
     css: getStyles('control', props),
     className: cx({
@@ -4233,12 +4234,12 @@ var Group = function Group(props) {
     label = props.label,
     theme = props.theme,
     selectProps = props.selectProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('group', props),
     className: cx({
       group: true
     }, className)
-  }, innerProps), jsx(Heading, _extends$3({}, headingProps, {
+  }, innerProps), jsx(Heading, _extends$1({}, headingProps, {
     selectProps: selectProps,
     theme: theme,
     getStyles: getStyles,
@@ -4267,7 +4268,7 @@ var GroupHeading = function GroupHeading(props) {
   var _cleanCommonProps = cleanCommonProps(props);
     _cleanCommonProps.data;
     var innerProps = _objectWithoutProperties$1(_cleanCommonProps, _excluded$1$1);
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('groupHeading', props),
     className: cx({
       'group-heading': true
@@ -4339,7 +4340,7 @@ var Input = function Input(props) {
     }, className),
     css: getStyles('input', props),
     "data-value": value || ''
-  }, jsx("input", _extends$3({
+  }, jsx("input", _extends$1({
     className: cx({
       input: true
     }, inputClassName),
@@ -4409,7 +4410,7 @@ var MultiValueLabel = MultiValueGeneric;
 function MultiValueRemove(_ref5) {
   var children = _ref5.children,
     innerProps = _ref5.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     role: "button"
   }, innerProps), children || jsx(CrossIcon, {
     size: 14
@@ -4496,7 +4497,7 @@ var Option = function Option(props) {
     isSelected = props.isSelected,
     innerRef = props.innerRef,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('option', props),
     className: cx({
       option: true,
@@ -4527,7 +4528,7 @@ var Placeholder = function Placeholder(props) {
     cx = props.cx,
     getStyles = props.getStyles,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('placeholder', props),
     className: cx({
       placeholder: true
@@ -4559,7 +4560,7 @@ var SingleValue = function SingleValue(props) {
     getStyles = props.getStyles,
     isDisabled = props.isDisabled,
     innerProps = props.innerProps;
-  return jsx("div", _extends$3({
+  return jsx("div", _extends$1({
     css: getStyles('singleValue', props),
     className: cx({
       'single-value': true,
@@ -4662,7 +4663,7 @@ var _ref = process.env.NODE_ENV === "production" ? {
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__$2
 };
 var A11yText = function A11yText(props) {
-  return jsx("span", _extends$3({
+  return jsx("span", _extends$1({
     css: _ref
   }, props));
 };
@@ -5162,13 +5163,13 @@ var createFilter = function createFilter(config) {
   };
 };
 
-var _excluded$2 = ["innerRef"];
+var _excluded$1 = ["innerRef"];
 function DummyInput(_ref) {
   var innerRef = _ref.innerRef,
-    props = _objectWithoutProperties$1(_ref, _excluded$2);
+    props = _objectWithoutProperties$1(_ref, _excluded$1);
   // Remove animation props not meant for HTML elements
   var filteredProps = removeProps(props, 'onExited', 'in', 'enter', 'exit', 'appear');
-  return jsx("input", _extends$3({
+  return jsx("input", _extends$1({
     ref: innerRef
   }, filteredProps, {
     css: /*#__PURE__*/css$2({
@@ -5325,7 +5326,7 @@ function preventInertiaScroll() {
 function isTouchDevice() {
   return 'ontouchstart' in window || navigator.maxTouchPoints;
 }
-var canUseDOM$1 = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 var activeScrollLocks = 0;
 var listenerOptions = {
   capture: false,
@@ -5338,7 +5339,7 @@ function useScrollLock(_ref) {
   var originalStyles = React.useRef({});
   var scrollTarget = React.useRef(null);
   var addScrollLock = React.useCallback(function (touchScrollTarget) {
-    if (!canUseDOM$1) return;
+    if (!canUseDOM) return;
     var target = document.body;
     var targetStyle = target && target.style;
     if (accountForScrollbars) {
@@ -5381,7 +5382,7 @@ function useScrollLock(_ref) {
     activeScrollLocks += 1;
   }, [accountForScrollbars]);
   var removeScrollLock = React.useCallback(function (touchScrollTarget) {
-    if (!canUseDOM$1) return;
+    if (!canUseDOM) return;
     var target = document.body;
     var targetStyle = target && target.style;
 
@@ -6665,7 +6666,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
       });
       if (!isSearchable) {
         // use a dummy input to maintain focus/blur functionality
-        return /*#__PURE__*/React__namespace.createElement(DummyInput, _extends$3({
+        return /*#__PURE__*/React__namespace.createElement(DummyInput, _extends$1({
           id: id,
           innerRef: this.getInputRef,
           onBlur: this.onInputBlur,
@@ -6678,7 +6679,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
           value: ""
         }, ariaAttributes));
       }
-      return /*#__PURE__*/React__namespace.createElement(Input, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(Input, _extends$1({}, commonProps, {
         autoCapitalize: "none",
         autoComplete: "off",
         autoCorrect: "off",
@@ -6719,7 +6720,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         focusedValue = _this$state5.focusedValue,
         isFocused = _this$state5.isFocused;
       if (!this.hasValue() || !controlShouldRenderValue) {
-        return inputValue ? null : /*#__PURE__*/React__namespace.createElement(Placeholder, _extends$3({}, commonProps, {
+        return inputValue ? null : /*#__PURE__*/React__namespace.createElement(Placeholder, _extends$1({}, commonProps, {
           key: "placeholder",
           isDisabled: isDisabled,
           isFocused: isFocused,
@@ -6732,7 +6733,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         return selectValue.map(function (opt, index) {
           var isOptionFocused = opt === focusedValue;
           var key = "".concat(_this3.getOptionLabel(opt), "-").concat(_this3.getOptionValue(opt));
-          return /*#__PURE__*/React__namespace.createElement(MultiValue, _extends$3({}, commonProps, {
+          return /*#__PURE__*/React__namespace.createElement(MultiValue, _extends$1({}, commonProps, {
             components: {
               Container: MultiValueContainer,
               Label: MultiValueLabel,
@@ -6761,7 +6762,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         return null;
       }
       var singleValue = selectValue[0];
-      return /*#__PURE__*/React__namespace.createElement(SingleValue, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(SingleValue, _extends$1({}, commonProps, {
         data: singleValue,
         isDisabled: isDisabled
       }), this.formatOptionLabel(singleValue, 'value'));
@@ -6784,7 +6785,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         onTouchEnd: this.onClearIndicatorTouchEnd,
         'aria-hidden': 'true'
       };
-      return /*#__PURE__*/React__namespace.createElement(ClearIndicator, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(ClearIndicator, _extends$1({}, commonProps, {
         innerProps: innerProps,
         isFocused: isFocused
       }));
@@ -6803,7 +6804,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
       var innerProps = {
         'aria-hidden': 'true'
       };
-      return /*#__PURE__*/React__namespace.createElement(LoadingIndicator, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(LoadingIndicator, _extends$1({}, commonProps, {
         innerProps: innerProps,
         isDisabled: isDisabled,
         isFocused: isFocused
@@ -6821,7 +6822,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
       var commonProps = this.commonProps;
       var isDisabled = this.props.isDisabled;
       var isFocused = this.state.isFocused;
-      return /*#__PURE__*/React__namespace.createElement(IndicatorSeparator, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(IndicatorSeparator, _extends$1({}, commonProps, {
         isDisabled: isDisabled,
         isFocused: isFocused
       }));
@@ -6840,7 +6841,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         onTouchEnd: this.onDropdownIndicatorTouchEnd,
         'aria-hidden': 'true'
       };
-      return /*#__PURE__*/React__namespace.createElement(DropdownIndicator, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(DropdownIndicator, _extends$1({}, commonProps, {
         innerProps: innerProps,
         isDisabled: isDisabled,
         isFocused: isFocused
@@ -6902,7 +6903,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
           onMouseOver: onHover,
           tabIndex: -1
         };
-        return /*#__PURE__*/React__namespace.createElement(Option, _extends$3({}, commonProps, {
+        return /*#__PURE__*/React__namespace.createElement(Option, _extends$1({}, commonProps, {
           innerProps: innerProps,
           data: data,
           isDisabled: isDisabled,
@@ -6924,7 +6925,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
               groupIndex = item.index;
             var groupId = "".concat(_this4.getElementId('group'), "-").concat(groupIndex);
             var headingId = "".concat(groupId, "-heading");
-            return /*#__PURE__*/React__namespace.createElement(Group, _extends$3({}, commonProps, {
+            return /*#__PURE__*/React__namespace.createElement(Group, _extends$1({}, commonProps, {
               key: groupId,
               data: _data,
               options: options,
@@ -6961,12 +6962,12 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         menuPosition: menuPosition,
         menuShouldScrollIntoView: menuShouldScrollIntoView
       };
-      var menuElement = /*#__PURE__*/React__namespace.createElement(MenuPlacer, _extends$3({}, commonProps, menuPlacementProps), function (_ref4) {
+      var menuElement = /*#__PURE__*/React__namespace.createElement(MenuPlacer, _extends$1({}, commonProps, menuPlacementProps), function (_ref4) {
         var ref = _ref4.ref,
           _ref4$placerProps = _ref4.placerProps,
           placement = _ref4$placerProps.placement,
           maxHeight = _ref4$placerProps.maxHeight;
-        return /*#__PURE__*/React__namespace.createElement(Menu, _extends$3({}, commonProps, menuPlacementProps, {
+        return /*#__PURE__*/React__namespace.createElement(Menu, _extends$1({}, commonProps, menuPlacementProps, {
           innerRef: ref,
           innerProps: {
             onMouseDown: _this4.onMenuMouseDown,
@@ -6981,7 +6982,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
           onBottomArrive: onMenuScrollToBottom,
           lockEnabled: menuShouldBlockScroll
         }, function (scrollTargetRef) {
-          return /*#__PURE__*/React__namespace.createElement(MenuList, _extends$3({}, commonProps, {
+          return /*#__PURE__*/React__namespace.createElement(MenuList, _extends$1({}, commonProps, {
             innerRef: function innerRef(instance) {
               _this4.getMenuListRef(instance);
               scrollTargetRef(instance);
@@ -6996,7 +6997,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
       // positioning behaviour is almost identical for portalled and fixed,
       // so we use the same component. the actual portalling logic is forked
       // within the component based on `menuPosition`
-      return menuPortalTarget || menuPosition === 'fixed' ? /*#__PURE__*/React__namespace.createElement(MenuPortal, _extends$3({}, commonProps, {
+      return menuPortalTarget || menuPosition === 'fixed' ? /*#__PURE__*/React__namespace.createElement(MenuPortal, _extends$1({}, commonProps, {
         appendTo: menuPortalTarget,
         controlElement: this.controlRef,
         menuPlacement: menuPlacement,
@@ -7066,7 +7067,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         isFocused = _this$state6.isFocused,
         selectValue = _this$state6.selectValue;
       var focusableOptions = this.getFocusableOptions();
-      return /*#__PURE__*/React__namespace.createElement(LiveRegion, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(LiveRegion, _extends$1({}, commonProps, {
         id: this.getElementId('live-region'),
         ariaSelection: ariaSelection,
         focusedOption: focusedOption,
@@ -7091,7 +7092,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         menuIsOpen = _this$props14.menuIsOpen;
       var isFocused = this.state.isFocused;
       var commonProps = this.commonProps = this.getCommonProps();
-      return /*#__PURE__*/React__namespace.createElement(SelectContainer, _extends$3({}, commonProps, {
+      return /*#__PURE__*/React__namespace.createElement(SelectContainer, _extends$1({}, commonProps, {
         className: className,
         innerProps: {
           id: id,
@@ -7099,7 +7100,7 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         },
         isDisabled: isDisabled,
         isFocused: isFocused
-      }), this.renderLiveRegion(), /*#__PURE__*/React__namespace.createElement(Control, _extends$3({}, commonProps, {
+      }), this.renderLiveRegion(), /*#__PURE__*/React__namespace.createElement(Control, _extends$1({}, commonProps, {
         innerRef: this.getControlRef,
         innerProps: {
           onMouseDown: this.onControlMouseDown,
@@ -7108,9 +7109,9 @@ var Select$1 = /*#__PURE__*/function (_Component) {
         isDisabled: isDisabled,
         isFocused: isFocused,
         menuIsOpen: menuIsOpen
-      }), /*#__PURE__*/React__namespace.createElement(ValueContainer, _extends$3({}, commonProps, {
+      }), /*#__PURE__*/React__namespace.createElement(ValueContainer, _extends$1({}, commonProps, {
         isDisabled: isDisabled
-      }), this.renderPlaceholderOrValue(), this.renderInput()), /*#__PURE__*/React__namespace.createElement(IndicatorsContainer, _extends$3({}, commonProps, {
+      }), this.renderPlaceholderOrValue(), this.renderInput()), /*#__PURE__*/React__namespace.createElement(IndicatorsContainer, _extends$1({}, commonProps, {
         isDisabled: isDisabled
       }), this.renderClearIndicator(), this.renderLoadingIndicator(), this.renderIndicatorSeparator(), this.renderDropdownIndicator())), this.renderMenu(), this.renderFormField());
     }
@@ -7177,7 +7178,7 @@ Select$1.defaultProps = defaultProps$1;
 
 var StateManagedSelect = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var baseSelectProps = useStateManager(props);
-  return /*#__PURE__*/React__namespace.createElement(Select$1, _extends$3({
+  return /*#__PURE__*/React__namespace.createElement(Select$1, _extends$1({
     ref: ref
   }, baseSelectProps));
 });
@@ -7192,1190 +7193,6 @@ var SelectInput = function (_a) {
     return (React.createElement(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: onChange, onBlur: onBlur, styles: styles, menuPortalTarget: document.body }));
 };
 
-/**
- * @remix-run/router v1.0.3
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */
-function _extends$2() {
-  _extends$2 = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-  return _extends$2.apply(this, arguments);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-//#region Types and Constants
-////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Actions represent the type of change to a location value.
- */
-var Action;
-
-(function (Action) {
-  /**
-   * A POP indicates a change to an arbitrary index in the history stack, such
-   * as a back or forward navigation. It does not describe the direction of the
-   * navigation, only that the current index changed.
-   *
-   * Note: This is the default action for newly created history objects.
-   */
-  Action["Pop"] = "POP";
-  /**
-   * A PUSH indicates a new entry being added to the history stack, such as when
-   * a link is clicked and a new page loads. When this happens, all subsequent
-   * entries in the stack are lost.
-   */
-
-  Action["Push"] = "PUSH";
-  /**
-   * A REPLACE indicates the entry at the current index in the history stack
-   * being replaced by a new one.
-   */
-
-  Action["Replace"] = "REPLACE";
-})(Action || (Action = {}));
-/**
- * Creates a string URL path from the given pathname, search, and hash components.
- */
-
-function createPath(_ref) {
-  let {
-    pathname = "/",
-    search = "",
-    hash = ""
-  } = _ref;
-  if (search && search !== "?") pathname += search.charAt(0) === "?" ? search : "?" + search;
-  if (hash && hash !== "#") pathname += hash.charAt(0) === "#" ? hash : "#" + hash;
-  return pathname;
-}
-/**
- * Parses a string URL path into its separate pathname, search, and hash components.
- */
-
-function parsePath(path) {
-  let parsedPath = {};
-
-  if (path) {
-    let hashIndex = path.indexOf("#");
-
-    if (hashIndex >= 0) {
-      parsedPath.hash = path.substr(hashIndex);
-      path = path.substr(0, hashIndex);
-    }
-
-    let searchIndex = path.indexOf("?");
-
-    if (searchIndex >= 0) {
-      parsedPath.search = path.substr(searchIndex);
-      path = path.substr(0, searchIndex);
-    }
-
-    if (path) {
-      parsedPath.pathname = path;
-    }
-  }
-
-  return parsedPath;
-}
-
-var ResultType;
-
-(function (ResultType) {
-  ResultType["data"] = "data";
-  ResultType["deferred"] = "deferred";
-  ResultType["redirect"] = "redirect";
-  ResultType["error"] = "error";
-})(ResultType || (ResultType = {}));
-function invariant(value, message) {
-  if (value === false || value === null || typeof value === "undefined") {
-    throw new Error(message);
-  }
-}
-/**
- * @private
- */
-
-function warning$1(cond, message) {
-  if (!cond) {
-    // eslint-disable-next-line no-console
-    if (typeof console !== "undefined") console.warn(message);
-
-    try {
-      // Welcome to debugging React Router!
-      //
-      // This error is thrown as a convenience so you can more easily
-      // find the source for a warning that appears in the console by
-      // enabling "pause on exceptions" in your JavaScript debugger.
-      throw new Error(message); // eslint-disable-next-line no-empty
-    } catch (e) {}
-  }
-}
-/**
- * Returns a resolved path object relative to the given pathname.
- *
- * @see https://reactrouter.com/docs/en/v6/utils/resolve-path
- */
-
-function resolvePath(to, fromPathname) {
-  if (fromPathname === void 0) {
-    fromPathname = "/";
-  }
-
-  let {
-    pathname: toPathname,
-    search = "",
-    hash = ""
-  } = typeof to === "string" ? parsePath(to) : to;
-  let pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
-  return {
-    pathname,
-    search: normalizeSearch(search),
-    hash: normalizeHash(hash)
-  };
-}
-
-function resolvePathname(relativePath, fromPathname) {
-  let segments = fromPathname.replace(/\/+$/, "").split("/");
-  let relativeSegments = relativePath.split("/");
-  relativeSegments.forEach(segment => {
-    if (segment === "..") {
-      // Keep the root "" segment so the pathname starts at /
-      if (segments.length > 1) segments.pop();
-    } else if (segment !== ".") {
-      segments.push(segment);
-    }
-  });
-  return segments.length > 1 ? segments.join("/") : "/";
-}
-
-function getInvalidPathError(char, field, dest, path) {
-  return "Cannot include a '" + char + "' character in a manually specified " + ("`to." + field + "` field [" + JSON.stringify(path) + "].  Please separate it out to the ") + ("`to." + dest + "` field. Alternatively you may provide the full path as ") + "a string in <Link to=\"...\"> and the router will parse it for you.";
-}
-/**
- * @private
- *
- * When processing relative navigation we want to ignore ancestor routes that
- * do not contribute to the path, such that index/pathless layout routes don't
- * interfere.
- *
- * For example, when moving a route element into an index route and/or a
- * pathless layout route, relative link behavior contained within should stay
- * the same.  Both of the following examples should link back to the root:
- *
- *   <Route path="/">
- *     <Route path="accounts" element={<Link to=".."}>
- *   </Route>
- *
- *   <Route path="/">
- *     <Route path="accounts">
- *       <Route element={<AccountsLayout />}>       // <-- Does not contribute
- *         <Route index element={<Link to=".."} />  // <-- Does not contribute
- *       </Route
- *     </Route>
- *   </Route>
- */
-
-
-function getPathContributingMatches(matches) {
-  return matches.filter((match, index) => index === 0 || match.route.path && match.route.path.length > 0);
-}
-/**
- * @private
- */
-
-function resolveTo(toArg, routePathnames, locationPathname, isPathRelative) {
-  if (isPathRelative === void 0) {
-    isPathRelative = false;
-  }
-
-  let to;
-
-  if (typeof toArg === "string") {
-    to = parsePath(toArg);
-  } else {
-    to = _extends$2({}, toArg);
-    invariant(!to.pathname || !to.pathname.includes("?"), getInvalidPathError("?", "pathname", "search", to));
-    invariant(!to.pathname || !to.pathname.includes("#"), getInvalidPathError("#", "pathname", "hash", to));
-    invariant(!to.search || !to.search.includes("#"), getInvalidPathError("#", "search", "hash", to));
-  }
-
-  let isEmptyPath = toArg === "" || to.pathname === "";
-  let toPathname = isEmptyPath ? "/" : to.pathname;
-  let from; // Routing is relative to the current pathname if explicitly requested.
-  //
-  // If a pathname is explicitly provided in `to`, it should be relative to the
-  // route context. This is explained in `Note on `<Link to>` values` in our
-  // migration guide from v5 as a means of disambiguation between `to` values
-  // that begin with `/` and those that do not. However, this is problematic for
-  // `to` values that do not provide a pathname. `to` can simply be a search or
-  // hash string, in which case we should assume that the navigation is relative
-  // to the current location's pathname and *not* the route pathname.
-
-  if (isPathRelative || toPathname == null) {
-    from = locationPathname;
-  } else {
-    let routePathnameIndex = routePathnames.length - 1;
-
-    if (toPathname.startsWith("..")) {
-      let toSegments = toPathname.split("/"); // Each leading .. segment means "go up one route" instead of "go up one
-      // URL segment".  This is a key difference from how <a href> works and a
-      // major reason we call this a "to" value instead of a "href".
-
-      while (toSegments[0] === "..") {
-        toSegments.shift();
-        routePathnameIndex -= 1;
-      }
-
-      to.pathname = toSegments.join("/");
-    } // If there are more ".." segments than parent routes, resolve relative to
-    // the root / URL.
-
-
-    from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
-  }
-
-  let path = resolvePath(to, from); // Ensure the pathname has a trailing slash if the original "to" had one
-
-  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/"); // Or if this was a link to the current path which has a trailing slash
-
-  let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
-
-  if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
-    path.pathname += "/";
-  }
-
-  return path;
-}
-/**
- * @private
- */
-
-const joinPaths = paths => paths.join("/").replace(/\/\/+/g, "/");
-/**
- * @private
- */
-
-const normalizeSearch = search => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
-/**
- * @private
- */
-
-const normalizeHash = hash => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
-////////////////////////////////////////////////////////////////////////////////
-//#region createStaticHandler
-////////////////////////////////////////////////////////////////////////////////
-
-const validActionMethods = new Set(["POST", "PUT", "PATCH", "DELETE"]);
-new Set(["GET", "HEAD", ...validActionMethods]);
-
-/**
- * React Router v6.4.3
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */
-
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-/**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */
-
-function isPolyfill(x, y) {
-  return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
-  ;
-}
-
-const is = typeof Object.is === "function" ? Object.is : isPolyfill; // Intentionally not using named imports because Rollup uses dynamic
-// dispatch for CommonJS interop named imports.
-
-const {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useDebugValue
-} = React__namespace;
-let didWarnOld18Alpha = false;
-let didWarnUncachedGetSnapshot = false; // Disclaimer: This shim breaks many of the rules of React, and only works
-// because of a very particular set of implementation details and assumptions
-// -- change any one of them and it will break. The most important assumption
-// is that updates are always synchronous, because concurrent rendering is
-// only available in versions of React that also have a built-in
-// useSyncExternalStore API. And we only use this shim when the built-in API
-// does not exist.
-//
-// Do not assume that the clever hacks used by this hook also work in general.
-// The point of this shim is to replace the need for hacks by other libraries.
-
-function useSyncExternalStore$2(subscribe, getSnapshot, // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-// React do not expose a way to check if we're hydrating. So users of the shim
-// will need to track that themselves and return the correct value
-// from `getSnapshot`.
-getServerSnapshot) {
-  if (process.env.NODE_ENV !== "production") {
-    if (!didWarnOld18Alpha) {
-      if ("startTransition" in React__namespace) {
-        didWarnOld18Alpha = true;
-        console.error("You are using an outdated, pre-release alpha of React 18 that " + "does not support useSyncExternalStore. The " + "use-sync-external-store shim will not work correctly. Upgrade " + "to a newer pre-release.");
-      }
-    }
-  } // Read the current snapshot from the store on every render. Again, this
-  // breaks the rules of React, and only works here because of specific
-  // implementation details, most importantly that updates are
-  // always synchronous.
-
-
-  const value = getSnapshot();
-
-  if (process.env.NODE_ENV !== "production") {
-    if (!didWarnUncachedGetSnapshot) {
-      const cachedValue = getSnapshot();
-
-      if (!is(value, cachedValue)) {
-        console.error("The result of getSnapshot should be cached to avoid an infinite loop");
-        didWarnUncachedGetSnapshot = true;
-      }
-    }
-  } // Because updates are synchronous, we don't queue them. Instead we force a
-  // re-render whenever the subscribed state changes by updating an some
-  // arbitrary useState hook. Then, during render, we call getSnapshot to read
-  // the current value.
-  //
-  // Because we don't actually use the state returned by the useState hook, we
-  // can save a bit of memory by storing other stuff in that slot.
-  //
-  // To implement the early bailout, we need to track some things on a mutable
-  // object. Usually, we would put that in a useRef hook, but we can stash it in
-  // our useState hook instead.
-  //
-  // To force a re-render, we call forceUpdate({inst}). That works because the
-  // new object always fails an equality check.
-
-
-  const [{
-    inst
-  }, forceUpdate] = useState({
-    inst: {
-      value,
-      getSnapshot
-    }
-  }); // Track the latest getSnapshot function with a ref. This needs to be updated
-  // in the layout phase so we can access it during the tearing check that
-  // happens on subscribe.
-
-  useLayoutEffect(() => {
-    inst.value = value;
-    inst.getSnapshot = getSnapshot; // Whenever getSnapshot or subscribe changes, we need to check in the
-    // commit phase if there was an interleaved mutation. In concurrent mode
-    // this can happen all the time, but even in synchronous mode, an earlier
-    // effect may have mutated the store.
-
-    if (checkIfSnapshotChanged(inst)) {
-      // Force a re-render.
-      forceUpdate({
-        inst
-      });
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  }, [subscribe, value, getSnapshot]);
-  useEffect(() => {
-    // Check for changes right before subscribing. Subsequent changes will be
-    // detected in the subscription handler.
-    if (checkIfSnapshotChanged(inst)) {
-      // Force a re-render.
-      forceUpdate({
-        inst
-      });
-    }
-
-    const handleStoreChange = () => {
-      // TODO: Because there is no cross-renderer API for batching updates, it's
-      // up to the consumer of this library to wrap their subscription event
-      // with unstable_batchedUpdates. Should we try to detect when this isn't
-      // the case and print a warning in development?
-      // The store changed. Check if the snapshot changed since the last time we
-      // read from the store.
-      if (checkIfSnapshotChanged(inst)) {
-        // Force a re-render.
-        forceUpdate({
-          inst
-        });
-      }
-    }; // Subscribe to the store and return a clean-up function.
-
-
-    return subscribe(handleStoreChange); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [subscribe]);
-  useDebugValue(value);
-  return value;
-}
-
-function checkIfSnapshotChanged(inst) {
-  const latestGetSnapshot = inst.getSnapshot;
-  const prevValue = inst.value;
-
-  try {
-    const nextValue = latestGetSnapshot();
-    return !is(prevValue, nextValue);
-  } catch (error) {
-    return true;
-  }
-}
-
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @flow
- */
-function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
-  // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-  // React do not expose a way to check if we're hydrating. So users of the shim
-  // will need to track that themselves and return the correct value
-  // from `getSnapshot`.
-  return getSnapshot();
-}
-
-/**
- * Inlined into the react-router repo since use-sync-external-store does not
- * provide a UMD-compatible package, so we need this to be able to distribute
- * UMD react-router bundles
- */
-const canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
-const isServerEnvironment = !canUseDOM;
-const shim = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore$2;
-"useSyncExternalStore" in React__namespace ? (module => module.useSyncExternalStore)(React__namespace) : shim;
-
-// Contexts for data routers
-const DataStaticRouterContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  DataStaticRouterContext.displayName = "DataStaticRouterContext";
-}
-
-const DataRouterContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  DataRouterContext.displayName = "DataRouter";
-}
-
-const DataRouterStateContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  DataRouterStateContext.displayName = "DataRouterState";
-}
-
-const AwaitContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  AwaitContext.displayName = "Await";
-}
-
-const NavigationContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  NavigationContext.displayName = "Navigation";
-}
-
-const LocationContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  LocationContext.displayName = "Location";
-}
-
-const RouteContext = /*#__PURE__*/React__namespace.createContext({
-  outlet: null,
-  matches: []
-});
-
-if (process.env.NODE_ENV !== "production") {
-  RouteContext.displayName = "Route";
-}
-
-const RouteErrorContext = /*#__PURE__*/React__namespace.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  RouteErrorContext.displayName = "RouteError";
-}
-
-/**
- * Returns the full href for the given "to" value. This is useful for building
- * custom links that are also accessible and preserve right-click behavior.
- *
- * @see https://reactrouter.com/docs/en/v6/hooks/use-href
- */
-
-function useHref(to, _temp) {
-  let {
-    relative
-  } = _temp === void 0 ? {} : _temp;
-  !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
-  // router loaded. We can help them understand how to avoid that.
-  "useHref() may be used only in the context of a <Router> component.") : invariant(false) : void 0;
-  let {
-    basename,
-    navigator
-  } = React__namespace.useContext(NavigationContext);
-  let {
-    hash,
-    pathname,
-    search
-  } = useResolvedPath(to, {
-    relative
-  });
-  let joinedPathname = pathname; // If we're operating within a basename, prepend it to the pathname prior
-  // to creating the href.  If this is a root navigation, then just use the raw
-  // basename which allows the basename to have full control over the presence
-  // of a trailing slash on root links
-
-  if (basename !== "/") {
-    joinedPathname = pathname === "/" ? basename : joinPaths([basename, pathname]);
-  }
-
-  return navigator.createHref({
-    pathname: joinedPathname,
-    search,
-    hash
-  });
-}
-/**
- * Returns true if this component is a descendant of a <Router>.
- *
- * @see https://reactrouter.com/docs/en/v6/hooks/use-in-router-context
- */
-
-function useInRouterContext() {
-  return React__namespace.useContext(LocationContext) != null;
-}
-/**
- * Returns the current location object, which represents the current URL in web
- * browsers.
- *
- * Note: If you're using this it may mean you're doing some of your own
- * "routing" in your app, and we'd like to know what your use case is. We may
- * be able to provide something higher-level to better suit your needs.
- *
- * @see https://reactrouter.com/docs/en/v6/hooks/use-location
- */
-
-function useLocation() {
-  !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
-  // router loaded. We can help them understand how to avoid that.
-  "useLocation() may be used only in the context of a <Router> component.") : invariant(false) : void 0;
-  return React__namespace.useContext(LocationContext).location;
-}
-/**
- * The interface for the navigate() function returned from useNavigate().
- */
-
-/**
- * Returns an imperative method for changing the location. Used by <Link>s, but
- * may also be used by other elements to change the location.
- *
- * @see https://reactrouter.com/docs/en/v6/hooks/use-navigate
- */
-function useNavigate() {
-  !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
-  // router loaded. We can help them understand how to avoid that.
-  "useNavigate() may be used only in the context of a <Router> component.") : invariant(false) : void 0;
-  let {
-    basename,
-    navigator
-  } = React__namespace.useContext(NavigationContext);
-  let {
-    matches
-  } = React__namespace.useContext(RouteContext);
-  let {
-    pathname: locationPathname
-  } = useLocation();
-  let routePathnamesJson = JSON.stringify(getPathContributingMatches(matches).map(match => match.pathnameBase));
-  let activeRef = React__namespace.useRef(false);
-  React__namespace.useEffect(() => {
-    activeRef.current = true;
-  });
-  let navigate = React__namespace.useCallback(function (to, options) {
-    if (options === void 0) {
-      options = {};
-    }
-
-    process.env.NODE_ENV !== "production" ? warning$1(activeRef.current, "You should call navigate() in a React.useEffect(), not when " + "your component is first rendered.") : void 0;
-    if (!activeRef.current) return;
-
-    if (typeof to === "number") {
-      navigator.go(to);
-      return;
-    }
-
-    let path = resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, options.relative === "path"); // If we're operating within a basename, prepend it to the pathname prior
-    // to handing off to history.  If this is a root navigation, then we
-    // navigate to the raw basename which allows the basename to have full
-    // control over the presence of a trailing slash on root links
-
-    if (basename !== "/") {
-      path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
-    }
-
-    (!!options.replace ? navigator.replace : navigator.push)(path, options.state, options);
-  }, [basename, navigator, routePathnamesJson, locationPathname]);
-  return navigate;
-}
-/**
- * Resolves the pathname of the given `to` value against the current location.
- *
- * @see https://reactrouter.com/docs/en/v6/hooks/use-resolved-path
- */
-
-function useResolvedPath(to, _temp2) {
-  let {
-    relative
-  } = _temp2 === void 0 ? {} : _temp2;
-  let {
-    matches
-  } = React__namespace.useContext(RouteContext);
-  let {
-    pathname: locationPathname
-  } = useLocation();
-  let routePathnamesJson = JSON.stringify(getPathContributingMatches(matches).map(match => match.pathnameBase));
-  return React__namespace.useMemo(() => resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
-}
-var DataRouterHook$1;
-
-(function (DataRouterHook) {
-  DataRouterHook["UseRevalidator"] = "useRevalidator";
-})(DataRouterHook$1 || (DataRouterHook$1 = {}));
-
-var DataRouterStateHook$1;
-
-(function (DataRouterStateHook) {
-  DataRouterStateHook["UseLoaderData"] = "useLoaderData";
-  DataRouterStateHook["UseActionData"] = "useActionData";
-  DataRouterStateHook["UseRouteError"] = "useRouteError";
-  DataRouterStateHook["UseNavigation"] = "useNavigation";
-  DataRouterStateHook["UseRouteLoaderData"] = "useRouteLoaderData";
-  DataRouterStateHook["UseMatches"] = "useMatches";
-  DataRouterStateHook["UseRevalidator"] = "useRevalidator";
-})(DataRouterStateHook$1 || (DataRouterStateHook$1 = {}));
-var AwaitRenderStatus;
-
-(function (AwaitRenderStatus) {
-  AwaitRenderStatus[AwaitRenderStatus["pending"] = 0] = "pending";
-  AwaitRenderStatus[AwaitRenderStatus["success"] = 1] = "success";
-  AwaitRenderStatus[AwaitRenderStatus["error"] = 2] = "error";
-})(AwaitRenderStatus || (AwaitRenderStatus = {}));
-
-new Promise(() => {});
-
-/**
- * React Router DOM v6.4.3
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */
-
-function _extends$1() {
-  _extends$1 = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-  return _extends$1.apply(this, arguments);
-}
-
-function _objectWithoutPropertiesLoose$2(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-const defaultMethod = "get";
-const defaultEncType = "application/x-www-form-urlencoded";
-function isHtmlElement(object) {
-  return object != null && typeof object.tagName === "string";
-}
-function isButtonElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
-}
-function isFormElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
-}
-function isInputElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
-}
-
-function isModifiedEvent(event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-}
-
-function shouldProcessLinkClick(event, target) {
-  return event.button === 0 && ( // Ignore everything but left clicks
-  !target || target === "_self") && // Let browser handle "target=_blank" etc.
-  !isModifiedEvent(event) // Ignore clicks with modifier keys
-  ;
-}
-function getFormSubmissionInfo(target, defaultAction, options) {
-  let method;
-  let action;
-  let encType;
-  let formData;
-
-  if (isFormElement(target)) {
-    let submissionTrigger = options.submissionTrigger;
-    method = options.method || target.getAttribute("method") || defaultMethod;
-    action = options.action || target.getAttribute("action") || defaultAction;
-    encType = options.encType || target.getAttribute("enctype") || defaultEncType;
-    formData = new FormData(target);
-
-    if (submissionTrigger && submissionTrigger.name) {
-      formData.append(submissionTrigger.name, submissionTrigger.value);
-    }
-  } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
-    let form = target.form;
-
-    if (form == null) {
-      throw new Error("Cannot submit a <button> or <input type=\"submit\"> without a <form>");
-    } // <button>/<input type="submit"> may override attributes of <form>
-
-
-    method = options.method || target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
-    action = options.action || target.getAttribute("formaction") || form.getAttribute("action") || defaultAction;
-    encType = options.encType || target.getAttribute("formenctype") || form.getAttribute("enctype") || defaultEncType;
-    formData = new FormData(form); // Include name + value from a <button>, appending in case the button name
-    // matches an existing input name
-
-    if (target.name) {
-      formData.append(target.name, target.value);
-    }
-  } else if (isHtmlElement(target)) {
-    throw new Error("Cannot submit element that is not <form>, <button>, or " + "<input type=\"submit|image\">");
-  } else {
-    method = options.method || defaultMethod;
-    action = options.action || defaultAction;
-    encType = options.encType || defaultEncType;
-
-    if (target instanceof FormData) {
-      formData = target;
-    } else {
-      formData = new FormData();
-
-      if (target instanceof URLSearchParams) {
-        for (let [name, value] of target) {
-          formData.append(name, value);
-        }
-      } else if (target != null) {
-        for (let name of Object.keys(target)) {
-          formData.append(name, target[name]);
-        }
-      }
-    }
-  }
-
-  let {
-    protocol,
-    host
-  } = window.location;
-  let url = new URL(action, protocol + "//" + host);
-  return {
-    url,
-    method,
-    encType,
-    formData
-  };
-}
-
-const _excluded$1 = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"],
-      _excluded2$1 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "children"],
-      _excluded3$1 = ["reloadDocument", "replace", "method", "action", "onSubmit", "fetcherKey", "routeId", "relative"];
-
-if (process.env.NODE_ENV !== "production") ;
-/**
- * The public API for rendering a history-aware <a>.
- */
-
-const Link = /*#__PURE__*/React__namespace.forwardRef(function LinkWithRef(_ref4, ref) {
-  let {
-    onClick,
-    relative,
-    reloadDocument,
-    replace,
-    state,
-    target,
-    to,
-    preventScrollReset
-  } = _ref4,
-      rest = _objectWithoutPropertiesLoose$2(_ref4, _excluded$1);
-
-  let href = useHref(to, {
-    relative
-  });
-  let internalOnClick = useLinkClickHandler(to, {
-    replace,
-    state,
-    target,
-    preventScrollReset,
-    relative
-  });
-
-  function handleClick(event) {
-    if (onClick) onClick(event);
-
-    if (!event.defaultPrevented) {
-      internalOnClick(event);
-    }
-  }
-
-  return (
-    /*#__PURE__*/
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    React__namespace.createElement("a", _extends$1({}, rest, {
-      href: href,
-      onClick: reloadDocument ? onClick : handleClick,
-      ref: ref,
-      target: target
-    }))
-  );
-});
-
-if (process.env.NODE_ENV !== "production") {
-  Link.displayName = "Link";
-}
-/**
- * A <Link> wrapper that knows if it's "active" or not.
- */
-
-
-const NavLink = /*#__PURE__*/React__namespace.forwardRef(function NavLinkWithRef(_ref5, ref) {
-  let {
-    "aria-current": ariaCurrentProp = "page",
-    caseSensitive = false,
-    className: classNameProp = "",
-    end = false,
-    style: styleProp,
-    to,
-    children
-  } = _ref5,
-      rest = _objectWithoutPropertiesLoose$2(_ref5, _excluded2$1);
-
-  let path = useResolvedPath(to, {
-    relative: rest.relative
-  });
-  let location = useLocation();
-  let routerState = React__namespace.useContext(DataRouterStateContext);
-  let toPathname = path.pathname;
-  let locationPathname = location.pathname;
-  let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
-
-  if (!caseSensitive) {
-    locationPathname = locationPathname.toLowerCase();
-    nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
-    toPathname = toPathname.toLowerCase();
-  }
-
-  let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/";
-  let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
-  let ariaCurrent = isActive ? ariaCurrentProp : undefined;
-  let className;
-
-  if (typeof classNameProp === "function") {
-    className = classNameProp({
-      isActive,
-      isPending
-    });
-  } else {
-    // If the className prop is not a function, we use a default `active`
-    // class for <NavLink />s that are active. In v5 `active` was the default
-    // value for `activeClassName`, but we are removing that API and can still
-    // use the old default behavior for a cleaner upgrade path and keep the
-    // simple styling rules working as they currently do.
-    className = [classNameProp, isActive ? "active" : null, isPending ? "pending" : null].filter(Boolean).join(" ");
-  }
-
-  let style = typeof styleProp === "function" ? styleProp({
-    isActive,
-    isPending
-  }) : styleProp;
-  return /*#__PURE__*/React__namespace.createElement(Link, _extends$1({}, rest, {
-    "aria-current": ariaCurrent,
-    className: className,
-    ref: ref,
-    style: style,
-    to: to
-  }), typeof children === "function" ? children({
-    isActive,
-    isPending
-  }) : children);
-});
-
-if (process.env.NODE_ENV !== "production") {
-  NavLink.displayName = "NavLink";
-}
-/**
- * A `@remix-run/router`-aware `<form>`. It behaves like a normal form except
- * that the interaction with the server is with `fetch` instead of new document
- * requests, allowing components to add nicer UX to the page as the form is
- * submitted and returns with data.
- */
-
-
-const Form$1 = /*#__PURE__*/React__namespace.forwardRef((props, ref) => {
-  return /*#__PURE__*/React__namespace.createElement(FormImpl, _extends$1({}, props, {
-    ref: ref
-  }));
-});
-
-if (process.env.NODE_ENV !== "production") {
-  Form$1.displayName = "Form";
-}
-
-const FormImpl = /*#__PURE__*/React__namespace.forwardRef((_ref6, forwardedRef) => {
-  let {
-    reloadDocument,
-    replace,
-    method = defaultMethod,
-    action,
-    onSubmit,
-    fetcherKey,
-    routeId,
-    relative
-  } = _ref6,
-      props = _objectWithoutPropertiesLoose$2(_ref6, _excluded3$1);
-
-  let submit = useSubmitImpl(fetcherKey, routeId);
-  let formMethod = method.toLowerCase() === "get" ? "get" : "post";
-  let formAction = useFormAction(action, {
-    relative
-  });
-
-  let submitHandler = event => {
-    onSubmit && onSubmit(event);
-    if (event.defaultPrevented) return;
-    event.preventDefault();
-    let submitter = event.nativeEvent.submitter;
-    submit(submitter || event.currentTarget, {
-      method,
-      replace,
-      relative
-    });
-  };
-
-  return /*#__PURE__*/React__namespace.createElement("form", _extends$1({
-    ref: forwardedRef,
-    method: formMethod,
-    action: formAction,
-    onSubmit: reloadDocument ? onSubmit : submitHandler
-  }, props));
-});
-
-if (process.env.NODE_ENV !== "production") {
-  Form$1.displayName = "Form";
-}
-
-if (process.env.NODE_ENV !== "production") ; //#endregion
-////////////////////////////////////////////////////////////////////////////////
-//#region Hooks
-////////////////////////////////////////////////////////////////////////////////
-
-
-var DataRouterHook;
-
-(function (DataRouterHook) {
-  DataRouterHook["UseScrollRestoration"] = "useScrollRestoration";
-  DataRouterHook["UseSubmitImpl"] = "useSubmitImpl";
-  DataRouterHook["UseFetcher"] = "useFetcher";
-})(DataRouterHook || (DataRouterHook = {}));
-
-var DataRouterStateHook;
-
-(function (DataRouterStateHook) {
-  DataRouterStateHook["UseFetchers"] = "useFetchers";
-  DataRouterStateHook["UseScrollRestoration"] = "useScrollRestoration";
-})(DataRouterStateHook || (DataRouterStateHook = {}));
-
-function getDataRouterConsoleError(hookName) {
-  return hookName + " must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.";
-}
-
-function useDataRouterContext(hookName) {
-  let ctx = React__namespace.useContext(DataRouterContext);
-  !ctx ? process.env.NODE_ENV !== "production" ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
-  return ctx;
-}
-/**
- * Handles the click behavior for router `<Link>` components. This is useful if
- * you need to create custom `<Link>` components with the same click behavior we
- * use in our exported `<Link>`.
- */
-
-
-function useLinkClickHandler(to, _temp) {
-  let {
-    target,
-    replace: replaceProp,
-    state,
-    preventScrollReset,
-    relative
-  } = _temp === void 0 ? {} : _temp;
-  let navigate = useNavigate();
-  let location = useLocation();
-  let path = useResolvedPath(to, {
-    relative
-  });
-  return React__namespace.useCallback(event => {
-    if (shouldProcessLinkClick(event, target)) {
-      event.preventDefault(); // If the URL hasn't changed, a regular <a> will do a replace instead of
-      // a push, so do the same here unless the replace prop is explicitly set
-
-      let replace = replaceProp !== undefined ? replaceProp : createPath(location) === createPath(path);
-      navigate(to, {
-        replace,
-        state,
-        preventScrollReset,
-        relative
-      });
-    }
-  }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
-}
-
-function useSubmitImpl(fetcherKey, routeId) {
-  let {
-    router
-  } = useDataRouterContext(DataRouterHook.UseSubmitImpl);
-  let defaultAction = useFormAction();
-  return React__namespace.useCallback(function (target, options) {
-    if (options === void 0) {
-      options = {};
-    }
-
-    if (typeof document === "undefined") {
-      throw new Error("You are calling submit during the server render. " + "Try calling submit within a `useEffect` or callback instead.");
-    }
-
-    let {
-      method,
-      encType,
-      formData,
-      url
-    } = getFormSubmissionInfo(target, defaultAction, options);
-    let href = url.pathname + url.search;
-    let opts = {
-      replace: options.replace,
-      formData,
-      formMethod: method,
-      formEncType: encType
-    };
-
-    if (fetcherKey) {
-      !(routeId != null) ? process.env.NODE_ENV !== "production" ? invariant(false, "No routeId available for useFetcher()") : invariant(false) : void 0;
-      router.fetch(fetcherKey, routeId, href, opts);
-    } else {
-      router.navigate(href, opts);
-    }
-  }, [defaultAction, router, fetcherKey, routeId]);
-}
-
-function useFormAction(action, _temp2) {
-  let {
-    relative
-  } = _temp2 === void 0 ? {} : _temp2;
-  let {
-    basename
-  } = React__namespace.useContext(NavigationContext);
-  let routeContext = React__namespace.useContext(RouteContext);
-  !routeContext ? process.env.NODE_ENV !== "production" ? invariant(false, "useFormAction must be used inside a RouteContext") : invariant(false) : void 0;
-  let [match] = routeContext.matches.slice(-1);
-  let resolvedAction = action != null ? action : "."; // Shallow clone path so we can modify it below, otherwise we modify the
-  // object referenced by useMemo inside useResolvedPath
-
-  let path = _extends$1({}, useResolvedPath(resolvedAction, {
-    relative
-  })); // Previously we set the default action to ".". The problem with this is that
-  // `useResolvedPath(".")` excludes search params and the hash of the resolved
-  // URL. This is the intended behavior of when "." is specifically provided as
-  // the form action, but inconsistent w/ browsers when the action is omitted.
-  // https://github.com/remix-run/remix/issues/927
-
-
-  let location = useLocation();
-
-  if (action == null) {
-    // Safe to write to these directly here since if action was undefined, we
-    // would have called useResolvedPath(".") which will never include a search
-    // or hash
-    path.search = location.search;
-    path.hash = location.hash; // When grabbing search params from the URL, remove the automatically
-    // inserted ?index param so we match the useResolvedPath search behavior
-    // which would not include ?index
-
-    if (match.route.index) {
-      let params = new URLSearchParams(path.search);
-      params.delete("index");
-      path.search = params.toString() ? "?" + params.toString() : "";
-    }
-  }
-
-  if ((!action || action === ".") && match.route.index) {
-    path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
-  } // If we're operating within a basename, prepend it to the pathname prior
-  // to creating the form action.  If this is a root navigation, then just use
-  // the raw basename which allows the basename to have full control over the
-  // presence of a trailing slash on root actions
-
-
-  if (basename !== "/") {
-    path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
-  }
-
-  return createPath(path);
-}
-
 var css_248z$R = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.navigation {\n  display: flex;\n  flex-direction: column;\n}\n.navigation a {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  word-break: keep-all;\n  word-wrap: break-word;\n  line-height: 130%;\n  font: inherit;\n  font-family: e_Ukraine_Regular, sans-serif;\n  text-decoration: none;\n}\n.navigation a:active {\n  color: inherit;\n}\n.navigation a:visited {\n  color: inherit;\n}\n.navigation .navigation__tabs-wrapper .navigation__tabs {\n  display: flex;\n  gap: 50px;\n  list-style: none;\n}\n.navigation .navigation__tabs-wrapper .navigation__tabs .navigation__tab {\n  white-space: nowrap;\n  min-width: -moz-max-content;\n  min-width: max-content;\n  padding-bottom: 10px;\n  color: #000000;\n}\n.navigation .navigation__tabs-wrapper .navigation__tabs .navigation__tab_active {\n  border-bottom: 2px solid #000000;\n}\n\n@media (max-width: 1303px) {\n  .navigation {\n    padding: 0 16px;\n  }\n  .navigation .navigation__tabs-wrapper {\n    max-width: calc(100vw - 32px);\n  }\n  .navigation .navigation__tabs-wrapper .navigation__tabs .navigation__tab {\n    font: normal 400 12px e_Ukraine_Regular, sans-serif;\n  }\n}";
 styleInject(css_248z$R);
 
@@ -8389,7 +7206,7 @@ var Navigation = function (_a) {
         React.createElement("nav", { className: "navigation__tabs-wrapper", role: "navigation" },
             React.createElement("menu", { className: "navigation__tabs" }, navLinks.map(function (_a) {
                 var to = _a.to, text = _a.text, customContent = _a.customContent, customStyles = _a.customStyles;
-                return (React.createElement(NavLink, { to: to, key: to, className: function (_a) {
+                return (React.createElement(reactRouterDom.NavLink, { to: to, key: to, className: function (_a) {
                         var isActive = _a.isActive;
                         return linkStyles(isActive, customStyles);
                     } }, customContent || text));
