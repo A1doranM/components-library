@@ -1,8 +1,8 @@
 @import "src/styles/index";
 
 .expand {
-
-  h1, p {
+  h1,
+  p {
     @include common-text-rules;
   }
 
@@ -23,6 +23,27 @@
     transition: padding 0.4s, background 0.4s;
     cursor: pointer;
 
+    &.expand_static {
+      padding: 20px;
+      font: $font-regular-20;
+
+      &:hover:not(.expand_active) {
+        padding-left: 20px;
+        font: $font-regular-20;
+        background: $color-white;
+        color: $color-black;
+      }
+
+      &:before {
+        right: 20px;
+      }
+
+      &:hover:not(.expand_active):before {
+        right: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_18_134)'%3E%3Cline x1='12' y1='3' x2='12' y2='21' stroke='black' stroke-width='2'/%3E%3Cline x1='3' y1='12' x2='21' y2='12' stroke='black' stroke-width='2'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_18_134'%3E%3Crect width='18' height='18' fill='white' transform='translate(3 3)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+      }
+    }
+
     &:hover:not(.expand_active) {
       padding-left: 35px;
       background: $color-black;
@@ -41,16 +62,16 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      background-image: url(../../assets/images/icons/plus.svg);
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_18_134)'%3E%3Cline x1='12' y1='3' x2='12' y2='21' stroke='black' stroke-width='2'/%3E%3Cline x1='3' y1='12' x2='21' y2='12' stroke='black' stroke-width='2'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_18_134'%3E%3Crect width='18' height='18' fill='white' transform='translate(3 3)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
     }
 
     &:hover:not(.expand_active):before {
       right: 35px;
-      background-image: url(../../assets/images/icons/plus-white.svg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.0001 3H11.0001V11L3 11V13H11.0001V21H13.0001V13H21V11L13.0001 11V3Z' fill='white'/%3E%3C/svg%3E");
     }
 
     &.expand_active:before {
-      background-image: url(../../assets/images/icons/minus.svg);
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='3' y1='12' x2='21' y2='12' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
     }
 
     &:not(.expand_active) + .expand__content {
@@ -61,8 +82,12 @@
   .expand__content {
     font: $font-regular-14;
     padding-bottom: 44px;
-    pointer-events: none;
     max-width: 875px;
+  }
+
+  .expand_static-content {
+    max-width: 100%;
+    padding: 0px 20px 20px 20px;
   }
 }
 

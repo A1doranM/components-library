@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
+import AnswerButton from "components/buttons/AnswerButton";
 import Expand from "../Expand";
 
 export default {
@@ -13,6 +14,5 @@ const Template: ComponentStory<typeof Expand> = (args) => <Expand {...args} />;
 export const Open = Template.bind({});
 Open.args = {
   title: "Документи для подання заявки",
-  children:
-    "Послуги, які надає держава, складні. Зробити їхпростими для користувача – складна, але необхідна робота. Не змушуйте користувача розбиратися вдержавних механізмах, як і не керуйтеся принципом «так було завжди». Спілкуйтесь з користувачами людяною мовою. Шукайте законні способи спростити досвід користувача. Змінюйте закони."
+  children: <AnswerButton>dsadsadsa</AnswerButton>
 };
