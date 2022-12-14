@@ -17,7 +17,8 @@ const Template: ComponentStory<typeof Notification> = (args) => (
 export const ClearNotification = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ClearNotification.args = {
-  text: "Документи для подання заявки"
+  text: "Документи для подання заявки",
+  warning: true
 };
 
 export const WithButtonNotification = Template.bind({});

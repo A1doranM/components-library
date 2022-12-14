@@ -10,15 +10,17 @@ export interface NotificationInterface {
   text: string;
   className?: string;
   withButton?: boolean;
+  warning: boolean;
 }
 
 const Reminder = ({
   text = "",
   className,
-  withButton = false
+  withButton = false,
+  warning = false
 }: NotificationInterface): JSX.Element => {
   return (
-    <div className={cn("notification", className)}>
+    <div className={cn("notification", {["warning"]: warning}, className)}>
       <img
         src={FingerTopIcon}
         alt="notification icon"

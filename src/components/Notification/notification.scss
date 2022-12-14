@@ -32,6 +32,10 @@
   }
 }
 
+.warning {
+  background-color: $color-red-100;
+}
+
 @media (max-width: 992px) {
   .notification {
     padding: 40px 40px 40px 20px;
