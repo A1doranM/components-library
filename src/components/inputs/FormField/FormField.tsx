@@ -1,8 +1,7 @@
 // @ts-nocheck
-
 import cn from "classnames";
-import React, { FocusEvent, useState } from "react";
-import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
+import React, { ChangeEvent, FocusEvent } from "react";
+import { ErrorMessage, FormikErrors, FormikTouched } from "formik";
 
 import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
@@ -11,6 +10,8 @@ import "./field.scss";
 
 export interface FormFieldInterface {
   name: string;
+  value: string | number | readonly string[];
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   errors?: FormikErrors<{ email: string }>;
   touched?: FormikTouched<{ email: string }>;
   className?: string;
@@ -22,89 +23,113 @@ export interface FormFieldInterface {
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
 }
 
-const FormField = ({
-  name,
-  placeholder,
-  type = "text",
-  className = "",
-  errors = undefined,
-  touched = undefined,
-  onBlur,
-  noBorders,
-  errComponent,
-  errClassName
-}: FormFieldInterface): JSX.Element => {
-  const [shown, setShown] = useState(false);
+class FormField extends React.Component<FormFieldInterface> {
+  constructor(props: FormFieldInterface) {
+    super(props);
+    this.state = {
+      show: false
+    };
+  }
 
-  const handleEyeClick = () => {
-    setShown((prevState) => !prevState);
+  static defaultProps = {
+    type: "text",
+    className: "",
+    errors: undefined,
+    touched: undefined
   };
 
-  switch (type) {
-    case "password":
-      return (
-        <div
-          className={cn("form-field-wrapper", "password-input", className)}
-          data-testid="input"
-        >
-          <Field
-            type={shown ? "password" : "text"}
-            name={name}
-            placeholder={" "}
-            className={cn(
-              "form-field",
-              {
+  render(): JSX.Element {
+    const {
+      name,
+      value,
+      onChange,
+      placeholder,
+      type,
+      className,
+      errors,
+      touched,
+      onBlur,
+      noBorders,
+      errComponent,
+      errClassName
+    } = this.props;
+
+    const handleEyeClick = () => {
+      this.setState({
+        show: !this.state.show
+      });
+    };
+
+    switch (type) {
+      case "password":
+        return (
+          <div
+            className={cn("form-field-wrapper", "password-input", className)}
+            data-testid="input"
+          >
+            <input
+              type={this.state.show ? "password" : "text"}
+              name={name}
+              value={value}
+              onChange={onChange}
+              placeholder={" "}
+              className={cn(
+                "form-field",
+                {
+                  "form-field_error":
+                    errors && touched && errors[name] && touched[name]
+                },
+                className
+              )}
+              onBlur={onBlur}
+            />
+            <img
+              src={!this.state.show ? SeePasswordIcon : DontSeePasswordIcon}
+              alt="eye"
+              className="password-input__eye"
+              onClick={handleEyeClick}
+            />
+            <label className="form-field-label" htmlFor={name}>
+              {placeholder}
+            </label>
+            <ErrorMessage
+              name={name}
+              component={errComponent || "div"}
+              className={cn("form-field-error-message", errClassName)}
+            />
+          </div>
+        );
+      default:
+        return (
+          <div
+            className={cn("form-field-wrapper", className)}
+            data-testid="input"
+          >
+            <input
+              type={type}
+              name={name}
+              value={value}
+              onChange={onChange}
+              placeholder={" "}
+              className={cn("form-field", {
                 "form-field_error":
-                  errors && touched && errors[name] && touched[name]
-              },
-              className
-            )}
-            onBlur={onBlur}
-          />
-          <img
-            src={!shown ? SeePasswordIcon : DontSeePasswordIcon}
-            alt="eye"
-            className="password-input__eye"
-            onClick={handleEyeClick}
-          />
-          <label className="form-field-label" htmlFor={name}>
-            {placeholder}
-          </label>
-          <ErrorMessage
-            name={name}
-            component={errComponent || "div"}
-            className={cn("form-field-error-message", errClassName)}
-          />
-        </div>
-      );
-    default:
-      return (
-        <div
-          className={cn("form-field-wrapper", className)}
-          data-testid="input"
-        >
-          <Field
-            type={type}
-            name={name}
-            placeholder={" "}
-            className={cn("form-field", {
-              "form-field_error":
-                errors && touched && errors[name] && touched[name],
-              "form-field_no-borders": noBorders
-            })}
-            onBlur={onBlur}
-          />
-          <label className="form-field-label" htmlFor={name}>
-            {placeholder}
-          </label>
-          <ErrorMessage
-            name={name}
-            component={errComponent || "div"}
-            className={cn("form-field-error-message", errClassName)}
-          />
-        </div>
-      );
+                  errors && touched && errors[name] && touched[name],
+                "form-field_no-borders": noBorders
+              })}
+              onBlur={onBlur}
+            />
+            <label className="form-field-label" htmlFor={name}>
+              {placeholder}
+            </label>
+            <ErrorMessage
+              name={name}
+              component={errComponent || "div"}
+              className={cn("form-field-error-message", errClassName)}
+            />
+          </div>
+        );
+    }
   }
-};
+}
 
 export default FormField;

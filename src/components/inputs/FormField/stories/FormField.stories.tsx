@@ -35,7 +35,7 @@ const Template: ComponentStory<typeof FormField> = (args) => {
       enableReinitialize={true}
       validateOnChange={true}
     >
-      {({ errors, touched }) => (
+      {({ errors, touched, values, handleChange }) => (
         <Form>
           <br />
           <div
@@ -46,6 +46,8 @@ const Template: ComponentStory<typeof FormField> = (args) => {
             <FormField
               type={args.type}
               name="email"
+              value={values["email"]}
+              onChange={handleChange}
               placeholder={args.placeholder}
               noBorders={args.noBorders}
               errors={errors}
