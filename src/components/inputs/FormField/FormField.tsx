@@ -92,11 +92,13 @@ class FormField extends React.Component<FormFieldInterface> {
             <label className="form-field-label" htmlFor={name}>
               {placeholder}
             </label>
-            <ErrorMessage
-              name={name}
-              component={errComponent || "div"}
-              className={cn("form-field-error-message", errClassName)}
-            />
+            {errors && touched && (
+              <ErrorMessage
+                name={name}
+                component={errComponent || "div"}
+                className={cn("form-field-error-message", errClassName)}
+              />
+            )}
           </div>
         );
       default:
@@ -121,11 +123,13 @@ class FormField extends React.Component<FormFieldInterface> {
             <label className="form-field-label" htmlFor={name}>
               {placeholder}
             </label>
-            <ErrorMessage
-              name={name}
-              component={errComponent || "div"}
-              className={cn("form-field-error-message", errClassName)}
-            />
+            {errors && touched && (
+              <ErrorMessage
+                name={name}
+                component={errComponent || "div"}
+                className={cn("form-field-error-message", errClassName)}
+              />
+            )}
           </div>
         );
     }
