@@ -17,5 +17,5 @@ export const SimpleUpload = Template.bind({});
 export const UploadWithArgs = Template.bind({});
 
 UploadWithArgs.args = {
-  title: "upl"
+  title: "Завантажити"
 };
