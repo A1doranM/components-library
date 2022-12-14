@@ -1,8 +1,10 @@
-import React, { FocusEvent } from "react";
+import React, { ChangeEvent, FocusEvent } from "react";
 import { FormikErrors, FormikTouched } from "formik";
 import "./field.scss";
 export interface FormFieldInterface {
     name: string;
+    value: string | number | readonly string[];
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     errors?: FormikErrors<{
         email: string;
     }>;
@@ -17,5 +19,14 @@ export interface FormFieldInterface {
     type?: React.HTMLInputTypeAttribute;
     onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
 }
-declare const FormField: ({ name, placeholder, type, className, errors, touched, onBlur, noBorders, errComponent, errClassName }: FormFieldInterface) => JSX.Element;
+declare class FormField extends React.Component<FormFieldInterface> {
+    constructor(props: FormFieldInterface);
+    static defaultProps: {
+        type: string;
+        className: string;
+        errors: any;
+        touched: any;
+    };
+    render(): JSX.Element;
+}
 export default FormField;
