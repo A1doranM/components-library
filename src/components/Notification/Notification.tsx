@@ -10,7 +10,7 @@ export interface NotificationInterface {
   text: string;
   className?: string;
   withButton?: boolean;
-  warning: boolean;
+  warning?: boolean;
 }
 
 const Reminder = ({
