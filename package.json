@@ -1,6 +1,6 @@
 {
   "name": "gov-ua-ui",
-  "version": "v.Test2",
+  "version": "v.Test3",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -54,7 +54,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.3",
     "@types/react": "^18.0.25",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^9.8.8",
     "babel-jest": "^29.3.1",
     "babel-loader": "^9.1.0",
     "classnames": "^2.3.2",
