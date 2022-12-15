@@ -3,6 +3,7 @@ pipelines:
     v0.0.1:
       - step:
           name: Run tests and build
+          deployment: staging
           image: node:18.12.1
           caches:
             - node
@@ -14,6 +15,7 @@ pipelines:
             - storybook-static/**
       - step:
           name: Deploy build on remote server
+          deployment: staging
           script:
             - pipe: atlassian/rsync-deploy:0.8.1
               variables:
