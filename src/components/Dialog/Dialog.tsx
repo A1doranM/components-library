@@ -2,8 +2,9 @@ import React from "react";
 import Modal from "react-modal";
 import cn from "classnames";
 
-import "./dialog.scss";
 import { CloseIcon, CommonButton, Title } from "components";
+
+import "./dialog.scss";
 
 export interface StatusInterface {
   className?: string;
