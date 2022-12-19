@@ -7009,8 +7009,8 @@ var css_248z$S = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(as
 styleInject(css_248z$S);
 
 var SelectInput = function (_a) {
-    var name = _a.name, options = _a.options, _b = _a.placeholder, placeholder = _b === void 0 ? "" : _b, onChange = _a.onChange, onBlur = _a.onBlur, className = _a.className, styles = _a.styles;
-    return (React.createElement(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: onChange, onBlur: onBlur, styles: styles, menuPortalTarget: document.body }));
+    var name = _a.name, options = _a.options, _b = _a.placeholder, placeholder = _b === void 0 ? "" : _b, onChange = _a.onChange, onBlur = _a.onBlur, className = _a.className, styles = _a.styles, _c = _a.modalPortalTarget, modalPortalTarget = _c === void 0 ? document.body : _c;
+    return (React.createElement(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: onChange, onBlur: onBlur, styles: styles, menuPortalTarget: modalPortalTarget }));
 };
 
 var css_248z$R = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.navigation {\n  display: flex;\n  flex-direction: column;\n}\n.navigation a {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  word-break: keep-all;\n  word-wrap: break-word;\n  line-height: 130%;\n  font: inherit;\n  font-family: e_Ukraine_Regular, sans-serif;\n  text-decoration: none;\n}\n.navigation a:active {\n  color: inherit;\n}\n.navigation a:visited {\n  color: inherit;\n}\n.navigation .navigation__tabs-wrapper .navigation__tabs {\n  display: flex;\n  gap: 50px;\n  list-style: none;\n}\n.navigation .navigation__tabs-wrapper .navigation__tabs .navigation__tab {\n  white-space: nowrap;\n  min-width: -moz-max-content;\n  min-width: max-content;\n  padding-bottom: 10px;\n  color: #000000;\n}\n.navigation .navigation__tabs-wrapper .navigation__tabs .navigation__tab_active {\n  border-bottom: 2px solid #000000;\n}\n\n@media (max-width: 1303px) {\n  .navigation {\n    padding: 0 16px;\n  }\n  .navigation .navigation__tabs-wrapper {\n    max-width: calc(100vw - 32px);\n  }\n  .navigation .navigation__tabs-wrapper .navigation__tabs .navigation__tab {\n    font: normal 400 12px e_Ukraine_Regular, sans-serif;\n  }\n}";
@@ -7018,17 +7018,19 @@ styleInject(css_248z$R);
 
 var Navigation = function (_a) {
     var navLinks = _a.navLinks, className = _a.className;
-    var linkStyles = function (isActive, additionalStyles) {
+    var linkStyles = function (to, isActive, isAnchor, additionalStyles) {
         var _a;
-        return cn("navigation__tab", (_a = {}, _a["navigation__tab_active"] = isActive, _a), additionalStyles);
+        return cn("navigation__tab", (_a = {},
+            _a["navigation__tab_active"] = isAnchor ? location.hash === to : isActive,
+            _a), additionalStyles);
     };
     return (React.createElement("div", { className: cn("navigation", className) },
         React.createElement("nav", { className: "navigation__tabs-wrapper", role: "navigation" },
             React.createElement("menu", { className: "navigation__tabs" }, navLinks.map(function (_a) {
-                var to = _a.to, text = _a.text, customContent = _a.customContent, customStyles = _a.customStyles;
-                return (React.createElement(reactRouterDom.NavLink, { to: to, key: to, className: function (_a) {
+                var to = _a.to, anchor = _a.anchor, text = _a.text, customContent = _a.customContent, customStyles = _a.customStyles;
+                return anchor ? (React.createElement("a", { href: to, className: linkStyles(to, false, true, customStyles) }, customContent || text)) : (React.createElement(reactRouterDom.NavLink, { to: to, key: to, className: function (_a) {
                         var isActive = _a.isActive;
-                        return linkStyles(isActive, customStyles);
+                        return linkStyles(to, isActive, false, customStyles);
                     } }, customContent || text));
             })))));
 };
@@ -7209,7 +7211,7 @@ var FormField = /** @class */ (function (_super) {
     return FormField;
 }(React.Component));
 
-var css_248z$O = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.radio-btn {\n  position: relative;\n  display: flex;\n  gap: 20px;\n  align-items: center;\n  cursor: pointer;\n}\n.radio-btn p {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  word-break: keep-all;\n  word-wrap: break-word;\n  line-height: 130%;\n  font: inherit;\n  font-family: e_Ukraine_Regular, sans-serif;\n}\n.radio-btn .radio-btn__input {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 0;\n  tab-index: -1;\n}\n.radio-btn .radio-btn__indicator {\n  position: relative;\n  z-index: 1;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #000000;\n  border-radius: 50%;\n  background: #ffffff;\n}\n.radio-btn .radio-btn__indicator:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translateY(-50%) translateX(-50%);\n  opacity: 0;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #000000;\n  background-size: cover;\n}\n.radio-btn .radio-btn__info {\n  display: flex;\n  flex-direction: column;\n}\n.radio-btn .radio-btn__info .radio-btn__info-title,\n.radio-btn .radio-btn__info .radio-btn__info-body,\n.radio-btn .radio-btn__info .radio-btn__info-footer,\n.radio-btn .radio-btn__info .radio-btn__info-warning {\n  z-index: 1;\n}\n.radio-btn .radio-btn__info .radio-btn__info-body,\n.radio-btn .radio-btn__info .radio-btn__info-footer,\n.radio-btn .radio-btn__info .radio-btn__info-warning {\n  margin-top: 11px;\n  font-size: 12px;\n  line-height: 16px;\n}\n.radio-btn .radio-btn__info .radio-btn__info-title {\n  font-size: 16px;\n  line-height: 23px;\n  color: #000000;\n}\n.radio-btn .radio-btn__info .radio-btn__info-body {\n  color: #d0d6db;\n}\n.radio-btn .radio-btn__info .radio-btn__info-footer {\n  color: #000000;\n}\n.radio-btn .radio-btn__info .radio-btn__info-warning {\n  color: #f6695e;\n}\n.radio-btn_active .radio-btn__indicator {\n  border: 2px solid #000000;\n}\n.radio-btn_active .radio-btn__indicator:hover {\n  border: 2px solid #000000;\n}\n.radio-btn_active .radio-btn__indicator:after {\n  opacity: 1;\n}\n.radio-btn_active .radio-btn__info:after {\n  display: inline-block;\n}\n.radio-btn_disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n\n@media (991px) {\n  .radio-btn .radio-btn__info .radio-btn__info-title {\n    font-size: 14px;\n    line-height: 23px;\n    color: #000000;\n  }\n}";
+var css_248z$O = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.radio-btn {\n  position: relative;\n  display: flex;\n  gap: 20px;\n  align-items: center;\n  cursor: pointer;\n}\n.radio-btn p {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  word-break: keep-all;\n  word-wrap: break-word;\n  line-height: 130%;\n  font: inherit;\n  font-family: e_Ukraine_Regular, sans-serif;\n}\n.radio-btn .radio-btn__input {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 0;\n  tab-index: -1;\n  opacity: 0;\n}\n.radio-btn .radio-btn__indicator {\n  position: relative;\n  z-index: 1;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #000000;\n  border-radius: 50%;\n  background: #ffffff;\n}\n.radio-btn .radio-btn__indicator:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translateY(-50%) translateX(-50%);\n  opacity: 0;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #000000;\n  background-size: cover;\n}\n.radio-btn .radio-btn__info {\n  display: flex;\n  flex-direction: column;\n}\n.radio-btn .radio-btn__info .radio-btn__info-title,\n.radio-btn .radio-btn__info .radio-btn__info-body,\n.radio-btn .radio-btn__info .radio-btn__info-footer,\n.radio-btn .radio-btn__info .radio-btn__info-warning {\n  z-index: 1;\n}\n.radio-btn .radio-btn__info .radio-btn__info-body,\n.radio-btn .radio-btn__info .radio-btn__info-footer,\n.radio-btn .radio-btn__info .radio-btn__info-warning {\n  margin-top: 11px;\n  font-size: 12px;\n  line-height: 16px;\n}\n.radio-btn .radio-btn__info .radio-btn__info-title {\n  font-size: 16px;\n  line-height: 23px;\n  color: #000000;\n}\n.radio-btn .radio-btn__info .radio-btn__info-body {\n  color: #d0d6db;\n}\n.radio-btn .radio-btn__info .radio-btn__info-footer {\n  color: #000000;\n}\n.radio-btn .radio-btn__info .radio-btn__info-warning {\n  color: #f6695e;\n}\n.radio-btn_active .radio-btn__indicator {\n  border: 2px solid #000000;\n}\n.radio-btn_active .radio-btn__indicator:hover {\n  border: 2px solid #000000;\n}\n.radio-btn_active .radio-btn__indicator:after {\n  opacity: 1;\n}\n.radio-btn_active .radio-btn__info:after {\n  display: inline-block;\n}\n.radio-btn_disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n\n@media (991px) {\n  .radio-btn .radio-btn__info .radio-btn__info-title {\n    font-size: 14px;\n    line-height: 23px;\n    color: #000000;\n  }\n}";
 styleInject(css_248z$O);
 
 var RadioButton = function (_a) {
@@ -7233,7 +7235,7 @@ styleInject(css_248z$N);
 
 var CommonButton = function (_a) {
     var _b;
-    var label = _a.label, outlined = _a.outlined, disabled = _a.disabled, dashed = _a.dashed, className = _a.className, large = _a.large, image = _a.image, round = _a.round, onClick = _a.onClick;
+    var _c = _a.type, type = _c === void 0 ? "button" : _c, label = _a.label, outlined = _a.outlined, disabled = _a.disabled, dashed = _a.dashed, className = _a.className, large = _a.large, image = _a.image, alt = _a.alt, round = _a.round, onClick = _a.onClick;
     return (React.createElement("button", { className: cn("common-button", className, (_b = {},
             _b["common-button_outlined"] = outlined,
             _b["common-button_dashed"] = dashed,
@@ -7241,9 +7243,9 @@ var CommonButton = function (_a) {
             _b["common-button_disabled"] = disabled,
             _b["common-button_large"] = large,
             _b["common-button_round"] = round,
-            _b)), onClick: onClick },
+            _b)), onClick: onClick, type: type },
         (image || round) && (React.createElement("div", { className: "common-button_image-container" },
-            React.createElement("img", { src: image, className: "common-button_image", alt: "button icon" }))),
+            React.createElement("img", { src: image, className: "common-button_image", alt: alt }))),
         !round && label));
 };
 

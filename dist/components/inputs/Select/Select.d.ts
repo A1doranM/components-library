@@ -10,6 +10,7 @@ export interface SelectInputInterface {
     className?: string;
     name?: string;
     styles?: object;
+    modalPortalTarget?: HTMLElement | null;
 }
-declare const SelectInput: ({ name, options, placeholder, onChange, onBlur, className, styles }: SelectInputInterface) => JSX.Element;
+declare const SelectInput: ({ name, options, placeholder, onChange, onBlur, className, styles, modalPortalTarget }: SelectInputInterface) => JSX.Element;
 export default SelectInput;

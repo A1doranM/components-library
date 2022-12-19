@@ -2,6 +2,7 @@ import "./navigation.scss";
 export interface LinkInterface {
     to: string;
     text: string;
+    anchor?: boolean;
     customContent?: any;
     customStyles?: string;
 }

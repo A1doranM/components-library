@@ -5,7 +5,7 @@ import Select from "./inputs/Select";
 import Navigation from "./Navigation";
 import Notification from "./Notification";
 import FormField from "./inputs/FormField";
-import RadioButton from "./buttons/RadioButton";
+import RadioButton from "./inputs/RadioButton";
 import CommonButton from "./buttons/CommonButton";
 import AnswerButton from "./buttons/AnswerButton";
 import SwitchButton from "./buttons/SwitchButton";
