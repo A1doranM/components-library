@@ -15,6 +15,7 @@ export interface SelectInputInterface {
   className?: string;
   name?: string;
   styles?: object;
+  modalPortalTarget?: HTMLElement | null;
 }
 
 const SelectInput = ({
@@ -24,7 +25,8 @@ const SelectInput = ({
   onChange,
   onBlur,
   className,
-  styles
+  styles,
+  modalPortalTarget = document.body
 }: SelectInputInterface) => {
   return (
     <Select
@@ -36,7 +38,7 @@ const SelectInput = ({
       onChange={onChange}
       onBlur={onBlur}
       styles={styles}
-      menuPortalTarget={document.body}
+      menuPortalTarget={modalPortalTarget}
     />
   );
 };
