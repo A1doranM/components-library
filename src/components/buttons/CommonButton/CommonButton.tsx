@@ -4,18 +4,21 @@ import cn from "classnames";
 import "./common-button.scss";
 
 export interface CommonButtonProps {
-  label?: string;
+  type?: "submit" | "reset" | "button" | undefined;
+  label?: any;
   outlined?: boolean;
   disabled?: boolean;
   dashed?: boolean;
   className?: string;
   large?: boolean;
   image?: string;
+  alt?: string;
   round?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const CommonButton = ({
+  type = "button",
   label,
   outlined,
   disabled,
@@ -23,6 +26,7 @@ const CommonButton = ({
   className,
   large,
   image,
+  alt,
   round,
   onClick
 }: CommonButtonProps) => {
@@ -37,14 +41,11 @@ const CommonButton = ({
         ["common-button_round"]: round
       })}
       onClick={onClick}
+      type={type}
     >
       {(image || round) && (
         <div className="common-button_image-container">
-          <img
-            src={image}
-            className="common-button_image"
-            alt="button icon"
-          />
+          <img src={image} className="common-button_image" alt={alt} />
         </div>
       )}
       {!round && label}
