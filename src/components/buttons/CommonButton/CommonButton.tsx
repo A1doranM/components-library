@@ -48,7 +48,7 @@ const CommonButton = ({
           <img src={image} className="common-button_image" alt={alt} />
         </div>
       )}
-      {!round && label}
+      {label}
     </button>
   );
 };

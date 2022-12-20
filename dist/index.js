@@ -7264,7 +7264,7 @@ var CommonButton = function (_a) {
             _b)), onClick: onClick, type: type },
         (image || round) && (React.createElement("div", { className: "common-button_image-container" },
             React.createElement("img", { src: image, className: "common-button_image", alt: alt }))),
-        !round && label));
+        label));
 };
 
 var img$L = "data:image/svg+xml,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cg clip-path='url(%23clip0_3953_22668)'%3e %3cpath d='M1 9L6 16L17 1' stroke='black' stroke-width='2'/%3e %3c/g%3e %3cdefs%3e %3cclipPath id='clip0_3953_22668'%3e %3crect width='18' height='18' fill='white' transform='translate(0 18) rotate(-90)'/%3e %3c/clipPath%3e %3c/defs%3e%3c/svg%3e";
