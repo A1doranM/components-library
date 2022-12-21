@@ -45,7 +45,7 @@ const TestForm = ({
       enableReinitialize={true}
       validateOnChange={true}
     >
-      {({ errors, touched, values, handleChange }) => (
+      {({ errors, touched }) => (
         <Form>
           <FormField
             type={type}
@@ -54,8 +54,6 @@ const TestForm = ({
             noBorders={noBorders}
             errors={errors}
             touched={touched}
-            value={values["email"]}
-            onChange={handleChange}
           />
           <br />
           <br />
