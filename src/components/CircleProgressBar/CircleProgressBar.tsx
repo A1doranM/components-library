@@ -30,7 +30,10 @@ const CircleProgressBar = ({
   }, [progress, circumference]);
 
   return (
-    <div className={cn("bar-wrapper", className)}>
+    <div
+      data-testid="circle-progress-bar"
+      className={cn("bar-wrapper", className)}
+    >
       <div className={"circle-progress-bar"} data-pct={progress}>
         <svg className={"circle-progress-bar__svg"} width="60" height="60">
           <circle

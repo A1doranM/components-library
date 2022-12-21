@@ -19,8 +19,10 @@ describe("Dialog", () => {
         ): void {
           throw new Error("Function not implemented.");
         }}
-        isOpen={false}
-      ></Dialog>
+        isOpen={true}
+      />
     );
+    const dialog = screen.getByTestId("dialog");
+    expect(dialog).toBeInTheDocument();
   });
 });

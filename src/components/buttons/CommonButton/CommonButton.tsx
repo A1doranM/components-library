@@ -32,6 +32,7 @@ const CommonButton = ({
 }: CommonButtonProps) => {
   return (
     <button
+      data-testid="common-button"
       className={cn("common-button", className, {
         ["common-button_outlined"]: outlined,
         ["common-button_dashed"]: dashed,

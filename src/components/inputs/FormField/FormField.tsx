@@ -65,9 +65,9 @@ class FormField extends React.Component<FormFieldInterface> {
         return (
           <div
             className={cn("form-field-wrapper", "password-input", className)}
-            data-testid="input"
           >
             <input
+              data-testid="input"
               type={this.state.show ? "password" : "text"}
               name={name}
               value={value}
@@ -103,11 +103,9 @@ class FormField extends React.Component<FormFieldInterface> {
         );
       default:
         return (
-          <div
-            className={cn("form-field-wrapper", className)}
-            data-testid="input"
-          >
+          <div className={cn("form-field-wrapper", className)}>
             <input
+              data-testid="input"
               type={type}
               name={name}
               value={value}
