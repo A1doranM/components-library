@@ -1,10 +1,8 @@
-import React, { ChangeEvent, FocusEvent } from "react";
+import React, { FocusEvent } from "react";
 import { FormikErrors, FormikTouched } from "formik";
 import "./field.scss";
 export interface FormFieldInterface {
     name: string;
-    value: string | number | readonly string[];
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     errors?: FormikErrors<{
         email: string;
     }>;

@@ -6,7 +6,6 @@ import "./checkbox.scss";
 
 export interface iCheckbox {
   name: string;
-  value?: string;
   title?: string;
   checked?: boolean;
   disabled?: boolean;
@@ -19,7 +18,6 @@ export interface iCheckbox {
 
 const Checkbox = ({
   name,
-  value,
   title,
   checked,
   disabled,
@@ -29,7 +27,6 @@ const Checkbox = ({
   errComponent,
   errClassName
 }: iCheckbox): JSX.Element => {
-  console.log("Checked: ", checked, value);
 
   return (
     <label
@@ -41,7 +38,6 @@ const Checkbox = ({
       <Field
         type="checkbox"
         name={name}
-        value={value}
         className="checkbox__input"
       />
       <span className="checkbox__indicator" />

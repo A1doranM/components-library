@@ -3,7 +3,6 @@ import { FormikErrors, FormikTouched } from "formik";
 import "./checkbox.scss";
 export interface iCheckbox {
     name: string;
-    value?: string;
     title?: string;
     checked?: boolean;
     disabled?: boolean;
@@ -17,5 +16,5 @@ export interface iCheckbox {
     errClassName?: string;
     errComponent?: React.ComponentType;
 }
-declare const Checkbox: ({ name, value, title, checked, disabled, className, errors, touched, errComponent, errClassName }: iCheckbox) => JSX.Element;
+declare const Checkbox: ({ name, title, checked, disabled, className, errors, touched, errComponent, errClassName }: iCheckbox) => JSX.Element;
 export default Checkbox;

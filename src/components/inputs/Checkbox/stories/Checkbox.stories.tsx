@@ -32,30 +32,27 @@ const Template: ComponentStory<typeof Checkbox> = (args) => {
       enableReinitialize={true}
       validateOnChange={true}
     >
-      {({ errors, touched, values, handleChange }) => {
+      {({ errors, touched, values }) => {
         return (
           <Form>
             <Checkbox
               title="Первое значение"
-              name="select_all"
-              checked={values["select_all"].includes("One")}
-              value="One"
+              name="One"
+              checked={values["One"]}
               errors={errors}
               touched={touched}
             />
             <Checkbox
               title="Второе значение"
-              name="select_all"
-              checked={values["select_all"].includes("Two")}
-              value="Two"
+              name="Two"
+              checked={values["Two"]}
               errors={errors}
               touched={touched}
             />
             <Checkbox
               title="Третье значение"
-              name="select_all"
-              checked={values["select_all"].includes("Three")}
-              value="Three"
+              name="Three"
+              checked={values["Three"]}
               errors={errors}
               touched={touched}
             />
