@@ -1,7 +1,7 @@
 // @ts-nocheck
 import cn from "classnames";
 import React, { ChangeEvent, FocusEvent } from "react";
-import { ErrorMessage, FormikErrors, FormikTouched } from "formik";
+import { ErrorMessage, FormikErrors, FormikTouched, Field } from "formik";
 
 import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
@@ -10,8 +10,6 @@ import "./field.scss";
 
 export interface FormFieldInterface {
   name: string;
-  value: string | number | readonly string[];
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   errors?: FormikErrors<{ email: string }>;
   touched?: FormikTouched<{ email: string }>;
   className?: string;
@@ -41,8 +39,6 @@ class FormField extends React.Component<FormFieldInterface> {
   render(): JSX.Element {
     const {
       name,
-      value,
-      onChange,
       placeholder,
       type,
       className,
@@ -66,12 +62,9 @@ class FormField extends React.Component<FormFieldInterface> {
           <div
             className={cn("form-field-wrapper", "password-input", className)}
           >
-            <input
-              data-testid="input"
+            <Field
               type={this.state.show ? "password" : "text"}
               name={name}
-              value={value}
-              onChange={onChange}
               placeholder={" "}
               className={cn(
                 "form-field",
@@ -103,13 +96,13 @@ class FormField extends React.Component<FormFieldInterface> {
         );
       default:
         return (
-          <div className={cn("form-field-wrapper", className)}>
-            <input
-              data-testid="input"
+          <div
+            className={cn("form-field-wrapper", className)}
+            data-testid="input"
+          >
+            <Field
               type={type}
               name={name}
-              value={value}
-              onChange={onChange}
               placeholder={" "}
               className={cn("form-field", {
                 "form-field_error":

@@ -7020,13 +7020,12 @@ styleInject(css_248z$R);
 
 var Checkbox = function (_a) {
     var _b;
-    var name = _a.name, value = _a.value, title = _a.title, checked = _a.checked, disabled = _a.disabled, className = _a.className, errors = _a.errors, touched = _a.touched, errComponent = _a.errComponent, errClassName = _a.errClassName;
-    console.log("Checked: ", checked, value);
+    var name = _a.name, title = _a.title, checked = _a.checked, disabled = _a.disabled, className = _a.className, errors = _a.errors, touched = _a.touched, errComponent = _a.errComponent, errClassName = _a.errClassName;
     return (React__default.createElement("label", { className: cn("checkbox", className, (_b = {},
             _b["checkbox_active"] = checked,
             _b["checkbox_disabled"] = disabled,
             _b)) },
-        React__default.createElement(Field, { type: "checkbox", name: name, value: value, className: "checkbox__input" }),
+        React__default.createElement(Field, { type: "checkbox", name: name, className: "checkbox__input" }),
         React__default.createElement("span", { className: "checkbox__indicator" }),
         React__default.createElement("div", { className: "checkbox__info" },
             React__default.createElement("span", { className: "checkbox__info-title" }, title)),
@@ -7175,7 +7174,7 @@ var FormField = /** @class */ (function (_super) {
     }
     FormField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, name = _a.name, value = _a.value, onChange = _a.onChange, placeholder = _a.placeholder, type = _a.type, className = _a.className, errors = _a.errors, touched = _a.touched, onBlur = _a.onBlur, noBorders = _a.noBorders, errComponent = _a.errComponent, errClassName = _a.errClassName;
+        var _a = this.props, name = _a.name, placeholder = _a.placeholder, type = _a.type, className = _a.className, errors = _a.errors, touched = _a.touched, onBlur = _a.onBlur, noBorders = _a.noBorders, errComponent = _a.errComponent, errClassName = _a.errClassName;
         var handleEyeClick = function () {
             _this.setState({
                 show: !_this.state.show
@@ -7184,7 +7183,7 @@ var FormField = /** @class */ (function (_super) {
         switch (type) {
             case "password":
                 return (React__default.createElement("div", { className: cn("form-field-wrapper", "password-input", className), "data-testid": "input" },
-                    React__default.createElement("input", { type: this.state.show ? "password" : "text", name: name, value: value, onChange: onChange, placeholder: " ", className: cn("form-field", {
+                    React__default.createElement(Field, { type: this.state.show ? "password" : "text", name: name, placeholder: " ", className: cn("form-field", {
                             "form-field_error": errors && touched && errors[name] && touched[name]
                         }, className), onBlur: onBlur }),
                     React__default.createElement("img", { src: !this.state.show ? img$N : img$M, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }),
@@ -7192,7 +7191,7 @@ var FormField = /** @class */ (function (_super) {
                     errors && touched && (React__default.createElement(ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) }))));
             default:
                 return (React__default.createElement("div", { className: cn("form-field-wrapper", className), "data-testid": "input" },
-                    React__default.createElement("input", { type: type, name: name, value: value, onChange: onChange, placeholder: " ", className: cn("form-field", {
+                    React__default.createElement(Field, { type: type, name: name, placeholder: " ", className: cn("form-field", {
                             "form-field_error": errors && touched && errors[name] && touched[name],
                             "form-field_no-borders": noBorders
                         }), onBlur: onBlur }),
@@ -9907,18 +9906,18 @@ styleInject(css_248z$I);
 
 var VisualUploadFile = function (_a) {
     var _b;
-    var title = _a.title, backgroundImg = _a.backgroundImg, className = _a.className;
+    var title = _a.title, backgroundImg = _a.backgroundImg, containerClassName = _a.containerClassName, contentClassName = _a.contentClassName, labelClassName = _a.labelClassName;
     var _c = useState(null), selectedImage = _c[0], setSelectedImage = _c[1];
-    return (React__default.createElement("div", { className: cn("load-file", (_b = {}, _b["uploaded-file-container"] = selectedImage, _b), className) },
+    return (React__default.createElement("div", { className: cn("load-file", (_b = {}, _b["uploaded-file-container"] = selectedImage, _b), containerClassName) },
         selectedImage && (React__default.createElement("div", { className: "upload-container" },
             React__default.createElement("img", { alt: "not fount", src: URL.createObjectURL(selectedImage), className: "uplaoded-img" }))),
         React__default.createElement("input", { id: "load-file", type: "file", className: "load-file__input", onChange: function (event) {
                 var _a, _b;
                 setSelectedImage(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
             } }),
-        !selectedImage && (React__default.createElement("div", { className: "load-file__content-wrapper" },
+        !selectedImage && (React__default.createElement("div", { className: cn("load-file__content-wrapper", contentClassName) },
             React__default.createElement("img", { src: img$I, alt: "download", className: "load-file__img" }),
-            React__default.createElement("label", { htmlFor: "load-file", className: "load-file__label" }, title),
+            React__default.createElement("label", { htmlFor: "load-file", className: cn("load-file__label", labelClassName) }, title),
             backgroundImg && (React__default.createElement("img", { src: backgroundImg, alt: "", className: "load-file__background" }))))));
 };
 
