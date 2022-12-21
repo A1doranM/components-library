@@ -6,7 +6,9 @@ import DownloadIcon from "../../../assets/images/icons/download.svg";
 import "./visual-upload-file.scss";
 
 export interface VisualUploadFileInterface {
-  className?: string;
+  containerClassName?: string;
+  contentClassName?: string;
+  labelClassName?: string;
   title?: string;
   backgroundImg?: string;
 }
@@ -14,7 +16,9 @@ export interface VisualUploadFileInterface {
 const VisualUploadFile = ({
   title,
   backgroundImg,
-  className
+  containerClassName,
+  contentClassName,
+  labelClassName
 }: VisualUploadFileInterface): JSX.Element => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
@@ -23,7 +27,7 @@ const VisualUploadFile = ({
       className={cn(
         "load-file",
         { ["uploaded-file-container"]: selectedImage },
-        className
+        containerClassName
       )}
     >
       {selectedImage && (
@@ -45,9 +49,12 @@ const VisualUploadFile = ({
         }}
       />
       {!selectedImage && (
-        <div className={"load-file__content-wrapper"}>
+        <div className={cn("load-file__content-wrapper", contentClassName)}>
           <img src={DownloadIcon} alt="download" className={"load-file__img"} />
-          <label htmlFor="load-file" className={"load-file__label"}>
+          <label
+            htmlFor="load-file"
+            className={cn("load-file__label", labelClassName)}
+          >
             {title}
           </label>
           {backgroundImg && (
