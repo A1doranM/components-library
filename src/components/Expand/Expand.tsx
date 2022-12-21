@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import cn from "classnames";
 
-import BlackPlusIcon from "assets/images/icons/plus.svg";
-import WhitePlusIcon from "assets/images/icons/plus-white.svg";
-
 import "./expand.scss";
 
 export interface ExpandInterface {
@@ -33,6 +30,7 @@ const Expand = ({
 
   return (
     <section
+      data-testid="expand"
       className={cn(
         "expand",
         {

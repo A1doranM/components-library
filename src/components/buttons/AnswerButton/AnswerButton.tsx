@@ -27,6 +27,7 @@ const AnswerButton = ({
 }: AnswerButtonProps) => {
   return (
     <button
+      data-testid="answer-button"
       className={cn("correct-button", className, {
         ["correct-button_cancel"]: cancel,
         ["correct-button_round"]: round,

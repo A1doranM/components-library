@@ -1,10 +1,10 @@
 import React, { FocusEvent } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
-import FormField from "components/inputs/FormField";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
+
+import FormField from "components/inputs/FormField";
 
 interface TestFormInterface {
   name: string;
@@ -75,16 +75,17 @@ describe("FormField", () => {
     screen.debug();
   });
 
-  test("Write text into input", () => {
+  test("Write text into input", async () => {
+    const events = userEvent.setup();
     render(<TestForm name="email" placeholder="Email" noBorders={false} />);
     const input = screen.getByTestId("input");
-    userEvent.type(input, "aldoran.ua@gmail.com").then(() => {
-      expect(input).toHaveValue("aldoran.ua@gmail.com");
-    });
+    await events.type(input, "aldoran.ua@gmail.com");
+    expect(input).toHaveValue("aldoran.ua@gmail.com");
     screen.debug();
   });
 
-  test("Check input with type password", () => {
+  test("Check input with type password", async () => {
+    const events = userEvent.setup();
     render(
       <TestForm
         name="email"
@@ -95,19 +96,18 @@ describe("FormField", () => {
     );
     const input = screen.getByTestId("input");
     const eyeIcon = screen.getByAltText("eye");
-    userEvent.type(input, "1q2w3e3e2w1q4r").then(() => {
-      expect(input).toHaveAttribute("type", "password");
-    });
-    userEvent.click(eyeIcon).then(() => {
-      expect(input).toHaveAttribute("type", "text");
-    });
+    await events.type(input, "1q2w3e3e2w1q4r");
+    expect(input).toHaveAttribute("type", "text");
+    await events.click(eyeIcon);
+    expect(input).toHaveAttribute("type", "password");
     screen.debug();
   });
 
-  test("Check validation with type password", () => {
+  test("Check validation with type password", async () => {
+    const events = userEvent.setup();
     render(<TestForm name="email" placeholder="Email" type="password" />);
     const submitBtn = screen.getByText("submit");
-    userEvent.click(submitBtn).then(() => {
+    events.click(submitBtn).then(() => {
       const error = screen.getByText("Required");
       expect(error).toBeInTheDocument();
     });
@@ -115,9 +115,10 @@ describe("FormField", () => {
   });
 
   test("Check validation with type text", () => {
+    const events = userEvent.setup();
     render(<TestForm name="email" placeholder="Email" type="text" />);
     const submitBtn = screen.getByText("submit");
-    userEvent.click(submitBtn).then(() => {
+    events.click(submitBtn).then(() => {
       const error = screen.getByText("Required");
       expect(error).toBeInTheDocument();
     });

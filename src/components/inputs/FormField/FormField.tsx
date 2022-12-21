@@ -61,7 +61,6 @@ class FormField extends React.Component<FormFieldInterface> {
         return (
           <div
             className={cn("form-field-wrapper", "password-input", className)}
-            data-testid="input"
           >
             <Field
               type={this.state.show ? "password" : "text"}
@@ -76,6 +75,7 @@ class FormField extends React.Component<FormFieldInterface> {
                 className
               )}
               onBlur={onBlur}
+              data-testid="input"
             />
             <img
               src={!this.state.show ? SeePasswordIcon : DontSeePasswordIcon}
@@ -97,10 +97,7 @@ class FormField extends React.Component<FormFieldInterface> {
         );
       default:
         return (
-          <div
-            className={cn("form-field-wrapper", className)}
-            data-testid="input"
-          >
+          <div className={cn("form-field-wrapper", className)}>
             <Field
               type={type}
               name={name}
@@ -111,6 +108,7 @@ class FormField extends React.Component<FormFieldInterface> {
                 "form-field_no-borders": noBorders
               })}
               onBlur={onBlur}
+              data-testid="input"
             />
             <label className="form-field-label" htmlFor={name}>
               {placeholder}

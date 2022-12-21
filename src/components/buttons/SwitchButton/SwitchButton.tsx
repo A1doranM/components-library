@@ -11,7 +11,7 @@ export interface SwitchButtonProps {
 
 const SwitchButton = ({ active, onChange, className }: SwitchButtonProps) => {
   return (
-    <label className={cn("switch", className)}>
+    <label data-testid="switch-button" className={cn("switch", className)}>
       <input type="checkbox" checked={active} onClick={onChange} />
       <span className="slider round" />
     </label>

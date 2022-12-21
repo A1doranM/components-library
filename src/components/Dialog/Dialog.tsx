@@ -57,7 +57,7 @@ const Dialog = ({
         contentLabel="Example Modal"
         closeTimeoutMS={300}
       >
-        <div className={cn("wrapper", className)}>
+        <div data-testid="dialog" className={cn("wrapper", className)}>
           <div className={"content"}>
             <Title children={title} size={24} className={"title"} />
             <button onClick={onDecline} className={"close"}>
