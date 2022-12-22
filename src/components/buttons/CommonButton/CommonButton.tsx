@@ -46,7 +46,11 @@ const CommonButton = ({
     >
       {(image || round) && (
         <div className="common-button_image-container">
-          <img src={image} className="common-button_image" alt={alt} />
+          {typeof image === "string" ? (
+            <img src={image} className="common-button_image" alt={alt} />
+          ) : (
+            image
+          )}
         </div>
       )}
       {label}

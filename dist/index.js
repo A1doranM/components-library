@@ -7261,8 +7261,7 @@ var CommonButton = function (_a) {
             _b["common-button_large"] = large,
             _b["common-button_round"] = round,
             _b)), onClick: onClick, type: type },
-        (image || round) && (React.createElement("div", { className: "common-button_image-container" },
-            React.createElement("img", { src: image, className: "common-button_image", alt: alt }))),
+        (image || round) && (React.createElement("div", { className: "common-button_image-container" }, typeof image === "string" ? (React.createElement("img", { src: image, className: "common-button_image", alt: alt })) : (image))),
         label));
 };
 
