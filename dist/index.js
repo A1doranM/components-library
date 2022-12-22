@@ -70,7 +70,7 @@ var Expand = function (_a) {
     var handleToggle = function () {
         setOpen(function (prevState) { return !prevState; });
     };
-    return (React.createElement("section", { className: cn("expand", (_b = {},
+    return (React.createElement("section", { "data-testid": "expand", className: cn("expand", (_b = {},
             _b["expand_last"] = isLast,
             _b), className) },
         React.createElement("h2", { className: cn("expand__header", (_c = {},
@@ -7035,7 +7035,7 @@ var Navigation = function (_a) {
             })))));
 };
 
-var css_248z$R = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.checkbox {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  cursor: pointer;\n}\n.checkbox .checkbox__input {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 0;\n  visibility: hidden;\n  tab-index: -1;\n}\n.checkbox .checkbox__indicator {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #d0d6db;\n  background: #ffffff;\n}\n.checkbox .checkbox__indicator:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translateY(-50%) translateX(-50%);\n  width: 15px;\n  height: 15px;\n  opacity: 0;\n  background-image: url(\"data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.125 7.9375L8.15625 17.3125L19.875 0.90625' stroke='black' stroke-width='2'/%3E%3C/svg%3E\");\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.checkbox .checkbox__info .checkbox__info-title {\n  font-size: 16px;\n  line-height: 23px;\n  color: #000000;\n}\n.checkbox .checkbox__info:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: none;\n  width: 100%;\n  height: 30px;\n  background: #c6e9ca;\n}\n.checkbox .checkbox-warning {\n  color: #f44336;\n}\n.checkbox_active .checkbox__indicator:after {\n  opacity: 1;\n}\n.checkbox_disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n\n@media (max-width: 767px) {\n  .checkbox .checkbox__info .checkbox__info-title {\n    font-size: 16px;\n  }\n}";
+var css_248z$R = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.checkbox {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  cursor: pointer;\n}\n.checkbox .checkbox__input {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 0;\n  visibility: hidden;\n  tab-index: -1;\n}\n.checkbox .checkbox__indicator {\n  position: relative;\n  min-width: 20px;\n  min-height: 20px;\n  border: 2px solid #d0d6db;\n  background: #ffffff;\n}\n.checkbox .checkbox__indicator:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translateY(-50%) translateX(-50%);\n  width: 15px;\n  height: 15px;\n  opacity: 0;\n  background-image: url(\"data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.125 7.9375L8.15625 17.3125L19.875 0.90625' stroke='black' stroke-width='2'/%3E%3C/svg%3E\");\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.checkbox .checkbox__info .checkbox__info-title {\n  font-size: 16px;\n  line-height: 23px;\n  color: #000000;\n}\n.checkbox .checkbox__info:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: none;\n  width: 100%;\n  height: 30px;\n  background: #c6e9ca;\n}\n.checkbox .checkbox-warning {\n  color: #f44336;\n}\n.checkbox_active .checkbox__indicator:after {\n  opacity: 1;\n}\n.checkbox_disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n\n@media (max-width: 767px) {\n  .checkbox .checkbox__info .checkbox__info-title {\n    font-size: 16px;\n  }\n}";
 styleInject(css_248z$R);
 
 var Checkbox = function (_a) {
@@ -7202,19 +7202,19 @@ var FormField = /** @class */ (function (_super) {
         };
         switch (type) {
             case "password":
-                return (React.createElement("div", { className: cn("form-field-wrapper", "password-input", className), "data-testid": "input" },
+                return (React.createElement("div", { className: cn("form-field-wrapper", "password-input", className) },
                     React.createElement(formik.Field, { type: this.state.show ? "password" : "text", name: name, placeholder: " ", className: cn("form-field", {
                             "form-field_error": errors && touched && errors[name] && touched[name]
-                        }, className), onBlur: onBlur }),
+                        }, className), onBlur: onBlur, "data-testid": "input" }),
                     React.createElement("img", { src: !this.state.show ? img$N : img$M, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }),
                     React.createElement("label", { className: "form-field-label", htmlFor: name }, placeholder),
                     errors && touched && (React.createElement(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) }))));
             default:
-                return (React.createElement("div", { className: cn("form-field-wrapper", className), "data-testid": "input" },
+                return (React.createElement("div", { className: cn("form-field-wrapper", className) },
                     React.createElement(formik.Field, { type: type, name: name, placeholder: " ", className: cn("form-field", {
                             "form-field_error": errors && touched && errors[name] && touched[name],
                             "form-field_no-borders": noBorders
-                        }), onBlur: onBlur }),
+                        }), onBlur: onBlur, "data-testid": "input" }),
                     React.createElement("label", { className: "form-field-label", htmlFor: name }, placeholder),
                     errors && touched && (React.createElement(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) }))));
         }
@@ -7253,7 +7253,7 @@ styleInject(css_248z$N);
 var CommonButton = function (_a) {
     var _b;
     var _c = _a.type, type = _c === void 0 ? "button" : _c, label = _a.label, outlined = _a.outlined, disabled = _a.disabled, dashed = _a.dashed, className = _a.className, large = _a.large, image = _a.image, alt = _a.alt, round = _a.round, onClick = _a.onClick;
-    return (React.createElement("button", { className: cn("common-button", className, (_b = {},
+    return (React.createElement("button", { "data-testid": "common-button", className: cn("common-button", className, (_b = {},
             _b["common-button_outlined"] = outlined,
             _b["common-button_dashed"] = dashed,
             _b["common-button_filled"] = !outlined,
@@ -7278,7 +7278,7 @@ styleInject(css_248z$M);
 var AnswerButton = function (_a) {
     var _b;
     var label = _a.label, cancel = _a.cancel, className = _a.className, round = _a.round, hold = _a.hold, onClick = _a.onClick;
-    return (React.createElement("button", { className: cn("correct-button", className, (_b = {},
+    return (React.createElement("button", { "data-testid": "answer-button", className: cn("correct-button", className, (_b = {},
             _b["correct-button_cancel"] = cancel,
             _b["correct-button_round"] = round,
             _b["correct-button_on-hold"] = hold,
@@ -7299,7 +7299,7 @@ styleInject(css_248z$L);
 
 var SwitchButton = function (_a) {
     var active = _a.active, onChange = _a.onChange, className = _a.className;
-    return (React.createElement("label", { className: cn("switch", className) },
+    return (React.createElement("label", { "data-testid": "switch-button", className: cn("switch", className) },
         React.createElement("input", { type: "checkbox", checked: active, onClick: onChange }),
         React.createElement("span", { className: "slider round" })));
 };
@@ -7322,7 +7322,7 @@ var CircleProgressBar = function (_a) {
         var percentToFill = ((100 - p) / 100) * circumference;
         setPercent(Math.round(percentToFill));
     }, [progress, circumference]);
-    return (React.createElement("div", { className: cn("bar-wrapper", className) },
+    return (React.createElement("div", { "data-testid": "circle-progress-bar", className: cn("bar-wrapper", className) },
         React.createElement("div", { className: "circle-progress-bar", "data-pct": progress },
             React.createElement("svg", { className: "circle-progress-bar__svg", width: "60", height: "60" },
                 React.createElement("circle", { className: "circle-progress-bar__base", r: RADIUS, cx: "30", cy: "30", fill: "transparent", strokeDasharray: DASHES, strokeDashoffset: "0" }),
