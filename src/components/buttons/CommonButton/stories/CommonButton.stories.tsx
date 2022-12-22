@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-
+import { TrashDefaultIcon } from "components";
 import CommonButton from "../CommonButton";
 import PlusIcon from "../../../../assets/images/ui-icons/plus.svg";
 
@@ -18,7 +18,8 @@ const Template: ComponentStory<typeof CommonButton> = (args) => (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  label: "Hello world"
+  label: "Hello world",
+  image: <TrashDefaultIcon />
 };
 
 export const Outlined = Template.bind({});
