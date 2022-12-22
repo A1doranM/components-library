@@ -10,4 +10,4 @@
 8. Implemented tests for untested components.
 9. Added Images without background.
 10. Added possibility to navigate through anchors in Navigation component.
-
+11. Changed FormField inner input to Field component from formik.
