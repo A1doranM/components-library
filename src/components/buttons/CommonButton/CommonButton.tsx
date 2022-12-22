@@ -11,7 +11,7 @@ export interface CommonButtonProps {
   dashed?: boolean;
   className?: string;
   large?: boolean;
-  image?: string;
+  image?: any;
   alt?: string;
   round?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
