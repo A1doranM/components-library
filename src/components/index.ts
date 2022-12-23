@@ -3,6 +3,7 @@ import Expand from "./Expand";
 import Status from "./Status";
 import Select from "./inputs/Select";
 import Navigation from "./Navigation";
+import Pagination from "./Pagination";
 import Checkbox from "./inputs/Checkbox";
 import Notification from "./Notification";
 import FormField from "./inputs/FormField";
@@ -66,6 +67,7 @@ export {
   Checkbox,
   FormField,
   Navigation,
+  Pagination,
   RadioButton,
   Notification,
   CommonButton,
