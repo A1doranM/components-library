@@ -59,8 +59,6 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
               <FormField
                 type="email"
                 name="email"
-                value={values["email"]}
-                onChange={handleChange}
                 placeholder="Email"
                 errors={errors}
                 touched={touched}
