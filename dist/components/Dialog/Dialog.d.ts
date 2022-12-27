@@ -6,7 +6,7 @@ export interface StatusInterface {
     child: JSX.Element;
     acceptLabel?: string;
     declineLabel?: string;
-    afterOpen?: Function;
+    afterOpen?: () => void;
     onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     isOpen: boolean;
