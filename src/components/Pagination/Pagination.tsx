@@ -2,8 +2,8 @@ import cn from "classnames";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 
-import ArrowRightIcon from "assets/images/icons/arrow.svg";
-import ArrowLeftIcon from "assets/images/icons/arrow-reversed.svg";
+import ArrowRightIcon from "../../assets/images/icons/arrow.svg";
+import ArrowLeftIcon from "../../assets/images/icons/arrow-reversed.svg";
 
 import "./pagination.scss";
 
