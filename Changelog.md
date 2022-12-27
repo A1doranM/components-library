@@ -1,3 +1,3 @@
-# gov-ua-ui changelog from v0.2.0. to v0.2.1.
+# gov-ua-ui changelog from v0.2.1. to v0.2.2.
 
-1. Fixed images path in Pagination component
+1. Added export for Dialog component
