@@ -1,27 +1,34 @@
 import cn from "classnames";
 import ReactPaginate from "react-paginate";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ArrowRightIcon from "../../assets/images/icons/arrow.svg";
 import ArrowLeftIcon from "../../assets/images/icons/arrow-reversed.svg";
 
 import "./pagination.scss";
 
+export interface PaginationElement {
+  id: number;
+  element: any;
+}
+
 export interface ItemsProps {
-  currentItems: any;
+  currentItems: Array<PaginationElement>;
 }
 
 export interface PaginatedItemsProps {
   itemsPerPage: number;
-  elements: any;
+  elements: Array<PaginationElement>;
 }
 
 function Items({ currentItems }: ItemsProps): JSX.Element {
   return (
     <>
       {currentItems &&
-        currentItems.map((item: any) => (
-          <div className="item-container">{item.element}</div>
+        currentItems.map((item: PaginationElement) => (
+          <div key={item.id} className="item-container">
+            {item.element}
+          </div>
         ))}
     </>
   );
@@ -31,7 +38,8 @@ function Pagination({
   itemsPerPage,
   elements
 }: PaginatedItemsProps): JSX.Element {
-  const [currentItems, setCurrentItems] = useState(null);
+  const [currentItems, setCurrentItems] =
+    useState<Array<PaginationElement>>(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
