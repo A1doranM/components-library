@@ -1,27 +1,23 @@
 # React Component Library gov-ua-ui. 
 
-## v0.2.2
+## v0.3.0
 [Changelog](Changelog.md)
 
 ## How to install
 
 Copy and paste command below to package.json as usual npm dependency
 
-Specify [USER_NAME] = your bitbucket login, for example Blayne_mono
-
-Specify [VERSION] = e.g. v0.2.2
+Specify [VERSION] = e.g. v0.3.0
 ```
-"gov-ua-ui": "git+https://[USER_NAME]@bitbucket.org/moohii_com/gov-ua-ui.git#[VERSION]"
+"gov-ua-ui": "bitbucket:moohii_com/gov-ua-ui#[VERSION]"
 ```
 
 For example:
 
-[USER_NAME] = Blayne_mono
-
-[VERSION] = v0.2.2
+[VERSION] = v0.3.0
 
 ```
-"gov-ua-ui": "git+https://Blayne_mono@bitbucket.org/moohii_com/gov-ua-ui.git#v0.2.2"
+"gov-ua-ui": "bitbucket:moohii_com/gov-ua-ui#v0.3.0"
 ```
 
 ### Code tested on these versions:
