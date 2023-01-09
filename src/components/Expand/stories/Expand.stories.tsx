@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof Expand> = (args) => <Expand {...args} />;
 export const Open = Template.bind({});
 Open.args = {
   title: "Документи для подання заявки",
-  children: <AnswerButton>dsadsadsa</AnswerButton>
+  children: <AnswerButton label="Send" />
 };
