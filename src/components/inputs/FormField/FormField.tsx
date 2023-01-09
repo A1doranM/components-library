@@ -1,7 +1,7 @@
 // @ts-nocheck
 import cn from "classnames";
-import React, { ChangeEvent, FocusEvent } from "react";
-import { ErrorMessage, FormikErrors, FormikTouched, Field } from "formik";
+import React, { FocusEvent } from "react";
+import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
 
 import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
@@ -12,6 +12,7 @@ export interface FormFieldInterface {
   name: string;
   errors?: FormikErrors<{ email: string }>;
   touched?: FormikTouched<{ email: string }>;
+  readonly?: boolean;
   className?: string;
   noBorders?: boolean;
   placeholder?: string;

@@ -1,0 +1,35 @@
+@import "src/styles/variables";
+
+$tooltip-margin: 45px;
+$tooltip-arrow-size: 10px;
+
+.tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  padding: 9px 40px;
+  border: 1px solid black;
+  background-color: $color-white;
+
+  .tooltip__content {
+  }
+
+  .tooltip__square {
+    $tooltip-arrow-size: 10px;
+
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%) rotateZ(45deg);
+    width: $tooltip-arrow-size;
+    height: $tooltip-arrow-size;
+    border-right: 1px solid $color-black;
+    border-bottom: 1px solid $color-black;
+    background-color: $color-white;
+  }
+}
