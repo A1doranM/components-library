@@ -4,10 +4,6 @@
   cursor: pointer;
   font: $font-regular-16;
 
-  .select__menu-portal {
-    font: $font-regular-10;
-  }
-
   .select__control {
     border: none;
     border-radius: 0;
@@ -54,12 +50,23 @@
   }
 }
 
+.select__option {
+  font: $font-regular-16;
+}
+
 @media (max-width: $media-max-width-md) {
   .select-container {
     font: $font-regular-12;
+  }
 
-    .select__menu-portal {
-      font: $font-regular-10;
+  .select__menu-portal {
+    .select__menu {
+      .select__menu-list {
+        .select__option {
+          font: $font-regular-12;
+        }
+      }
     }
   }
+
 }
