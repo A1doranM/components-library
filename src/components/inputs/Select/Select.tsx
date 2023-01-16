@@ -39,7 +39,6 @@ const SelectInput = ({
       onBlur={onBlur}
       styles={styles}
       menuPortalTarget={modalPortalTarget}
-      menuIsOpen={true}
     />
   );
 };
