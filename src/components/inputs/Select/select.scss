@@ -53,3 +53,13 @@
     }
   }
 }
+
+@media (max-width: $media-max-width-md) {
+  .select-container {
+    font: $font-regular-12;
+
+    .select__menu-portal {
+      font: $font-regular-10;
+    }
+  }
+}

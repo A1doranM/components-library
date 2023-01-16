@@ -1,6 +1,6 @@
 import "./expand.scss";
 export interface ExpandInterface {
-    title: string;
+    title: any;
     children?: any;
     open?: boolean;
     isLast?: boolean;

@@ -9,6 +9,7 @@ export interface FormFieldInterface {
     touched?: FormikTouched<{
         email: string;
     }>;
+    readonly?: boolean;
     className?: string;
     noBorders?: boolean;
     placeholder?: string;

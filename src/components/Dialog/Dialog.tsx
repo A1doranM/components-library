@@ -9,9 +9,9 @@ import "./dialog.scss";
 export interface StatusInterface {
   className?: string;
   title: string;
-  child: JSX.Element;
-  acceptLabel?: string;
-  declineLabel?: string;
+  children: JSX.Element;
+  acceptLabel?: JSX.Element | string;
+  declineLabel?: JSX.Element | string;
   afterOpen?: () => void;
   onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -25,7 +25,7 @@ const Dialog = ({
   declineLabel = "Зберегти",
   onAccept,
   onDecline,
-  child,
+  children,
   isOpen,
   afterOpen
 }: StatusInterface): JSX.Element => {
@@ -63,7 +63,7 @@ const Dialog = ({
             <button onClick={onDecline} className={"close"}>
               <CloseIcon />
             </button>
-            {child}
+            {children}
             <div className={"decision-buttons"}>
               <CommonButton
                 onClick={onDecline}

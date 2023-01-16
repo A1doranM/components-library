@@ -80,6 +80,7 @@ $font-regular-36: normal 400 36px e_Ukraine_Regular, sans-serif;
 $font-regular-32: normal 400 32px e_Ukraine_Regular, sans-serif;
 $font-regular-24: normal 400 24px e_Ukraine_Regular, sans-serif;
 $font-regular-20: normal 400 20px e_Ukraine_Regular, sans-serif;
+$font-regular-18: normal 400 18px e_Ukraine_Regular, sans-serif;
 $font-regular-16: normal 400 16px e_Ukraine_Regular, sans-serif;
 $font-regular-14: normal 400 14px e_Ukraine_Regular, sans-serif;
 $font-regular-12: normal 400 12px e_Ukraine_Regular, sans-serif;
@@ -90,5 +91,8 @@ $font-docs-24: normal 700 24px "Times New Roman", sans-serif;
 $max-page-width: 1440px;
 $max-header-height: 85px;
 
-$media-max-width-md: 991px;
-$media-max-width-lg: 1303px;
+$media-max-width-xs: 375px;
+$media-max-width-sm: 500px;
+$media-max-width-md: 768px;
+$media-max-width-lg: 992px;
+$media-max-width-xl: 1300px;

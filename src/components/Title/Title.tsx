@@ -4,7 +4,7 @@ import cn from "classnames";
 import "./title.scss";
 
 export interface TitleInterface {
-  size?: 10 | 12 | 14 | 16 | 20 | 24 | 32 | 36 | 48;
+  size?: 10 | 12 | 14 | 16 | 18 | 20 | 24 | 32 | 36 | 48;
   weight?: number;
   className?: string;
   children: string;
