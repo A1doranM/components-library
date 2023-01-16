@@ -1,23 +1,23 @@
 # React Component Library gov-ua-ui. 
 
-## v0.3.2
+## v0.3.3
 [Changelog](Changelog.md)
 
 ## How to install
 
 Copy and paste command below to package.json as usual npm dependency
 
-Specify [VERSION] = e.g. v0.3.2
+Specify [VERSION] = e.g. v0.3.3
 ```
 "gov-ua-ui": "bitbucket:moohii_com/gov-ua-ui#[VERSION]"
 ```
 
 For example:
 
-[VERSION] = v0.3.2
+[VERSION] = v0.3.3
 
 ```
-"gov-ua-ui": "bitbucket:moohii_com/gov-ua-ui#v0.3.2"
+"gov-ua-ui": "bitbucket:moohii_com/gov-ua-ui#v0.3.3"
 ```
 
 ### Code tested on these versions:

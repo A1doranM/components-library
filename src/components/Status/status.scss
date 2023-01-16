@@ -2,7 +2,8 @@
 
 .status {
   display: none;
-  height: 18px;
+  min-height: 18px;
+  height: max-content;
   padding: 2px 4px;
   max-width: max-content;
   font: $font-regular-12;
