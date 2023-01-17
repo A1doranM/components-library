@@ -1,3 +1,3 @@
-# gov-ua-ui changelog from v0.3.2. to v0.3.3.
+# gov-ua-ui changelog from v0.3.3. to v0.3.4.
 
-1. Set height of the Status component to max-content.
+1. Fixed FormField validation.

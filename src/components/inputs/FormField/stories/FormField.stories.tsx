@@ -15,19 +15,21 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof FormField> = (args) => {
-  const onFormSubmit = (values: { email: string }) => {
+  const onFormSubmit = (values: { email: string; password: string }) => {
     const fields = {
-      email: values.email || null
+      email: values.email || null,
+      password: values.password || null
     };
   };
 
   const ValidationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Required")
+    email: Yup.string().email("Invalid email").required("Required"),
+    password: Yup.string().required("Required")
   });
 
   return (
     <Formik
-      initialValues={{ email: "" }}
+      initialValues={{ email: "", password: "" }}
       onSubmit={(values, actions) => {
         onFormSubmit(values);
       }}
@@ -47,6 +49,16 @@ const Template: ComponentStory<typeof FormField> = (args) => {
               type={args.type}
               name="email"
               value={values["email"]}
+              onChange={handleChange}
+              placeholder={args.placeholder}
+              noBorders={args.noBorders}
+              errors={errors}
+              touched={touched}
+            />
+            <FormField
+              type={args.type}
+              name="password"
+              value={values["password"]}
               onChange={handleChange}
               placeholder={args.placeholder}
               noBorders={args.noBorders}
