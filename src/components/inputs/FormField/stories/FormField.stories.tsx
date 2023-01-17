@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Form, Formik } from "formik";
+import { Form, Formik, useFormik, FormikProvider } from "formik";
 import * as Yup from "yup";
 
 import FormField from "components/inputs/FormField";
@@ -22,57 +22,40 @@ const Template: ComponentStory<typeof FormField> = (args) => {
     };
   };
 
-  const ValidationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Required"),
-    password: Yup.string().required("Required")
+  const handleFormValidation = (values: { email: string }) => {
+    const errors = {};
+
+    if (!values.email) {
+      errors.email = "Required";
+    }
+
+    return errors;
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      email: ""
+    },
+    validateOnChange: true,
+    enableReinitialize: true,
+    onSubmit: onFormSubmit,
+    validate: handleFormValidation
   });
 
   return (
-    <Formik
-      initialValues={{ email: "", password: "" }}
-      onSubmit={(values, actions) => {
-        onFormSubmit(values);
-      }}
-      validationSchema={ValidationSchema}
-      enableReinitialize={true}
-      validateOnChange={true}
-    >
-      {({ errors, touched, values, handleChange }) => (
-        <Form>
-          <br />
-          <div
-            style={{
-              width: "250px"
-            }}
-          >
-            <FormField
-              type={args.type}
-              name="email"
-              value={values["email"]}
-              onChange={handleChange}
-              placeholder={args.placeholder}
-              noBorders={args.noBorders}
-              errors={errors}
-              touched={touched}
-            />
-            <FormField
-              type={args.type}
-              name="password"
-              value={values["password"]}
-              onChange={handleChange}
-              placeholder={args.placeholder}
-              noBorders={args.noBorders}
-              errors={errors}
-              touched={touched}
-            />
-          </div>
-          <br />
-          <br />
-          <br />
-          <button type="submit">submit</button>
-        </Form>
-      )}
-    </Formik>
+    <FormikProvider value={formik}>
+      <Form>
+        <FormField
+          type={args.type}
+          name="email"
+          placeholder={args.placeholder}
+          noBorders={args.noBorders}
+          errors={formik.errors}
+          touched={formik.touched}
+        />
+        <button type="submit">submit</button>
+      </Form>
+    </FormikProvider>
   );
 };
 

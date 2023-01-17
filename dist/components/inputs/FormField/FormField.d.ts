@@ -3,12 +3,8 @@ import { FormikErrors, FormikTouched } from "formik";
 import "./field.scss";
 export interface FormFieldInterface {
     name: string;
-    errors?: FormikErrors<{
-        email: string;
-    }>;
-    touched?: FormikTouched<{
-        email: string;
-    }>;
+    errors?: FormikErrors<any>;
+    touched?: FormikTouched<any>;
     readonly?: boolean;
     className?: string;
     noBorders?: boolean;
