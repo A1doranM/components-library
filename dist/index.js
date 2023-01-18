@@ -9936,28 +9936,13 @@ var VisualUploadFile = function (_a) {
                 } }), !selectedImage && (jsxRuntime.jsxs("div", __assign({ className: cn("load-file__content-wrapper", contentClassName) }, { children: [jsxRuntime.jsx("img", { src: img$I, alt: "download", className: "load-file__img" }), jsxRuntime.jsx("label", __assign({ htmlFor: "load-file", className: cn("load-file__label", labelClassName) }, { children: title })), backgroundImg && (jsxRuntime.jsx("img", { src: backgroundImg, alt: "", className: "load-file__background" }))] })))] })));
 };
 
-var css_248z$K = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.wrapper {\n  width: 600px;\n  padding: 40px;\n  box-sizing: border-box;\n  position: relative;\n}\n.wrapper .title {\n  margin: 0 0 40px;\n}\n.wrapper .decision-buttons {\n  margin-top: 40px;\n  display: flex;\n  gap: 20px;\n}\n.wrapper .close {\n  top: 15px;\n  right: 15px;\n  background-color: transparent;\n  border: 0;\n  position: absolute;\n}\n\n@media (max-width: 992px) {\n  .wrapper {\n    width: 100%;\n    padding: 40px 20px;\n  }\n  .wrapper .decision-buttons {\n    display: flex;\n    gap: 5px;\n    justify-content: space-between;\n  }\n}\n.ReactModal__Overlay {\n  opacity: 0;\n  transform: translateY(20px);\n  transition: all 300ms ease-in-out;\n}\n\n.ReactModal__Overlay--after-open {\n  opacity: 1;\n  transform: translateY(0px);\n}\n\n.ReactModal__Overlay--before-close {\n  opacity: 0;\n  transform: translateY(20px);\n}";
+var css_248z$K = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  right: auto;\n  bottom: auto;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n  padding: 0;\n  border-radius: 0;\n  border: none;\n  background-color: #F5F5F5;\n}\n.modal .modal__content {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  gap: 40px;\n  padding: 40px;\n  box-sizing: border-box;\n}\n.modal .modal__title {\n  margin: 0;\n}\n.modal .modal__controls {\n  display: flex;\n  gap: 20px;\n}\n.modal .modal__close-btn {\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  background-color: transparent;\n  border: 0;\n}\n\n@media (max-width: 768px) {\n  .modal .modal__content {\n    padding: 40px 20px;\n  }\n  .modal .modal__controls {\n    display: flex;\n    gap: 5px;\n    justify-content: space-between;\n  }\n}\n.ReactModal__Overlay {\n  opacity: 0;\n  transform: translateY(20px);\n  transition: all 300ms ease-in-out;\n}\n\n.ReactModal__Overlay--after-open {\n  opacity: 1;\n  transform: translateY(0px);\n}\n\n.ReactModal__Overlay--before-close {\n  opacity: 0;\n  transform: translateY(20px);\n}";
 styleInject(css_248z$K);
 
 var Dialog = function (_a) {
-    var _b = _a.className, className = _b === void 0 ? "" : _b, title = _a.title, _c = _a.acceptLabel, acceptLabel = _c === void 0 ? "Скасувати" : _c, _d = _a.declineLabel, declineLabel = _d === void 0 ? "Зберегти" : _d, onAccept = _a.onAccept, onDecline = _a.onDecline, children = _a.children, isOpen = _a.isOpen, afterOpen = _a.afterOpen;
-    var customStyles = {
-        content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            padding: "0px",
-            zIndex: 1000,
-            borderRadius: 0,
-            border: "none",
-            backgroundColor: "#F5F5F5"
-        }
-    };
-    Modal.setAppElement(document.querySelector("body"));
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Modal, __assign({ isOpen: isOpen, onAfterOpen: afterOpen, onRequestClose: onDecline, style: customStyles, contentLabel: "Example Modal", closeTimeoutMS: 300 }, { children: jsxRuntime.jsx("div", __assign({ "data-testid": "dialog", className: cn("wrapper", className) }, { children: jsxRuntime.jsxs("div", __assign({ className: "content" }, { children: [jsxRuntime.jsx(Title, { children: title, size: 24, className: "title" }), jsxRuntime.jsx("button", __assign({ onClick: onDecline, className: "close" }, { children: jsxRuntime.jsx(Close, {}) })), children, jsxRuntime.jsxs("div", __assign({ className: "decision-buttons" }, { children: [jsxRuntime.jsx(CommonButton, { onClick: onDecline, label: acceptLabel, outlined: true }), jsxRuntime.jsx(CommonButton, { onClick: onAccept, label: declineLabel })] }))] })) })) })) }));
+    var title = _a.title, isOpen = _a.isOpen, children = _a.children, onAccept = _a.onAccept, onDecline = _a.onDecline, _b = _a.className, className = _b === void 0 ? "" : _b, afterOpen = _a.afterOpen, customControls = _a.customControls, _c = _a.acceptLabel, acceptLabel = _c === void 0 ? "Зберегти" : _c, _d = _a.declineLabel, declineLabel = _d === void 0 ? "Скасувати" : _d, parentElement = _a.parentElement;
+    Modal.setAppElement(parentElement || document.querySelector("body"));
+    return (jsxRuntime.jsx(Modal, __assign({ isOpen: isOpen, onAfterOpen: afterOpen, onRequestClose: onDecline, className: cn("modal", className), contentLabel: title, closeTimeoutMS: 300 }, { children: jsxRuntime.jsxs("div", __assign({ className: "modal__content", "data-testid": "dialog" }, { children: [jsxRuntime.jsx(Title, { children: title, size: 24, className: "modal__title" }), jsxRuntime.jsx("button", __assign({ onClick: onDecline, className: "modal__close-btn" }, { children: jsxRuntime.jsx(Close, {}) })), children, customControls ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: customControls(onAccept, onDecline) })) : (jsxRuntime.jsxs("div", __assign({ className: "modal__controls" }, { children: [jsxRuntime.jsx(CommonButton, { onClick: onDecline, label: declineLabel, outlined: true }), jsxRuntime.jsx(CommonButton, { onClick: onAccept, label: acceptLabel })] })))] })) })));
 };
 
 var Portal = function (_a) {
