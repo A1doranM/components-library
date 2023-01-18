@@ -10,6 +10,7 @@ export interface iCheckbox {
   checked?: boolean;
   disabled?: boolean;
   className?: string;
+  onClick?: (e: any) => void;
   errors?: FormikErrors<{ email: string }>;
   touched?: FormikTouched<{ email: string }>;
   errClassName?: string;
@@ -22,12 +23,12 @@ const Checkbox = ({
   checked,
   disabled,
   className,
+  onClick,
   errors,
   touched,
   errComponent,
   errClassName
 }: iCheckbox): JSX.Element => {
-
   return (
     <label
       className={cn("checkbox", className, {
@@ -39,6 +40,7 @@ const Checkbox = ({
         type="checkbox"
         name={name}
         className="checkbox__input"
+        onClick={onClick}
       />
       <span className="checkbox__indicator" />
       <div className="checkbox__info">

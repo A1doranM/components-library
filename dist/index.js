@@ -7191,11 +7191,11 @@ styleInject(css_248z$U);
 
 var Checkbox = function (_a) {
     var _b;
-    var name = _a.name, title = _a.title, checked = _a.checked, disabled = _a.disabled, className = _a.className, errors = _a.errors, touched = _a.touched, errComponent = _a.errComponent, errClassName = _a.errClassName;
+    var name = _a.name, title = _a.title, checked = _a.checked, disabled = _a.disabled, className = _a.className, onClick = _a.onClick, errors = _a.errors, touched = _a.touched, errComponent = _a.errComponent, errClassName = _a.errClassName;
     return (jsxRuntime.jsxs("label", __assign({ className: cn("checkbox", className, (_b = {},
             _b["checkbox_active"] = checked,
             _b["checkbox_disabled"] = disabled,
-            _b)) }, { children: [jsxRuntime.jsx(formik.Field, { type: "checkbox", name: name, className: "checkbox__input" }), jsxRuntime.jsx("span", { className: "checkbox__indicator" }), jsxRuntime.jsx("div", __assign({ className: "checkbox__info" }, { children: jsxRuntime.jsx("span", __assign({ className: "checkbox__info-title" }, { children: title })) })), errors && touched && (jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("checkbox-warning", errClassName) }))] })));
+            _b)) }, { children: [jsxRuntime.jsx(formik.Field, { type: "checkbox", name: name, className: "checkbox__input", onClick: onClick }), jsxRuntime.jsx("span", { className: "checkbox__indicator" }), jsxRuntime.jsx("div", __assign({ className: "checkbox__info" }, { children: jsxRuntime.jsx("span", __assign({ className: "checkbox__info-title" }, { children: title })) })), errors && touched && (jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("checkbox-warning", errClassName) }))] })));
 };
 
 var img$P = "data:image/svg+xml,%3csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cg clip-path='url(%23clip0_3953_936)'%3e %3cline x1='19.3638' y1='6.63679' x2='6.63592' y2='19.3647' stroke='black' stroke-width='2'/%3e %3cline x1='6.63582' y1='6.63664' x2='19.3637' y2='19.3646' stroke='black' stroke-width='2'/%3e %3c/g%3e %3cdefs%3e %3cclipPath id='clip0_3953_936'%3e %3crect width='18' height='18' fill='white' transform='translate(13 0.272461) rotate(45)'/%3e %3c/clipPath%3e %3c/defs%3e%3c/svg%3e";
