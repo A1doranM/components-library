@@ -58,6 +58,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 300ms ease-in-out;
+  z-index: $modal-z-index;
 }
 
 .ReactModal__Overlay--after-open {
