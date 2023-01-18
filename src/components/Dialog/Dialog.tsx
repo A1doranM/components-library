@@ -6,76 +6,67 @@ import { CloseIcon, CommonButton, Title } from "components";
 
 import "./dialog.scss";
 
-export interface StatusInterface {
-  className?: string;
+export interface DialogInterface {
   title: string;
+  isOpen: boolean;
   children: JSX.Element;
-  acceptLabel?: JSX.Element | string;
-  declineLabel?: JSX.Element | string;
-  afterOpen?: () => void;
   onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  isOpen: boolean;
+  className?: string;
+  afterOpen?: () => void;
+  customControls?: (
+    onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
+    onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  ) => JSX.Element;
+  acceptLabel?: JSX.Element | string;
+  declineLabel?: JSX.Element | string;
+  parentElement?: string | HTMLElement;
 }
 
 const Dialog = ({
-  className = "",
   title,
-  acceptLabel = "Скасувати",
-  declineLabel = "Зберегти",
+  isOpen,
+  children,
   onAccept,
   onDecline,
-  children,
-  isOpen,
-  afterOpen
-}: StatusInterface): JSX.Element => {
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      padding: "0px",
-      zIndex: 1000,
-      borderRadius: 0,
-      border: "none",
-      backgroundColor: "#F5F5F5"
-    }
-  };
-
-  Modal.setAppElement(document.querySelector("body")!);
+  className = "",
+  afterOpen,
+  customControls,
+  acceptLabel = "Зберегти",
+  declineLabel = "Скасувати",
+  parentElement
+}: DialogInterface): JSX.Element => {
+  Modal.setAppElement(parentElement || document.querySelector("body")!);
 
   return (
-    <>
-      <Modal
-        isOpen={isOpen}
-        onAfterOpen={afterOpen}
-        onRequestClose={onDecline}
-        style={customStyles}
-        contentLabel="Example Modal"
-        closeTimeoutMS={300}
-      >
-        <div data-testid="dialog" className={cn("wrapper", className)}>
-          <div className={"content"}>
-            <Title children={title} size={24} className={"title"} />
-            <button onClick={onDecline} className={"close"}>
-              <CloseIcon />
-            </button>
-            {children}
-            <div className={"decision-buttons"}>
-              <CommonButton
-                onClick={onDecline}
-                label={acceptLabel}
-                outlined={true}
-              />
-              <CommonButton onClick={onAccept} label={declineLabel} />
-            </div>
+    <Modal
+      isOpen={isOpen}
+      onAfterOpen={afterOpen}
+      onRequestClose={onDecline}
+      className={cn("modal", className)}
+      contentLabel={title}
+      closeTimeoutMS={300}
+    >
+      <div className="modal__content" data-testid="dialog">
+        <Title children={title} size={24} className="modal__title" />
+        <button onClick={onDecline} className="modal__close-btn">
+          <CloseIcon />
+        </button>
+        {children}
+        {customControls ? (
+          <>{customControls(onAccept, onDecline)}</>
+        ) : (
+          <div className="modal__controls">
+            <CommonButton
+              onClick={onDecline}
+              label={declineLabel}
+              outlined={true}
+            />
+            <CommonButton onClick={onAccept} label={acceptLabel} />
           </div>
-        </div>
-      </Modal>
-    </>
+        )}
+      </div>
+    </Modal>
   );
 };
 

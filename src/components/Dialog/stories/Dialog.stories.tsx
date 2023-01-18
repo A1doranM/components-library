@@ -45,34 +45,45 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
         isOpen={modalIsOpen}
         onAccept={closeModal}
         onDecline={closeModal}
-        child={
-          <Formik
-            initialValues={{ email: "" }}
-            onSubmit={(values, actions) => {
-              onFormSubmit(values);
-            }}
-            validationSchema={ValidationSchema}
-            enableReinitialize={true}
-            validateOnChange={true}
-          >
-            {({ errors, touched, values, handleChange }) => (
-              <FormField
-                type="email"
-                name="email"
-                placeholder="Email"
-                errors={errors}
-                touched={touched}
-              />
-            )}
-          </Formik>
-        }
-      />
+      >
+        <Formik
+          initialValues={{ email: "" }}
+          onSubmit={(values, actions) => {
+            onFormSubmit(values);
+          }}
+          validationSchema={ValidationSchema}
+          enableReinitialize={true}
+          validateOnChange={true}
+        >
+          {({ errors, touched, values, handleChange }) => (
+            <FormField
+              type="email"
+              name="email"
+              placeholder="Email"
+              errors={errors}
+              touched={touched}
+            />
+          )}
+        </Formik>
+      </Dialog>
     </>
   );
 };
 
-export const ChangeEmail = Template.bind({});
+export const DefaultDialog = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ChangeEmail.args = {
+DefaultDialog.args = {
   title: "Змінити електронну адресу"
+};
+
+export const CustomControlsDialog = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+CustomControlsDialog.args = {
+  title: "Custom controls dialog",
+  customControls: (onAccept: any, onDecline: any) => (
+    <div>
+      <p>No buttons anymore</p>
+      <a href="#">Put some link</a>
+    </div>
+  )
 };

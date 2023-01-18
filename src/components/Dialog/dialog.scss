@@ -1,36 +1,52 @@
 @import "src/styles/index";
 
-.wrapper {
-  width: 600px;
-  padding: 40px;
-  box-sizing: border-box;
-  position: relative;
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #F5F5F5;
 
-  .title {
-    margin: 0 0 40px;
+  .modal__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    box-sizing: border-box;
   }
 
-  .decision-buttons {
-    margin-top: 40px;
+  .modal__title {
+    margin: 0;
+  }
+
+  .modal__controls {
     display: flex;
     gap: 20px;
   }
 
-  .close {
+  .modal__close-btn {
+    position: absolute;
     top: 15px;
     right: 15px;
     background-color: transparent;
     border: 0;
-    position: absolute;
   }
 }
 
-@media (max-width: $media-max-width-lg) {
-  .wrapper {
-    width: 100%;
-    padding: 40px 20px;
+@media (max-width: $media-max-width-md) {
+  .modal {
+    .modal__content {
+      padding: 40px 20px;
+    }
 
-    .decision-buttons {
+    .modal__controls {
       display: flex;
       gap: 5px;
       justify-content: space-between;
