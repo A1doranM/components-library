@@ -7,6 +7,7 @@ export interface iCheckbox {
     checked?: boolean;
     disabled?: boolean;
     className?: string;
+    onClick?: (e: any) => void;
     errors?: FormikErrors<{
         email: string;
     }>;
@@ -16,5 +17,5 @@ export interface iCheckbox {
     errClassName?: string;
     errComponent?: React.ComponentType;
 }
-declare const Checkbox: ({ name, title, checked, disabled, className, errors, touched, errComponent, errClassName }: iCheckbox) => JSX.Element;
+declare const Checkbox: ({ name, title, checked, disabled, className, onClick, errors, touched, errComponent, errClassName }: iCheckbox) => JSX.Element;
 export default Checkbox;
