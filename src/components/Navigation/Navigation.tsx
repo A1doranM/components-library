@@ -50,6 +50,7 @@ const Navigation = ({
             }: LinkInterface) => {
               return anchor ? (
                 <a
+                  key={to}
                   href={to}
                   className={linkStyles(to, false, true, customStyles)}
                 >

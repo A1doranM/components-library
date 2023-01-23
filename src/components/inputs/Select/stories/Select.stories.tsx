@@ -10,7 +10,9 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => (
+  <Select {...args} placeholder="test placeholder" />
+);
 
 const standardMock = [
   { value: "cfr", label: "CFR" },
