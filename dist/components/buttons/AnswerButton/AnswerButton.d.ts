@@ -5,8 +5,7 @@ export interface AnswerButtonProps {
     cancel?: boolean;
     className?: string;
     round?: boolean;
-    hold?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-declare const AnswerButton: ({ label, cancel, className, round, hold, onClick }: AnswerButtonProps) => JSX.Element;
+declare const AnswerButton: ({ label, cancel, className, round, onClick }: AnswerButtonProps) => JSX.Element;
 export default AnswerButton;
