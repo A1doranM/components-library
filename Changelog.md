@@ -1,4 +1,4 @@
-# gov-ua-ui changelog from v0.3.7. to v0.3.8.
+# gov-ua-ui changelog from v0.3.8. to v0.4.0.
 
-1. Added <DatePicker/> component as one of inputs.
+1. Removed margin-top in Select component.
 
