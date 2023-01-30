@@ -7,6 +7,7 @@ import Pagination from "./Pagination";
 import Checkbox from "./inputs/Checkbox";
 import Notification from "./Notification";
 import FormField from "./inputs/FormField";
+import DatePicker from "./inputs/DatePicker";
 import RadioButton from "./inputs/RadioButton";
 import CommonButton from "./buttons/CommonButton";
 import AnswerButton from "./buttons/AnswerButton";
@@ -71,6 +72,7 @@ export {
   Calendar,
   Checkbox,
   FormField,
+  DatePicker,
   Navigation,
   Pagination,
   RadioButton,

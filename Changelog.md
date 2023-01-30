@@ -1,4 +1,4 @@
-# gov-ua-ui changelog from v0.3.6. to v0.3.7.
+# gov-ua-ui changelog from v0.3.7. to v0.3.8.
 
-1. Reduced size of <Status/> component.
-2. Fixed <AnswerButton/> styles when buttton was pressed, removed hold props. 
+1. Added <DatePicker/> component as one of inputs.
+
