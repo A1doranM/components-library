@@ -1,4 +1,4 @@
-# gov-ua-ui changelog from v0.3.8. to v0.4.0.
+# gov-ua-ui changelog from v0.4.0. to v0.4.1.
 
-1. Removed margin-top in Select component.
+1. Fixed padding in <VisualFileUpload/>
 
