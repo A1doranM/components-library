@@ -7166,7 +7166,7 @@ var SelectInput = function (_a) {
         !hasValue && setIsFocused(false);
         onBlur && onBlur();
     };
-    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper" }, { children: [jsxRuntime.jsx(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: true }), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
+    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper" }, { children: [jsxRuntime.jsx(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: false }), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
                     "select-wrapper__placeholder_active": isFocused
                 }) }, { children: placeholder }))] })));
 };

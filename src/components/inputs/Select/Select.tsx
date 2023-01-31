@@ -58,7 +58,7 @@ const SelectInput = ({
         onFocus={handleFocus}
         styles={styles}
         menuPortalTarget={modalPortalTarget}
-        defaultMenuIsOpen={true}
+        defaultMenuIsOpen={false}
       />
       <p
         className={cn("select-wrapper__placeholder", {
