@@ -17,5 +17,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   onChange: (date: Date): void => {
     console.log(Date);
-  }
+  },
+  placeholder: "Pick date"
 };
