@@ -179,7 +179,6 @@
       justify-content: space-between;
       margin-bottom: 10px;
       gap: 10px;
-
     }
     .react-datepicker__month-container {
       width: 100%;
@@ -197,6 +196,25 @@
 
     .react-datepicker__day--today {
       background-color: $color-green-400;
+    }
+  }
+}
+
+@media (max-width: $media-max-width-lg) {
+  .input-wrapper {
+    font: $font-regular-12;
+
+    .input-wrapper__input {
+      &:focus ~ label,
+      &:not(:placeholder-shown) ~ label {
+        top: -20px;
+        font-size: 12px;
+      }
+    }
+
+    .input-wrapper__label {
+      font-size: 12px;
+      line-height: 15.6px;
     }
   }
 }
