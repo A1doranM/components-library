@@ -1,6 +1,7 @@
 import "./select.scss";
 export interface SelectInputInterface {
     onChange?: (value: any) => void;
+    onFieldClick?: () => void;
     onBlur?: () => void;
     options?: Array<{
         value?: string | number;
@@ -12,5 +13,5 @@ export interface SelectInputInterface {
     styles?: object;
     modalPortalTarget?: HTMLElement | null;
 }
-declare const SelectInput: ({ name, options, placeholder, onChange, onBlur, className, styles, modalPortalTarget }: SelectInputInterface) => JSX.Element;
+declare const SelectInput: ({ name, options, placeholder, onChange, onFieldClick, onBlur, className, styles, modalPortalTarget }: SelectInputInterface) => JSX.Element;
 export default SelectInput;

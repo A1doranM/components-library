@@ -6,6 +6,7 @@ import "./select.scss";
 
 export interface SelectInputInterface {
   onChange?: (value: any) => void;
+  onFieldClick?: () => void;
   onBlur?: () => void;
   options?: Array<{
     value?: string | number;
@@ -23,6 +24,7 @@ const SelectInput = ({
   options,
   placeholder = "",
   onChange,
+  onFieldClick,
   onBlur,
   className,
   styles,
@@ -46,7 +48,7 @@ const SelectInput = ({
   };
 
   return (
-    <div className="select-wrapper">
+    <div className="select-wrapper" onClick={onFieldClick}>
       <Select
         options={options}
         className={cn("select-container", className)}
