@@ -1,4 +1,4 @@
-# gov-ua-ui changelog from v0.4.1. to v0.4.2.
+# gov-ua-ui changelog from v0.4.2. to v0.4.3.
 
-1. Changed FormField styles for mobile version
+1. Added onClick event on Select container component
 
