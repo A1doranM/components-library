@@ -125,6 +125,10 @@
     }
   }
 
+  .react-datepicker-popper {
+    z-index: 20;
+  }
+
   .react-datepicker {
     width: 282px;
   }
