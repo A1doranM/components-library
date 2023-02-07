@@ -1,4 +1,4 @@
-# gov-ua-ui changelog from v0.4.2. to v0.4.3.
+# gov-ua-ui changelog from v0.4.3. to v0.4.4.
 
-1. Added onClick event on Select container component
+1. Fixed Datepicker transition from years to days without hide calendar.
 

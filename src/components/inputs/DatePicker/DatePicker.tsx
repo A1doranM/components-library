@@ -104,6 +104,8 @@ const DatePickerInput = ({
         calendarClassName="calendar"
         locale="uk"
         showYearPicker={isYearView}
+        onSelect={handleChangeToMonthView}
+        shouldCloseOnSelect={!isYearView}
         renderCustomHeader={({
           date,
           decreaseMonth,
