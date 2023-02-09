@@ -14,7 +14,13 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Navigation> = (args) => (
   <BrowserRouter>
-    <Navigation {...args} />
+    <Navigation
+      {...args}
+      anchorLinksScrollMargins={{
+        top: -220,
+        left: 0
+      }}
+    />
     <div
       style={{
         display: "block",

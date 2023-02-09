@@ -7165,11 +7165,15 @@ var Navigation = function (_a) {
     var handleAnchorNavigation = function (e) {
         e.preventDefault();
         var element = document.getElementById(e.currentTarget.href.split("#")[1]);
+        var marginTop = anchorLinksScrollMargins && anchorLinksScrollMargins.top
+            ? anchorLinksScrollMargins.top
+            : 0;
+        var marginLeft = anchorLinksScrollMargins && anchorLinksScrollMargins.left
+            ? anchorLinksScrollMargins.left
+            : 0;
         window.scrollTo({
-            top: element.offsetTop +
-                ((anchorLinksScrollMargins === null || anchorLinksScrollMargins === void 0 ? void 0 : anchorLinksScrollMargins.top) ? anchorLinksScrollMargins.top : 0),
-            left: element.offsetLeft +
-                ((anchorLinksScrollMargins === null || anchorLinksScrollMargins === void 0 ? void 0 : anchorLinksScrollMargins.left) ? anchorLinksScrollMargins.left : 0),
+            top: element.offsetTop + marginTop,
+            left: element.offsetLeft + marginLeft,
             behavior: "smooth"
         });
     };
