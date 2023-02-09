@@ -7175,16 +7175,27 @@ var css_248z$Y = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(as
 styleInject(css_248z$Y);
 
 var Navigation = function (_a) {
-    var navLinks = _a.navLinks, className = _a.className;
+    var navLinks = _a.navLinks, className = _a.className, anchorLinksScrollMargins = _a.anchorLinksScrollMargins;
     var linkStyles = function (to, isActive, isAnchor, additionalStyles) {
         var _a;
         return cn("navigation__tab", (_a = {},
             _a["navigation__tab_active"] = isAnchor ? location.hash === to : isActive,
             _a), additionalStyles);
     };
+    var handleAnchorNavigation = function (e) {
+        e.preventDefault();
+        var element = document.getElementById(e.currentTarget.href.split("#")[1]);
+        window.scrollTo({
+            top: element.offsetTop +
+                ((anchorLinksScrollMargins === null || anchorLinksScrollMargins === void 0 ? void 0 : anchorLinksScrollMargins.top) ? anchorLinksScrollMargins.top : 0),
+            left: element.offsetLeft +
+                ((anchorLinksScrollMargins === null || anchorLinksScrollMargins === void 0 ? void 0 : anchorLinksScrollMargins.left) ? anchorLinksScrollMargins.left : 0),
+            behavior: "smooth"
+        });
+    };
     return (jsxRuntime.jsx("div", __assign({ className: cn("navigation", className) }, { children: jsxRuntime.jsx("nav", __assign({ className: "navigation__tabs-wrapper", role: "navigation" }, { children: jsxRuntime.jsx("menu", __assign({ className: "navigation__tabs" }, { children: navLinks.map(function (_a) {
                     var to = _a.to, anchor = _a.anchor, text = _a.text, customContent = _a.customContent, customStyles = _a.customStyles;
-                    return anchor ? (jsxRuntime.jsx("a", __assign({ href: to, className: linkStyles(to, false, true, customStyles) }, { children: customContent || text }), to)) : (jsxRuntime.jsx(reactRouterDom.NavLink, __assign({ to: to, className: function (_a) {
+                    return anchor ? (jsxRuntime.jsx("a", __assign({ href: to, onClick: handleAnchorNavigation, className: linkStyles(to, false, true, customStyles) }, { children: customContent || text }), to)) : (jsxRuntime.jsx(reactRouterDom.NavLink, __assign({ to: to, className: function (_a) {
                             var isActive = _a.isActive;
                             return linkStyles(to, isActive, false, customStyles);
                         } }, { children: customContent || text }), to));
@@ -22220,6 +22231,9 @@ var Tooltip = function (_a) {
     var hideTip = function () {
         setActive(false);
     };
+    var handleHorizontalScroll = function (e) {
+        active && calcTooltipPosition();
+    };
     var calcTooltipPosition = function () {
         var wrapper = tooltipWrapperRef.current;
         var tooltip = tooltipRef.current;
@@ -22237,6 +22251,12 @@ var Tooltip = function (_a) {
     React.useEffect(function () {
         calcTooltipPosition();
     }, [active]);
+    React.useEffect(function () {
+        window.addEventListener("scroll", handleHorizontalScroll);
+        return function () {
+            window.removeEventListener("scroll", handleHorizontalScroll);
+        };
+    }, []);
     return (jsxRuntime.jsxs("div", __assign({ className: "tooltip-wrapper", onMouseEnter: showTip, onMouseLeave: hideTip, ref: tooltipWrapperRef }, { children: [children, (active || show) && (jsxRuntime.jsx(Portal, { children: jsxRuntime.jsxs("div", __assign({ className: "tooltip", ref: tooltipRef }, { children: [jsxRuntime.jsx("div", __assign({ className: "tooltip__content" }, { children: content })), jsxRuntime.jsx("div", { className: "tooltip__square" })] })) }))] })));
 };
 

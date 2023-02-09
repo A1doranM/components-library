@@ -19,6 +19,10 @@ const Tooltip = ({ children, content, show }: TooltipInterface) => {
     setActive(false);
   };
 
+  const handleHorizontalScroll = (e) => {
+    active && calcTooltipPosition();
+  };
+
   const calcTooltipPosition = () => {
     const wrapper = tooltipWrapperRef.current;
     const tooltip = tooltipRef.current;
@@ -41,6 +45,14 @@ const Tooltip = ({ children, content, show }: TooltipInterface) => {
   useEffect(() => {
     calcTooltipPosition();
   }, [active]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleHorizontalScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleHorizontalScroll);
+    };
+  }, []);
 
   return (
     <div

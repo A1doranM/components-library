@@ -19,7 +19,9 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
       alignItems: "center"
     }}
   >
-    <Tooltip content={args.content}>{args.children}</Tooltip>
+    <Tooltip content={args.content} show={true}>
+      {args.children}
+    </Tooltip>
   </div>
 );
 

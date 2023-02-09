@@ -15,11 +15,16 @@ export interface LinkInterface {
 export interface NavigationInterface {
   navLinks: Array<LinkInterface>;
   className?: string;
+  anchorLinksScrollMargins: {
+    top: number;
+    left: number;
+  };
 }
 
 const Navigation = ({
   navLinks,
-  className
+  className,
+  anchorLinksScrollMargins
 }: NavigationInterface): JSX.Element => {
   const linkStyles = (
     to: string,
@@ -34,6 +39,24 @@ const Navigation = ({
       },
       additionalStyles
     );
+  };
+
+  const handleAnchorNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    const element = document.getElementById(e.currentTarget.href.split("#")[1]);
+
+    window.scrollTo({
+      top:
+        element.offsetTop +
+        (anchorLinksScrollMargins?.top ? anchorLinksScrollMargins.top : 0),
+      left:
+        element.offsetLeft +
+        (anchorLinksScrollMargins?.left ? anchorLinksScrollMargins.left : 0),
+      behavior: "smooth"
+    });
   };
 
   return (
@@ -52,6 +75,7 @@ const Navigation = ({
                 <a
                   key={to}
                   href={to}
+                  onClick={handleAnchorNavigation}
                   className={linkStyles(to, false, true, customStyles)}
                 >
                   {customContent || text}

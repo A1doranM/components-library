@@ -15,6 +15,23 @@ export default {
 const Template: ComponentStory<typeof Navigation> = (args) => (
   <BrowserRouter>
     <Navigation {...args} />
+    <div
+      style={{
+        display: "block",
+        height: "1500px",
+        backgroundColor: "beige"
+      }}
+    />
+    <div
+      id="test-anchor"
+      style={{
+        display: "block",
+        height: "1500px",
+        backgroundColor: "indianred"
+      }}
+    >
+      Test relative element
+    </div>
   </BrowserRouter>
 );
 
@@ -30,6 +47,11 @@ const navigationLinks = [
   {
     text: "Замовлені",
     to: "/test2"
+  },
+  {
+    text: "Relative Link",
+    anchor: true,
+    to: "#test-anchor"
   },
   {
     text: "",
