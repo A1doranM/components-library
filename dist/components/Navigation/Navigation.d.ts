@@ -9,6 +9,10 @@ export interface LinkInterface {
 export interface NavigationInterface {
     navLinks: Array<LinkInterface>;
     className?: string;
+    anchorLinksScrollMargins: {
+        top: number;
+        left: number;
+    };
 }
-declare const Navigation: ({ navLinks, className }: NavigationInterface) => JSX.Element;
+declare const Navigation: ({ navLinks, className, anchorLinksScrollMargins }: NavigationInterface) => JSX.Element;
 export default Navigation;
