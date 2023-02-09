@@ -47,14 +47,18 @@ const Navigation = ({
     e.preventDefault();
 
     const element = document.getElementById(e.currentTarget.href.split("#")[1]);
+    const marginTop =
+      anchorLinksScrollMargins && anchorLinksScrollMargins.top
+        ? anchorLinksScrollMargins.top
+        : 0;
+    const marginLeft =
+      anchorLinksScrollMargins && anchorLinksScrollMargins.left
+        ? anchorLinksScrollMargins.left
+        : 0;
 
     window.scrollTo({
-      top:
-        element.offsetTop +
-        (anchorLinksScrollMargins?.top ? anchorLinksScrollMargins.top : 0),
-      left:
-        element.offsetLeft +
-        (anchorLinksScrollMargins?.left ? anchorLinksScrollMargins.left : 0),
+      top: element.offsetTop + marginTop,
+      left: element.offsetLeft + marginLeft,
       behavior: "smooth"
     });
   };
