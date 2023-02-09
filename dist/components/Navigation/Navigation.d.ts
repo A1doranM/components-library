@@ -9,7 +9,7 @@ export interface LinkInterface {
 export interface NavigationInterface {
     navLinks: Array<LinkInterface>;
     className?: string;
-    anchorLinksScrollMargins: {
+    anchorLinksScrollMargins?: {
         top: number;
         left: number;
     };
