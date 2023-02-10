@@ -1,5 +1,4 @@
-# gov-ua-ui changelog from v0.4.4. to v0.4.5.
+# gov-ua-ui changelog from v0.4.5. to v0.4.6.
 
-1. Added possibility to set scroll margins when navigate through anchor links.
-2. Fixed Tooltip behavior when parent element scrolling horizontally.
+1. Added className prop to Tooltip component
 

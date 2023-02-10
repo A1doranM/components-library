@@ -1,3 +1,4 @@
+import cn from "classnames";
 import { useEffect, useRef, useState } from "react";
 
 import { TooltipInterface } from "./iTooltip";
@@ -6,8 +7,14 @@ import { Portal } from "../index";
 
 import "./tooltip.scss";
 
-const Tooltip = ({ children, content, show }: TooltipInterface) => {
-  const [active, setActive] = useState(false);
+const Tooltip = ({
+  children,
+  content,
+  show,
+  wrapperClassName,
+  contentClassName
+}: TooltipInterface) => {
+  const [active, setActive] = useState(show);
   const tooltipWrapperRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -19,7 +26,7 @@ const Tooltip = ({ children, content, show }: TooltipInterface) => {
     setActive(false);
   };
 
-  const handleHorizontalScroll = (e) => {
+  const handleRecalculatePosition = () => {
     active && calcTooltipPosition();
   };
 
@@ -47,16 +54,18 @@ const Tooltip = ({ children, content, show }: TooltipInterface) => {
   }, [active]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleHorizontalScroll);
+    window.addEventListener("scroll", handleRecalculatePosition);
+    window.addEventListener("resize", handleRecalculatePosition);
 
     return () => {
-      window.removeEventListener("scroll", handleHorizontalScroll);
+      window.removeEventListener("scroll", handleRecalculatePosition);
+      window.removeEventListener("resize", handleRecalculatePosition);
     };
   }, []);
 
   return (
     <div
-      className="tooltip-wrapper"
+      className={cn("tooltip-wrapper", wrapperClassName)}
       onMouseEnter={showTip}
       onMouseLeave={hideTip}
       ref={tooltipWrapperRef}
@@ -64,7 +73,7 @@ const Tooltip = ({ children, content, show }: TooltipInterface) => {
       {children}
       {(active || show) && (
         <Portal>
-          <div className="tooltip" ref={tooltipRef}>
+          <div className={cn("tooltip", contentClassName)} ref={tooltipRef}>
             <div className="tooltip__content">{content}</div>
             <div className="tooltip__square" />
           </div>
