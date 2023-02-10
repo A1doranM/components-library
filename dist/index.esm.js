@@ -22216,6 +22216,7 @@ var Tooltip = function (_a) {
         setActive(false);
     };
     var handleRecalculatePosition = function () {
+        console.log("handle scroll :");
         active && calcTooltipPosition();
     };
     var calcTooltipPosition = function () {

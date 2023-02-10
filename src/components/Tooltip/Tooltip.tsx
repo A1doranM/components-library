@@ -27,6 +27,7 @@ const Tooltip = ({
   };
 
   const handleRecalculatePosition = () => {
+    console.log("handle scroll :");
     active && calcTooltipPosition();
   };
 
