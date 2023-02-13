@@ -7132,7 +7132,7 @@ var css_248z$Z = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(as
 styleInject(css_248z$Z);
 
 var SelectInput = function (_a) {
-    var name = _a.name, options = _a.options, _b = _a.placeholder, placeholder = _b === void 0 ? "" : _b, onChange = _a.onChange, onFieldClick = _a.onFieldClick, onBlur = _a.onBlur, className = _a.className, styles = _a.styles, _c = _a.modalPortalTarget, modalPortalTarget = _c === void 0 ? document.body : _c;
+    var name = _a.name, options = _a.options, _b = _a.placeholder, placeholder = _b === void 0 ? "" : _b, onChange = _a.onChange, onFieldClick = _a.onFieldClick, onBlur = _a.onBlur, className = _a.className, styles = _a.styles, _c = _a.modalPortalTarget, modalPortalTarget = _c === void 0 ? document.body : _c, defaultMenuIsOpen = _a.defaultMenuIsOpen;
     var _d = useState(false), hasValue = _d[0], setHasValue = _d[1];
     var _e = useState(false), isFocused = _e[0], setIsFocused = _e[1];
     var handleChange = function (e) {
@@ -7146,7 +7146,7 @@ var SelectInput = function (_a) {
         !hasValue && setIsFocused(false);
         onBlur && onBlur();
     };
-    return (jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [jsx$1(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: false }), jsx$1("p", __assign({ className: cn("select-wrapper__placeholder", {
+    return (jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [jsx$1(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen }), jsx$1("p", __assign({ className: cn("select-wrapper__placeholder", {
                     "select-wrapper__placeholder_active": isFocused
                 }) }, { children: placeholder }))] })));
 };

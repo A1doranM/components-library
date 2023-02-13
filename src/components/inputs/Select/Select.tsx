@@ -17,6 +17,7 @@ export interface SelectInputInterface {
   name?: string;
   styles?: object;
   modalPortalTarget?: HTMLElement | null;
+  defaultMenuIsOpen?: boolean;
 }
 
 const SelectInput = ({
@@ -28,7 +29,8 @@ const SelectInput = ({
   onBlur,
   className,
   styles,
-  modalPortalTarget = document.body
+  modalPortalTarget = document.body,
+  defaultMenuIsOpen
 }: SelectInputInterface) => {
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -60,7 +62,7 @@ const SelectInput = ({
         onFocus={handleFocus}
         styles={styles}
         menuPortalTarget={modalPortalTarget}
-        defaultMenuIsOpen={false}
+        defaultMenuIsOpen={defaultMenuIsOpen}
       />
       <p
         className={cn("select-wrapper__placeholder", {
