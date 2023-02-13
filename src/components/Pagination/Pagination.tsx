@@ -19,6 +19,7 @@ export interface ItemsProps {
 export interface PaginatedItemsProps {
   itemsPerPage: number;
   elements: Array<PaginationElement>;
+  contentBetween?: JSX.Element;
 }
 
 function Items({ currentItems }: ItemsProps): JSX.Element {
@@ -36,7 +37,8 @@ function Items({ currentItems }: ItemsProps): JSX.Element {
 
 function Pagination({
   itemsPerPage,
-  elements
+  elements,
+  contentBetween,
 }: PaginatedItemsProps): JSX.Element {
   const [currentItems, setCurrentItems] =
     useState<Array<PaginationElement>>(null);
@@ -57,6 +59,7 @@ function Pagination({
   return (
     <>
       <Items currentItems={currentItems} />
+      {contentBetween}
       <ReactPaginate
         nextLabel={<img src={ArrowRightIcon} alt="next page" />}
         onPageChange={handlePageClick}

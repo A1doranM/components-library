@@ -69,5 +69,6 @@ export const Tabs = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Tabs.args = {
   itemsPerPage: 5,
-  elements: ArrayOfElements
+  elements: ArrayOfElements,
+  contentBetween: <CommonButton label="Завантажити ще" dashed outlined />
 };

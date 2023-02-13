@@ -9,6 +9,7 @@ export interface ItemsProps {
 export interface PaginatedItemsProps {
     itemsPerPage: number;
     elements: Array<PaginationElement>;
+    contentBetween?: JSX.Element;
 }
-declare function Pagination({ itemsPerPage, elements }: PaginatedItemsProps): JSX.Element;
+declare function Pagination({ itemsPerPage, elements, contentBetween, }: PaginatedItemsProps): JSX.Element;
 export default Pagination;
