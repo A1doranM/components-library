@@ -1,4 +1,4 @@
-# gov-ua-ui changelog from v0.4.6. to v0.4.7.
+# gov-ua-ui changelog from v0.4.7. to v0.4.8.
 
-1. Added posibility to add components between pagination items and pagination controls in Pagination component.
+1. Added props and changed styles for Answer button when chosen
 
