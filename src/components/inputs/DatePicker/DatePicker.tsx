@@ -93,6 +93,7 @@ const DatePickerInput = ({
         ${className}
       `}
     >
+      <CalendarIcon className="datepicker-img" />
       <DatePicker
         selected={startDate}
         onChange={handleDateChange}
@@ -155,7 +156,6 @@ const DatePickerInput = ({
           </div>
         )}
       />
-      <CalendarIcon className="datepicker-img" />
     </div>
   );
 };

@@ -10,18 +10,34 @@ export default {
 
 const Template: ComponentStory<typeof Tooltip> = (args) => (
   <div
+    id="test"
     style={{
       display: "flex",
       flexDirection: "column",
       height: "170px",
-      width: "300px",
+      width: "500px",
       justifyContent: "flex-end",
-      alignItems: "center"
+      alignItems: "center",
+      overflowX: "auto"
     }}
   >
-    <Tooltip content={args.content} show={true}>
-      {args.children}
-    </Tooltip>
+    <div
+      style={{
+        display: "flex",
+        height: "170px",
+        width: "1500px",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
+      <Tooltip
+        content={args.content}
+        show={true}
+        positionRegardingToElementId="test"
+      >
+        {args.children}
+      </Tooltip>
+    </div>
   </div>
 );
 

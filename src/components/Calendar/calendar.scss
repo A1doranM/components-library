@@ -130,6 +130,10 @@
             padding: 0;
             margin: 0;
 
+            &:nth-child(n + 8) {
+              margin-top: 10px;
+            }
+
             .react-calendar__long-events-start {
               border-top-left-radius: 35px;
               border-bottom-left-radius: 35px;
@@ -196,17 +200,17 @@
               display: none;
             }
           }
+        }
 
-          .react-calendar__month-view__days__day--neighboringMonth {
-            abbr {
-              color: $color-grey-400;
-            }
+        .react-calendar__month-view__days__day--neighboringMonth {
+          abbr {
+            color: $color-grey-400 !important;
           }
+        }
 
-          .react-calendar__month-view__days__day--weekend {
-            abbr {
-              color: $color-grey-500;
-            }
+        .react-calendar__month-view__days__day--weekend {
+          abbr {
+            color: $color-grey-500 !important;
           }
         }
       }

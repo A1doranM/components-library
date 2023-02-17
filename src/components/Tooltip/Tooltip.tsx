@@ -12,7 +12,8 @@ const Tooltip = ({
   content,
   show,
   wrapperClassName,
-  contentClassName
+  contentClassName,
+  positionRegardingToElementId
 }: TooltipInterface) => {
   const [active, setActive] = useState(show);
   const tooltipWrapperRef = useRef<HTMLDivElement>(null);
@@ -27,7 +28,6 @@ const Tooltip = ({
   };
 
   const handleRecalculatePosition = () => {
-    console.log("handle scroll :");
     active && calcTooltipPosition();
   };
 
@@ -55,12 +55,23 @@ const Tooltip = ({
   }, [active]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleRecalculatePosition);
-    window.addEventListener("resize", handleRecalculatePosition);
+    const element = document.getElementById(positionRegardingToElementId);
+    if (element) {
+      element.addEventListener("scroll", handleRecalculatePosition);
+      element.addEventListener("resize", handleRecalculatePosition);
+    } else {
+      window.addEventListener("scroll", handleRecalculatePosition);
+      window.addEventListener("resize", handleRecalculatePosition);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleRecalculatePosition);
-      window.removeEventListener("resize", handleRecalculatePosition);
+      if (element) {
+        element.removeEventListener("scroll", handleRecalculatePosition);
+        element.removeEventListener("resize", handleRecalculatePosition);
+      } else {
+        window.removeEventListener("scroll", handleRecalculatePosition);
+        window.removeEventListener("resize", handleRecalculatePosition);
+      }
     };
   }, []);
 
