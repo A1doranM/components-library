@@ -20556,23 +20556,26 @@ styleInject(css_248z$N);
 
 var PdfUploadFile = function (_a) {
     var _b;
+    var _c;
     var title = _a.title, backgroundImg = _a.backgroundImg, containerClassName = _a.containerClassName, contentClassName = _a.contentClassName, labelClassName = _a.labelClassName;
-    var _c = React.useState(null), selectedImage = _c[0], setSelectedImage = _c[1];
+    var _d = React.useState(null), selectedFile = _d[0], setSelectedFile = _d[1];
     var inputEl = React.useRef(null);
     var onDocumentDelete = function () {
-        setSelectedImage(null);
+        setSelectedFile(null);
+        inputEl.current.value = "";
     };
     var onDocumentReload = function () {
         var _a;
         (_a = inputEl === null || inputEl === void 0 ? void 0 : inputEl.current) === null || _a === void 0 ? void 0 : _a.click();
     };
-    return selectedImage ? (jsxRuntime.jsxs("div", __assign({ className: "document-view__image-container" }, { children: [jsxRuntime.jsx("img", { src: DocPreviewIcon, alt: "Document preview", className: "document-view__image" }), jsxRuntime.jsx("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
+    console.log("inputEl", (_c = inputEl === null || inputEl === void 0 ? void 0 : inputEl.current) === null || _c === void 0 ? void 0 : _c.value);
+    return selectedFile ? (jsxRuntime.jsxs("div", __assign({ className: "document-view__image-container" }, { children: [jsxRuntime.jsx("img", { src: DocPreviewIcon, alt: "Document preview", className: "document-view__image" }), jsxRuntime.jsx("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
                     var _a, _b;
-                    setSelectedImage(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
-                }, ref: inputEl }), jsxRuntime.jsxs("div", __assign({ className: "document-view__image-buttons-container" }, { children: [jsxRuntime.jsx(CommonButton, { round: true, outlined: true, image: jsxRuntime.jsx(Reload, {}), onClick: onDocumentReload }), jsxRuntime.jsx(CommonButton, { round: true, outlined: true, image: jsxRuntime.jsx(TrashDefault, {}), onClick: onDocumentDelete })] }))] }))) : (jsxRuntime.jsxs("div", __assign({ className: cn("load-doc", (_b = {}, _b["uploaded-file-container"] = selectedImage, _b), containerClassName) }, { children: [selectedImage && (jsxRuntime.jsx("div", __assign({ className: "upload-container" }, { children: jsxRuntime.jsx("img", { alt: "not fount", src: URL.createObjectURL(selectedImage), className: "uploaded-img" }) }))), jsxRuntime.jsx("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
+                    setSelectedFile(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
+                }, ref: inputEl }), jsxRuntime.jsxs("div", __assign({ className: "document-view__image-buttons-container" }, { children: [jsxRuntime.jsx(CommonButton, { round: true, outlined: true, image: jsxRuntime.jsx(Reload, {}), onClick: onDocumentReload }), jsxRuntime.jsx(CommonButton, { round: true, outlined: true, image: jsxRuntime.jsx(TrashDefault, {}), onClick: onDocumentDelete })] }))] }))) : (jsxRuntime.jsxs("div", __assign({ className: cn("load-doc", (_b = {}, _b["uploaded-file-container"] = selectedFile, _b), containerClassName) }, { children: [selectedFile && (jsxRuntime.jsx("div", __assign({ className: "upload-container" }, { children: jsxRuntime.jsx("img", { alt: "not fount", src: URL.createObjectURL(selectedFile), className: "uploaded-img" }) }))), jsxRuntime.jsx("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
                     var _a, _b;
-                    setSelectedImage(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
-                }, ref: inputEl }), !selectedImage && (jsxRuntime.jsxs("div", __assign({ className: cn("load-doc__content-wrapper", contentClassName) }, { children: [jsxRuntime.jsx("img", { src: img$I, alt: "download", className: "load-doc__img" }), jsxRuntime.jsx("label", __assign({ htmlFor: "load-doc", className: cn("load-doc__label", labelClassName) }, { children: title })), backgroundImg && (jsxRuntime.jsx("img", { src: backgroundImg, alt: "", className: "load-doc__background" }))] })))] })));
+                    setSelectedFile(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
+                }, ref: inputEl }), !selectedFile && (jsxRuntime.jsxs("div", __assign({ className: cn("load-doc__content-wrapper", contentClassName) }, { children: [jsxRuntime.jsx("img", { src: img$I, alt: "download", className: "load-doc__img" }), jsxRuntime.jsx("label", __assign({ htmlFor: "load-doc", className: cn("load-doc__label", labelClassName) }, { children: title })), backgroundImg && (jsxRuntime.jsx("img", { src: backgroundImg, alt: "", className: "load-doc__background" }))] })))] })));
 };
 
 var COMMON_MIME_TYPES = new Map([

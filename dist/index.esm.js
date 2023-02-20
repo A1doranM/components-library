@@ -20536,23 +20536,26 @@ styleInject(css_248z$N);
 
 var PdfUploadFile = function (_a) {
     var _b;
+    var _c;
     var title = _a.title, backgroundImg = _a.backgroundImg, containerClassName = _a.containerClassName, contentClassName = _a.contentClassName, labelClassName = _a.labelClassName;
-    var _c = useState(null), selectedImage = _c[0], setSelectedImage = _c[1];
+    var _d = useState(null), selectedFile = _d[0], setSelectedFile = _d[1];
     var inputEl = useRef(null);
     var onDocumentDelete = function () {
-        setSelectedImage(null);
+        setSelectedFile(null);
+        inputEl.current.value = "";
     };
     var onDocumentReload = function () {
         var _a;
         (_a = inputEl === null || inputEl === void 0 ? void 0 : inputEl.current) === null || _a === void 0 ? void 0 : _a.click();
     };
-    return selectedImage ? (jsxs("div", __assign({ className: "document-view__image-container" }, { children: [jsx$1("img", { src: DocPreviewIcon, alt: "Document preview", className: "document-view__image" }), jsx$1("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
+    console.log("inputEl", (_c = inputEl === null || inputEl === void 0 ? void 0 : inputEl.current) === null || _c === void 0 ? void 0 : _c.value);
+    return selectedFile ? (jsxs("div", __assign({ className: "document-view__image-container" }, { children: [jsx$1("img", { src: DocPreviewIcon, alt: "Document preview", className: "document-view__image" }), jsx$1("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
                     var _a, _b;
-                    setSelectedImage(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
-                }, ref: inputEl }), jsxs("div", __assign({ className: "document-view__image-buttons-container" }, { children: [jsx$1(CommonButton, { round: true, outlined: true, image: jsx$1(Reload, {}), onClick: onDocumentReload }), jsx$1(CommonButton, { round: true, outlined: true, image: jsx$1(TrashDefault, {}), onClick: onDocumentDelete })] }))] }))) : (jsxs("div", __assign({ className: cn("load-doc", (_b = {}, _b["uploaded-file-container"] = selectedImage, _b), containerClassName) }, { children: [selectedImage && (jsx$1("div", __assign({ className: "upload-container" }, { children: jsx$1("img", { alt: "not fount", src: URL.createObjectURL(selectedImage), className: "uploaded-img" }) }))), jsx$1("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
+                    setSelectedFile(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
+                }, ref: inputEl }), jsxs("div", __assign({ className: "document-view__image-buttons-container" }, { children: [jsx$1(CommonButton, { round: true, outlined: true, image: jsx$1(Reload, {}), onClick: onDocumentReload }), jsx$1(CommonButton, { round: true, outlined: true, image: jsx$1(TrashDefault, {}), onClick: onDocumentDelete })] }))] }))) : (jsxs("div", __assign({ className: cn("load-doc", (_b = {}, _b["uploaded-file-container"] = selectedFile, _b), containerClassName) }, { children: [selectedFile && (jsx$1("div", __assign({ className: "upload-container" }, { children: jsx$1("img", { alt: "not fount", src: URL.createObjectURL(selectedFile), className: "uploaded-img" }) }))), jsx$1("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
                     var _a, _b;
-                    setSelectedImage(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
-                }, ref: inputEl }), !selectedImage && (jsxs("div", __assign({ className: cn("load-doc__content-wrapper", contentClassName) }, { children: [jsx$1("img", { src: img$I, alt: "download", className: "load-doc__img" }), jsx$1("label", __assign({ htmlFor: "load-doc", className: cn("load-doc__label", labelClassName) }, { children: title })), backgroundImg && (jsx$1("img", { src: backgroundImg, alt: "", className: "load-doc__background" }))] })))] })));
+                    setSelectedFile(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));
+                }, ref: inputEl }), !selectedFile && (jsxs("div", __assign({ className: cn("load-doc__content-wrapper", contentClassName) }, { children: [jsx$1("img", { src: img$I, alt: "download", className: "load-doc__img" }), jsx$1("label", __assign({ htmlFor: "load-doc", className: cn("load-doc__label", labelClassName) }, { children: title })), backgroundImg && (jsx$1("img", { src: backgroundImg, alt: "", className: "load-doc__background" }))] })))] })));
 };
 
 var COMMON_MIME_TYPES = new Map([

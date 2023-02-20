@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import cn from "classnames";
 
 import { ReloadIcon } from "components";
@@ -26,19 +26,21 @@ const PdfUploadFile = ({
   contentClassName,
   labelClassName
 }: PdfUploadFileInterface): JSX.Element => {
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const inputEl = useRef(null);
 
   const onDocumentDelete = () => {
-    setSelectedImage(null);
+    setSelectedFile(null);
+    inputEl.current.value = ""
   };
 
   const onDocumentReload = () => {
     inputEl?.current?.click();
   };
 
-  return selectedImage ? (
+  console.log("inputEl", inputEl?.current?.value);
+  return selectedFile ? (
     <div className="document-view__image-container">
       <img
         src={DocPreviewIcon}
@@ -50,7 +52,7 @@ const PdfUploadFile = ({
         type="file"
         className="load-doc__input"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setSelectedImage(event?.target?.files && event?.target?.files[0]);
+          setSelectedFile(event?.target?.files && event?.target?.files[0]);
         }}
         ref={inputEl}
       />
@@ -74,15 +76,15 @@ const PdfUploadFile = ({
     <div
       className={cn(
         "load-doc",
-        { ["uploaded-file-container"]: selectedImage },
+        { ["uploaded-file-container"]: selectedFile },
         containerClassName
       )}
     >
-      {selectedImage && (
+      {selectedFile && (
         <div className="upload-container">
           <img
             alt="not fount"
-            src={URL.createObjectURL(selectedImage)}
+            src={URL.createObjectURL(selectedFile)}
             className="uploaded-img"
           />
         </div>
@@ -93,11 +95,11 @@ const PdfUploadFile = ({
         type="file"
         className="load-doc__input"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setSelectedImage(event?.target?.files && event?.target?.files[0]);
+          setSelectedFile(event?.target?.files && event?.target?.files[0]);
         }}
         ref={inputEl}
       />
-      {!selectedImage && (
+      {!selectedFile && (
         <div className={cn("load-doc__content-wrapper", contentClassName)}>
           <img src={DownloadIcon} alt="download" className={"load-doc__img"} />
           <label
