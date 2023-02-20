@@ -1,0 +1,152 @@
+@import "src/styles/index";
+
+$height: 165px;
+$width: 120px;
+
+.load-doc {
+  position: relative;
+  box-sizing: border-box;
+  width: $width;
+  height: $height;
+  border-radius: 10px;
+  border: 2px dashed black;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: white;
+    background: linear-gradient($color-white, $color-white) padding-box, $color-gradient-outlined border-box;
+  }
+
+  .uploaded-img {
+    max-height: calc(100% - 1px);
+    max-width: calc(100% - 0.5px);
+    margin: auto;
+    object-fit: contain;
+  }
+
+  
+
+  .upload-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .load-doc__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+
+    .load-doc__label {
+      font: $font-regular-12;
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .load-doc__img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .load-doc__background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      border-radius: 10px;
+    }
+  }
+}
+
+.load-doc__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploaded-file-container {
+  position: relative;
+  width: $width;
+  height: $height;
+  border: 2px solid $color-grey-400;
+  border-radius: 0px;
+  &:hover {
+    border: 2px solid $color-grey-400;
+  }
+}
+
+
+.document-view__image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  height: auto;
+
+  & button {
+    max-width: 46px;
+    max-height: 46px;
+    margin-bottom: 10%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .document-view__image-buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    height: auto;
+  }
+
+  &:hover {
+    & .document-view__image-buttons-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .document-view__image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: $media-max-width-lg) {
+  .document-view__image-container {
+    width: 90px;
+    height: 124px;
+
+    & button {
+      max-width: 34px;
+      max-height: 34px;
+
+      margin-bottom: 10%;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .document-view__image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+}

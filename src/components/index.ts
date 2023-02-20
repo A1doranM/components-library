@@ -13,6 +13,7 @@ import CommonButton from "./buttons/CommonButton";
 import AnswerButton from "./buttons/AnswerButton";
 import SwitchButton from "./buttons/SwitchButton";
 import CircleProgressBar from "./CircleProgressBar";
+import PdfUploadFile from "./fileLoaders/PdfUploadFile";
 import SimpleUploadFile from "./fileLoaders/SimpleUploadFile";
 import VisualUploadFile from "./fileLoaders/VisualUploadFile";
 import Dialog from "./Dialog";
@@ -80,6 +81,7 @@ export {
   CommonButton,
   AnswerButton,
   SwitchButton,
+  PdfUploadFile,
   SimpleUploadFile,
   VisualUploadFile,
   CircleProgressBar,
