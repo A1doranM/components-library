@@ -41,7 +41,7 @@ const PdfUploadFile = ({
 
   console.log("inputEl", inputEl?.current?.value);
   return selectedFile ? (
-    <div className="document-view__image-container">
+    <div className={cn("document-view__image-container", containerClassName)}>
       <img
         src={DocPreviewIcon}
         alt="Document preview"
