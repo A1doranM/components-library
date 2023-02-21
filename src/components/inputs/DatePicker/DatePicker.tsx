@@ -30,6 +30,7 @@ const DatePickerInput = ({
 }: DatePickerInputInterface): JSX.Element => {
   const [startDate, setStartDate] = useState<any>(null);
   const [isYearView, setIsYearView] = useState(false);
+  const [isMonthPicker, setMonthPicker] = useState(false);
 
   const months = [
     "Січень",
@@ -51,15 +52,23 @@ const DatePickerInput = ({
       onChange(date);
       return date;
     });
+    setMonthPicker(false);
   };
 
   const handleChangeToYearView = () => {
     setIsYearView(true);
+    setMonthPicker(false);
   };
 
   const handleChangeToMonthView = () => {
     setIsYearView(false);
+    setMonthPicker(true);
   };
+
+  const handleSelectAllDates = () => {
+    setIsYearView(false);
+    setMonthPicker(false);
+  }
 
   const DatePickerInput = forwardRef(
     (
@@ -85,6 +94,8 @@ const DatePickerInput = ({
       </>
     )
   );
+console.log('isYearView', isYearView)
+console.log('isMonthPicker', isMonthPicker)
 
   return (
     <div
@@ -94,69 +105,70 @@ const DatePickerInput = ({
       `}
     >
       <CalendarIcon className="datepicker-img" />
-      <DatePicker
-        selected={startDate}
-        onChange={handleDateChange}
-        placeholderText={""}
-        excludeDates={[new Date(), subDays(new Date(), -5)]}
-        highlightDates={[subDays(new Date(), 7), addDays(new Date(), 7)]}
-        className="datepicker"
-        customInput={<DatePickerInput />}
-        calendarClassName="calendar"
-        locale="uk"
-        showYearPicker={isYearView}
-        dateFormat="dd.MM.yyyy"
-        onSelect={handleChangeToMonthView}
-        shouldCloseOnSelect={!isYearView}
-        renderCustomHeader={({
-          date,
-          decreaseMonth,
-          increaseMonth,
-          decreaseYear,
-          increaseYear,
-          prevMonthButtonDisabled,
-          nextMonthButtonDisabled
-        }) => (
-          <div className="datapicker__header-info">
-            <div className="datapicker__date-wrapper">
-              <button
-                className={`datepicker__date-format ${
-                  !isYearView && "datepicker__active-format"
-                } 
-                `}
-                onClick={handleChangeToMonthView}
-              >
-                {months[getMonth(date)]}
-              </button>
-              <button
-                className={`datepicker__date-format
-                  ${isYearView && "datepicker__active-format"}
-                `}
-                onClick={handleChangeToYearView}
-              >
-                {getYear(date)}
-              </button>
+        <DatePicker
+          selected={startDate}
+          onChange={handleDateChange}
+          placeholderText={""}
+          excludeDates={[new Date(), subDays(new Date(), -5)]}
+          highlightDates={[subDays(new Date(), 7), addDays(new Date(), 7)]}
+          className="datepicker"
+          customInput={<DatePickerInput />}
+          calendarClassName="calendar"
+          locale="uk"
+          showYearPicker={isYearView}
+          showMonthYearPicker={isMonthPicker}
+          dateFormat="dd.MM.yyyy"
+          onSelect={handleSelectAllDates}
+          shouldCloseOnSelect={!isYearView && !isMonthPicker}
+          renderCustomHeader={({
+            date,
+            decreaseMonth,
+            increaseMonth,
+            decreaseYear,
+            increaseYear,
+            prevMonthButtonDisabled,
+            nextMonthButtonDisabled
+          }) => (
+            <div className="datapicker__header-info">
+              <div className="datapicker__date-wrapper">
+                <button
+                  className={`datepicker__date-format ${
+                    !isYearView && "datepicker__active-format"
+                  } 
+              `}
+                  onClick={handleChangeToMonthView}
+                >
+                  {months[getMonth(date)]}
+                </button>
+                <button
+                  className={`datepicker__date-format
+                ${isYearView && "datepicker__active-format"}
+              `}
+                  onClick={handleChangeToYearView}
+                >
+                  {getYear(date)}
+                </button>
+              </div>
+              <div className="datepicker__btns-container">
+                <button
+                  onClick={isYearView ? decreaseYear : decreaseMonth}
+                  disabled={prevMonthButtonDisabled}
+                  className="datepicker__btn
+                datepicker__prew-btn"
+                >
+                  <LongArrowIcon className="datepicker__btn-img" />
+                </button>
+                <button
+                  onClick={isYearView ? increaseYear : increaseMonth}
+                  disabled={nextMonthButtonDisabled}
+                  className="datepicker__btn datepicker__next-btn"
+                >
+                  <LongArrowIcon className="datepicker__btn-img" />
+                </button>
+              </div>
             </div>
-            <div className="datepicker__btns-container">
-              <button
-                onClick={isYearView ? decreaseYear : decreaseMonth}
-                disabled={prevMonthButtonDisabled}
-                className="datepicker__btn
-                  datepicker__prew-btn"
-              >
-                <LongArrowIcon className="datepicker__btn-img" />
-              </button>
-              <button
-                onClick={isYearView ? increaseYear : increaseMonth}
-                disabled={nextMonthButtonDisabled}
-                className="datepicker__btn datepicker__next-btn"
-              >
-                <LongArrowIcon className="datepicker__btn-img" />
-              </button>
-            </div>
-          </div>
-        )}
-      />
+          )}
+        />
     </div>
   );
 };

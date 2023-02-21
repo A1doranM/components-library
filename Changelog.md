@@ -1,4 +1,3 @@
-# gov-ua-ui changelog from v0.4.10. to v0.5.0.
+# gov-ua-ui changelog from v0.5.0. to v0.5.1.
 
-1. Added PdfUploadFile component;
-2. Changed Date format in DatePicker;
+1. Added monthes select to DatePicker
