@@ -3,6 +3,7 @@ import Expand from "./Expand";
 import Status from "./Status";
 import Select from "./inputs/Select";
 import Navigation from "./Navigation";
+import ItemsPagination from "./ItemsPagination";
 import Pagination from "./Pagination";
 import Checkbox from "./inputs/Checkbox";
 import Notification from "./Notification";
@@ -75,6 +76,7 @@ export {
   FormField,
   DatePicker,
   Navigation,
+  ItemsPagination,
   Pagination,
   RadioButton,
   Notification,

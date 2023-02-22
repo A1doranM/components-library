@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Pagination from "../Pagination";
+import ItemsPagination from "../ItemsPagination";
 import { BrowserRouter } from "react-router-dom";
 
 const ArrayOfElements = [
@@ -51,11 +51,11 @@ const ArrayOfElements = [
   }
 ];
 
-describe("Pagination", () => {
+describe("ItemsPagination", () => {
   test("Renders the ItemsPagination component", () => {
     render(
       <BrowserRouter>
-        <Pagination pageCount={2} />
+        <ItemsPagination itemsPerPage={10} elements={ArrayOfElements} />
       </BrowserRouter>
     );
   });
