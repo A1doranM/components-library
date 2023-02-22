@@ -14,7 +14,7 @@ export interface IAttention {
   date: string;
   text: string;
   className?: string;
-  href?: string;
+  link?: string;
   onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   status?: "IMPORTANT" | "NEW" | "OLD";
 }
@@ -24,7 +24,7 @@ const Attention = ({
   status = "OLD",
   text,
   title,
-  href,
+  link,
   onClick,
   className
 }: IAttention) => {
@@ -36,7 +36,7 @@ const Attention = ({
           ["attention-box_new"]: status === "NEW",
           ["attention-box_old"]: status === "OLD"
         })}
-        onClick={!href && onClick}
+        onClick={!link && onClick}
       >
         <div className="attention-box__header-section">
           <time dateTime={date}>{date}</time>
@@ -59,8 +59,8 @@ const Attention = ({
     );
   };
 
-  return href ? (
-    <Link to={href} className="attention-box-link" onClick={onClick}>
+  return link ? (
+    <Link to={link} className="attention-box-link" onClick={onClick}>
       {render()}
     </Link>
   ) : (

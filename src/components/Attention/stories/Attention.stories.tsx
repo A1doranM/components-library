@@ -44,5 +44,5 @@ LinkAttention.args = {
   status: "IMPORTANT",
   text: "Text Attention",
   title: "Test Title",
-  href: "#"
+  link: "#"
 };
