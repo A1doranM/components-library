@@ -3,13 +3,13 @@ import Expand from "./Expand";
 import Status from "./Status";
 import Select from "./inputs/Select";
 import Navigation from "./Navigation";
-import ItemsPagination from "./ItemsPagination";
 import Pagination from "./Pagination";
 import Checkbox from "./inputs/Checkbox";
 import Notification from "./Notification";
 import FormField from "./inputs/FormField";
 import DatePicker from "./inputs/DatePicker";
 import RadioButton from "./inputs/RadioButton";
+import ItemsPagination from "./ItemsPagination";
 import CommonButton from "./buttons/CommonButton";
 import AnswerButton from "./buttons/AnswerButton";
 import SwitchButton from "./buttons/SwitchButton";
@@ -22,6 +22,7 @@ import Portal from "./Portal";
 import Tooltip from "./Tooltip";
 import Calendar from "./Calendar";
 import idIcon from "./ui-icons/Id";
+import Attention from "./Attention";
 import AddIcon from "./ui-icons/Add";
 import GrnIcon from "./ui-icons/Grn";
 import CopyIcon from "./ui-icons/Copy";
@@ -76,7 +77,6 @@ export {
   FormField,
   DatePicker,
   Navigation,
-  ItemsPagination,
   Pagination,
   RadioButton,
   Notification,
@@ -84,6 +84,7 @@ export {
   AnswerButton,
   SwitchButton,
   PdfUploadFile,
+  ItemsPagination,
   SimpleUploadFile,
   VisualUploadFile,
   CircleProgressBar,
@@ -105,6 +106,7 @@ export {
   EnterIcon,
   PlaneIcon,
   PrintIcon,
+  Attention,
   SearchIcon,
   CancelIcon,
   UploadIcon,

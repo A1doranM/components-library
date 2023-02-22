@@ -1,3 +1,5 @@
-# gov-ua-ui changelog from v0.5.1. to v0.6.0.
+# gov-ua-ui changelog from v0.6.0. to v0.7.0.
 
-1. Added new Pagination element
+1. Added Attention component
+2. Remove pagination when items count < 2
+3. Fixed Pagination styles
