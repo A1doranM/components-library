@@ -1,15 +1,6 @@
+import { ReactPaginateProps } from "react-paginate";
 import "./pagination.scss";
-export interface PaginationElement {
-    id: number;
-    element: any;
+export interface PaginatedItemsProps extends ReactPaginateProps {
 }
-export interface ItemsProps {
-    currentItems: Array<PaginationElement>;
-}
-export interface PaginatedItemsProps {
-    itemsPerPage: number;
-    elements: Array<PaginationElement>;
-    contentBetween?: JSX.Element;
-}
-declare function Pagination({ itemsPerPage, elements, contentBetween, }: PaginatedItemsProps): JSX.Element;
+declare function Pagination({ ...props }: PaginatedItemsProps): JSX.Element;
 export default Pagination;
