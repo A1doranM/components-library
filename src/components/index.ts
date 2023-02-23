@@ -1,6 +1,7 @@
 import Title from "./Title";
 import Expand from "./Expand";
 import Status from "./Status";
+import BlankPage from "./BlankPage";
 import Select from "./inputs/Select";
 import Navigation from "./Navigation";
 import Pagination from "./Pagination";
@@ -74,6 +75,7 @@ export {
   Select,
   Calendar,
   Checkbox,
+  BlankPage,
   FormField,
   DatePicker,
   Navigation,

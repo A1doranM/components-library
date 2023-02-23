@@ -1,6 +1,7 @@
 import Title from "./Title";
 import Expand from "./Expand";
 import Status from "./Status";
+import BlankPage from "./BlankPage";
 import Select from "./inputs/Select";
 import Navigation from "./Navigation";
 import Pagination from "./Pagination";
@@ -66,4 +67,4 @@ import SettingsBlackIcon from "./ui-icons/SettingsBlack";
 import GrayDisableEyeIcon from "./ui-icons/GrayDisabledEye";
 import ShortFilledArrowIcon from "./ui-icons/ShortFilledArrow";
 import CancelCertificateIcon from "./ui-icons/CancelCertificate";
-export { Title, Expand, Status, Select, Calendar, Checkbox, FormField, DatePicker, Navigation, Pagination, RadioButton, Notification, CommonButton, AnswerButton, SwitchButton, PdfUploadFile, ItemsPagination, SimpleUploadFile, VisualUploadFile, CircleProgressBar, Dialog, Portal, idIcon, Tooltip, AddIcon, GrnIcon, HelpIcon, CopyIcon, SwapIcon, LockIcon, MailIcon, PlusIcon, CloseIcon, AlertIcon, ClockIcon, EnterIcon, PlaneIcon, PrintIcon, Attention, SearchIcon, CancelIcon, UploadIcon, GoogleIcon, PencilIcon, RemoveIcon, ReloadIcon, PersonIcon, GrayEyeIcon, LocationIcon, CalendarIcon, DownloadIcon, DocumentIcon, FacebookIcon, BlackEyeIcon, AddCircleIcon, LongArrowIcon, CheckmarkIcon, ShortArrowIcon, DoubleArrowIcon, FilledHeartIcon, TrashDefaultIcon, SettingsGrayIcon, OutlinedHeartIcon, SettingsBlackIcon, TrashOutlinedIcon, GrayDisableEyeIcon, ShortFilledArrowIcon, CancelCertificateIcon };
+export { Title, Expand, Status, Select, Calendar, Checkbox, BlankPage, FormField, DatePicker, Navigation, Pagination, RadioButton, Notification, CommonButton, AnswerButton, SwitchButton, PdfUploadFile, ItemsPagination, SimpleUploadFile, VisualUploadFile, CircleProgressBar, Dialog, Portal, idIcon, Tooltip, AddIcon, GrnIcon, HelpIcon, CopyIcon, SwapIcon, LockIcon, MailIcon, PlusIcon, CloseIcon, AlertIcon, ClockIcon, EnterIcon, PlaneIcon, PrintIcon, Attention, SearchIcon, CancelIcon, UploadIcon, GoogleIcon, PencilIcon, RemoveIcon, ReloadIcon, PersonIcon, GrayEyeIcon, LocationIcon, CalendarIcon, DownloadIcon, DocumentIcon, FacebookIcon, BlackEyeIcon, AddCircleIcon, LongArrowIcon, CheckmarkIcon, ShortArrowIcon, DoubleArrowIcon, FilledHeartIcon, TrashDefaultIcon, SettingsGrayIcon, OutlinedHeartIcon, SettingsBlackIcon, TrashOutlinedIcon, GrayDisableEyeIcon, ShortFilledArrowIcon, CancelCertificateIcon };
