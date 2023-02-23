@@ -22542,13 +22542,13 @@ var css_248z$E = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(as
 styleInject(css_248z$E);
 
 var Attention = function (_a) {
-    var date = _a.date, _b = _a.type, type = _b === void 0 ? "REGULAR" : _b, viewed = _a.viewed, text = _a.text, title = _a.title, link = _a.link, onClick = _a.onClick, className = _a.className;
+    var date = _a.date, _b = _a.type, type = _b === void 0 ? "regular" : _b, viewed = _a.viewed, text = _a.text, title = _a.title, link = _a.link, onClick = _a.onClick, className = _a.className;
     var render = function () {
         var _a;
         return (jsxRuntime.jsxs("section", __assign({ className: cn("attention-box", className, (_a = {},
-                _a["attention-box_important"] = !viewed && type === "IMPORTANT",
-                _a["attention-box_regular"] = !viewed && type === "REGULAR",
-                _a)), onClick: !link && onClick }, { children: [jsxRuntime.jsxs("div", __assign({ className: "attention-box__header-section" }, { children: [jsxRuntime.jsx("time", __assign({ dateTime: date }, { children: date })), jsxRuntime.jsx(LongArrow, { className: "attention-box__header-icon" })] })), jsxRuntime.jsxs("div", __assign({ className: "attention-box__content-section" }, { children: [type !== "IMPORTANT" ? (jsxRuntime.jsx(Mail, { className: "attention-box__content-icon" })) : (jsxRuntime.jsx(Document, { className: "attention-box__content-icon" })), jsxRuntime.jsxs("div", __assign({ className: "attention-box__text-wrapper" }, { children: [jsxRuntime.jsx(Title, __assign({ className: "attention-box__content-title", size: 16 }, { children: title })), jsxRuntime.jsx("p", __assign({ className: "attention-box__content-text" }, { children: text }))] }))] }))] })));
+                _a["attention-box_important"] = !viewed && type === "important",
+                _a["attention-box_regular"] = !viewed && type === "regular",
+                _a)), onClick: !link && onClick }, { children: [jsxRuntime.jsxs("div", __assign({ className: "attention-box__header-section" }, { children: [jsxRuntime.jsx("time", __assign({ dateTime: date }, { children: date })), jsxRuntime.jsx(LongArrow, { className: "attention-box__header-icon" })] })), jsxRuntime.jsxs("div", __assign({ className: "attention-box__content-section" }, { children: [type !== "important" ? (jsxRuntime.jsx(Mail, { className: "attention-box__content-icon" })) : (jsxRuntime.jsx(Document, { className: "attention-box__content-icon" })), jsxRuntime.jsxs("div", __assign({ className: "attention-box__text-wrapper" }, { children: [jsxRuntime.jsx(Title, __assign({ className: "attention-box__content-title", size: 16 }, { children: title })), jsxRuntime.jsx("p", __assign({ className: "attention-box__content-text" }, { children: text }))] }))] }))] })));
     };
     return link ? (jsxRuntime.jsx(reactRouterDom.Link, __assign({ to: link, className: "attention-box-link", onClick: onClick }, { children: render() }))) : (render());
 };

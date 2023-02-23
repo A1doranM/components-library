@@ -7,7 +7,7 @@ export interface IAttention {
     className?: string;
     link?: string;
     onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
-    type?: "IMPORTANT" | "REGULAR";
+    type?: "important" | "regular";
     viewed?: boolean;
 }
 declare const Attention: ({ date, type, viewed, text, title, link, onClick, className }: IAttention) => JSX.Element;

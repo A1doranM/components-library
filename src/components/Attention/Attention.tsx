@@ -16,13 +16,13 @@ export interface IAttention {
   className?: string;
   link?: string;
   onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
-  type?: "IMPORTANT" | "REGULAR";
+  type?: "important" | "regular";
   viewed?: boolean;
 }
 
 const Attention = ({
   date,
-  type = "REGULAR",
+  type = "regular",
   viewed,
   text,
   title,
@@ -34,8 +34,8 @@ const Attention = ({
     return (
       <section
         className={cn("attention-box", className, {
-          ["attention-box_important"]: !viewed && type === "IMPORTANT",
-          ["attention-box_regular"]: !viewed && type === "REGULAR"
+          ["attention-box_important"]: !viewed && type === "important",
+          ["attention-box_regular"]: !viewed && type === "regular"
           // ["attention-box_viewed"]: status === "OLD"
         })}
         onClick={!link && onClick}
@@ -45,7 +45,7 @@ const Attention = ({
           <LongArrowIcon className="attention-box__header-icon" />
         </div>
         <div className="attention-box__content-section">
-          {type !== "IMPORTANT" ? (
+          {type !== "important" ? (
             <MailIcon className="attention-box__content-icon" />
           ) : (
             <DocumentIcon className="attention-box__content-icon" />
