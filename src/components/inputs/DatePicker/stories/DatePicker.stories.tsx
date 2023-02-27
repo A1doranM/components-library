@@ -15,8 +15,6 @@ const Template: ComponentStory<typeof Select> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  onChange: (date: Date): void => {
-    console.log(Date);
-  },
+  onChange: (date: Date): void => {},
   placeholder: "Pick date"
 };

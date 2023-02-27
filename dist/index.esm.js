@@ -20481,11 +20481,9 @@ var DatePickerInput = function (_a) {
         var value = _a.value, onClick = _a.onClick, onChange = _a.onChange;
         return (jsxs(Fragment$1, { children: [jsx$1("input", { className: "input-wrapper__input", onClick: onClick, onChange: onChange, ref: ref, value: value, name: name, placeholder: " " }), jsx$1("label", __assign({ htmlFor: name, className: "input-wrapper__label ".concat(labelClassName) }, { children: placeholder }))] }));
     });
-    console.log('isYearView', isYearView);
-    console.log('isMonthPicker', isMonthPicker);
     return (jsxs("div", __assign({ className: "input-wrapper\n        datepicker-wrapper\n        ".concat(className, "\n      ") }, { children: [jsx$1(Calendar, { className: "datepicker-img" }), jsx$1(DatePicker, { selected: startDate, onChange: handleDateChange, placeholderText: "", excludeDates: [new Date(), subDays(new Date(), -5)], highlightDates: [subDays(new Date(), 7), addDays(new Date(), 7)], className: "datepicker", customInput: jsx$1(DatePickerInput, {}), calendarClassName: "calendar", locale: "uk", showYearPicker: isYearView, showMonthYearPicker: isMonthPicker, dateFormat: "dd.MM.yyyy", onSelect: handleSelectAllDates, shouldCloseOnSelect: !isYearView && !isMonthPicker, renderCustomHeader: function (_a) {
                     var date = _a.date, decreaseMonth = _a.decreaseMonth, increaseMonth = _a.increaseMonth, decreaseYear = _a.decreaseYear, increaseYear = _a.increaseYear, prevMonthButtonDisabled = _a.prevMonthButtonDisabled, nextMonthButtonDisabled = _a.nextMonthButtonDisabled;
-                    return (jsxs("div", __assign({ className: "datapicker__header-info" }, { children: [jsxs("div", __assign({ className: "datapicker__date-wrapper" }, { children: [jsx$1("button", __assign({ className: "datepicker__date-format ".concat(!isYearView && "datepicker__active-format", " \n              "), onClick: handleChangeToMonthView }, { children: months[getMonth(date)] })), jsx$1("button", __assign({ className: "datepicker__date-format\n                ".concat(isYearView && "datepicker__active-format", "\n              "), onClick: handleChangeToYearView }, { children: getYear(date) }))] })), jsxs("div", __assign({ className: "datepicker__btns-container" }, { children: [jsx$1("button", __assign({ onClick: isYearView ? decreaseYear : decreaseMonth, disabled: prevMonthButtonDisabled, className: "datepicker__btn\r\n                datepicker__prew-btn" }, { children: jsx$1(LongArrow, { className: "datepicker__btn-img" }) })), jsx$1("button", __assign({ onClick: isYearView ? increaseYear : increaseMonth, disabled: nextMonthButtonDisabled, className: "datepicker__btn datepicker__next-btn" }, { children: jsx$1(LongArrow, { className: "datepicker__btn-img" }) }))] }))] })));
+                    return (jsxs("div", __assign({ className: "datapicker__header-info" }, { children: [jsxs("div", __assign({ className: "datapicker__date-wrapper" }, { children: [jsx$1("button", __assign({ className: "datepicker__date-format ".concat(!isYearView && "datepicker__active-format", " \n              "), onClick: handleChangeToMonthView }, { children: months[getMonth(date)] })), jsx$1("button", __assign({ className: "datepicker__date-format\n                ".concat(isYearView && "datepicker__active-format", "\n              "), onClick: handleChangeToYearView }, { children: getYear(date) }))] })), jsxs("div", __assign({ className: "datepicker__btns-container" }, { children: [jsx$1("button", __assign({ onClick: isYearView ? decreaseYear : decreaseMonth, disabled: prevMonthButtonDisabled, className: "datepicker__btn\n                datepicker__prew-btn" }, { children: jsx$1(LongArrow, { className: "datepicker__btn-img" }) })), jsx$1("button", __assign({ onClick: isYearView ? increaseYear : increaseMonth, disabled: nextMonthButtonDisabled, className: "datepicker__btn datepicker__next-btn" }, { children: jsx$1(LongArrow, { className: "datepicker__btn-img" }) }))] }))] })));
                 } })] })));
 };
 
@@ -20591,9 +20589,8 @@ styleInject(css_248z$O);
 
 var PdfUploadFile = function (_a) {
     var _b;
-    var _c;
     var title = _a.title, backgroundImg = _a.backgroundImg, containerClassName = _a.containerClassName, contentClassName = _a.contentClassName, labelClassName = _a.labelClassName;
-    var _d = useState(null), selectedFile = _d[0], setSelectedFile = _d[1];
+    var _c = useState(null), selectedFile = _c[0], setSelectedFile = _c[1];
     var inputEl = useRef(null);
     var onDocumentDelete = function () {
         setSelectedFile(null);
@@ -20603,7 +20600,6 @@ var PdfUploadFile = function (_a) {
         var _a;
         (_a = inputEl === null || inputEl === void 0 ? void 0 : inputEl.current) === null || _a === void 0 ? void 0 : _a.click();
     };
-    console.log("inputEl", (_c = inputEl === null || inputEl === void 0 ? void 0 : inputEl.current) === null || _c === void 0 ? void 0 : _c.value);
     return selectedFile ? (jsxs("div", __assign({ className: cn("document-view__image-container", containerClassName) }, { children: [jsx$1("img", { src: DocPreviewIcon, alt: "Document preview", className: "document-view__image" }), jsx$1("input", { id: "load-doc", type: "file", className: "load-doc__input", onChange: function (event) {
                     var _a, _b;
                     setSelectedFile(((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.files) && ((_b = event === null || event === void 0 ? void 0 : event.target) === null || _b === void 0 ? void 0 : _b.files[0]));

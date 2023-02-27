@@ -19,8 +19,6 @@ const Template: ComponentStory<typeof Checkbox> = (args) => {
     const fields = {
       select_all: values.select_all
     };
-
-    console.log(fields);
   };
 
   return (

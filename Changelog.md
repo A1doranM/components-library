@@ -1,4 +1,3 @@
-# gov-ua-ui changelog from v0.7.0. to v0.8.0.
+# gov-ua-ui changelog from v0.8.0. to v0.8.1.
 
-1. Changed Attention component behaviour.
-2. Added BlankPage component
+1. Removed console logs

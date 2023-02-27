@@ -32,14 +32,13 @@ const PdfUploadFile = ({
 
   const onDocumentDelete = () => {
     setSelectedFile(null);
-    inputEl.current.value = ""
+    inputEl.current.value = "";
   };
 
   const onDocumentReload = () => {
     inputEl?.current?.click();
   };
 
-  console.log("inputEl", inputEl?.current?.value);
   return selectedFile ? (
     <div className={cn("document-view__image-container", containerClassName)}>
       <img
