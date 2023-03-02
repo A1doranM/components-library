@@ -7,8 +7,8 @@ import FingerTopIcon from "../../assets/images/icons/finger-top.svg";
 import "./alert.scss";
 
 export interface AlertInterface {
-  text: string;
   type: "success" | "error" | "warning";
+  children?: any;
   withIcon?: boolean;
   closable?: boolean;
   className?: string;
@@ -16,7 +16,7 @@ export interface AlertInterface {
 }
 
 const Alert = ({
-  text = "",
+  children,
   type,
   withIcon,
   closable,
@@ -47,7 +47,7 @@ const Alert = ({
       {withIcon && (
         <img src={FingerTopIcon} alt="alert icon" className="alert-icon" />
       )}
-      <h4>{text}</h4>
+      <div>{children}</div>
       {closable && (
         <button className="alert_close-btn" onClick={handleClose}>
           <img src={CancelIcon} alt="close" />
