@@ -7,6 +7,7 @@ import CommonButton from "../../buttons/CommonButton";
 import DownloadIcon from "../../../assets/images/icons/download.svg";
 import UpdateIcon from "../../../assets/images/icons/update.svg";
 import DeleteIcon from "../../../assets/images/icons/delete.svg";
+import PdfIcon from "../../../assets/images/icons/icon_pdf.svg";
 
 import "./visual-upload-file.scss";
 
@@ -126,10 +127,10 @@ const VisualUploadFile = ({
       )}
       {file && (
         <div className="upload-container">
-          <img alt="not fount" src={file?.preview} className="uploaded-img" />
+          <img alt="not fount" src={file.type === "application/pdf" ? PdfIcon : file?.preview} className="uploaded-img" />
         </div>
       )}
-      <input {...getInputProps()} />
+      <input {...getInputProps()} accept={acceptString}/>
       {!file && (
         <div className={cn("load-file__content-wrapper", contentClassName)}>
           <img src={DownloadIcon} alt="download" className={"load-file__img"} />
