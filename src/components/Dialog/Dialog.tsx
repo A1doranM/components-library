@@ -2,7 +2,9 @@ import React from "react";
 import Modal from "react-modal";
 import cn from "classnames";
 
-import { CloseIcon, CommonButton, Title } from "components";
+import Title from "../Title";
+import CloseIcon from "../ui-icons/Close";
+import CommonButton from "../buttons/CommonButton";
 
 import "./dialog.scss";
 

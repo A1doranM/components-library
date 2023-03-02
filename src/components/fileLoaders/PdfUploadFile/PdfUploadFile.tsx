@@ -1,12 +1,12 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import cn from "classnames";
 
-import { ReloadIcon } from "components";
-import { BlackEyeIcon } from "components";
-import { TrashDefaultIcon } from "components";
+import ReloadIcon from "../../ui-icons/Reload";
+import TrashDefaultIcon from "../../ui-icons/TrashDefault";
+
 import CommonButton from "components/buttons/CommonButton";
 
-import DocPreviewIcon from "assets/images/icons/doc_preview.svg";
+import DocPreviewIcon from "../../../assets/images/icons/doc_preview.svg";
 import DownloadIcon from "../../../assets/images/icons/download.svg";
 
 import "./pdf-upload-file.scss";

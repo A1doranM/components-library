@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import cn from "classnames";
+import { Accept, useDropzone } from "react-dropzone";
+
+import CommonButton from "../../buttons/CommonButton";
 
 import DownloadIcon from "../../../assets/images/icons/download.svg";
+import UpdateIcon from "../../../assets/images/icons/update.svg";
+import DeleteIcon from "../../../assets/images/icons/delete.svg";
 
 import "./visual-upload-file.scss";
+
+const ERRORS_TYPES = {
+  "file-invalid-type": "Недозволений тип файлу",
+  "file-too-large": "Занадто великий файл",
+  "to-many-files": "Занадто багато файлів"
+};
 
 export interface VisualUploadFileInterface {
   containerClassName?: string;
@@ -11,6 +22,11 @@ export interface VisualUploadFileInterface {
   labelClassName?: string;
   title?: string;
   backgroundImg?: string;
+  accept: Accept;
+  acceptString: string;
+  maxSize: number;
+  onLoad: (acceptFile: any, rejectFile: any) => void;
+  onDelete: () => void;
 }
 
 const VisualUploadFile = ({
@@ -18,45 +34,101 @@ const VisualUploadFile = ({
   backgroundImg,
   containerClassName,
   contentClassName,
-  labelClassName
+  labelClassName,
+  accept,
+  acceptString,
+  maxSize = 5,
+  onLoad,
+  onDelete
 }: VisualUploadFileInterface): JSX.Element => {
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
+  const [file, setFile] = useState(null);
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept,
+    multiple: false,
+    maxFiles: 1,
+    maxSize: maxSizeMb,
+    onDrop: (accepted, rejected) => {
+      let acceptedFile = null;
+      let rejectedFile = null;
+      if (rejected.length) {
+        const rejectedItem = rejected[0];
+        rejectedFile = {
+          ...rejectedItem,
+          errors: rejectedItem.errors.map((error) => {
+            return {
+              code: error.code,
+              title: ERRORS_TYPES[error.code]
+            };
+          })
+        };
+      }
+      if (accepted.length) {
+        acceptedFile = Object.assign(accepted[0], {
+          preview: URL.createObjectURL(accepted[0])
+        });
+        setFile(acceptedFile);
+      }
+      if (typeof onLoad === "function") {
+        onLoad(acceptedFile, rejectedFile);
+      }
+    }
+  });
+
+  const handleDelete = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      e.stopPropagation();
+
+      setFile(null);
+      onDelete();
+    },
+    []
+  );
 
   return (
     <div
+      {...getRootProps({ className: "dropzone" })}
       className={cn(
         "load-file",
-        { ["uploaded-file-container"]: selectedImage },
+        { ["uploaded-file-container"]: file },
         containerClassName
       )}
     >
-      {selectedImage && (
-        <div className="upload-container">
-          <img
-            alt="not fount"
-            src={URL.createObjectURL(selectedImage)}
-            className="uploaded-img"
+      {file && (
+        <div className="load-file__buttons-wrapper">
+          <CommonButton
+            round={true}
+            image={UpdateIcon}
+            outlined={true}
+            className="load-file__button"
+          />
+          <CommonButton
+            round={true}
+            image={DeleteIcon}
+            outlined={true}
+            onClick={handleDelete}
+            className="load-file__button"
           />
         </div>
       )}
-
-      <input
-        id="load-file"
-        type="file"
-        className="load-file__input"
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setSelectedImage(event?.target?.files && event?.target?.files[0]);
-        }}
-      />
-      {!selectedImage && (
+      {file && (
+        <div className="upload-container">
+          <img alt="not fount" src={file?.preview} className="uploaded-img" />
+        </div>
+      )}
+      <input id="load-file" {...getInputProps()} />
+      {!file && (
         <div className={cn("load-file__content-wrapper", contentClassName)}>
           <img src={DownloadIcon} alt="download" className={"load-file__img"} />
-          <label
-            htmlFor="load-file"
-            className={cn("load-file__label", labelClassName)}
-          >
-            {title}
-          </label>
+          {title && (
+            <label
+              htmlFor="load-file"
+              className={cn("load-file__label", labelClassName)}
+            >
+              {title}
+            </label>
+          )}
           {backgroundImg && (
             <img src={backgroundImg} alt="" className="load-file__background" />
           )}

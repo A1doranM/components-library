@@ -1,9 +1,10 @@
 import { ForwardedRef, forwardRef, useState } from "react";
 import uk from "date-fns/locale/uk";
 import DatePicker, { registerLocale } from "react-datepicker";
-import { getMonth, getYear, subDays, addDays } from "date-fns";
+import { addDays, getMonth, getYear, subDays } from "date-fns";
 
-import { CalendarIcon, LongArrowIcon } from "components";
+import CalendarIcon from "../../ui-icons/Calendar";
+import LongArrowIcon from "../../ui-icons/LongArrow";
 
 import "./datepicker.scss";
 
@@ -151,11 +152,11 @@ const DatePickerInput = ({
               <button
                 onClick={isYearView ? decreaseYear : decreaseMonth}
                 disabled={prevMonthButtonDisabled}
-                className="datepicker__btn
-                datepicker__prew-btn"
+                className="datepicker__btn datepicker__prev-btn"
               >
                 <LongArrowIcon className="datepicker__btn-img" />
               </button>
+              <div className="datepicker__vertical-divider" />
               <button
                 onClick={isYearView ? increaseYear : increaseMonth}
                 disabled={nextMonthButtonDisabled}

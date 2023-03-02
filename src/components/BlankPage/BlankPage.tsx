@@ -1,6 +1,6 @@
 import cn from "classnames";
 
-import HumanIcon from "assets/images/icons/human.svg";
+import HumanIcon from "../../assets/images/icons/human.svg";
 
 import "./blank-page.scss";
 

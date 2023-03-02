@@ -1,3 +1,3 @@
-# gov-ua-ui changelog from v0.8.0. to v0.8.1.
+# gov-ua-ui changelog from v0.8.1. to v0.9.0.
 
-1. Removed console logs
+1. Added Alert component

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { TooltipInterface } from "./iTooltip";
 
-import { Portal } from "../index";
+import Portal from "../Portal";
 
 import "./tooltip.scss";
 

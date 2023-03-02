@@ -13,7 +13,10 @@ import {
   CalendarEventInterface
 } from "./iCalendar";
 
-import { CommonButton, LongArrowIcon, Select, Tooltip } from "../index";
+import Tooltip from "../Tooltip";
+import Select from "../inputs/Select";
+import LongArrowIcon from "../ui-icons/LongArrow";
+import CommonButton from "../buttons/CommonButton";
 
 import "./calendar.scss";
 

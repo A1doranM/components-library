@@ -91,13 +91,16 @@
     color: $color-black;
   }
 
-  .btns-container {
+  .datepicker__btns-container{
     display: flex;
+    gap: 8px;
     align-items: center;
   }
 
   .datepicker__btn {
+    width: 20px;
     height: 20px;
+    padding: 0;
     border: 0;
     background: none;
   }
@@ -107,22 +110,20 @@
     height: 100%;
   }
 
-  .datepicker__prew-btn {
-    margin-right: 5px;
+  .datepicker__prev-btn {
+    margin-right: 0;
+  }
+
+  .datepicker__vertical-divider {
+    height: 14px;
+    width: 1px;
+    background-color: $color-grey-400;
   }
 
   .datepicker__next-btn {
     position: relative;
     transform: rotate(180deg);
-    padding: 0px 6px;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 3px;
-      right: 0px;
-      height: 14px;
-      border-left: 1px solid $color-grey-400;
-    }
+    padding: 0;
   }
 
   .react-datepicker-popper {
