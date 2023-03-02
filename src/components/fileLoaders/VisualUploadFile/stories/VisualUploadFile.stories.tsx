@@ -14,8 +14,22 @@ const Template: ComponentStory<typeof VisualUploadFile> = (args) => (
 
 export const SimpleUpload = Template.bind({});
 
-export const UploadWithArgs = Template.bind({});
+SimpleUpload.args = {};
 
-UploadWithArgs.args = {
+export const UploadWithTitle = Template.bind({});
+
+UploadWithTitle.args = {
+  title: "Завантажити"
+};
+
+export const ShowUploadLoader = Template.bind({});
+
+const p = 0;
+
+// const returnP = () => {
+//   return set
+// }
+
+ShowUploadLoader.args = {
   title: "Завантажити"
 };

@@ -27,6 +27,7 @@ export interface VisualUploadFileInterface {
   maxSize: number;
   onLoad: (acceptFile: any, rejectFile: any) => void;
   onDelete: () => void;
+  progress?: number;
 }
 
 const VisualUploadFile = ({
@@ -39,10 +40,12 @@ const VisualUploadFile = ({
   acceptString,
   maxSize = 5,
   onLoad,
-  onDelete
+  onDelete,
+  progress = 0
 }: VisualUploadFileInterface): JSX.Element => {
   const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
   const [file, setFile] = useState(null);
+  const isInProgress = progress < 100 && progress > 0;
 
   const { getRootProps, getInputProps } = useDropzone({
     accept,
@@ -91,10 +94,19 @@ const VisualUploadFile = ({
       {...getRootProps({ className: "dropzone" })}
       className={cn(
         "load-file",
-        { ["uploaded-file-container"]: file },
+        {
+          ["uploaded-file-container"]: file,
+          ["load-file_in-progress"]: isInProgress
+        },
         containerClassName
       )}
     >
+      {isInProgress && (
+        <div
+          className={"load-file__progress-indicator"}
+          style={{ width: `${progress}%` }}
+        />
+      )}
       {file && (
         <div className="load-file__buttons-wrapper">
           <CommonButton
