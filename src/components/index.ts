@@ -1,6 +1,12 @@
+import Alert from "./Alert";
 import Title from "./Title";
+import Dialog from "./Dialog";
+import Portal from "./Portal";
 import Expand from "./Expand";
 import Status from "./Status";
+import Tooltip from "./Tooltip";
+import Calendar from "./Calendar";
+import Attention from "./Attention";
 import BlankPage from "./BlankPage";
 import Select from "./inputs/Select";
 import Navigation from "./Navigation";
@@ -18,12 +24,8 @@ import CircleProgressBar from "./CircleProgressBar";
 import PdfUploadFile from "./fileLoaders/PdfUploadFile";
 import SimpleUploadFile from "./fileLoaders/SimpleUploadFile";
 import VisualUploadFile from "./fileLoaders/VisualUploadFile";
-import Dialog from "./Dialog";
-import Portal from "./Portal";
-import Tooltip from "./Tooltip";
-import Calendar from "./Calendar";
+// ************* ICONS *********** //
 import idIcon from "./ui-icons/Id";
-import Attention from "./Attention";
 import AddIcon from "./ui-icons/Add";
 import GrnIcon from "./ui-icons/Grn";
 import CopyIcon from "./ui-icons/Copy";
@@ -69,10 +71,14 @@ import ShortFilledArrowIcon from "./ui-icons/ShortFilledArrow";
 import CancelCertificateIcon from "./ui-icons/CancelCertificate";
 
 export {
+  Alert,
   Title,
+  Dialog,
+  Portal,
   Expand,
   Status,
   Select,
+  Tooltip,
   Calendar,
   Checkbox,
   BlankPage,
@@ -90,10 +96,8 @@ export {
   SimpleUploadFile,
   VisualUploadFile,
   CircleProgressBar,
-  Dialog,
-  Portal,
+  // ************* ICONS *********** //
   idIcon,
-  Tooltip,
   AddIcon,
   GrnIcon,
   HelpIcon,
