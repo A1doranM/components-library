@@ -129,17 +129,12 @@ const VisualUploadFile = ({
           <img alt="not fount" src={file?.preview} className="uploaded-img" />
         </div>
       )}
-      <input id="load-file" {...getInputProps()} />
+      <input {...getInputProps()} />
       {!file && (
         <div className={cn("load-file__content-wrapper", contentClassName)}>
           <img src={DownloadIcon} alt="download" className={"load-file__img"} />
           {title && (
-            <label
-              htmlFor="load-file"
-              className={cn("load-file__label", labelClassName)}
-            >
-              {title}
-            </label>
+            <p className={cn("load-file__label", labelClassName)}>{title}</p>
           )}
           {backgroundImg && (
             <img src={backgroundImg} alt="" className="load-file__background" />
