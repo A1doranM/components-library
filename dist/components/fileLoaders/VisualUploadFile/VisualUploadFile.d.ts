@@ -1,3 +1,4 @@
+import { Accept } from "react-dropzone";
 import "./visual-upload-file.scss";
 export interface VisualUploadFileInterface {
     containerClassName?: string;
@@ -5,6 +6,11 @@ export interface VisualUploadFileInterface {
     labelClassName?: string;
     title?: string;
     backgroundImg?: string;
+    accept: Accept;
+    acceptString: string;
+    maxSize: number;
+    onLoad: (acceptFile: any, rejectFile: any) => void;
+    onDelete: () => void;
 }
-declare const VisualUploadFile: ({ title, backgroundImg, containerClassName, contentClassName, labelClassName }: VisualUploadFileInterface) => JSX.Element;
+declare const VisualUploadFile: ({ title, backgroundImg, containerClassName, contentClassName, labelClassName, accept, acceptString, maxSize, onLoad, onDelete }: VisualUploadFileInterface) => JSX.Element;
 export default VisualUploadFile;
