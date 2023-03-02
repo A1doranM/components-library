@@ -103,9 +103,8 @@ $width: 120px;
     .load-file__label {
       font: $font-regular-12;
       font-weight: 700;
-      font-size: 14px;
       text-align: center;
-      word-break: break-all;
+      word-break: break-word;
     }
 
     .load-file__img {
