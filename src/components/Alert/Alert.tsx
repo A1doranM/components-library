@@ -47,7 +47,7 @@ const Alert = ({
       {withIcon && (
         <img src={FingerTopIcon} alt="alert icon" className="alert-icon" />
       )}
-      <div>{children}</div>
+      <div className={"alert__body"}>{children}</div>
       {closable && (
         <button className="alert_close-btn" onClick={handleClose}>
           <img src={CancelIcon} alt="close" />

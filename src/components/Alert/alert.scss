@@ -9,8 +9,15 @@
   background-color: $color-grey-300;
   font: $font-regular-16;
 
-  h4 {
+  .alert__body {
     @include common-text-rules;
+    font: $font-regular-16;
+
+    div, p, a, span {
+      font: $font-regular-16;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
   }
 
   .alert-icon {
