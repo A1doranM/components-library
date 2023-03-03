@@ -50,10 +50,17 @@ const Template: ComponentStory<typeof FormField> = (args) => {
           name="email"
           placeholder={args.placeholder}
           noBorders={args.noBorders}
-          errors={formik.errors}
-          touched={formik.touched}
+          // errors={formik.errors}
+          // touched={formik.touched}
         />
-        <button type="submit">submit</button>
+        <button
+          type="submit"
+          style={{
+            marginTop: "15px"
+          }}
+        >
+          submit
+        </button>
       </Form>
     </FormikProvider>
   );

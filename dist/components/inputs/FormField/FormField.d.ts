@@ -1,10 +1,7 @@
 import React, { FocusEvent } from "react";
-import { FormikErrors, FormikTouched } from "formik";
 import "./field.scss";
 export interface FormFieldInterface {
     name: string;
-    errors?: FormikErrors<any>;
-    touched?: FormikTouched<any>;
     readonly?: boolean;
     className?: string;
     noBorders?: boolean;
@@ -19,8 +16,6 @@ declare class FormField extends React.Component<FormFieldInterface> {
     static defaultProps: {
         type: string;
         className: string;
-        errors: any;
-        touched: any;
     };
     render(): JSX.Element;
 }

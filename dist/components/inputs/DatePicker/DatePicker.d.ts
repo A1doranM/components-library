@@ -7,6 +7,8 @@ export interface DatePickerInputInterface {
     onChange: (date: Date) => void;
     name?: string;
     value?: string;
+    withFormik?: boolean;
+    errClassName?: string;
 }
-declare const DatePickerInput: ({ placeholder, className, labelClassName, onChange, name, value }: DatePickerInputInterface) => JSX.Element;
+declare const DatePickerInput: ({ placeholder, className, labelClassName, onChange, name, value, withFormik, errClassName }: DatePickerInputInterface) => JSX.Element;
 export default DatePickerInput;

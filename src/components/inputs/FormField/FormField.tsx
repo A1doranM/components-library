@@ -1,7 +1,7 @@
 // @ts-nocheck
 import cn from "classnames";
 import React, { FocusEvent } from "react";
-import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
+import { ErrorMessage, Field } from "formik";
 
 import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
@@ -10,8 +10,6 @@ import "./field.scss";
 
 export interface FormFieldInterface {
   name: string;
-  errors?: FormikErrors<any>;
-  touched?: FormikTouched<any>;
   readonly?: boolean;
   className?: string;
   noBorders?: boolean;
@@ -32,9 +30,7 @@ class FormField extends React.Component<FormFieldInterface> {
 
   static defaultProps = {
     type: "text",
-    className: "",
-    errors: undefined,
-    touched: undefined
+    className: ""
   };
 
   render(): JSX.Element {
@@ -43,8 +39,6 @@ class FormField extends React.Component<FormFieldInterface> {
       placeholder,
       type,
       className,
-      errors,
-      touched,
       onBlur,
       noBorders,
       errComponent,
@@ -57,6 +51,8 @@ class FormField extends React.Component<FormFieldInterface> {
       });
     };
 
+    console.log("Name: ", name);
+
     switch (type) {
       case "password":
         return (
@@ -67,14 +63,7 @@ class FormField extends React.Component<FormFieldInterface> {
               type={this.state.show ? "password" : "text"}
               name={name}
               placeholder={" "}
-              className={cn(
-                "form-field",
-                {
-                  "form-field_error":
-                    errors && touched && errors[name] && touched[name]
-                },
-                className
-              )}
+              className={cn("form-field", className)}
               onBlur={onBlur}
               data-testid="input"
             />
@@ -87,13 +76,11 @@ class FormField extends React.Component<FormFieldInterface> {
             <label className="form-field-label" htmlFor={name}>
               {placeholder}
             </label>
-            {errors && touched && (
-              <ErrorMessage
-                name={name}
-                component={errComponent || "div"}
-                className={cn("form-field-error-message", errClassName)}
-              />
-            )}
+            <ErrorMessage
+              name={name}
+              component={errComponent || "div"}
+              className={cn("form-field-error-message", errClassName)}
+            />
           </div>
         );
       default:
@@ -104,8 +91,6 @@ class FormField extends React.Component<FormFieldInterface> {
               name={name}
               placeholder={" "}
               className={cn("form-field", {
-                "form-field_error":
-                  errors && touched && errors[name] && touched[name],
                 "form-field_no-borders": noBorders
               })}
               onBlur={onBlur}
@@ -114,13 +99,11 @@ class FormField extends React.Component<FormFieldInterface> {
             <label className="form-field-label" htmlFor={name}>
               {placeholder}
             </label>
-            {errors && touched && (
-              <ErrorMessage
-                name={name}
-                component={errComponent || "div"}
-                className={cn("form-field-error-message", errClassName)}
-              />
-            )}
+            <ErrorMessage
+              name={name}
+              component="div"
+              className={cn("form-field-error-message", errClassName)}
+            />
           </div>
         );
     }

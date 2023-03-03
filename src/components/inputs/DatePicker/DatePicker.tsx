@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useState } from "react";
+import React, { ForwardedRef, forwardRef, useState } from "react";
 import uk from "date-fns/locale/uk";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { addDays, getMonth, getYear, subDays } from "date-fns";
@@ -9,6 +9,8 @@ import LongArrowIcon from "../../ui-icons/LongArrow";
 import "./datepicker.scss";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { ErrorMessage } from "formik";
+import cn from "classnames";
 
 export interface DatePickerInputInterface {
   placeholder?: string;
@@ -17,6 +19,8 @@ export interface DatePickerInputInterface {
   onChange: (date: Date) => void;
   name?: string;
   value?: string;
+  withFormik?: boolean;
+  errClassName?: string;
 }
 
 registerLocale("uk", uk);
@@ -27,7 +31,9 @@ const DatePickerInput = ({
   labelClassName = "",
   onChange,
   name,
-  value
+  value,
+  withFormik,
+  errClassName
 }: DatePickerInputInterface): JSX.Element => {
   const [startDate, setStartDate] = useState<any>(null);
   const [isYearView, setIsYearView] = useState(false);
@@ -168,6 +174,13 @@ const DatePickerInput = ({
           </div>
         )}
       />
+      {withFormik && (
+        <ErrorMessage
+          name={name}
+          component="div"
+          className={cn("datepicker-wrapper__error-message", errClassName)}
+        />
+      )}
     </div>
   );
 };
