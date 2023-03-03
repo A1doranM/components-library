@@ -51,8 +51,6 @@ class FormField extends React.Component<FormFieldInterface> {
       });
     };
 
-    console.log("Name: ", name);
-
     switch (type) {
       case "password":
         return (

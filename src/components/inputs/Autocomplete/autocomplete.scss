@@ -22,10 +22,6 @@
     cursor: pointer;
     font: $font-regular-16;
 
-    .select__loading-text {
-      font: $font-regular-16;
-    }
-
     .select__control {
       border: none;
       border-radius: 0;
@@ -58,7 +54,6 @@
         position: relative;
 
         .select__indicators {
-
           .select__dropdown-indicator {
             transform: rotateX(180deg);
             color: $color-black;
@@ -81,24 +76,7 @@
         color: $color-black;
       }
     }
-
-    &_async {
-      .select__indicators {
-        display: none;
-
-        .select__indicator-separator {
-          display: none;
-        }
-
-        .select__dropdown-indicator {
-          padding: 0;
-          color: $color-black;
-        }
-      }
-    }
   }
-
-
 }
 
 .select__option {

@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import Select from "react-select";
+import AsyncSelect from "react-select/async";
+import { InputActionMeta } from "react-select/dist/declarations/src/types";
 
 import "./select.scss";
 
 export interface SelectInputInterface {
-  onChange?: (value: any) => void;
+  onChange?: (value: {
+    label?: string | number;
+    value?: string | number;
+  }) => void;
   onFieldClick?: () => void;
   onBlur?: () => void;
+  onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
   options?: Array<{
     value?: string | number;
     label?: string | number;
@@ -18,19 +24,27 @@ export interface SelectInputInterface {
   styles?: object;
   modalPortalTarget?: HTMLElement | null;
   defaultMenuIsOpen?: boolean;
+  menuIsOpen?: boolean;
+  asyncSelect?: boolean;
+  //Function that returns a promise, which is the set of options to be used once the promise resolves.
+  asyncSelectOptionsLoader?: () => any;
 }
 
 const SelectInput = ({
   name,
-  options,
+  options = [],
   placeholder = "",
   onChange,
+  onInputChange,
   onFieldClick,
   onBlur,
   className,
   styles,
+  menuIsOpen,
   modalPortalTarget = document.body,
-  defaultMenuIsOpen
+  defaultMenuIsOpen,
+  asyncSelect,
+  asyncSelectOptionsLoader
 }: SelectInputInterface) => {
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -51,19 +65,51 @@ const SelectInput = ({
 
   return (
     <div className="select-wrapper" onClick={onFieldClick}>
-      <Select
-        options={options}
-        className={cn("select-container", className)}
-        classNamePrefix="select"
-        placeholder={placeholder}
-        name={name}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
-        styles={styles}
-        menuPortalTarget={modalPortalTarget}
-        defaultMenuIsOpen={defaultMenuIsOpen}
-      />
+      {!asyncSelect ? (
+        <Select
+          options={options}
+          className={cn("select-container", className)}
+          classNamePrefix="select"
+          placeholder={placeholder}
+          name={name}
+          onInputChange={onInputChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          onFocus={handleFocus}
+          styles={styles}
+          menuIsOpen={menuIsOpen}
+          menuPortalTarget={modalPortalTarget}
+          defaultMenuIsOpen={defaultMenuIsOpen}
+        />
+      ) : (
+        <AsyncSelect
+          cacheOptions
+          defaultOptions={options}
+          className={cn(
+            "select-container",
+            "select-container_async",
+            className
+          )}
+          classNamePrefix="select"
+          placeholder={placeholder}
+          name={name}
+          onInputChange={(value) => {
+            console.log("value: ", value, options.length);
+            onInputChange && onInputChange("sasdasd", null);
+          }}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          onFocus={handleFocus}
+          styles={styles}
+          // menuIsOpen={menuIsOpen}
+          menuPortalTarget={modalPortalTarget}
+          noOptionsMessage={() => ""}
+          loadingMessage={() => (
+            <p className="select__loading-text">Завантаження...</p>
+          )}
+          loadOptions={asyncSelectOptionsLoader}
+        />
+      )}
       <p
         className={cn("select-wrapper__placeholder", {
           "select-wrapper__placeholder_active": isFocused
