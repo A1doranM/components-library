@@ -2,7 +2,10 @@ import cn from "classnames";
 import { ErrorMessage } from "formik";
 import React, { ForwardedRef, forwardRef, useState } from "react";
 import uk from "date-fns/locale/uk";
-import DatePicker, { ReactDatePicker, registerLocale } from "react-datepicker";
+import DatePicker, {
+  ReactDatePickerProps,
+  registerLocale
+} from "react-datepicker";
 import { addDays, getMonth, getYear, subDays } from "date-fns";
 
 import CalendarIcon from "../../ui-icons/Calendar";
@@ -11,7 +14,7 @@ import LongArrowIcon from "../../ui-icons/LongArrow";
 import "./datepicker.scss";
 import "react-datepicker/dist/react-datepicker.css";
 
-export interface DatePickerInputInterface extends ReactDatePicker {
+export interface DatePickerInputInterface extends ReactDatePickerProps {
   placeholder?: string;
   className?: string;
   labelClassName?: string;
