@@ -1,7 +1,7 @@
-import { ReactDatePicker } from "react-datepicker";
+import { ReactDatePickerProps } from "react-datepicker";
 import "./datepicker.scss";
 import "react-datepicker/dist/react-datepicker.css";
-export interface DatePickerInputInterface extends ReactDatePicker {
+export interface DatePickerInputInterface extends ReactDatePickerProps {
     placeholder?: string;
     className?: string;
     labelClassName?: string;
