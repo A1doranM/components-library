@@ -1,10 +1,7 @@
 import { InputActionMeta } from "react-select/dist/declarations/src/types";
 import "./select.scss";
 export interface SelectInputInterface {
-    onChange?: (value: {
-        label?: string | number;
-        value?: string | number;
-    }) => void;
+    onChange?: (value: any) => void;
     onFieldClick?: () => void;
     onBlur?: () => void;
     onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
