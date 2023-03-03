@@ -17,6 +17,7 @@ import FormField from "./inputs/FormField";
 import DatePicker from "./inputs/DatePicker";
 import RadioButton from "./inputs/RadioButton";
 import ItemsPagination from "./ItemsPagination";
+import Autocomplete from "./inputs/Autocomplete";
 import CommonButton from "./buttons/CommonButton";
 import AnswerButton from "./buttons/AnswerButton";
 import SwitchButton from "./buttons/SwitchButton";
@@ -87,6 +88,7 @@ export {
   Navigation,
   Pagination,
   RadioButton,
+  Autocomplete,
   Notification,
   CommonButton,
   AnswerButton,
