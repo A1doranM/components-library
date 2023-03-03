@@ -53,7 +53,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
     props.onInputChange && props.onInputChange(value, meta);
   };
 
-  const handleOptionSelect = (option: { label: string; value: string }) => {
+  const handleOptionSelect = (option: string) => {
     // setMenuOpen(false);
     props.onChange(option);
   };
