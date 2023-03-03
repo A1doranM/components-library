@@ -1,6 +1,7 @@
+import { ReactDatePicker } from "react-datepicker";
 import "./datepicker.scss";
 import "react-datepicker/dist/react-datepicker.css";
-export interface DatePickerInputInterface {
+export interface DatePickerInputInterface extends ReactDatePicker {
     placeholder?: string;
     className?: string;
     labelClassName?: string;
@@ -10,5 +11,5 @@ export interface DatePickerInputInterface {
     withFormik?: boolean;
     errClassName?: string;
 }
-declare const DatePickerInput: ({ placeholder, className, labelClassName, onChange, name, value, withFormik, errClassName }: DatePickerInputInterface) => JSX.Element;
+declare const DatePickerInput: ({ placeholder, className, labelClassName, onChange, name, value, withFormik, errClassName, ...props }: DatePickerInputInterface) => JSX.Element;
 export default DatePickerInput;
