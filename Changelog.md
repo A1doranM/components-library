@@ -1,6 +1,4 @@
-# gov-ua-ui changelog from v0.9.0. to v0.10.0.
+# gov-ua-ui changelog from v0.10.1. to v0.10.2.
 
-1. Added Autocomplete component.
-2. Code fixes in VisualFileUpload.
-3. Added required field "progress" to VisualFileUpload.
-4. Fixed Select component styles.
+1. Removed mocked data from DatePicker
+2. Fixed Select styles
