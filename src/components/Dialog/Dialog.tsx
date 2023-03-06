@@ -8,12 +8,11 @@ import IconButton from "../buttons/IconButton";
 
 import "./dialog.scss";
 
-export interface DialogInterface {
+export interface DialogInterface extends Modal.Props {
   children: any;
   className?: string;
   overlayClassName?: string;
   onClose: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  title: string;
 }
 
 const Dialog = ({
@@ -21,10 +20,11 @@ const Dialog = ({
   className,
   overlayClassName,
   onClose,
-  title
+  ...props
 }: DialogInterface): JSX.Element => {
   return (
     <Modal
+      {...props}
       isOpen
       onRequestClose={onClose}
       className={cn("react-modal", className)}
@@ -40,9 +40,7 @@ const Dialog = ({
           alt="close"
           onClick={onClose}
         />
-        <div className={"react-modal__body"}>
-          {children}
-        </div>
+        <div className={"react-modal__body"}>{children}</div>
       </div>
     </Modal>
   );

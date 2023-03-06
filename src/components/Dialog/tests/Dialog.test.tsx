@@ -7,7 +7,7 @@ describe("Dialog", () => {
   test("Renders the Dialog component", () => {
     render(
       <Dialog
-        title={"dialog"}
+        isOpen
         children={undefined}
         onClose={function (
           e: React.MouseEvent<HTMLButtonElement, MouseEvent>

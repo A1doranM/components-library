@@ -1,11 +1,11 @@
 import React from "react";
+import Modal from "react-modal";
 import "./dialog.scss";
-export interface DialogInterface {
+export interface DialogInterface extends Modal.Props {
     children: any;
     className?: string;
     overlayClassName?: string;
     onClose: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    title: string;
 }
-declare const Dialog: ({ children, className, overlayClassName, onClose, title }: DialogInterface) => JSX.Element;
+declare const Dialog: ({ children, className, overlayClassName, onClose, ...props }: DialogInterface) => JSX.Element;
 export default Dialog;

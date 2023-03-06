@@ -43,7 +43,6 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
       <Dialog
         {...args}
         onClose={closeModal}
-        title="Текст заголовку"  
       >
         <Formik
           initialValues={{ email: "" }}

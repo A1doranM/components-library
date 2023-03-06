@@ -1,5 +1,5 @@
-# gov-ua-ui changelog from v0.10.1. to v0.10.2.
+# gov-ua-ui changelog from v0.10.2. to v0.11.0.
 
-1. Removed mocked data from DatePicker
-2. Fixed Select styles.
-3. Added cursor - text for Autocomplete
+1. Added IconButton
+2. Changed Dialog for universal use
+

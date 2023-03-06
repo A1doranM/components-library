@@ -200,8 +200,8 @@ var css_248z$14 = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(a
 styleInject(css_248z$14);
 
 var Dialog = function (_a) {
-    var children = _a.children, className = _a.className, overlayClassName = _a.overlayClassName, onClose = _a.onClose; _a.title;
-    return (jsx$1(Modal, __assign({ isOpen: true, onRequestClose: onClose, className: cn("react-modal", className), overlayClassName: cn("react-modal-overlay", overlayClassName), ariaHideApp: false, bodyOpenClassName: "overflow-hidden", preventScroll: true }, { children: jsxs("div", __assign({ className: "react-modal__wrapper" }, { children: [jsx$1(IconButton, { icon: CloseIcon, className: "react-modal__close-btn", alt: "close", onClick: onClose }), jsx$1("div", __assign({ className: "react-modal__body" }, { children: children }))] })) })));
+    var children = _a.children, className = _a.className, overlayClassName = _a.overlayClassName, onClose = _a.onClose, props = __rest(_a, ["children", "className", "overlayClassName", "onClose"]);
+    return (jsx$1(Modal, __assign({}, props, { isOpen: true, onRequestClose: onClose, className: cn("react-modal", className), overlayClassName: cn("react-modal-overlay", overlayClassName), ariaHideApp: false, bodyOpenClassName: "overflow-hidden", preventScroll: true }, { children: jsxs("div", __assign({ className: "react-modal__wrapper" }, { children: [jsx$1(IconButton, { icon: CloseIcon, className: "react-modal__close-btn", alt: "close", onClick: onClose }), jsx$1("div", __assign({ className: "react-modal__body" }, { children: children }))] })) })));
 };
 
 var Portal = function (_a) {
