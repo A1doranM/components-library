@@ -1,6 +1,6 @@
 pipelines:
   branches:
-    v0.0.1:
+    v0.10.0:
       - step:
           name: Run tests and build
           image: node:18.12.1
