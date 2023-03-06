@@ -1,10 +1,10 @@
 import { InputActionMeta } from "react-select/dist/declarations/src/types";
 import "./select.scss";
 export interface SelectInputInterface {
-    onChange?: (value: any) => void;
+    onChange?: (item: any, name: string) => void;
     onFieldClick?: () => void;
     onBlur?: () => void;
-    onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
+    onInputChange?: (newValue: string, actionMeta: InputActionMeta, name: string) => void;
     options?: Array<{
         value?: string | number;
         label?: string | number;
@@ -18,6 +18,8 @@ export interface SelectInputInterface {
     menuIsOpen?: boolean;
     asyncSelect?: boolean;
     asyncSelectOptionsLoader?: () => any;
+    errClassName?: string;
+    withFormik?: boolean;
 }
-declare const SelectInput: ({ name, options, placeholder, onChange, onInputChange, onFieldClick, onBlur, className, styles, menuIsOpen, modalPortalTarget, defaultMenuIsOpen, asyncSelect, asyncSelectOptionsLoader }: SelectInputInterface) => JSX.Element;
+declare const SelectInput: ({ name, options, placeholder, onChange, onInputChange, onFieldClick, onBlur, className, styles, menuIsOpen, modalPortalTarget, defaultMenuIsOpen, asyncSelect, asyncSelectOptionsLoader, errClassName, withFormik }: SelectInputInterface) => JSX.Element;
 export default SelectInput;

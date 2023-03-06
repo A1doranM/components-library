@@ -100,7 +100,7 @@ class FormField extends React.Component<FormFieldInterface> {
             <ErrorMessage
               name={name}
               component="div"
-              className={cn("form-field-error-message", errClassName)}
+              className={cn("field-error-message", errClassName)}
             />
           </div>
         );
