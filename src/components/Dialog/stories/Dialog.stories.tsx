@@ -42,9 +42,8 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
       <CommonButton onClick={openModal} label={"Open Modal"} />
       <Dialog
         {...args}
-        isOpen={modalIsOpen}
-        onAccept={closeModal}
-        onDecline={closeModal}
+        onClose={closeModal}
+        title="Текст заголовку"  
       >
         <Formik
           initialValues={{ email: "" }}
@@ -55,13 +54,11 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
           enableReinitialize={true}
           validateOnChange={true}
         >
-          {({ errors, touched, values, handleChange }) => (
+          {({ values, handleChange }) => (
             <FormField
               type="email"
               name="email"
               placeholder="Email"
-              errors={errors}
-              touched={touched}
             />
           )}
         </Formik>
@@ -72,18 +69,3 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
 
 export const DefaultDialog = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-DefaultDialog.args = {
-  title: "Змінити електронну адресу"
-};
-
-export const CustomControlsDialog = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-CustomControlsDialog.args = {
-  title: "Custom controls dialog",
-  customControls: (onAccept: any, onDecline: any) => (
-    <div>
-      <p>No buttons anymore</p>
-      <a href="#">Put some link</a>
-    </div>
-  )
-};

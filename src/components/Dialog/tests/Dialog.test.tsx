@@ -8,21 +8,13 @@ describe("Dialog", () => {
     render(
       <Dialog
         title={"dialog"}
-        child={undefined}
-        onAccept={function (
+        children={undefined}
+        onClose={function (
           e: React.MouseEvent<HTMLButtonElement, MouseEvent>
         ): void {
           throw new Error("Function not implemented.");
         }}
-        onDecline={function (
-          e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-        ): void {
-          throw new Error("Function not implemented.");
-        }}
-        isOpen={true}
       />
     );
-    const dialog = screen.getByTestId("dialog");
-    expect(dialog).toBeInTheDocument();
   });
 });

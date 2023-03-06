@@ -17,6 +17,7 @@ import FormField from "./inputs/FormField";
 import DatePicker from "./inputs/DatePicker";
 import RadioButton from "./inputs/RadioButton";
 import ItemsPagination from "./ItemsPagination";
+import IconButton from "./buttons/CommonButton";
 import Autocomplete from "./inputs/Autocomplete";
 import CommonButton from "./buttons/CommonButton";
 import AnswerButton from "./buttons/AnswerButton";
@@ -84,6 +85,7 @@ export {
   Checkbox,
   BlankPage,
   FormField,
+  IconButton,
   DatePicker,
   Navigation,
   Pagination,

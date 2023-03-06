@@ -3,70 +3,46 @@ import Modal from "react-modal";
 import cn from "classnames";
 
 import Title from "../Title";
-import CloseIcon from "../ui-icons/Close";
-import CommonButton from "../buttons/CommonButton";
+import CloseIcon from "assets/images/icons/cancel.svg";
+import IconButton from "../buttons/IconButton";
 
 import "./dialog.scss";
 
 export interface DialogInterface {
-  title: string;
-  isOpen: boolean;
-  children: JSX.Element;
-  onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  children: any;
   className?: string;
-  afterOpen?: () => void;
-  customControls?: (
-    onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
-    onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  ) => JSX.Element;
-  acceptLabel?: JSX.Element | string;
-  declineLabel?: JSX.Element | string;
-  parentElement?: string | HTMLElement;
+  overlayClassName?: string;
+  onClose: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  title: string;
 }
 
 const Dialog = ({
-  title,
-  isOpen,
   children,
-  onAccept,
-  onDecline,
-  className = "",
-  afterOpen,
-  customControls,
-  acceptLabel = "Зберегти",
-  declineLabel = "Скасувати",
-  parentElement
+  className,
+  overlayClassName,
+  onClose,
+  title
 }: DialogInterface): JSX.Element => {
-  Modal.setAppElement(parentElement || document.querySelector("body")!);
-
   return (
     <Modal
-      isOpen={isOpen}
-      onAfterOpen={afterOpen}
-      onRequestClose={onDecline}
-      className={cn("modal", className)}
-      contentLabel={title}
-      closeTimeoutMS={300}
+      isOpen
+      onRequestClose={onClose}
+      className={cn("react-modal", className)}
+      overlayClassName={cn("react-modal-overlay", overlayClassName)}
+      ariaHideApp={false}
+      bodyOpenClassName="overflow-hidden"
+      preventScroll={true}
     >
-      <div className="modal__content" data-testid="dialog">
-        <Title children={title} size={24} className="modal__title" />
-        <button onClick={onDecline} className="modal__close-btn">
-          <CloseIcon />
-        </button>
-        {children}
-        {customControls ? (
-          <>{customControls(onAccept, onDecline)}</>
-        ) : (
-          <div className="modal__controls">
-            <CommonButton
-              onClick={onDecline}
-              label={declineLabel}
-              outlined={true}
-            />
-            <CommonButton onClick={onAccept} label={acceptLabel} />
-          </div>
-        )}
+      <div className={"react-modal__wrapper"}>
+        <IconButton
+          icon={CloseIcon}
+          className={"react-modal__close-btn"}
+          alt="close"
+          onClick={onClose}
+        />
+        <div className={"react-modal__body"}>
+          {children}
+        </div>
       </div>
     </Modal>
   );
