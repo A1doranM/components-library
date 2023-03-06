@@ -4,6 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import DatePicker from "components/inputs/DatePicker";
 import { Form, FormikProvider, useFormik } from "formik";
+import { addDays, getMonth, getYear, subDays } from "date-fns";
 import React from "react";
 
 export default {
@@ -64,7 +65,10 @@ const Template: ComponentStory<typeof Select> = (args) => {
 export const DefaultDatePicker = Template.bind({});
 DefaultDatePicker.args = {
   onChange: (date: Date): void => {},
-  placeholder: "Pick date"
+  placeholder: "Pick date",
+  highlightDates: [subDays(new Date(), 7), addDays(new Date(), 7)],
+  excludeDates: [new Date(), subDays(new Date(), -5)]
+
 };
 
 export const DatePickerWithValidation = Template.bind({});
