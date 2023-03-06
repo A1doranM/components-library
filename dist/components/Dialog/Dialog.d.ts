@@ -1,17 +1,11 @@
 import React from "react";
 import "./dialog.scss";
 export interface DialogInterface {
-    title: string;
-    isOpen: boolean;
-    children: JSX.Element;
-    onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    children: any;
     className?: string;
-    afterOpen?: () => void;
-    customControls?: (onAccept: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void, onDecline: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) => JSX.Element;
-    acceptLabel?: JSX.Element | string;
-    declineLabel?: JSX.Element | string;
-    parentElement?: string | HTMLElement;
+    overlayClassName?: string;
+    onClose: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    title: string;
 }
-declare const Dialog: ({ title, isOpen, children, onAccept, onDecline, className, afterOpen, customControls, acceptLabel, declineLabel, parentElement }: DialogInterface) => JSX.Element;
+declare const Dialog: ({ children, className, overlayClassName, onClose, title }: DialogInterface) => JSX.Element;
 export default Dialog;
