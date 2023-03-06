@@ -11,7 +11,12 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Select> = (args) => (
-  <Select {...args} placeholder="test placeholder" defaultMenuIsOpen={true} />
+  <Select
+    {...args}
+    name="test_name"
+    placeholder="test placeholder"
+    onChange={(e, n) => console.log("Change: ", e, n)}
+  />
 );
 
 const standardMock = [

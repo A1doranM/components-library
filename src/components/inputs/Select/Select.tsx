@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ErrorMessage } from "formik";
 import cn from "classnames";
 import Select from "react-select";
 import AsyncSelect from "react-select/async";
@@ -7,10 +8,14 @@ import { InputActionMeta } from "react-select/dist/declarations/src/types";
 import "./select.scss";
 
 export interface SelectInputInterface {
-  onChange?: (value: any) => void;
+  onChange?: (item: any, name: string) => void;
   onFieldClick?: () => void;
   onBlur?: () => void;
-  onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
+  onInputChange?: (
+    newValue: string,
+    actionMeta: InputActionMeta,
+    name: string
+  ) => void;
   options?: Array<{
     value?: string | number;
     label?: string | number;
@@ -25,6 +30,8 @@ export interface SelectInputInterface {
   asyncSelect?: boolean;
   //Function that returns a promise, which is the set of options to be used once the promise resolves.
   asyncSelectOptionsLoader?: () => any;
+  errClassName?: string;
+  withFormik?: boolean;
 }
 
 const SelectInput = ({
@@ -41,14 +48,16 @@ const SelectInput = ({
   modalPortalTarget = document.body,
   defaultMenuIsOpen,
   asyncSelect,
-  asyncSelectOptionsLoader
+  asyncSelectOptionsLoader,
+  errClassName,
+  withFormik
 }: SelectInputInterface) => {
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleChange = (e: any) => {
-    e.value && setHasValue(true);
-    onChange && onChange(e);
+  const handleChange = (item: any) => {
+    item.value && setHasValue(true);
+    onChange && onChange(item, name);
   };
 
   const handleFocus = () => {
@@ -61,7 +70,7 @@ const SelectInput = ({
   };
 
   const handleInputChange = (value: string, meta: any) => {
-    onInputChange && onInputChange(value, meta);
+    onInputChange && onInputChange(value, meta, name);
   };
 
   return (
@@ -115,6 +124,13 @@ const SelectInput = ({
       >
         {placeholder}
       </p>
+      {withFormik && (
+        <ErrorMessage
+          name={name}
+          component="div"
+          className={cn("field-error-message", errClassName)}
+        />
+      )}
     </div>
   );
 };

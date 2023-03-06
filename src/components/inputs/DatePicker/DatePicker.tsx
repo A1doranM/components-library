@@ -180,7 +180,7 @@ const DatePickerInput = ({
         <ErrorMessage
           name={name}
           component="div"
-          className={cn("datepicker-wrapper__error-message", errClassName)}
+          className={cn("field-error-message", errClassName)}
         />
       )}
     </div>

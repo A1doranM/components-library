@@ -12,3 +12,11 @@
   font: inherit;
   font-family: e_Ukraine_Regular, sans-serif;
 }
+
+.field-error-message {
+  position: absolute;
+  bottom: -15px;
+  color: $color-red-500;
+  font-size: 10px;
+  line-height: 14px;
+}
