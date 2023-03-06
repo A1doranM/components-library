@@ -1,1 +1,13 @@
 @import "src/components/inputs/Select/select";
+
+.autocomplete-wrapper {
+  .select-container {
+    .select__control {
+      cursor: text;
+
+      &:hover {
+        border-color: $color-black;
+      }
+    }
+  }
+}

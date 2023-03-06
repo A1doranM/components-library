@@ -55,21 +55,21 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
       }, 1000);
     });
 
-  const handleInputChange = (value: string, meta: any) => {
+  const handleInputChange = (value: string, meta: any, name: string) => {
     if (value.length >= 3) {
       setMenuOpen(true);
     }
 
-    props.onInputChange && props.onInputChange(value, meta);
+    props.onInputChange && props.onInputChange(value, meta, name);
   };
 
-  const handleOptionSelect = (option: string) => {
+  const handleOptionSelect = (option: any, name) => {
     setMenuOpen(false);
-    props.onChange && props.onChange(option);
+    props.onChange && props.onChange(option, name);
   };
 
   return (
-    <div className="select-wrapper">
+    <div className="select-wrapper autocomplete-wrapper">
       <Select
         asyncSelect={true}
         menuIsOpen={menuOpen}
