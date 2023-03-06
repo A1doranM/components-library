@@ -1,3 +1,5 @@
-# gov-ua-ui changelog from v0.8.1. to v0.9.0.
+# gov-ua-ui changelog from v0.9.0. to v0.10.0.
 
-1. Added Alert component
+1. Added Autocomplete component.
+2. Code fixes in VisualFileUpload.
+3. Added required field "progress" to VisualFileUpload.

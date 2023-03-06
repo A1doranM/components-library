@@ -7469,12 +7469,10 @@ var SelectInput = function (_a) {
         !hasValue && setIsFocused(false);
         onBlur && onBlur();
     };
-    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsxRuntime.jsx(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: onInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsxRuntime.jsx(AsyncSelect, { cacheOptions: true, defaultOptions: options, className: cn("select-container", "select-container_async", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: function (value) {
-                    console.log("value: ", value, options.length);
-                    onInputChange && onInputChange("sasdasd", null);
-                }, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, 
-                // menuIsOpen={menuIsOpen}
-                menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return ""; }, loadingMessage: function () { return (jsxRuntime.jsx("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
+    var handleInputChange = function (value, meta) {
+        onInputChange && onInputChange(value, meta);
+    };
+    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsxRuntime.jsx(Select, { options: options, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsxRuntime.jsx(AsyncSelect, { cacheOptions: true, defaultOptions: options, className: cn("select-container", "select-container_async", className), menuIsOpen: menuIsOpen, classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return null; }, loadingMessage: function () { return (jsxRuntime.jsx("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
                     "select-wrapper__placeholder_active": isFocused
                 }) }, { children: placeholder }))] })));
 };
@@ -21026,7 +21024,7 @@ styleInject(css_248z$J);
 
 var Autocomplete = function (_a) {
     var client = _a.client, props = __rest(_a, ["client"]);
-    var _b = React.useState(false); _b[0]; _b[1];
+    var _b = React.useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
     var getAsyncData = function () {
         return fetch(client.url, {
             headers: client.headers
@@ -21035,32 +21033,45 @@ var Autocomplete = function (_a) {
             return response.json();
         })
             .then(function (data) {
-            return data
-                .slice(0, 50)
-                .map(function (data) { return ({ value: data.id, label: data.title }); });
+            if (client.parser) {
+                return client.parser(data);
+            }
+            else {
+                return data
+                    .slice(0, 50)
+                    .map(function (data) { return ({ value: data.id, label: data.title }); });
+            }
+        })
+            .catch(function () {
+            return [];
         });
     };
     var promiseOptions = function () {
         return new Promise(function (resolve) {
-            // if (menuOpen) {
-            //   setTimeout(() => {
-            //     resolve(getAsyncData());
-            //   }, 1000);
-            // } else {
-            //   return [];
-            // }
+            if (menuOpen) {
+                setTimeout(function () {
+                    resolve(getAsyncData());
+                }, 1000);
+            }
+            else {
+                return [];
+            }
             setTimeout(function () {
                 resolve(getAsyncData());
             }, 1000);
         });
     };
-    var handleOptionSelect = function (option) {
-        // setMenuOpen(false);
-        props.onChange(option);
+    var handleInputChange = function (value, meta) {
+        if (value.length >= 3) {
+            setMenuOpen(true);
+        }
+        props.onInputChange && props.onInputChange(value, meta);
     };
-    return (jsxRuntime.jsx("div", __assign({ className: "select-wrapper" }, { children: jsxRuntime.jsx(SelectInput, __assign({ asyncSelect: true, 
-            // menuIsOpen={menuOpen}
-            asyncSelectOptionsLoader: promiseOptions, onChange: handleOptionSelect }, props)) })));
+    var handleOptionSelect = function (option) {
+        setMenuOpen(false);
+        props.onChange && props.onChange(option);
+    };
+    return (jsxRuntime.jsx("div", __assign({ className: "select-wrapper" }, { children: jsxRuntime.jsx(SelectInput, __assign({ asyncSelect: true, menuIsOpen: menuOpen, asyncSelectOptionsLoader: promiseOptions, onChange: handleOptionSelect, onInputChange: handleInputChange }, props)) })));
 };
 
 var css_248z$I = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.answer-button {\n  display: flex;\n  align-items: center;\n  text-align: center;\n  height: 48px;\n  border: 1px solid black;\n  border-radius: 30px;\n  padding: 14px 40px;\n  font: normal 700 14px e_Ukraine_Bold, sans-serif;\n  cursor: pointer;\n  background-color: #ecf8ed;\n}\n.answer-button:hover {\n  background-color: #c6e9ca;\n}\n.answer-button_image-container {\n  display: flex;\n  align-items: center;\n  margin-right: 10px;\n}\n.answer-button_image {\n  width: 100%;\n  height: 100%;\n}\n.answer-button .answer-button_image-container {\n  width: 18px;\n  height: 18px;\n  background-image: url(\"data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.185547 9.58123L1.81301 8.41876L6.00994 14.2945L16.1929 0.408631L17.8057 1.59136L5.98862 17.7055L0.185547 9.58123Z' fill='black'/%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n}\n.answer-button.answer-button_cancel {\n  background-color: #feeceb;\n}\n.answer-button.answer-button_cancel:hover {\n  background-color: #fcc7c3;\n}\n.answer-button.answer-button_cancel.answer-button__selected {\n  border: none;\n  background-color: #f44336;\n  color: #ffffff;\n}\n.answer-button.answer-button_cancel.answer-button__selected .answer-button_image-container {\n  background-image: url(\"data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.927734 13.657L13.6557 0.929048L15.0699 2.34326L2.34195 15.0712L0.927734 13.657Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.657 15.0712L0.929095 2.34326L2.34331 0.929047L15.0712 13.657L13.657 15.0712Z' fill='white'/%3E%3C/svg%3E\");\n}\n.answer-button.answer-button_cancel .answer-button_image-container {\n  background-image: url(\"data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.927734 13.657L13.6557 0.929048L15.0699 2.34326L2.34195 15.0712L0.927734 13.657Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.657 15.0712L0.929095 2.34326L2.34331 0.929047L15.0712 13.657L13.657 15.0712Z' fill='black'/%3E%3C/svg%3E\");\n}\n.answer-button.answer-button__selected {\n  border: none;\n  padding: 14px 82px;\n  background-color: green;\n  color: #ffffff;\n}\n.answer-button.answer-button__selected .answer-button_image-container {\n  background-image: url(\"data:image/svg+xml,%3Csvg width='19' height='18' viewBox='0 0 19 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_532_4521)'%3E%3Cpath d='M1.5 9L6.5 16L17.5 1' stroke='white' stroke-width='2'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_532_4521'%3E%3Crect width='18' height='18' fill='white' transform='translate(0.5 18) rotate(-90)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E\");\n}\n.answer-button.answer-button_round {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 48px;\n  height: 48px;\n  padding: 0px;\n  border-radius: 50%;\n}\n.answer-button.answer-button_round .answer-button_image-container {\n  margin-right: 0px;\n}";
@@ -22837,11 +22848,11 @@ var VisualUploadFile = function (_a) {
             }
         }
     }), getRootProps = _f.getRootProps, getInputProps = _f.getInputProps;
-    var handleDelete = React.useCallback(function (e) {
+    var handleDelete = function (e) {
         e.stopPropagation();
         setFile(null);
         onDelete();
-    }, []);
+    };
     return (jsxRuntime.jsxs("div", __assign({}, getRootProps({ className: "dropzone" }), { className: cn("load-file", (_b = {},
             _b["uploaded-file-container"] = file,
             _b["load-file_in-progress"] = isInProgress,

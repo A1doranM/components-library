@@ -4,6 +4,10 @@ export interface AutocompleteInterface extends Omit<SelectInputInterface, "optio
     client: {
         url: string;
         headers?: {};
+        parser?: (data: any) => Array<{
+            value?: string | number;
+            label?: string | number;
+        }>;
     };
 }
 declare const Autocomplete: ({ client, ...props }: AutocompleteInterface) => JSX.Element;

@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState } from "react";
 import cn from "classnames";
+import React, { useMemo, useState } from "react";
 import { Accept, useDropzone } from "react-dropzone";
 
 import CommonButton from "../../buttons/CommonButton";
@@ -28,7 +28,7 @@ export interface VisualUploadFileInterface {
   maxSize?: number;
   onLoad?: (acceptFile: any, rejectFile: any) => void;
   onDelete?: () => void;
-  progress?: number;
+  progress: number;
 }
 
 const VisualUploadFile = ({
@@ -80,15 +80,12 @@ const VisualUploadFile = ({
     }
   });
 
-  const handleDelete = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.stopPropagation();
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
 
-      setFile(null);
-      onDelete();
-    },
-    []
-  );
+    setFile(null);
+    onDelete();
+  };
 
   return (
     <div
@@ -127,10 +124,14 @@ const VisualUploadFile = ({
       )}
       {file && (
         <div className="upload-container">
-          <img alt="not fount" src={file.type === "application/pdf" ? PdfIcon : file?.preview} className="uploaded-img" />
+          <img
+            alt="not fount"
+            src={file.type === "application/pdf" ? PdfIcon : file?.preview}
+            className="uploaded-img"
+          />
         </div>
       )}
-      <input {...getInputProps()} accept={acceptString}/>
+      <input {...getInputProps()} accept={acceptString} />
       {!file && (
         <div className={cn("load-file__content-wrapper", contentClassName)}>
           <img src={DownloadIcon} alt="download" className={"load-file__img"} />

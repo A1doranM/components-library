@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import cn from "classnames";
 import Select from "react-select";
 import AsyncSelect from "react-select/async";
@@ -60,6 +60,10 @@ const SelectInput = ({
     onBlur && onBlur();
   };
 
+  const handleInputChange = (value: string, meta: any) => {
+    onInputChange && onInputChange(value, meta);
+  };
+
   return (
     <div className="select-wrapper" onClick={onFieldClick}>
       {!asyncSelect ? (
@@ -69,7 +73,7 @@ const SelectInput = ({
           classNamePrefix="select"
           placeholder={placeholder}
           name={name}
-          onInputChange={onInputChange}
+          onInputChange={handleInputChange}
           onChange={handleChange}
           onBlur={handleBlur}
           onFocus={handleFocus}
@@ -87,20 +91,17 @@ const SelectInput = ({
             "select-container_async",
             className
           )}
+          menuIsOpen={menuIsOpen}
           classNamePrefix="select"
           placeholder={placeholder}
           name={name}
-          onInputChange={(value) => {
-            console.log("value: ", value, options.length);
-            onInputChange && onInputChange("sasdasd", null);
-          }}
+          onInputChange={handleInputChange}
           onChange={handleChange}
           onBlur={handleBlur}
           onFocus={handleFocus}
           styles={styles}
-          // menuIsOpen={menuIsOpen}
           menuPortalTarget={modalPortalTarget}
-          noOptionsMessage={() => ""}
+          noOptionsMessage={() => null}
           loadingMessage={() => (
             <p className="select__loading-text">Завантаження...</p>
           )}
