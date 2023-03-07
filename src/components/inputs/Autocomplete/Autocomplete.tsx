@@ -21,31 +21,26 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const [query, setQuery] = useState("");
 
   const getAsyncData = (query?: string): any => {
-    if (menuOpen) {
-      const url = new URL(query ? `${client.url}?query=${query}` : client.url);
+    const url = new URL(query ? `${client.url}?query=${query}` : client.url);
 
-      return fetch(url.toString(), {
-        headers: client.headers
+    return fetch(url.toString(), {
+      headers: client.headers
+    })
+      .then((response) => {
+        return response.json();
       })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          if (client.parser) {
-            return client.parser(data);
-          } else {
-            return data
-              .slice(0, 50)
-              .map((data) => ({ value: data.id, label: data.name }));
-          }
-        })
-        .catch(() => {
-          return [];
-        });
-    } else {
-      return Promise.resolve([]);
-    }
-
+      .then((data) => {
+        if (client.parser) {
+          return client.parser(data);
+        } else {
+          return data
+            .slice(0, 50)
+            .map((data) => ({ value: data.id, label: data.name }));
+        }
+      })
+      .catch(() => {
+        return [];
+      });
   };
 
   const promiseOptions = (): any =>
@@ -63,6 +58,10 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (value.length >= 3) {
       setMenuOpen(true);
+    }
+
+    if (value.length < 3) {
+      setMenuOpen(false);
     }
 
     setQuery(value);

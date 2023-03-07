@@ -21005,31 +21005,26 @@ var Autocomplete = function (_a) {
     var _b = useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
     var _c = useState(""), query = _c[0], setQuery = _c[1];
     var getAsyncData = function (query) {
-        if (menuOpen) {
-            var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
-            return fetch(url.toString(), {
-                headers: client.headers
-            })
-                .then(function (response) {
-                return response.json();
-            })
-                .then(function (data) {
-                if (client.parser) {
-                    return client.parser(data);
-                }
-                else {
-                    return data
-                        .slice(0, 50)
-                        .map(function (data) { return ({ value: data.id, label: data.name }); });
-                }
-            })
-                .catch(function () {
-                return [];
-            });
-        }
-        else {
-            return Promise.resolve([]);
-        }
+        var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
+        return fetch(url.toString(), {
+            headers: client.headers
+        })
+            .then(function (response) {
+            return response.json();
+        })
+            .then(function (data) {
+            if (client.parser) {
+                return client.parser(data);
+            }
+            else {
+                return data
+                    .slice(0, 50)
+                    .map(function (data) { return ({ value: data.id, label: data.name }); });
+            }
+        })
+            .catch(function () {
+            return [];
+        });
     };
     var promiseOptions = function () {
         return new Promise(function (resolve) {
@@ -21046,6 +21041,9 @@ var Autocomplete = function (_a) {
     var handleInputChange = function (value, meta, name) {
         if (value.length >= 3) {
             setMenuOpen(true);
+        }
+        if (value.length < 3) {
+            setMenuOpen(false);
         }
         setQuery(value);
         props.onInputChange && props.onInputChange(value, meta, name);
