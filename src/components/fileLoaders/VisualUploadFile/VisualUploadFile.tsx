@@ -45,7 +45,7 @@ const VisualUploadFile = ({
   onLoad,
   onDelete,
   onDocumentView,
-  progress = 0
+  progress = 0,
 }: VisualUploadFileInterface): JSX.Element => {
   const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
   const [file, setFile] = useState(null);
@@ -90,14 +90,6 @@ const VisualUploadFile = ({
     onDelete();
   };
 
-  const handleDocumentView = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.stopPropagation();
-
-    onDocumentView();
-  };
-
   return (
     <div
       {...getRootProps({ className: "dropzone" })}
@@ -118,13 +110,13 @@ const VisualUploadFile = ({
       )}
       {file && (
         <div className="load-file__buttons-wrapper">
-          {file.type === "application/pdf" && (
+          {onDocumentView && (
             <CommonButton
               round={true}
               image={<BlackEyeIcon />}
               outlined={true}
               className="load-file__button"
-              onClick={handleDocumentView}
+              onClick={onDocumentView}
             />
           )}
           <CommonButton
