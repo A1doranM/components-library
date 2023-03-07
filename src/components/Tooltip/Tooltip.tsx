@@ -81,6 +81,7 @@ const Tooltip = ({
       onMouseEnter={showTip}
       onMouseLeave={hideTip}
       ref={tooltipWrapperRef}
+      data-testid="tooltip"
     >
       {children}
       {(active || show) && (
