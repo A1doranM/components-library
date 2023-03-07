@@ -12,6 +12,7 @@ export interface SelectInputInterface {
     placeholder?: string;
     className?: string;
     name?: string;
+    inputValue?: string;
     styles?: object;
     modalPortalTarget?: HTMLElement | null;
     defaultMenuIsOpen?: boolean;
@@ -21,5 +22,5 @@ export interface SelectInputInterface {
     errClassName?: string;
     withFormik?: boolean;
 }
-declare const SelectInput: ({ name, options, placeholder, onChange, onInputChange, onFieldClick, onBlur, className, styles, menuIsOpen, modalPortalTarget, defaultMenuIsOpen, asyncSelect, asyncSelectOptionsLoader, errClassName, withFormik }: SelectInputInterface) => JSX.Element;
+declare const SelectInput: ({ name, inputValue, options, placeholder, onChange, onInputChange, onFieldClick, onBlur, className, styles, menuIsOpen, modalPortalTarget, defaultMenuIsOpen, asyncSelect, asyncSelectOptionsLoader, errClassName, withFormik }: SelectInputInterface) => JSX.Element;
 export default SelectInput;

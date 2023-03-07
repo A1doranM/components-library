@@ -51,6 +51,10 @@
           margin: 0;
           padding: 0;
           height: 20px;
+
+          .select__input {
+            opacity: 1 !important;
+          }
         }
 
         .select__placeholder {
