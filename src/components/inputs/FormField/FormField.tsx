@@ -7,6 +7,7 @@ import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
 
 import "./field.scss";
+import Autocomplete from "../Autocomplete";
 
 export interface FormFieldInterface {
   name: string;
@@ -84,6 +85,19 @@ class FormField extends React.Component<FormFieldInterface> {
       default:
         return (
           <div className={cn("form-field-wrapper", className)}>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+              <Autocomplete client={{
+                url: "https://jsonplaceholder.typicode.com/todos"
+              }} />
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
             <Field
               type={type}
               name={name}

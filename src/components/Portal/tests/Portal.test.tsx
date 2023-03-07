@@ -1,12 +1,10 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
-import Tooltip from "../index";
+import Portal from "../index";
 
-describe("Expand", () => {
-  test("Renders the Expand component", () => {
-    render(<Tooltip>dsfsd</Tooltip>);
-    const expand = screen.getByTestId("expand");
-    expect(expand).toBeInTheDocument();
+describe("Portal", () => {
+  test("Renders the Portal component", () => {
+    render(<Portal><p>asd</p></Portal>);
   });
 });
