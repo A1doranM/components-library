@@ -2,7 +2,7 @@ import cn from "classnames";
 import React, { useMemo, useState } from "react";
 import { Accept, useDropzone } from "react-dropzone";
 
-import { BlackEyeIcon } from "components";
+import BlackEyeIcon from "../../ui-icons/BlackEye";
 import CommonButton from "../../buttons/CommonButton";
 
 import DownloadIcon from "../../../assets/images/icons/download.svg";

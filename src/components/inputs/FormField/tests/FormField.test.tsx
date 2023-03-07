@@ -20,11 +20,11 @@ interface TestFormInterface {
 }
 
 const TestForm = ({
-  name,
-  type,
-  placeholder,
-  noBorders
-}: TestFormInterface) => {
+                    name,
+                    type,
+                    placeholder,
+                    noBorders
+                  }: TestFormInterface) => {
   const onFormSubmit = (values: { email: string }) => {
     const fields = {
       email: values.email || null

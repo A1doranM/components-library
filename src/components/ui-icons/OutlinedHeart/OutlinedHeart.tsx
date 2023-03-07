@@ -9,8 +9,8 @@ export interface OutlinedHeartInterface {
 }
 
 const OutlinedHeart = ({
-  className = ""
-}: OutlinedHeartInterface): JSX.Element => {
+                         className = ""
+                       }: OutlinedHeartInterface): JSX.Element => {
   return (
     <img src={OutlinedHeartIcon} alt="outlined heart" className={className} />
   );

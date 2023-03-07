@@ -18,17 +18,17 @@ export interface iCheckbox {
 }
 
 const Checkbox = ({
-  name,
-  title,
-  checked,
-  disabled,
-  className,
-  onClick,
-  errors,
-  touched,
-  errComponent,
-  errClassName
-}: iCheckbox): JSX.Element => {
+                    name,
+                    title,
+                    checked,
+                    disabled,
+                    className,
+                    onClick,
+                    errors,
+                    touched,
+                    errComponent,
+                    errClassName
+                  }: iCheckbox): JSX.Element => {
   return (
     <label
       className={cn("checkbox", className, {

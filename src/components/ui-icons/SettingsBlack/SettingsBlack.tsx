@@ -9,8 +9,8 @@ export interface SettingsBlackInterface {
 }
 
 const SettingsBlack = ({
-  className = ""
-}: SettingsBlackInterface): JSX.Element => {
+                         className = ""
+                       }: SettingsBlackInterface): JSX.Element => {
   return (
     <img src={SettingsBlackIcon} alt="settings black" className={className} />
   );

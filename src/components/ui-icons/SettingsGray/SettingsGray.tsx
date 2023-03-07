@@ -9,8 +9,8 @@ export interface SettingsGrayInterface {
 }
 
 const SettingsGray = ({
-  className = ""
-}: SettingsGrayInterface): JSX.Element => {
+                        className = ""
+                      }: SettingsGrayInterface): JSX.Element => {
   return (
     <img src={SettingsGrayIcon} alt="settings gray" className={className} />
   );

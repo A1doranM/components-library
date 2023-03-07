@@ -39,19 +39,24 @@
 
   &.answer-button_cancel {
     background-color: $color-red-100;
+
     &:hover {
       background-color: $color-red-200;
     }
+
     &:focus {
     }
+
     &.answer-button__selected {
       border: none;
       background-color: $color-red-500;
       color: $color-white;
+
       .answer-button_image-container {
         background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.927734 13.657L13.6557 0.929048L15.0699 2.34326L2.34195 15.0712L0.927734 13.657Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.657 15.0712L0.929095 2.34326L2.34331 0.929047L15.0712 13.657L13.657 15.0712Z' fill='white'/%3E%3C/svg%3E");
       }
     }
+
     .answer-button_image-container {
       background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.927734 13.657L13.6557 0.929048L15.0699 2.34326L2.34195 15.0712L0.927734 13.657Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.657 15.0712L0.929095 2.34326L2.34331 0.929047L15.0712 13.657L13.657 15.0712Z' fill='black'/%3E%3C/svg%3E");
     }

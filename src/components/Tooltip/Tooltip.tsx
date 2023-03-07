@@ -8,13 +8,13 @@ import Portal from "../Portal";
 import "./tooltip.scss";
 
 const Tooltip = ({
-  children,
-  content,
-  show,
-  wrapperClassName,
-  contentClassName,
-  positionRegardingToElementId
-}: TooltipInterface) => {
+                   children,
+                   content,
+                   show,
+                   wrapperClassName,
+                   contentClassName,
+                   positionRegardingToElementId
+                 }: TooltipInterface) => {
   const [active, setActive] = useState(show);
   const tooltipWrapperRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);

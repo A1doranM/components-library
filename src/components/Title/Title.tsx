@@ -11,11 +11,11 @@ export interface TitleInterface {
 }
 
 const Title = ({
-  size = 16,
-  weight = 400,
-  className = "",
-  children
-}: TitleInterface): JSX.Element => {
+                 size = 16,
+                 weight = 400,
+                 className = "",
+                 children
+               }: TitleInterface): JSX.Element => {
   return (
     <h4
       className={cn(

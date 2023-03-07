@@ -13,13 +13,13 @@ export interface AnswerButtonProps {
 }
 
 const AnswerButton = ({
-  label,
-  cancel,
-  className,
-  round,
-  onClick,
-  selected
-}: AnswerButtonProps) => {
+                        label,
+                        cancel,
+                        className,
+                        round,
+                        onClick,
+                        selected
+                      }: AnswerButtonProps) => {
   return (
     <button
       data-testid="answer-button"

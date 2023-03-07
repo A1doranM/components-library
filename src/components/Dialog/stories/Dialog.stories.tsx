@@ -31,7 +31,8 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {}
+  function afterOpenModal() {
+  }
 
   function closeModal() {
     setIsOpen(false);

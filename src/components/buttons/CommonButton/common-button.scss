@@ -74,9 +74,8 @@
     border: 2px solid $color-black;
 
     &:hover {
-      background: linear-gradient(to left, $color-white, $color-white)
-          padding-box,
-        $color-gradient-outlined border-box;
+      background: linear-gradient(to left, $color-white, $color-white) padding-box,
+      $color-gradient-outlined border-box;
       border-radius: 30px;
       border: 2px solid transparent;
     }
@@ -89,10 +88,10 @@
 
     &.common-button_dashed {
       border: 1.5px dashed $color-black;
+
       &:hover {
-        background: linear-gradient(to left, $color-white, $color-white)
-            padding-box,
-          $color-gradient-outlined border-box;
+        background: linear-gradient(to left, $color-white, $color-white) padding-box,
+        $color-gradient-outlined border-box;
         border-radius: 30px;
         border: 1.5px dashed transparent;
       }

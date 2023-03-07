@@ -17,10 +17,10 @@ export interface StatusInterface {
 }
 
 const Status = ({
-  type,
-  className = "",
-  children
-}: StatusInterface): JSX.Element => {
+                  type,
+                  className = "",
+                  children
+                }: StatusInterface): JSX.Element => {
   return (
     <h3
       className={cn("status", className, {

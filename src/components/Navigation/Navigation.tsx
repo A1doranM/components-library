@@ -22,10 +22,10 @@ export interface NavigationInterface {
 }
 
 const Navigation = ({
-  navLinks,
-  className,
-  anchorLinksScrollMargins
-}: NavigationInterface): JSX.Element => {
+                      navLinks,
+                      className,
+                      anchorLinksScrollMargins
+                    }: NavigationInterface): JSX.Element => {
   const linkStyles = (
     to: string,
     isActive: boolean,
@@ -69,12 +69,12 @@ const Navigation = ({
         <menu className={"navigation__tabs"}>
           {navLinks.map(
             ({
-              to,
-              anchor,
-              text,
-              customContent,
-              customStyles
-            }: LinkInterface) => {
+               to,
+               anchor,
+               text,
+               customContent,
+               customStyles
+             }: LinkInterface) => {
               return anchor ? (
                 <a
                   key={to}

@@ -21,7 +21,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const [query, setQuery] = useState("");
 
   const getAsyncData = (query?: string): any => {
-    const url = new URL((query && menuOpen) ? `${client.url}?query=${query}` : client.url);
+    const url = new URL(query ? `${client.url}?query=${query}` : client.url);
 
     return fetch(url.toString(), {
       headers: client.headers
@@ -58,6 +58,10 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (value.length >= 3) {
       setMenuOpen(true);
+    }
+
+    if (value.length < 3) {
+      setMenuOpen(false);
     }
 
     setQuery(value);
