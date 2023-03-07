@@ -21,8 +21,8 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const [query, setQuery] = useState("");
 
   const getAsyncData = (query?: string): any => {
-    const url = new URL(client.url);
-    // new URL(query ? `${client.url}?query=${query}` : client.url)
+    const url = new URL(query ? `${client.url}?query=${query}` : client.url);
+
     return fetch(url.toString(), {
       headers: client.headers
     })

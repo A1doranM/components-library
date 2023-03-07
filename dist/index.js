@@ -21025,8 +21025,7 @@ var Autocomplete = function (_a) {
     var _b = React.useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
     var _c = React.useState(""), query = _c[0], setQuery = _c[1];
     var getAsyncData = function (query) {
-        var url = new URL(client.url);
-        // new URL(query ? `${client.url}?query=${query}` : client.url)
+        var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
         return fetch(url.toString(), {
             headers: client.headers
         })
@@ -21051,7 +21050,7 @@ var Autocomplete = function (_a) {
         return new Promise(function (resolve) {
             if (menuOpen) {
                 setTimeout(function () {
-                    resolve(getAsyncData());
+                    resolve(getAsyncData(query));
                 }, 1000);
             }
             else {
