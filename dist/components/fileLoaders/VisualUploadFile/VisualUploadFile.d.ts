@@ -11,7 +11,8 @@ export interface VisualUploadFileInterface {
     maxSize?: number;
     onLoad?: (acceptFile: any, rejectFile: any) => void;
     onDelete?: () => void;
+    onDocumentView?: () => void;
     progress: number;
 }
-declare const VisualUploadFile: ({ title, backgroundImg, containerClassName, contentClassName, labelClassName, accept, acceptString, maxSize, onLoad, onDelete, progress }: VisualUploadFileInterface) => JSX.Element;
+declare const VisualUploadFile: ({ title, backgroundImg, containerClassName, contentClassName, labelClassName, accept, acceptString, maxSize, onLoad, onDelete, onDocumentView, progress }: VisualUploadFileInterface) => JSX.Element;
 export default VisualUploadFile;

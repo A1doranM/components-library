@@ -2,6 +2,7 @@ import cn from "classnames";
 import React, { useMemo, useState } from "react";
 import { Accept, useDropzone } from "react-dropzone";
 
+import { BlackEyeIcon } from "components";
 import CommonButton from "../../buttons/CommonButton";
 
 import DownloadIcon from "../../../assets/images/icons/download.svg";
@@ -28,6 +29,7 @@ export interface VisualUploadFileInterface {
   maxSize?: number;
   onLoad?: (acceptFile: any, rejectFile: any) => void;
   onDelete?: () => void;
+  onDocumentView?: () => void;
   progress: number;
 }
 
@@ -42,6 +44,7 @@ const VisualUploadFile = ({
   maxSize = 5,
   onLoad,
   onDelete,
+  onDocumentView,
   progress = 0
 }: VisualUploadFileInterface): JSX.Element => {
   const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
@@ -87,6 +90,14 @@ const VisualUploadFile = ({
     onDelete();
   };
 
+  const handleDocumentView = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
+
+    onDocumentView();
+  };
+
   return (
     <div
       {...getRootProps({ className: "dropzone" })}
@@ -107,6 +118,15 @@ const VisualUploadFile = ({
       )}
       {file && (
         <div className="load-file__buttons-wrapper">
+          {file.type === "application/pdf" && (
+            <CommonButton
+              round={true}
+              image={<BlackEyeIcon />}
+              outlined={true}
+              className="load-file__button"
+              onClick={handleDocumentView}
+            />
+          )}
           <CommonButton
             round={true}
             image={UpdateIcon}
