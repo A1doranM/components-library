@@ -2,7 +2,7 @@ import cn from "classnames";
 import React, { useMemo, useState } from "react";
 import { Accept, useDropzone } from "react-dropzone";
 
-import { BlackEyeIcon } from "components";
+import BlackEyeIcon from "../../ui-icons/BlackEye";
 import CommonButton from "../../buttons/CommonButton";
 
 import DownloadIcon from "../../../assets/images/icons/download.svg";
@@ -34,19 +34,19 @@ export interface VisualUploadFileInterface {
 }
 
 const VisualUploadFile = ({
-  title,
-  backgroundImg,
-  containerClassName,
-  contentClassName,
-  labelClassName,
-  accept,
-  acceptString,
-  maxSize = 5,
-  onLoad,
-  onDelete,
-  onDocumentView,
-  progress = 0
-}: VisualUploadFileInterface): JSX.Element => {
+                            title,
+                            backgroundImg,
+                            containerClassName,
+                            contentClassName,
+                            labelClassName,
+                            accept,
+                            acceptString,
+                            maxSize = 5,
+                            onLoad,
+                            onDelete,
+                            onDocumentView,
+                            progress = 0
+                          }: VisualUploadFileInterface): JSX.Element => {
   const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
   const [file, setFile] = useState(null);
   const isInProgress = progress < 100 && progress > 0;

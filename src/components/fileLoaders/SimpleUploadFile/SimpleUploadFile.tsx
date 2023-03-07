@@ -11,10 +11,10 @@ export interface SimpleUploadFileInterface {
 }
 
 const SimpleUploadFile = ({
-  className,
-  text,
-  uploadedText
-}: SimpleUploadFileInterface): JSX.Element => {
+                            className,
+                            text,
+                            uploadedText
+                          }: SimpleUploadFileInterface): JSX.Element => {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
 
   const files = acceptedFiles.map((file: any) => (
@@ -36,7 +36,7 @@ const SimpleUploadFile = ({
         {files.length
           ? `${uploadedText || "Файд ключа:"} ${files[0].props.children[0]}`
           : text ||
-            "Перетягніть сюди файл ключа або оберіть його на своєму носієві"}
+          "Перетягніть сюди файл ключа або оберіть його на своєму носієві"}
       </h4>
       <h4 className={"simple-file-loader__formats"}>
         {files.length

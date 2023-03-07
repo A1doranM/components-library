@@ -9,8 +9,8 @@ export interface GrayDisabledEyeInterface {
 }
 
 const GrayDisabledEye = ({
-  className = ""
-}: GrayDisabledEyeInterface): JSX.Element => {
+                           className = ""
+                         }: GrayDisabledEyeInterface): JSX.Element => {
   return (
     <img
       src={GrayDisabledEyeIcon}

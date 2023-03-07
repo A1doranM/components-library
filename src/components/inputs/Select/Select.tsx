@@ -35,23 +35,23 @@ export interface SelectInputInterface {
 }
 
 const SelectInput = ({
-  name,
-  options = [],
-  placeholder = "",
-  onChange,
-  onInputChange,
-  onFieldClick,
-  onBlur,
-  className,
-  styles,
-  menuIsOpen,
-  modalPortalTarget = document.body,
-  defaultMenuIsOpen,
-  asyncSelect,
-  asyncSelectOptionsLoader,
-  errClassName,
-  withFormik
-}: SelectInputInterface) => {
+                       name,
+                       options = [],
+                       placeholder = "",
+                       onChange,
+                       onInputChange,
+                       onFieldClick,
+                       onBlur,
+                       className,
+                       styles,
+                       menuIsOpen,
+                       modalPortalTarget = document.body,
+                       defaultMenuIsOpen,
+                       asyncSelect,
+                       asyncSelectOptionsLoader,
+                       errClassName,
+                       withFormik
+                     }: SelectInputInterface) => {
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 

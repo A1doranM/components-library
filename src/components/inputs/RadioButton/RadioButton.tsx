@@ -17,17 +17,17 @@ export interface RadioButtonInterface {
 }
 
 const RadioButton = ({
-  name,
-  body,
-  value,
-  title,
-  footer,
-  checked,
-  warning,
-  onClick,
-  disabled,
-  className
-}: RadioButtonInterface) => {
+                       name,
+                       body,
+                       value,
+                       title,
+                       footer,
+                       checked,
+                       warning,
+                       onClick,
+                       disabled,
+                       className
+                     }: RadioButtonInterface) => {
   return (
     <label
       className={cn("radio-btn", className, {
@@ -43,7 +43,8 @@ const RadioButton = ({
         value={value}
         checked={checked}
         disabled={disabled}
-        onChange={() => {}}
+        onChange={() => {
+        }}
       />
       <span className={"radio-btn__indicator"} />
       <div className={"radio-btn__info"}>

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import  "./icon-button.scss";
+import "./icon-button.scss";
 
 
 export interface IconButtonInterface {

@@ -13,7 +13,7 @@ export interface CalendarEventInterface {
 }
 
 export interface CalendarViewInterface extends CalendarProps {
-  events?: Array<CalendarEventInterface>
+  events?: Array<CalendarEventInterface>;
 }
 
 export interface CalendarContainerInterface {

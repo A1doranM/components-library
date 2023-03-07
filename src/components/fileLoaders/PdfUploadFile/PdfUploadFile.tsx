@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import cn from "classnames";
 
 import ReloadIcon from "../../ui-icons/Reload";
@@ -20,12 +20,12 @@ export interface PdfUploadFileInterface {
 }
 
 const PdfUploadFile = ({
-  title,
-  backgroundImg,
-  containerClassName,
-  contentClassName,
-  labelClassName
-}: PdfUploadFileInterface): JSX.Element => {
+                         title,
+                         backgroundImg,
+                         containerClassName,
+                         contentClassName,
+                         labelClassName
+                       }: PdfUploadFileInterface): JSX.Element => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const inputEl = useRef(null);

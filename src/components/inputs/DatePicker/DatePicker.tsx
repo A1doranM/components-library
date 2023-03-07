@@ -2,11 +2,8 @@ import cn from "classnames";
 import { ErrorMessage } from "formik";
 import React, { ForwardedRef, forwardRef, useState } from "react";
 import uk from "date-fns/locale/uk";
-import DatePicker, {
-  ReactDatePickerProps,
-  registerLocale
-} from "react-datepicker";
-import { addDays, getMonth, getYear, subDays } from "date-fns";
+import DatePicker, { ReactDatePickerProps, registerLocale } from "react-datepicker";
+import { getMonth, getYear } from "date-fns";
 
 import CalendarIcon from "../../ui-icons/Calendar";
 import LongArrowIcon from "../../ui-icons/LongArrow";
@@ -28,16 +25,16 @@ export interface DatePickerInputInterface extends ReactDatePickerProps {
 registerLocale("uk", uk);
 
 const DatePickerInput = ({
-  placeholder,
-  className = "",
-  labelClassName = "",
-  onChange,
-  name,
-  value,
-  withFormik,
-  errClassName,
-  ...props
-}: DatePickerInputInterface): JSX.Element => {
+                           placeholder,
+                           className = "",
+                           labelClassName = "",
+                           onChange,
+                           name,
+                           value,
+                           withFormik,
+                           errClassName,
+                           ...props
+                         }: DatePickerInputInterface): JSX.Element => {
   const [startDate, setStartDate] = useState<any>("");
   const [isYearView, setIsYearView] = useState(false);
   const [isMonthPicker, setMonthPicker] = useState(false);
@@ -128,14 +125,14 @@ const DatePickerInput = ({
         onSelect={handleSelectAllDates}
         shouldCloseOnSelect={!isYearView && !isMonthPicker}
         renderCustomHeader={({
-          date,
-          decreaseMonth,
-          increaseMonth,
-          decreaseYear,
-          increaseYear,
-          prevMonthButtonDisabled,
-          nextMonthButtonDisabled
-        }) => (
+                               date,
+                               decreaseMonth,
+                               increaseMonth,
+                               decreaseYear,
+                               increaseYear,
+                               prevMonthButtonDisabled,
+                               nextMonthButtonDisabled
+                             }) => (
           <div className="datapicker__header-info">
             <div className="datapicker__date-wrapper">
               <button

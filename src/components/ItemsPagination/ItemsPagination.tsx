@@ -36,10 +36,10 @@ function Items({ currentItems }: ItemsProps): JSX.Element {
 }
 
 function ItemsPagination({
-  itemsPerPage,
-  elements,
-  contentBetween
-}: PaginatedItemsProps): JSX.Element {
+                           itemsPerPage,
+                           elements,
+                           contentBetween
+                         }: PaginatedItemsProps): JSX.Element {
   const [currentItems, setCurrentItems] =
     useState<Array<PaginationElement>>(null);
   const [pageCount, setPageCount] = useState(0);

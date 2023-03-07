@@ -7,7 +7,8 @@ import ArrowLeftIcon from "../../assets/images/icons/arrow-reversed.svg";
 
 import "./pagination.scss";
 
-export interface PaginatedItemsProps extends ReactPaginateProps {}
+export interface PaginatedItemsProps extends ReactPaginateProps {
+}
 
 function Pagination({ pageCount, ...props }: PaginatedItemsProps): JSX.Element {
   const [isLastPage, setIsLastPage] = useState(false);

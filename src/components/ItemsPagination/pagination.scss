@@ -2,6 +2,7 @@
 
 .item-container {
   margin-bottom: 10px;
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -47,9 +48,11 @@
     cursor: pointer;
     font: $font-regular-24;
   }
+
   .pagination__prev-link {
     margin-right: 90px;
   }
+
   .pagination__next-link {
     margin-left: 90px;
   }
@@ -84,6 +87,7 @@
     .pagination__prev-link {
       margin-right: 0px;
     }
+
     .pagination__next-link {
       margin-left: 0px;
     }

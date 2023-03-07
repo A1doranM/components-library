@@ -12,11 +12,11 @@ export interface FormFieldInterface {
     onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
 }
 declare class FormField extends React.Component<FormFieldInterface> {
-    constructor(props: FormFieldInterface);
     static defaultProps: {
         type: string;
         className: string;
     };
+    constructor(props: FormFieldInterface);
     render(): JSX.Element;
 }
 export default FormField;

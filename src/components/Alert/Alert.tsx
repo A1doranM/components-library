@@ -16,13 +16,13 @@ export interface AlertInterface {
 }
 
 const Alert = ({
-  children,
-  type,
-  withIcon,
-  closable,
-  className,
-  onClose
-}: AlertInterface): JSX.Element => {
+                 children,
+                 type,
+                 withIcon,
+                 closable,
+                 className,
+                 onClose
+               }: AlertInterface): JSX.Element => {
   const [close, setClose] = useState(false);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

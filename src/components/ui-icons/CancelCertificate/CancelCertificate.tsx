@@ -9,8 +9,8 @@ export interface CancelCertificateInterface {
 }
 
 const CancelCertificate = ({
-  className = ""
-}: CancelCertificateInterface): JSX.Element => {
+                             className = ""
+                           }: CancelCertificateInterface): JSX.Element => {
   return (
     <img
       src={CancelCertificateIcon}

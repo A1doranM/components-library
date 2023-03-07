@@ -2,8 +2,7 @@
 
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Form, Formik, useFormik, FormikProvider } from "formik";
-import * as Yup from "yup";
+import { Form, FormikProvider, useFormik } from "formik";
 
 import FormField from "components/inputs/FormField";
 

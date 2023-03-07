@@ -18,18 +18,18 @@ export interface CommonButtonProps {
 }
 
 const CommonButton = ({
-  type = "button",
-  label,
-  outlined,
-  disabled,
-  dashed,
-  className,
-  large,
-  image,
-  alt,
-  round,
-  onClick
-}: CommonButtonProps) => {
+                        type = "button",
+                        label,
+                        outlined,
+                        disabled,
+                        dashed,
+                        className,
+                        large,
+                        image,
+                        alt,
+                        round,
+                        onClick
+                      }: CommonButtonProps) => {
   return (
     <button
       data-testid="common-button"

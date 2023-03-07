@@ -14,14 +14,14 @@ export interface ExpandInterface {
 }
 
 const Expand = ({
-  children,
-  title,
-  open = false,
-  isLast = false,
-  titleClassName,
-  isStatic = false,
-  className
-}: ExpandInterface): JSX.Element => {
+                  children,
+                  title,
+                  open = false,
+                  isLast = false,
+                  titleClassName,
+                  isStatic = false,
+                  className
+                }: ExpandInterface): JSX.Element => {
   const [isOpen, setOpen] = useState(open);
 
   const handleToggle = () => {

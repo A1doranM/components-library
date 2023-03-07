@@ -21,15 +21,15 @@ export interface IAttention {
 }
 
 const Attention = ({
-  date,
-  type = "regular",
-  viewed,
-  text,
-  title,
-  link,
-  onClick,
-  className
-}: IAttention) => {
+                     date,
+                     type = "regular",
+                     viewed,
+                     text,
+                     title,
+                     link,
+                     onClick,
+                     className
+                   }: IAttention) => {
   const render = () => {
     return (
       <section

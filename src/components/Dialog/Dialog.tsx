@@ -2,9 +2,9 @@ import React from "react";
 import Modal from "react-modal";
 import cn from "classnames";
 
-import Title from "../Title";
-import CloseIcon from "assets/images/icons/cancel.svg";
 import IconButton from "../buttons/IconButton";
+
+import CloseIcon from "../../assets/images/icons/cancel.svg";
 
 import "./dialog.scss";
 
@@ -16,12 +16,12 @@ export interface DialogInterface extends Modal.Props {
 }
 
 const Dialog = ({
-  children,
-  className,
-  overlayClassName,
-  onClose,
-  ...props
-}: DialogInterface): JSX.Element => {
+                  children,
+                  className,
+                  overlayClassName,
+                  onClose,
+                  ...props
+                }: DialogInterface): JSX.Element => {
   return (
     <Modal
       {...props}

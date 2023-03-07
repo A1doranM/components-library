@@ -2,4 +2,5 @@
 
 1. Added IconButton
 2. Changed Dialog for universal use
+3. Added query building to Autocomplete component
 

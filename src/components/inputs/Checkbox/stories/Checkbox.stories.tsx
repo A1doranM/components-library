@@ -5,7 +5,6 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Form, Formik } from "formik";
 
 import Checkbox from "components/inputs/Checkbox";
-import * as Yup from "yup";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

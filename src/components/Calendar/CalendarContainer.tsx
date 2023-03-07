@@ -1,17 +1,10 @@
 import cn from "classnames";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import {
-  CalendarTileProperties,
-  Detail,
-  ViewCallbackProperties
-} from "react-calendar";
+import { CalendarTileProperties, Detail, ViewCallbackProperties } from "react-calendar";
 
 import CalendarView from "./CalendarView";
-import {
-  CalendarContainerInterface,
-  CalendarEventInterface
-} from "./iCalendar";
+import { CalendarContainerInterface, CalendarEventInterface } from "./iCalendar";
 
 import Tooltip from "../Tooltip";
 import Select from "../inputs/Select";
@@ -88,8 +81,8 @@ const CalendarContainer = ({ events }: CalendarContainerInterface) => {
   };
 
   const renderNavigationLabel = ({
-    label
-  }: {
+                                   label
+                                 }: {
     date: Date;
     label: string;
     locale: string;
@@ -189,9 +182,9 @@ const CalendarContainer = ({ events }: CalendarContainerInterface) => {
             aria-label={date.toLocaleDateString()}
             className={cn("react-calendar__tile-body", {
               ["react-calendar__tile-body_primary"]:
-                !isIntermediate && event.grade === "PRIMARY",
+              !isIntermediate && event.grade === "PRIMARY",
               ["react-calendar__tile-body_secondary"]:
-                !isIntermediate && event.grade === "SECONDARY"
+              !isIntermediate && event.grade === "SECONDARY"
             })}
           >
             {date.getDate()}

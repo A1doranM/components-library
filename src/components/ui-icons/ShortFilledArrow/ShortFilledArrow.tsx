@@ -9,8 +9,8 @@ export interface ShortFilledArrowInterface {
 }
 
 const ShortFilledArrow = ({
-  className = ""
-}: ShortFilledArrowInterface): JSX.Element => {
+                            className = ""
+                          }: ShortFilledArrowInterface): JSX.Element => {
   return (
     <img
       src={ShortFilledArrowIcon}
