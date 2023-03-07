@@ -18,9 +18,12 @@ export interface AutocompleteInterface
 
 const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [query, setQuery] = useState('');
 
   const getAsyncData = (): any => {
-    return fetch(client.url, {
+    const url = new URL(query ? `${client.url}?query=${query}` : client.url);
+
+    return fetch(url.toString(), {
       headers: client.headers
     })
       .then((response) => {
@@ -32,7 +35,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
         } else {
           return data
             .slice(0, 50)
-            .map((data) => ({ value: data.id, label: data.title }));
+            .map((data) => ({ value: data.id, label: data.name }));
         }
       })
       .catch(() => {
@@ -58,6 +61,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (value.length >= 3) {
       setMenuOpen(true);
+      setQuery(value);
     }
 
     props.onInputChange && props.onInputChange(value, meta, name);

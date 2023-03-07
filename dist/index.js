@@ -21025,8 +21025,10 @@ styleInject(css_248z$J);
 var Autocomplete = function (_a) {
     var client = _a.client, props = __rest(_a, ["client"]);
     var _b = React.useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
+    var _c = React.useState(''), query = _c[0], setQuery = _c[1];
     var getAsyncData = function () {
-        return fetch(client.url, {
+        var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
+        return fetch(url.toString(), {
             headers: client.headers
         })
             .then(function (response) {
@@ -21039,7 +21041,7 @@ var Autocomplete = function (_a) {
             else {
                 return data
                     .slice(0, 50)
-                    .map(function (data) { return ({ value: data.id, label: data.title }); });
+                    .map(function (data) { return ({ value: data.id, label: data.name }); });
             }
         })
             .catch(function () {
@@ -21064,6 +21066,7 @@ var Autocomplete = function (_a) {
     var handleInputChange = function (value, meta, name) {
         if (value.length >= 3) {
             setMenuOpen(true);
+            setQuery(value);
         }
         props.onInputChange && props.onInputChange(value, meta, name);
     };
