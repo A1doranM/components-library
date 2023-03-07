@@ -21,26 +21,31 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   const [query, setQuery] = useState("");
 
   const getAsyncData = (query?: string): any => {
-    const url = new URL((query && menuOpen) ? `${client.url}?query=${query}` : client.url);
+    if (menuOpen) {
+      const url = new URL(query ? `${client.url}?query=${query}` : client.url);
 
-    return fetch(url.toString(), {
-      headers: client.headers
-    })
-      .then((response) => {
-        return response.json();
+      return fetch(url.toString(), {
+        headers: client.headers
       })
-      .then((data) => {
-        if (client.parser) {
-          return client.parser(data);
-        } else {
-          return data
-            .slice(0, 50)
-            .map((data) => ({ value: data.id, label: data.name }));
-        }
-      })
-      .catch(() => {
-        return [];
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (client.parser) {
+            return client.parser(data);
+          } else {
+            return data
+              .slice(0, 50)
+              .map((data) => ({ value: data.id, label: data.name }));
+          }
+        })
+        .catch(() => {
+          return [];
+        });
+    } else {
+      return Promise.resolve([]);
+    }
+
   };
 
   const promiseOptions = (): any =>
