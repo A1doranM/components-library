@@ -34,19 +34,19 @@ export interface VisualUploadFileInterface {
 }
 
 const VisualUploadFile = ({
-                            title,
-                            backgroundImg,
-                            containerClassName,
-                            contentClassName,
-                            labelClassName,
-                            accept,
-                            acceptString,
-                            maxSize = 5,
-                            onLoad,
-                            onDelete,
-                            onDocumentView,
-                            progress = 0
-                          }: VisualUploadFileInterface): JSX.Element => {
+  title,
+  backgroundImg,
+  containerClassName,
+  contentClassName,
+  labelClassName,
+  accept,
+  acceptString,
+  maxSize = 5,
+  onLoad,
+  onDelete,
+  onDocumentView,
+  progress = 0
+}: VisualUploadFileInterface): JSX.Element => {
   const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
   const [file, setFile] = useState(null);
   const isInProgress = progress < 100 && progress > 0;
@@ -90,6 +90,14 @@ const VisualUploadFile = ({
     onDelete();
   };
 
+  const handleDocumentView = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
+
+    onDocumentView();
+  };
+
   return (
     <div
       {...getRootProps({ className: "dropzone" })}
@@ -116,7 +124,7 @@ const VisualUploadFile = ({
               image={<BlackEyeIcon />}
               outlined={true}
               className="load-file__button"
-              onClick={onDocumentView}
+              onClick={handleDocumentView}
             />
           )}
           <CommonButton
