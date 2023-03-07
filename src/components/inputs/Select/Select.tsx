@@ -23,6 +23,7 @@ export interface SelectInputInterface {
   placeholder?: string;
   className?: string;
   name?: string;
+  inputValue?: string,
   styles?: object;
   modalPortalTarget?: HTMLElement | null;
   defaultMenuIsOpen?: boolean;
@@ -36,6 +37,7 @@ export interface SelectInputInterface {
 
 const SelectInput = ({
                        name,
+                       inputValue,
                        options = [],
                        placeholder = "",
                        onChange,
@@ -78,6 +80,7 @@ const SelectInput = ({
       {!asyncSelect ? (
         <Select
           options={options}
+          inputValue={inputValue}
           className={cn("select-container", className)}
           classNamePrefix="select"
           placeholder={placeholder}
@@ -111,6 +114,7 @@ const SelectInput = ({
           styles={styles}
           menuPortalTarget={modalPortalTarget}
           noOptionsMessage={() => null}
+          inputValue={inputValue}
           loadingMessage={() => (
             <p className="select__loading-text">Завантаження...</p>
           )}

@@ -56,21 +56,28 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
     });
 
   const handleInputChange = (value: string, meta: any, name: string) => {
-    if (value.length >= 3) {
-      setMenuOpen(true);
-    }
+    if (meta.action === "input-change") {
+      if (value.length >= 3) {
+        setMenuOpen(true);
+      } else {
+        setMenuOpen(false);
+      }
 
-    if (value.length < 3) {
-      setMenuOpen(false);
+      setQuery(value);
     }
-
-    setQuery(value);
 
     props.onInputChange && props.onInputChange(value, meta, name);
   };
 
   const handleOptionSelect = (option: any, name) => {
-    setMenuOpen(false);
+    setTimeout(() => {
+      setMenuOpen(() => {
+        return false;
+      });
+      setQuery(option.label);
+
+    }, 0);
+
     props.onChange && props.onChange(option, name);
   };
 
@@ -82,6 +89,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
         asyncSelectOptionsLoader={promiseOptions}
         onChange={handleOptionSelect}
         onInputChange={handleInputChange}
+        inputValue={query}
         {...props}
       />
     </div>
