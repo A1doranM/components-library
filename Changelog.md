@@ -2,5 +2,6 @@
 
 1. Added IconButton
 2. Changed Dialog for universal use
-3. Added query building to Autocomplete component
+3. Added props to VisualUploader
+4. Added query building to Autocomplete component
 
