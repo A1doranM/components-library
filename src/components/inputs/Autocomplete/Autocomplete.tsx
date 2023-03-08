@@ -13,6 +13,10 @@ export interface AutocompleteInterface
       value?: string | number;
       label?: string | number;
     }>;
+    dataFieldsNames?: {
+      valueFieldName: string;
+      labelFieldName: string;
+    }
   };
 }
 
@@ -35,7 +39,23 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
         } else {
           return data
             .slice(0, 50)
-            .map((data) => ({ value: data.id, label: data.name }));
+            .map((data) => {
+              let result;
+
+              if (client.dataFieldsNames) {
+                result = {
+                  value: data[client.dataFieldsNames.valueFieldName],
+                  label: data[client.dataFieldsNames.labelFieldName]
+                };
+              } else {
+                result = {
+                  value: data.id,
+                  label: data.name
+                };
+              }
+
+              return result;
+            });
         }
       })
       .catch(() => {
@@ -57,7 +77,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
 
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (meta.action === "input-change") {
-      if (value.length >= 3) {
+      if (value.length >= 2) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);

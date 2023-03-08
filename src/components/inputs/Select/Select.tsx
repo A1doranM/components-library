@@ -123,7 +123,7 @@ const SelectInput = ({
       )}
       <p
         className={cn("select-wrapper__placeholder", {
-          "select-wrapper__placeholder_active": isFocused
+          "select-wrapper__placeholder_active": isFocused || inputValue
         })}
       >
         {placeholder}
