@@ -7768,13 +7768,12 @@ var FormField = /** @class */ (function (_super) {
     }
     FormField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, name = _a.name, placeholder = _a.placeholder, type = _a.type, value = _a.value, className = _a.className, readonly = _a.readonly, onBlur = _a.onBlur, noBorders = _a.noBorders, errComponent = _a.errComponent, errClassName = _a.errClassName;
+        var _a = this.props, name = _a.name, placeholder = _a.placeholder, type = _a.type; _a.value; var className = _a.className, readonly = _a.readonly, onBlur = _a.onBlur, noBorders = _a.noBorders, errComponent = _a.errComponent, errClassName = _a.errClassName;
         var handleEyeClick = function () {
             _this.setState({
                 show: !_this.state.show
             });
         };
-        console.log("Value: ", value);
         switch (type) {
             case "password":
                 return (jsxRuntime.jsxs("div", __assign({ className: cn("form-field-wrapper", "password-input", className) }, { children: [jsxRuntime.jsx(formik.Field, { type: this.state.show ? "password" : "text", name: name, readOnly: readonly, placeholder: " ", className: cn("form-field", { "form-field_readonly": readonly }, className), onBlur: onBlur, "data-testid": "input" }), jsxRuntime.jsx("img", { src: !this.state.show ? img$L : img$K, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }), jsxRuntime.jsx("label", __assign({ className: "form-field-label", htmlFor: name }, { children: placeholder })), jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) })] })));
