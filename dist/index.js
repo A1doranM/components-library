@@ -7774,14 +7774,15 @@ var FormField = /** @class */ (function (_super) {
                 show: !_this.state.show
             });
         };
+        console.log("Value: ", value);
         switch (type) {
             case "password":
-                return (jsxRuntime.jsxs("div", __assign({ className: cn("form-field-wrapper", "password-input", className) }, { children: [jsxRuntime.jsx(formik.Field, { type: this.state.show ? "password" : "text", name: name, value: value, readOnly: readonly, placeholder: " ", className: cn("form-field", { "form-field_readonly": readonly }, className), onBlur: onBlur, "data-testid": "input" }), jsxRuntime.jsx("img", { src: !this.state.show ? img$L : img$K, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }), jsxRuntime.jsx("label", __assign({ className: "form-field-label", htmlFor: name }, { children: placeholder })), jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) })] })));
+                return (jsxRuntime.jsxs("div", __assign({ className: cn("form-field-wrapper", "password-input", className) }, { children: [jsxRuntime.jsx(formik.Field, { type: this.state.show ? "password" : "text", name: name, value: value, readOnly: readonly, placeholder: " ", className: cn("form-field", { "form-field_readonly": readonly }, className), onBlur: onBlur, "data-testid": "input" }), jsxRuntime.jsx("img", { src: !this.state.show ? img$L : img$K, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }), jsxRuntime.jsx("label", __assign({ className: "form-field-label", htmlFor: name }, { children: readonly && value ? '' : placeholder })), jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) })] })));
             default:
                 return (jsxRuntime.jsxs("div", __assign({ className: cn("form-field-wrapper", className) }, { children: [jsxRuntime.jsx(formik.Field, { type: type, name: name, value: value, readOnly: readonly, placeholder: " ", className: cn("form-field", {
                                 "form-field_no-borders": noBorders,
                                 "form-field_readonly": readonly
-                            }), onBlur: onBlur, "data-testid": "input" }), jsxRuntime.jsx("label", __assign({ className: "form-field-label", htmlFor: name }, { children: placeholder })), jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: "div", className: cn("field-error-message", errClassName) })] })));
+                            }), onBlur: onBlur, "data-testid": "input" }), jsxRuntime.jsx("label", __assign({ className: "form-field-label", htmlFor: name }, { children: readonly && value ? '' : placeholder })), jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: "div", className: cn("field-error-message", errClassName) })] })));
         }
     };
     FormField.defaultProps = {

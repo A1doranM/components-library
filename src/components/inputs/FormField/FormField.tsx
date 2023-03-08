@@ -54,6 +54,8 @@ class FormField extends React.Component<FormFieldInterface> {
       });
     };
 
+    console.log("Value: ", value);
+
     switch (type) {
       case "password":
         return (
@@ -77,7 +79,7 @@ class FormField extends React.Component<FormFieldInterface> {
               onClick={handleEyeClick}
             />
             <label className="form-field-label" htmlFor={name}>
-              {placeholder}
+              {readonly && value ? '' : placeholder}
             </label>
             <ErrorMessage
               name={name}
@@ -104,7 +106,7 @@ class FormField extends React.Component<FormFieldInterface> {
 
             />
             <label className="form-field-label" htmlFor={name}>
-              {placeholder}
+              {readonly && value ? '' : placeholder}
             </label>
             <ErrorMessage
               name={name}
