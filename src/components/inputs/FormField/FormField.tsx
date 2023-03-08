@@ -7,7 +7,6 @@ import SeePasswordIcon from "../../../assets/images/icons/eye.svg";
 import DontSeePasswordIcon from "../../../assets/images/icons/eye_main.svg";
 
 import "./field.scss";
-import Autocomplete from "../Autocomplete";
 
 export interface FormFieldInterface {
   name: string;

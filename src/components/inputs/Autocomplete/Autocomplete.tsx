@@ -50,7 +50,7 @@ const Autocomplete = ({ client, dataFieldsNames, ...props }: AutocompleteInterfa
               } else {
                 result = {
                   value: data.id,
-                  label: data.name
+                  label: data.title
                 };
               }
 
@@ -104,13 +104,13 @@ const Autocomplete = ({ client, dataFieldsNames, ...props }: AutocompleteInterfa
   return (
     <div className="select-wrapper autocomplete-wrapper">
       <Select
+        {...props}
         asyncSelect={true}
         menuIsOpen={menuOpen}
         asyncSelectOptionsLoader={promiseOptions}
         onChange={handleOptionSelect}
         onInputChange={handleInputChange}
         inputValue={query}
-        {...props}
       />
     </div>
   );
