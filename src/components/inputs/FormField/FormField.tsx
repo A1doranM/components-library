@@ -64,9 +64,9 @@ class FormField extends React.Component<FormFieldInterface> {
               type={this.state.show ? "password" : "text"}
               name={name}
               value={value}
-              readonly={readonly}
+              readOnly={readonly}
               placeholder={" "}
-              className={cn("form-field", className)}
+              className={cn("form-field", {"form-field_readonly": readonly}, className)}
               onBlur={onBlur}
               data-testid="input"
             />
@@ -93,10 +93,11 @@ class FormField extends React.Component<FormFieldInterface> {
               type={type}
               name={name}
               value={value}
-              readonly={readonly}
+              readOnly={readonly}
               placeholder={" "}
               className={cn("form-field", {
-                "form-field_no-borders": noBorders
+                "form-field_no-borders": noBorders,
+                "form-field_readonly": readonly
               })}
               onBlur={onBlur}
               data-testid="input"

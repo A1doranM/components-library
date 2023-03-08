@@ -2,6 +2,7 @@ import React, { FocusEvent } from "react";
 import "./field.scss";
 export interface FormFieldInterface {
     name: string;
+    value?: any;
     readonly?: boolean;
     className?: string;
     noBorders?: boolean;

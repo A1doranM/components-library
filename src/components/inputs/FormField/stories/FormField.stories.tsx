@@ -49,6 +49,7 @@ const Template: ComponentStory<typeof FormField> = (args) => {
           name="email"
           placeholder={args.placeholder}
           noBorders={args.noBorders}
+          readonly={true}
           // errors={formik.errors}
           // touched={formik.touched}
         />
