@@ -13,14 +13,14 @@ export interface AutocompleteInterface
       value?: string | number;
       label?: string | number;
     }>;
-    dataFieldsNames?: {
-      valueFieldName: string;
-      labelFieldName: string;
-    }
+  };
+  dataFieldsNames?: {
+    valueFieldName: string;
+    labelFieldName: string;
   };
 }
 
-const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
+const Autocomplete = ({ client, dataFieldsNames, ...props }: AutocompleteInterface) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -42,10 +42,10 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
             .map((data) => {
               let result;
 
-              if (client.dataFieldsNames) {
+              if (dataFieldsNames) {
                 result = {
-                  value: data[client.dataFieldsNames.valueFieldName],
-                  label: data[client.dataFieldsNames.labelFieldName]
+                  value: data[dataFieldsNames.valueFieldName],
+                  label: data[dataFieldsNames.labelFieldName]
                 };
               } else {
                 result = {
@@ -77,7 +77,7 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
 
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (meta.action === "input-change") {
-      if (value.length >= 2) {
+      if (value.length >= 3) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);

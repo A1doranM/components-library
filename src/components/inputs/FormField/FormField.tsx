@@ -85,6 +85,25 @@ class FormField extends React.Component<FormFieldInterface> {
       default:
         return (
           <div className={cn("form-field-wrapper", className)}>
+            <br />
+            <br />
+            <br />
+            <br />
+            <Autocomplete client={{
+              url: "https://jsonplaceholder.typicode.com/todos",
+            }}
+                          placeholder="Test title"
+                          name="test name"
+                          dataFieldsNames = {{
+                            labelFieldName: "id",
+                            valueFieldName: "title"
+                          }}
+            />
+            <br />
+            <br />
+            <br />
+            <br />
+
             <Field
               type={type}
               name={name}
