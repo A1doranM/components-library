@@ -7748,7 +7748,7 @@ var FormField = /** @class */ (function (_super) {
     }
     FormField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, name = _a.name, placeholder = _a.placeholder, type = _a.type, className = _a.className, onBlur = _a.onBlur, noBorders = _a.noBorders, errComponent = _a.errComponent, errClassName = _a.errClassName;
+        var _a = this.props, name = _a.name, placeholder = _a.placeholder, type = _a.type, value = _a.value, className = _a.className, readonly = _a.readonly, onBlur = _a.onBlur, noBorders = _a.noBorders, errComponent = _a.errComponent, errClassName = _a.errClassName;
         var handleEyeClick = function () {
             _this.setState({
                 show: !_this.state.show
@@ -7756,9 +7756,9 @@ var FormField = /** @class */ (function (_super) {
         };
         switch (type) {
             case "password":
-                return (jsxs("div", __assign({ className: cn("form-field-wrapper", "password-input", className) }, { children: [jsx$1(Field, { type: this.state.show ? "password" : "text", name: name, placeholder: " ", className: cn("form-field", className), onBlur: onBlur, "data-testid": "input" }), jsx$1("img", { src: !this.state.show ? img$L : img$K, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }), jsx$1("label", __assign({ className: "form-field-label", htmlFor: name }, { children: placeholder })), jsx$1(ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) })] })));
+                return (jsxs("div", __assign({ className: cn("form-field-wrapper", "password-input", className) }, { children: [jsx$1(Field, { type: this.state.show ? "password" : "text", name: name, value: value, readonly: readonly, placeholder: " ", className: cn("form-field", className), onBlur: onBlur, "data-testid": "input" }), jsx$1("img", { src: !this.state.show ? img$L : img$K, alt: "eye", className: "password-input__eye", onClick: handleEyeClick }), jsx$1("label", __assign({ className: "form-field-label", htmlFor: name }, { children: placeholder })), jsx$1(ErrorMessage, { name: name, component: errComponent || "div", className: cn("form-field-error-message", errClassName) })] })));
             default:
-                return (jsxs("div", __assign({ className: cn("form-field-wrapper", className) }, { children: [jsx$1(Field, { type: type, name: name, placeholder: " ", className: cn("form-field", {
+                return (jsxs("div", __assign({ className: cn("form-field-wrapper", className) }, { children: [jsx$1(Field, { type: type, name: name, value: value, readonly: readonly, placeholder: " ", className: cn("form-field", {
                                 "form-field_no-borders": noBorders
                             }), onBlur: onBlur, "data-testid": "input" }), jsx$1("label", __assign({ className: "form-field-label", htmlFor: name }, { children: placeholder })), jsx$1(ErrorMessage, { name: name, component: "div", className: cn("field-error-message", errClassName) })] })));
         }
