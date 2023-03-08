@@ -21030,7 +21030,7 @@ var Autocomplete = function (_a) {
                     else {
                         result = {
                             value: data.id,
-                            label: data.title
+                            label: data.name
                         };
                     }
                     return result;

@@ -50,7 +50,7 @@ const Autocomplete = ({ client, dataFieldsNames, ...props }: AutocompleteInterfa
               } else {
                 result = {
                   value: data.id,
-                  label: data.title
+                  label: data.name
                 };
               }
 
