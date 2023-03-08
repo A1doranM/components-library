@@ -65,7 +65,6 @@ class FormField extends React.Component<FormFieldInterface> {
             <Field
               type={this.state.show ? "password" : "text"}
               name={name}
-              value={value}
               readOnly={readonly}
               placeholder={" "}
               className={cn("form-field", {"form-field_readonly": readonly}, className)}
@@ -79,7 +78,7 @@ class FormField extends React.Component<FormFieldInterface> {
               onClick={handleEyeClick}
             />
             <label className="form-field-label" htmlFor={name}>
-              {readonly && value ? '' : placeholder}
+              {placeholder}
             </label>
             <ErrorMessage
               name={name}
@@ -94,7 +93,6 @@ class FormField extends React.Component<FormFieldInterface> {
             <Field
               type={type}
               name={name}
-              value={value}
               readOnly={readonly}
               placeholder={" "}
               className={cn("form-field", {
@@ -106,7 +104,7 @@ class FormField extends React.Component<FormFieldInterface> {
 
             />
             <label className="form-field-label" htmlFor={name}>
-              {readonly && value ? '' : placeholder}
+              {placeholder}
             </label>
             <ErrorMessage
               name={name}
