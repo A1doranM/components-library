@@ -21000,9 +21000,9 @@ var css_248z$K = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(as
 styleInject(css_248z$K);
 
 var Autocomplete = function (_a) {
-    var client = _a.client, dataFieldsNames = _a.dataFieldsNames, props = __rest(_a, ["client", "dataFieldsNames"]);
+    var client = _a.client, dataFieldsNames = _a.dataFieldsNames, initialValue = _a.initialValue, props = __rest(_a, ["client", "dataFieldsNames", "initialValue"]);
     var _b = useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
-    var _c = useState(""), query = _c[0], setQuery = _c[1];
+    var _c = useState(initialValue || ""), query = _c[0], setQuery = _c[1];
     var getAsyncData = function (query) {
         var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
         return fetch(url.toString(), {

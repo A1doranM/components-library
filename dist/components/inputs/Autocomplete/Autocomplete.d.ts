@@ -13,6 +13,7 @@ export interface AutocompleteInterface extends Omit<SelectInputInterface, "optio
         valueFieldName: string;
         labelFieldName: string;
     };
+    initialValue?: string;
 }
-declare const Autocomplete: ({ client, dataFieldsNames, ...props }: AutocompleteInterface) => JSX.Element;
+declare const Autocomplete: ({ client, dataFieldsNames, initialValue, ...props }: AutocompleteInterface) => JSX.Element;
 export default Autocomplete;
