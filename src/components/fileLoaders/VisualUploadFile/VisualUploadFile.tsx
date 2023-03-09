@@ -1,5 +1,5 @@
 import cn from "classnames";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Accept, useDropzone } from "react-dropzone";
 
 import BlackEyeIcon from "../../ui-icons/BlackEye";
@@ -31,6 +31,7 @@ export interface VisualUploadFileInterface {
   onDelete?: () => void;
   onDocumentView?: () => void;
   progress: number;
+  loadedFile?: any;
 }
 
 const VisualUploadFile = ({
@@ -45,11 +46,18 @@ const VisualUploadFile = ({
   onLoad,
   onDelete,
   onDocumentView,
-  progress = 0
+  progress = 0,
+  loadedFile
 }: VisualUploadFileInterface): JSX.Element => {
   const maxSizeMb = useMemo(() => maxSize * 10 ** 6, [maxSize]);
   const [file, setFile] = useState(null);
   const isInProgress = progress < 100 && progress > 0;
+
+  useEffect(() => {
+    if (loadedFile) {
+      setFile(loadedFile);
+    }
+  }, [loadedFile])
 
   const { getRootProps, getInputProps } = useDropzone({
     accept,

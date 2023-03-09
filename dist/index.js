@@ -22850,10 +22850,15 @@ var ERRORS_TYPES = {
 };
 var VisualUploadFile = function (_a) {
     var _b;
-    var title = _a.title, backgroundImg = _a.backgroundImg, containerClassName = _a.containerClassName, contentClassName = _a.contentClassName, labelClassName = _a.labelClassName, accept = _a.accept, acceptString = _a.acceptString, _c = _a.maxSize, maxSize = _c === void 0 ? 5 : _c, onLoad = _a.onLoad, onDelete = _a.onDelete, onDocumentView = _a.onDocumentView, _d = _a.progress, progress = _d === void 0 ? 0 : _d;
+    var title = _a.title, backgroundImg = _a.backgroundImg, containerClassName = _a.containerClassName, contentClassName = _a.contentClassName, labelClassName = _a.labelClassName, accept = _a.accept, acceptString = _a.acceptString, _c = _a.maxSize, maxSize = _c === void 0 ? 5 : _c, onLoad = _a.onLoad, onDelete = _a.onDelete, onDocumentView = _a.onDocumentView, _d = _a.progress, progress = _d === void 0 ? 0 : _d, loadedFile = _a.loadedFile;
     var maxSizeMb = React.useMemo(function () { return maxSize * Math.pow(10, 6); }, [maxSize]);
     var _e = React.useState(null), file = _e[0], setFile = _e[1];
     var isInProgress = progress < 100 && progress > 0;
+    React.useEffect(function () {
+        if (loadedFile) {
+            setFile(loadedFile);
+        }
+    }, [loadedFile]);
     var _f = useDropzone({
         accept: accept,
         multiple: false,
