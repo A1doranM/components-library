@@ -20,7 +20,7 @@ export interface DatePickerInputInterface extends ReactDatePickerProps {
   labelClassName?: string;
   onChange: (date: Date) => void;
   name?: string;
-  initialDate?: string;
+  initialDate?: Date;
   withFormik?: boolean;
   errClassName?: string;
 }
