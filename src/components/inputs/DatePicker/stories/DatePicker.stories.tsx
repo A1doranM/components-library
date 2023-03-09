@@ -68,7 +68,8 @@ DefaultDatePicker.args = {
   },
   placeholder: "Pick date",
   highlightDates: [subDays(new Date(), 7), addDays(new Date(), 7)],
-  excludeDates: [new Date(), subDays(new Date(), -5)]
+  excludeDates: [new Date(), subDays(new Date(), -5)],
+  initialDate: new Date()
 
 };
 

@@ -10,6 +10,7 @@ import "./field.scss";
 
 export interface FormFieldInterface {
   name: string;
+  value?: any;
   readonly?: boolean;
   className?: string;
   noBorders?: boolean;
@@ -38,7 +39,9 @@ class FormField extends React.Component<FormFieldInterface> {
       name,
       placeholder,
       type,
+      value,
       className,
+      readonly,
       onBlur,
       noBorders,
       errComponent,
@@ -60,8 +63,9 @@ class FormField extends React.Component<FormFieldInterface> {
             <Field
               type={this.state.show ? "password" : "text"}
               name={name}
+              readOnly={readonly}
               placeholder={" "}
-              className={cn("form-field", className)}
+              className={cn("form-field", {"form-field_readonly": readonly}, className)}
               onBlur={onBlur}
               data-testid="input"
             />
@@ -87,12 +91,15 @@ class FormField extends React.Component<FormFieldInterface> {
             <Field
               type={type}
               name={name}
+              readOnly={readonly}
               placeholder={" "}
               className={cn("form-field", {
-                "form-field_no-borders": noBorders
+                "form-field_no-borders": noBorders,
+                "form-field_readonly": readonly
               })}
               onBlur={onBlur}
               data-testid="input"
+
             />
             <label className="form-field-label" htmlFor={name}>
               {placeholder}

@@ -1,8 +1,11 @@
 import cn from "classnames";
 import { ErrorMessage } from "formik";
-import React, { ForwardedRef, forwardRef, useState } from "react";
+import { ForwardedRef, forwardRef, useState } from "react";
 import uk from "date-fns/locale/uk";
-import DatePicker, { ReactDatePickerProps, registerLocale } from "react-datepicker";
+import DatePicker, {
+  ReactDatePickerProps,
+  registerLocale
+} from "react-datepicker";
 import { getMonth, getYear } from "date-fns";
 
 import CalendarIcon from "../../ui-icons/Calendar";
@@ -17,7 +20,7 @@ export interface DatePickerInputInterface extends ReactDatePickerProps {
   labelClassName?: string;
   onChange: (date: Date) => void;
   name?: string;
-  value?: string;
+  initialDate?: Date;
   withFormik?: boolean;
   errClassName?: string;
 }
@@ -25,17 +28,17 @@ export interface DatePickerInputInterface extends ReactDatePickerProps {
 registerLocale("uk", uk);
 
 const DatePickerInput = ({
-                           placeholder,
-                           className = "",
-                           labelClassName = "",
-                           onChange,
-                           name,
-                           value,
-                           withFormik,
-                           errClassName,
-                           ...props
-                         }: DatePickerInputInterface): JSX.Element => {
-  const [startDate, setStartDate] = useState<any>("");
+  placeholder,
+  className = "",
+  labelClassName = "",
+  onChange,
+  name,
+  initialDate,
+  withFormik,
+  errClassName,
+  ...props
+}: DatePickerInputInterface): JSX.Element => {
+  const [startDate, setStartDate] = useState<any>(initialDate || "");
   const [isYearView, setIsYearView] = useState(false);
   const [isMonthPicker, setMonthPicker] = useState(false);
 
@@ -55,10 +58,8 @@ const DatePickerInput = ({
   ];
 
   const handleDateChange = (date: Date) => {
-    setStartDate(() => {
-      onChange(date);
-      return date;
-    });
+    onChange(date);
+    setStartDate(date);
     setMonthPicker(false);
   };
 
@@ -125,14 +126,14 @@ const DatePickerInput = ({
         onSelect={handleSelectAllDates}
         shouldCloseOnSelect={!isYearView && !isMonthPicker}
         renderCustomHeader={({
-                               date,
-                               decreaseMonth,
-                               increaseMonth,
-                               decreaseYear,
-                               increaseYear,
-                               prevMonthButtonDisabled,
-                               nextMonthButtonDisabled
-                             }) => (
+          date,
+          decreaseMonth,
+          increaseMonth,
+          decreaseYear,
+          increaseYear,
+          prevMonthButtonDisabled,
+          nextMonthButtonDisabled
+        }) => (
           <div className="datapicker__header-info">
             <div className="datapicker__date-wrapper">
               <button

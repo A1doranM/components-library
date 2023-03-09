@@ -25,6 +25,10 @@
       font-size: 12px;
     }
 
+    &_readonly {
+      pointer-events: none;
+    }
+
     &_no-borders {
       border-bottom: 2px solid transparent !important;
 

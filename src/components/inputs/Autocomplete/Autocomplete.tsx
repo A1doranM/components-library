@@ -14,9 +14,13 @@ export interface AutocompleteInterface
       label?: string | number;
     }>;
   };
+  dataFieldsNames?: {
+    valueFieldName: string;
+    labelFieldName: string;
+  };
 }
 
-const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
+const Autocomplete = ({ client, dataFieldsNames, ...props }: AutocompleteInterface) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -35,7 +39,23 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
         } else {
           return data
             .slice(0, 50)
-            .map((data) => ({ value: data.id, label: data.name }));
+            .map((data) => {
+              let result;
+
+              if (dataFieldsNames) {
+                result = {
+                  value: data[dataFieldsNames.valueFieldName],
+                  label: data[dataFieldsNames.labelFieldName]
+                };
+              } else {
+                result = {
+                  value: data.id,
+                  label: data.name
+                };
+              }
+
+              return result;
+            });
         }
       })
       .catch(() => {
@@ -84,13 +104,13 @@ const Autocomplete = ({ client, ...props }: AutocompleteInterface) => {
   return (
     <div className="select-wrapper autocomplete-wrapper">
       <Select
+        {...props}
         asyncSelect={true}
         menuIsOpen={menuOpen}
         asyncSelectOptionsLoader={promiseOptions}
         onChange={handleOptionSelect}
         onInputChange={handleInputChange}
         inputValue={query}
-        {...props}
       />
     </div>
   );

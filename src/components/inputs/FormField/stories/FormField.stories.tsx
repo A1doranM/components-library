@@ -33,7 +33,7 @@ const Template: ComponentStory<typeof FormField> = (args) => {
 
   const formik = useFormik({
     initialValues: {
-      email: ""
+      email: "ыфвфывфыв"
     },
     validateOnChange: true,
     enableReinitialize: true,
@@ -49,6 +49,7 @@ const Template: ComponentStory<typeof FormField> = (args) => {
           name="email"
           placeholder={args.placeholder}
           noBorders={args.noBorders}
+          // value={"sdas"}
           // errors={formik.errors}
           // touched={formik.touched}
         />
