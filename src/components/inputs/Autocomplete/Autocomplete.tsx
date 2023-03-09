@@ -18,11 +18,12 @@ export interface AutocompleteInterface
     valueFieldName: string;
     labelFieldName: string;
   };
+  initialValue?: string
 }
 
-const Autocomplete = ({ client, dataFieldsNames, ...props }: AutocompleteInterface) => {
+const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: AutocompleteInterface) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialValue || "");
 
   const getAsyncData = (query?: string): any => {
     const url = new URL(query ? `${client.url}?query=${query}` : client.url);

@@ -24,5 +24,6 @@ Primary.args = {
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  placeholder: "Chose"
+  placeholder: "Chose",
+  initialValue: "LLLL"
 };

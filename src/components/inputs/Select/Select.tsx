@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ErrorMessage } from "formik";
 import cn from "classnames";
 import Select from "react-select";
@@ -23,7 +23,7 @@ export interface SelectInputInterface {
   placeholder?: string;
   className?: string;
   name?: string;
-  inputValue?: string,
+  inputValue?: string;
   styles?: object;
   modalPortalTarget?: HTMLElement | null;
   defaultMenuIsOpen?: boolean;
@@ -36,24 +36,24 @@ export interface SelectInputInterface {
 }
 
 const SelectInput = ({
-                       name,
-                       inputValue,
-                       options = [],
-                       placeholder = "",
-                       onChange,
-                       onInputChange,
-                       onFieldClick,
-                       onBlur,
-                       className,
-                       styles,
-                       menuIsOpen,
-                       modalPortalTarget = document.body,
-                       defaultMenuIsOpen,
-                       asyncSelect,
-                       asyncSelectOptionsLoader,
-                       errClassName,
-                       withFormik
-                     }: SelectInputInterface) => {
+  name,
+  inputValue,
+  options = [],
+  placeholder = "",
+  onChange,
+  onInputChange,
+  onFieldClick,
+  onBlur,
+  className,
+  styles,
+  menuIsOpen,
+  modalPortalTarget = document.body,
+  defaultMenuIsOpen,
+  asyncSelect,
+  asyncSelectOptionsLoader,
+  errClassName,
+  withFormik
+}: SelectInputInterface) => {
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
