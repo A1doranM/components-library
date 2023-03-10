@@ -7460,7 +7460,7 @@ var SelectInput = function (_a) {
                 .includes(String(inputValue).toLowerCase()) && inputValue.length > 0;
         });
     };
-    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsxRuntime.jsx(Select, { options: filterOptions(inputValue || ""), inputValue: inputValue, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsxRuntime.jsx(AsyncSelect, { value: filterOptions(inputValue || ""), cacheOptions: true, defaultOptions: filterOptions(inputValue || ""), className: cn("select-container", "select-container_async", className), menuIsOpen: menuIsOpen, classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return null; }, inputValue: inputValue, loadingMessage: function () { return (jsxRuntime.jsx("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
+    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsxRuntime.jsx(Select, { options: options, inputValue: inputValue, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsxRuntime.jsx(AsyncSelect, { value: filterOptions(inputValue || ""), cacheOptions: true, defaultOptions: filterOptions(inputValue || ""), className: cn("select-container", "select-container_async", className), menuIsOpen: menuIsOpen, classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return null; }, inputValue: inputValue, loadingMessage: function () { return (jsxRuntime.jsx("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
                     "select-wrapper__placeholder_active": isFocused || inputValue
                 }) }, { children: placeholder })), withFormik && (jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: "div", className: cn("field-error-message", errClassName) }))] })));
 };
@@ -21081,7 +21081,7 @@ var Autocomplete = function (_a) {
     };
     var handleInputChange = function (value, meta, name) {
         if (meta.action === "input-change") {
-            if (value.length >= 2) {
+            if (value.length >= 3) {
                 setMenuOpen(true);
             }
             else {

@@ -88,7 +88,7 @@ const SelectInput = ({
     <div className="select-wrapper" onClick={onFieldClick}>
       {!asyncSelect ? (
         <Select
-          options={filterOptions(inputValue || "")}
+          options={options}
           inputValue={inputValue}
           className={cn("select-container", className)}
           classNamePrefix="select"

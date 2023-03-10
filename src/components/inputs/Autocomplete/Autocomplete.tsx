@@ -78,7 +78,7 @@ const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: Autoc
 
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (meta.action === "input-change") {
-      if (value.length >= 2) {
+      if (value.length >= 3) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);
