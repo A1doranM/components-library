@@ -57,10 +57,6 @@ const SelectInput = ({
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
-  // useEffect(() => {
-  //   inputValue.length < 1 && setSelectedOption(null);
-  // }, [inputValue]);
-
   const handleChange = (item: any) => {
     item.value && setHasValue(true);
     onChange && onChange(item, name);

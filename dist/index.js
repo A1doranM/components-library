@@ -7439,9 +7439,6 @@ var SelectInput = function (_a) {
     var name = _a.name, inputValue = _a.inputValue, _b = _a.options, options = _b === void 0 ? [] : _b, _c = _a.placeholder, placeholder = _c === void 0 ? "" : _c, onChange = _a.onChange, onInputChange = _a.onInputChange, onFieldClick = _a.onFieldClick, onBlur = _a.onBlur, className = _a.className, styles = _a.styles, menuIsOpen = _a.menuIsOpen, _d = _a.modalPortalTarget, modalPortalTarget = _d === void 0 ? document.body : _d, defaultMenuIsOpen = _a.defaultMenuIsOpen, asyncSelect = _a.asyncSelect, asyncSelectOptionsLoader = _a.asyncSelectOptionsLoader, errClassName = _a.errClassName, withFormik = _a.withFormik;
     var _e = React.useState(false), hasValue = _e[0], setHasValue = _e[1];
     var _f = React.useState(false), isFocused = _f[0], setIsFocused = _f[1];
-    // useEffect(() => {
-    //   inputValue.length < 1 && setSelectedOption(null);
-    // }, [inputValue]);
     var handleChange = function (item) {
         item.value && setHasValue(true);
         onChange && onChange(item, name);
