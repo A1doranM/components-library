@@ -4,7 +4,8 @@ import Select, { SelectInputInterface } from "../Select/Select";
 
 import "./autocomplete.scss";
 
-export interface AutocompleteInterface extends Omit<SelectInputInterface, "options"> {
+export interface AutocompleteInterface
+  extends Omit<SelectInputInterface, "options"> {
   client: {
     url: string;
     headers?: {};
@@ -29,12 +30,16 @@ const Autocomplete = ({
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState(initialValue || "");
 
+  useEffect(() => {
+    getAsyncData();
+  }, [query]);
+
   const getAsyncData = (): any => {
-    console.log("QUery", query)
+    console.log("query", query);
     const url = new URL(query ? `${client.url}?query=${query}` : client.url);
 
     return fetch(url.toString(), {
-      headers: client.headers,
+      headers: client.headers
     })
       .then((response) => {
         return response.json();
@@ -49,12 +54,12 @@ const Autocomplete = ({
             if (dataFieldsNames) {
               result = {
                 value: data[dataFieldsNames.valueFieldName],
-                label: data[dataFieldsNames.labelFieldName],
+                label: data[dataFieldsNames.labelFieldName]
               };
             } else {
               result = {
                 value: data.id,
-                label: data.name,
+                label: data.name
               };
             }
 
@@ -66,31 +71,21 @@ const Autocomplete = ({
         return [];
       });
   };
-
-  useEffect(() => {
-    getAsyncData();
-  }, [query]);
-
   const promiseOptions = (): any =>
-  new Promise((resolve) => {
-    console.log("menuOpen1", menuOpen);
+    new Promise((resolve) => {
+      if (menuOpen) {
+        // setTimeout(() => {
 
-    if (menuOpen) {
-      console.log("menuOpen2", menuOpen);
-
-      const asyncData = getAsyncData();
-
-      console.log("asyncData", asyncData);
-
-      resolve(asyncData);
-    } else {
-      return [];
-    }
-  });
+        resolve(getAsyncData());
+        // }, 1000);
+      } else {
+        return [];
+      }
+    });
 
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (meta.action === "input-change") {
-      if (value.length >= 2) {
+      if (value.length >= 3) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);
@@ -127,5 +122,4 @@ const Autocomplete = ({
     </div>
   );
 };
-
 export default Autocomplete;

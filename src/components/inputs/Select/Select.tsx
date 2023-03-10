@@ -73,7 +73,6 @@ const SelectInput = ({
 
   const handleInputChange = useCallback(
     (value: string, meta: any) => {
-      console.log("Here is a hello world", value);
       onInputChange && onInputChange(value, meta, name);
     },
     [inputValue]
