@@ -63,11 +63,17 @@ const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: Autoc
         return [];
       });
   };
-
+// console.log("menuOpen", menuOpen)
   const promiseOptions = (): any =>
     new Promise((resolve) => {
+      console.log("menuOpen1", menuOpen)
+
       if (menuOpen) {
+        console.log("menuOpen2", menuOpen)
+
         setTimeout(() => {
+          console.log("menuOpen3", menuOpen)
+
           resolve(getAsyncData(query));
         }, 1000);
       } else {
@@ -78,7 +84,7 @@ const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: Autoc
 
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (meta.action === "input-change") {
-      if (value.length >= 3) {
+      if (value.length >= 2) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);

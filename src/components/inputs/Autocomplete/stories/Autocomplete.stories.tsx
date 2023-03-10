@@ -26,7 +26,9 @@ export const Primary = Template.bind({});
 Primary.args = {
   client: {
     url: "https://jsonplaceholder.typicode.com/todos"
-  }
+  },
+  options: standardMock
+
 };
 
 export const Secondary = Template.bind({});

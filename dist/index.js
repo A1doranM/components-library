@@ -21067,10 +21067,14 @@ var Autocomplete = function (_a) {
             return [];
         });
     };
+    // console.log("menuOpen", menuOpen)
     var promiseOptions = function () {
         return new Promise(function (resolve) {
+            console.log("menuOpen1", menuOpen);
             if (menuOpen) {
+                console.log("menuOpen2", menuOpen);
                 setTimeout(function () {
+                    console.log("menuOpen3", menuOpen);
                     resolve(getAsyncData(query));
                 }, 1000);
             }
@@ -21081,7 +21085,7 @@ var Autocomplete = function (_a) {
     };
     var handleInputChange = function (value, meta, name) {
         if (meta.action === "input-change") {
-            if (value.length >= 3) {
+            if (value.length >= 2) {
                 setMenuOpen(true);
             }
             else {
