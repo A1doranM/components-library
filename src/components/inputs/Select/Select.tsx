@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { ErrorMessage } from "formik";
 import cn from "classnames";
 import Select from "react-select";
@@ -57,7 +57,9 @@ const SelectInput = ({
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
-  const [selectedOption, setSelectedOption] = useState(options);
+  // useEffect(() => {
+  //   inputValue.length < 1 && setSelectedOption(null);
+  // }, [inputValue]);
 
   const handleChange = (item: any) => {
     item.value && setHasValue(true);
@@ -73,27 +75,24 @@ const SelectInput = ({
     onBlur && onBlur();
   };
 
-  const handleInputChange = useCallback((value: string, meta: any) => {
+  const handleInputChange = (value: string, meta: any) => {
     onInputChange && onInputChange(value, meta, name);
-    !inputValue && setSelectedOption(null);
-  }, [inputValue]);
-
-  const filterOptions = (inputValue) => {
-    return options.filter((option) =>
-      String(option.label).toLowerCase().includes(inputValue.toLowerCase())
-    );
   };
 
-console.log("inputValue", inputValue)
-
-console.log("selectedOption", selectedOption)
-
+  const filterOptions = (inputValue) => {
+    return options.filter(
+      (option) =>
+        String(option.label)
+          .toLowerCase()
+          .includes(String(inputValue).toLowerCase()) && inputValue.length > 0
+    );
+  };
 
   return (
     <div className="select-wrapper" onClick={onFieldClick}>
       {!asyncSelect ? (
         <Select
-          options={filterOptions(selectedOption || "")}
+          options={filterOptions(inputValue || "")}
           inputValue={inputValue}
           className={cn("select-container", className)}
           classNamePrefix="select"
@@ -110,8 +109,9 @@ console.log("selectedOption", selectedOption)
         />
       ) : (
         <AsyncSelect
+          value={filterOptions(inputValue || "")}
           cacheOptions
-          defaultOptions={filterOptions(selectedOption || "")}
+          defaultOptions={filterOptions(inputValue || "")}
           className={cn(
             "select-container",
             "select-container_async",

@@ -14,6 +14,13 @@ const Template: ComponentStory<typeof Autocomplete> = (args) => (
   <Autocomplete {...args} placeholder="test placeholder" />
 );
 
+const standardMock = [
+  { value: "cfrk", label: "CFRK" },
+  { value: "frcl", label: "FRCL" },
+  { value: "rcfo", label: "RCFO" }
+];
+
+
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
@@ -25,5 +32,6 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   placeholder: "Chose",
-  initialValue: "LLLL"
+  initialValue: "LLLL",
+  options: standardMock
 };

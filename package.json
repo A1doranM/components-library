@@ -1,6 +1,6 @@
 {
   "name": "gov-ua-ui",
-  "version": "v0.11.2",
+  "version": "v0.11.3",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
