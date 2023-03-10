@@ -57,6 +57,8 @@ const SelectInput = ({
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
+  const [selectedOption, setSelectedOption] = useState(options);
+
   const handleChange = (item: any) => {
     item.value && setHasValue(true);
     onChange && onChange(item, name);
@@ -73,13 +75,20 @@ const SelectInput = ({
 
   const handleInputChange = (value: string, meta: any) => {
     onInputChange && onInputChange(value, meta, name);
+    !inputValue && setSelectedOption(null);
+  };
+
+  const filterOptions = (inputValue) => {
+    return options.filter((option) =>
+      String(option.label).toLowerCase().includes(inputValue.toLowerCase())
+    );
   };
 
   return (
     <div className="select-wrapper" onClick={onFieldClick}>
       {!asyncSelect ? (
         <Select
-          options={options}
+          options={filterOptions(selectedOption || "")}
           inputValue={inputValue}
           className={cn("select-container", className)}
           classNamePrefix="select"
@@ -97,7 +106,7 @@ const SelectInput = ({
       ) : (
         <AsyncSelect
           cacheOptions
-          defaultOptions={options}
+          defaultOptions={filterOptions(selectedOption || "")}
           className={cn(
             "select-container",
             "select-container_async",

@@ -7439,6 +7439,7 @@ var SelectInput = function (_a) {
     var name = _a.name, inputValue = _a.inputValue, _b = _a.options, options = _b === void 0 ? [] : _b, _c = _a.placeholder, placeholder = _c === void 0 ? "" : _c, onChange = _a.onChange, onInputChange = _a.onInputChange, onFieldClick = _a.onFieldClick, onBlur = _a.onBlur, className = _a.className, styles = _a.styles, menuIsOpen = _a.menuIsOpen, _d = _a.modalPortalTarget, modalPortalTarget = _d === void 0 ? document.body : _d, defaultMenuIsOpen = _a.defaultMenuIsOpen, asyncSelect = _a.asyncSelect, asyncSelectOptionsLoader = _a.asyncSelectOptionsLoader, errClassName = _a.errClassName, withFormik = _a.withFormik;
     var _e = React.useState(false), hasValue = _e[0], setHasValue = _e[1];
     var _f = React.useState(false), isFocused = _f[0], setIsFocused = _f[1];
+    var _g = React.useState(options), selectedOption = _g[0], setSelectedOption = _g[1];
     var handleChange = function (item) {
         item.value && setHasValue(true);
         onChange && onChange(item, name);
@@ -7452,8 +7453,14 @@ var SelectInput = function (_a) {
     };
     var handleInputChange = function (value, meta) {
         onInputChange && onInputChange(value, meta, name);
+        !inputValue && setSelectedOption(null);
     };
-    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsxRuntime.jsx(Select, { options: options, inputValue: inputValue, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsxRuntime.jsx(AsyncSelect, { cacheOptions: true, defaultOptions: options, className: cn("select-container", "select-container_async", className), menuIsOpen: menuIsOpen, classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return null; }, inputValue: inputValue, loadingMessage: function () { return (jsxRuntime.jsx("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
+    var filterOptions = function (inputValue) {
+        return options.filter(function (option) {
+            return String(option.label).toLowerCase().includes(inputValue.toLowerCase());
+        });
+    };
+    return (jsxRuntime.jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsxRuntime.jsx(Select, { options: filterOptions(selectedOption || ""), inputValue: inputValue, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsxRuntime.jsx(AsyncSelect, { cacheOptions: true, defaultOptions: filterOptions(selectedOption || ""), className: cn("select-container", "select-container_async", className), menuIsOpen: menuIsOpen, classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return null; }, inputValue: inputValue, loadingMessage: function () { return (jsxRuntime.jsx("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsxRuntime.jsx("p", __assign({ className: cn("select-wrapper__placeholder", {
                     "select-wrapper__placeholder_active": isFocused || inputValue
                 }) }, { children: placeholder })), withFormik && (jsxRuntime.jsx(formik.ErrorMessage, { name: name, component: "div", className: cn("field-error-message", errClassName) }))] })));
 };
