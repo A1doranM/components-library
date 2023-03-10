@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { ErrorMessage } from "formik";
 import cn from "classnames";
 import Select from "react-select";
@@ -71,9 +71,13 @@ const SelectInput = ({
     onBlur && onBlur();
   };
 
-  const handleInputChange = (value: string, meta: any) => {
-    onInputChange && onInputChange(value, meta, name);
-  };
+  const handleInputChange = useCallback(
+    (value: string, meta: any) => {
+      console.log("Here is a hello world", value);
+      onInputChange && onInputChange(value, meta, name);
+    },
+    [inputValue]
+  );
 
   const filterOptions = (inputValue) => {
     return options.filter(

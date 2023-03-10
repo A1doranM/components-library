@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Select, { SelectInputInterface } from "../Select/Select";
 
 import "./autocomplete.scss";
 
-export interface AutocompleteInterface
-  extends Omit<SelectInputInterface, "options"> {
+export interface AutocompleteInterface extends Omit<SelectInputInterface, "options"> {
   client: {
     url: string;
     headers?: {};
@@ -18,18 +17,24 @@ export interface AutocompleteInterface
     valueFieldName: string;
     labelFieldName: string;
   };
-  initialValue?: string
+  initialValue?: string;
 }
 
-const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: AutocompleteInterface) => {
+const Autocomplete = ({
+  client,
+  dataFieldsNames,
+  initialValue,
+  ...props
+}: AutocompleteInterface) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState(initialValue || "");
 
-  const getAsyncData = (query?: string): any => {
+  const getAsyncData = (): any => {
+    console.log("QUery", query)
     const url = new URL(query ? `${client.url}?query=${query}` : client.url);
 
     return fetch(url.toString(), {
-      headers: client.headers
+      headers: client.headers,
     })
       .then((response) => {
         return response.json();
@@ -38,49 +43,50 @@ const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: Autoc
         if (client.parser) {
           return client.parser(data);
         } else {
-          return data
-            .slice(0, 50)
-            .map((data) => {
-              let result;
+          return data.slice(0, 50).map((data) => {
+            let result;
 
-              if (dataFieldsNames) {
-                result = {
-                  value: data[dataFieldsNames.valueFieldName],
-                  label: data[dataFieldsNames.labelFieldName]
-                };
-              } else {
-                result = {
-                  value: data.id,
-                  label: data.name
-                };
-              }
+            if (dataFieldsNames) {
+              result = {
+                value: data[dataFieldsNames.valueFieldName],
+                label: data[dataFieldsNames.labelFieldName],
+              };
+            } else {
+              result = {
+                value: data.id,
+                label: data.name,
+              };
+            }
 
-              return result;
-            });
+            return result;
+          });
         }
       })
       .catch(() => {
         return [];
       });
   };
-// console.log("menuOpen", menuOpen)
+
+  useEffect(() => {
+    getAsyncData();
+  }, [query]);
+
   const promiseOptions = (): any =>
-    new Promise((resolve) => {
-      console.log("menuOpen1", menuOpen)
+  new Promise((resolve) => {
+    console.log("menuOpen1", menuOpen);
 
-      if (menuOpen) {
-        console.log("menuOpen2", menuOpen)
+    if (menuOpen) {
+      console.log("menuOpen2", menuOpen);
 
-        setTimeout(() => {
-          console.log("menuOpen3", menuOpen)
+      const asyncData = getAsyncData();
 
-          resolve(getAsyncData(query));
-        }, 1000);
-      } else {
-        return [];
-      }
+      console.log("asyncData", asyncData);
 
-    });
+      resolve(asyncData);
+    } else {
+      return [];
+    }
+  });
 
   const handleInputChange = (value: string, meta: any, name: string) => {
     if (meta.action === "input-change") {
@@ -102,7 +108,6 @@ const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: Autoc
         return false;
       });
       setQuery(option.label);
-
     }, 0);
 
     props.onChange && props.onChange(option, name);
@@ -122,4 +127,5 @@ const Autocomplete = ({ client, dataFieldsNames, initialValue, ...props }: Autoc
     </div>
   );
 };
+
 export default Autocomplete;

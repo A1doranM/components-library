@@ -7430,9 +7430,10 @@ var SelectInput = function (_a) {
         !hasValue && setIsFocused(false);
         onBlur && onBlur();
     };
-    var handleInputChange = function (value, meta) {
+    var handleInputChange = useCallback(function (value, meta) {
+        console.log("Here is a hello world", value);
         onInputChange && onInputChange(value, meta, name);
-    };
+    }, [inputValue]);
     var filterOptions = function (inputValue) {
         return options.filter(function (option) {
             return String(option.label)
@@ -21010,10 +21011,11 @@ var Autocomplete = function (_a) {
     var client = _a.client, dataFieldsNames = _a.dataFieldsNames, initialValue = _a.initialValue, props = __rest(_a, ["client", "dataFieldsNames", "initialValue"]);
     var _b = useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
     var _c = useState(initialValue || ""), query = _c[0], setQuery = _c[1];
-    var getAsyncData = function (query) {
+    var getAsyncData = function () {
+        console.log("QUery", query);
         var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
         return fetch(url.toString(), {
-            headers: client.headers
+            headers: client.headers,
         })
             .then(function (response) {
             return response.json();
@@ -21023,20 +21025,18 @@ var Autocomplete = function (_a) {
                 return client.parser(data);
             }
             else {
-                return data
-                    .slice(0, 50)
-                    .map(function (data) {
+                return data.slice(0, 50).map(function (data) {
                     var result;
                     if (dataFieldsNames) {
                         result = {
                             value: data[dataFieldsNames.valueFieldName],
-                            label: data[dataFieldsNames.labelFieldName]
+                            label: data[dataFieldsNames.labelFieldName],
                         };
                     }
                     else {
                         result = {
                             value: data.id,
-                            label: data.name
+                            label: data.name,
                         };
                     }
                     return result;
@@ -21047,16 +21047,17 @@ var Autocomplete = function (_a) {
             return [];
         });
     };
-    // console.log("menuOpen", menuOpen)
+    useEffect(function () {
+        getAsyncData();
+    }, [query]);
     var promiseOptions = function () {
         return new Promise(function (resolve) {
             console.log("menuOpen1", menuOpen);
             if (menuOpen) {
                 console.log("menuOpen2", menuOpen);
-                setTimeout(function () {
-                    console.log("menuOpen3", menuOpen);
-                    resolve(getAsyncData(query));
-                }, 1000);
+                var asyncData = getAsyncData();
+                console.log("asyncData", asyncData);
+                resolve(asyncData);
             }
             else {
                 return [];
