@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ErrorMessage } from "formik";
 import cn from "classnames";
 import Select from "react-select";
@@ -73,16 +73,21 @@ const SelectInput = ({
     onBlur && onBlur();
   };
 
-  const handleInputChange = (value: string, meta: any) => {
+  const handleInputChange = useCallback((value: string, meta: any) => {
     onInputChange && onInputChange(value, meta, name);
     !inputValue && setSelectedOption(null);
-  };
+  }, [inputValue]);
 
   const filterOptions = (inputValue) => {
     return options.filter((option) =>
       String(option.label).toLowerCase().includes(inputValue.toLowerCase())
     );
   };
+
+console.log("inputValue", inputValue)
+
+console.log("selectedOption", selectedOption)
+
 
   return (
     <div className="select-wrapper" onClick={onFieldClick}>

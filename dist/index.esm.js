@@ -7431,15 +7431,17 @@ var SelectInput = function (_a) {
         !hasValue && setIsFocused(false);
         onBlur && onBlur();
     };
-    var handleInputChange = function (value, meta) {
+    var handleInputChange = useCallback(function (value, meta) {
         onInputChange && onInputChange(value, meta, name);
         !inputValue && setSelectedOption(null);
-    };
+    }, [inputValue]);
     var filterOptions = function (inputValue) {
         return options.filter(function (option) {
             return String(option.label).toLowerCase().includes(inputValue.toLowerCase());
         });
     };
+    console.log("inputValue", inputValue);
+    console.log("selectedOption", selectedOption);
     return (jsxs("div", __assign({ className: "select-wrapper", onClick: onFieldClick }, { children: [!asyncSelect ? (jsx$1(Select, { options: filterOptions(selectedOption || ""), inputValue: inputValue, className: cn("select-container", className), classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuIsOpen: menuIsOpen, menuPortalTarget: modalPortalTarget, defaultMenuIsOpen: defaultMenuIsOpen })) : (jsx$1(AsyncSelect, { cacheOptions: true, defaultOptions: filterOptions(selectedOption || ""), className: cn("select-container", "select-container_async", className), menuIsOpen: menuIsOpen, classNamePrefix: "select", placeholder: placeholder, name: name, onInputChange: handleInputChange, onChange: handleChange, onBlur: handleBlur, onFocus: handleFocus, styles: styles, menuPortalTarget: modalPortalTarget, noOptionsMessage: function () { return null; }, inputValue: inputValue, loadingMessage: function () { return (jsx$1("p", __assign({ className: "select__loading-text" }, { children: "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0435\u043D\u043D\u044F..." }))); }, loadOptions: asyncSelectOptionsLoader })), jsx$1("p", __assign({ className: cn("select-wrapper__placeholder", {
                     "select-wrapper__placeholder_active": isFocused || inputValue
                 }) }, { children: placeholder })), withFormik && (jsx$1(ErrorMessage, { name: name, component: "div", className: cn("field-error-message", errClassName) }))] })));
