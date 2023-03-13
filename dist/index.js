@@ -7439,6 +7439,9 @@ var SelectInput = function (_a) {
     var name = _a.name, inputValue = _a.inputValue, _b = _a.options, options = _b === void 0 ? [] : _b, _c = _a.placeholder, placeholder = _c === void 0 ? "" : _c, onChange = _a.onChange, onInputChange = _a.onInputChange, onFieldClick = _a.onFieldClick, onBlur = _a.onBlur, className = _a.className, styles = _a.styles, menuIsOpen = _a.menuIsOpen, _d = _a.modalPortalTarget, modalPortalTarget = _d === void 0 ? document.body : _d, defaultMenuIsOpen = _a.defaultMenuIsOpen, asyncSelect = _a.asyncSelect, asyncSelectOptionsLoader = _a.asyncSelectOptionsLoader, errClassName = _a.errClassName, withFormik = _a.withFormik;
     var _e = React.useState(false), hasValue = _e[0], setHasValue = _e[1];
     var _f = React.useState(false), isFocused = _f[0], setIsFocused = _f[1];
+    React.useEffect(function () {
+        asyncSelectOptionsLoader();
+    }, [inputValue]);
     var handleChange = function (item) {
         item.value && setHasValue(true);
         onChange && onChange(item, name);
@@ -21031,9 +21034,9 @@ var Autocomplete = function (_a) {
     var _b = React.useState(false), menuOpen = _b[0], setMenuOpen = _b[1];
     var _c = React.useState(initialValue || ""), query = _c[0], setQuery = _c[1];
     React.useEffect(function () {
-        getAsyncData();
+        getAsyncData(query);
     }, [query]);
-    var getAsyncData = function () {
+    var getAsyncData = function (query) {
         console.log("query", query);
         var url = new URL(query ? "".concat(client.url, "?query=").concat(query) : client.url);
         return fetch(url.toString(), {
@@ -21069,12 +21072,14 @@ var Autocomplete = function (_a) {
             return [];
         });
     };
-    var promiseOptions = function () {
+    var promiseOptions = function (query) {
         return new Promise(function (resolve) {
+            console.log("SSS", query);
             if (menuOpen) {
-                // setTimeout(() => {
-                resolve(getAsyncData());
-                // }, 1000);
+                setTimeout(function () {
+                    console.log("setTimeout", query);
+                    resolve(getAsyncData(query));
+                }, 1000);
             }
             else {
                 return [];
@@ -21082,6 +21087,7 @@ var Autocomplete = function (_a) {
         });
     };
     var handleInputChange = function (value, meta, name) {
+        console.log("value.length", value.length);
         if (meta.action === "input-change") {
             if (value.length >= 3) {
                 setMenuOpen(true);
@@ -21102,7 +21108,7 @@ var Autocomplete = function (_a) {
         }, 0);
         props.onChange && props.onChange(option, name);
     };
-    return (jsxRuntime.jsx("div", __assign({ className: "select-wrapper autocomplete-wrapper" }, { children: jsxRuntime.jsx(SelectInput, __assign({}, props, { asyncSelect: true, menuIsOpen: menuOpen, asyncSelectOptionsLoader: promiseOptions, onChange: handleOptionSelect, onInputChange: handleInputChange, inputValue: query })) })));
+    return (jsxRuntime.jsx("div", __assign({ className: "select-wrapper autocomplete-wrapper" }, { children: jsxRuntime.jsx(SelectInput, __assign({}, props, { asyncSelect: true, menuIsOpen: menuOpen, asyncSelectOptionsLoader: function () { return promiseOptions(query); }, onChange: handleOptionSelect, onInputChange: handleInputChange, inputValue: query })) })));
 };
 
 var css_248z$J = "@font-face {\n  font-family: e_Ukraine_Regular;\n  src: url(assets/fonts/e-Ukraine-Regular.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_Ukraine_Bold;\n  src: url(assets/fonts/e-Ukraine-Bold.otf) format(\"opentype\");\n}\n@font-face {\n  font-family: e_UkraineHead;\n  src: url(assets/fonts/e-UkraineHead-Regular.otf) format(\"opentype\");\n}\n.field-error-message {\n  position: absolute;\n  bottom: -15px;\n  color: #f44336;\n  font-size: 10px;\n  line-height: 14px;\n}\n\n.answer-button {\n  display: flex;\n  align-items: center;\n  text-align: center;\n  height: 48px;\n  border: 1px solid black;\n  border-radius: 30px;\n  padding: 14px 40px;\n  font: normal 700 14px e_Ukraine_Bold, sans-serif;\n  cursor: pointer;\n  background-color: #ecf8ed;\n}\n.answer-button:hover {\n  background-color: #c6e9ca;\n}\n.answer-button_image-container {\n  display: flex;\n  align-items: center;\n  margin-right: 10px;\n  background-position: center;\n}\n.answer-button_image {\n  width: 100%;\n  height: 100%;\n}\n.answer-button .answer-button_image-container {\n  width: 18px;\n  height: 18px;\n  background-image: url(\"data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.185547 9.58123L1.81301 8.41876L6.00994 14.2945L16.1929 0.408631L17.8057 1.59136L5.98862 17.7055L0.185547 9.58123Z' fill='black'/%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: center;\n}\n.answer-button.answer-button_cancel {\n  background-color: #feeceb;\n}\n.answer-button.answer-button_cancel:hover {\n  background-color: #fcc7c3;\n}\n.answer-button.answer-button_cancel.answer-button__selected {\n  border: none;\n  background-color: #f44336;\n  color: #ffffff;\n}\n.answer-button.answer-button_cancel.answer-button__selected .answer-button_image-container {\n  background-image: url(\"data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.927734 13.657L13.6557 0.929048L15.0699 2.34326L2.34195 15.0712L0.927734 13.657Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.657 15.0712L0.929095 2.34326L2.34331 0.929047L15.0712 13.657L13.657 15.0712Z' fill='white'/%3E%3C/svg%3E\");\n  background-position: center;\n}\n.answer-button.answer-button_cancel .answer-button_image-container {\n  background-image: url(\"data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.927734 13.657L13.6557 0.929048L15.0699 2.34326L2.34195 15.0712L0.927734 13.657Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.657 15.0712L0.929095 2.34326L2.34331 0.929047L15.0712 13.657L13.657 15.0712Z' fill='black'/%3E%3C/svg%3E\");\n  background-position: center;\n}\n.answer-button.answer-button__selected {\n  border: none;\n  padding: 14px 82px;\n  background-color: green;\n  color: #ffffff;\n}\n.answer-button.answer-button__selected .answer-button_image-container {\n  background-image: url(\"data:image/svg+xml,%3Csvg width='19' height='18' viewBox='0 0 19 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_532_4521)'%3E%3Cpath d='M1.5 9L6.5 16L17.5 1' stroke='white' stroke-width='2'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_532_4521'%3E%3Crect width='18' height='18' fill='white' transform='translate(0.5 18) rotate(-90)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E\");\n  background-position: center;\n}\n.answer-button.answer-button_round {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 48px;\n  height: 48px;\n  padding: 0px;\n  border-radius: 50%;\n}\n.answer-button.answer-button_round .answer-button_image-container {\n  margin-right: 0px;\n}";

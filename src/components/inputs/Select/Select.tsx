@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { ErrorMessage } from "formik";
 import cn from "classnames";
 import Select from "react-select";
@@ -56,6 +56,10 @@ const SelectInput = ({
 }: SelectInputInterface) => {
   const [hasValue, setHasValue] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    asyncSelectOptionsLoader();
+  }, [inputValue]);
 
   const handleChange = (item: any) => {
     item.value && setHasValue(true);

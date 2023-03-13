@@ -31,10 +31,10 @@ const Autocomplete = ({
   const [query, setQuery] = useState(initialValue || "");
 
   useEffect(() => {
-    getAsyncData();
+    getAsyncData(query);
   }, [query]);
 
-  const getAsyncData = (): any => {
+  const getAsyncData = (query: string): any => {
     console.log("query", query);
     const url = new URL(query ? `${client.url}?query=${query}` : client.url);
 
@@ -71,19 +71,22 @@ const Autocomplete = ({
         return [];
       });
   };
-  const promiseOptions = (): any =>
-    new Promise((resolve) => {
-      if (menuOpen) {
-        // setTimeout(() => {
 
-        resolve(getAsyncData());
-        // }, 1000);
+  const promiseOptions = (query: string): any =>
+    new Promise((resolve) => {
+      console.log("SSS", query);
+      if (menuOpen) {
+        setTimeout(() => {
+          console.log("setTimeout", query);
+          resolve(getAsyncData(query));
+        }, 1000);
       } else {
         return [];
       }
     });
 
   const handleInputChange = (value: string, meta: any, name: string) => {
+    console.log("value.length", value.length);
     if (meta.action === "input-change") {
       if (value.length >= 3) {
         setMenuOpen(true);
@@ -114,7 +117,7 @@ const Autocomplete = ({
         {...props}
         asyncSelect={true}
         menuIsOpen={menuOpen}
-        asyncSelectOptionsLoader={promiseOptions}
+        asyncSelectOptionsLoader={() => promiseOptions(query)}
         onChange={handleOptionSelect}
         onInputChange={handleInputChange}
         inputValue={query}
